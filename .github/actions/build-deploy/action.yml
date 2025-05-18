@@ -1,0 +1,43 @@
+name: 'Build and Deploy to Cloudflare Pages'
+description: 'Build and Deploy document site for Cloudflare Pages'
+
+inputs:
+  project-name:
+    description: 'Cloudflare Pages プロジェクト名'
+    required: true
+  directory:
+    description: 'ビルド出力ディレクトリ（Pages に公開する）'
+    required: false
+    default: 'dist'
+  branch:
+    description: 'デプロイ対象のブランチ'
+    required: true
+  cloudflare-account-id:
+    description: 'Cloudflare アカウント ID'
+    required: true
+  cloudflare-api-token:
+    description: 'Cloudflare API トークン'
+    required: true
+outputs:
+  deployment-url:
+    description: 'デプロイ先の URL'
+    value: ${{ steps.cloudflare-pages.outputs.deployment-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Build
+      run: bun run build
+      shell: bash
+
+    # https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler
+    - id: cloudflare-pages
+      name: Publish to Cloudflare Pages
+      uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
+      with:
+        apiToken: ${{ inputs.cloudflare-api-token }}
+        accountId: ${{ inputs.cloudflare-account-id }}
+        command: >
+          pages deploy ${{ inputs.directory }}
+          --project-name=${{ inputs.project-name }}
+          --branch=${{ inputs.branch }}

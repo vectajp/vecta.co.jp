@@ -1,0 +1,22 @@
+{
+  "name": "vecta.co.jp",
+  "type": "module",
+  "version": "2025.5.18",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "clean": "git clean -xdf node_modules",
+    "scaffold": "scaffdog"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "3.4.0",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "@commitlint/types": "19.8.1",
+    "astro": "5.7.13",
+    "lefthook": "1.11.13",
+    "scaffdog": "4.1.0"
+  }
+}

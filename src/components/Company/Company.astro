@@ -1,0 +1,373 @@
+<section id="company" class="company">
+  <div class="company-background"></div>
+  <div class="container">
+    <h2 class="section-title">
+      <span class="title-decoration">会社概要</span>
+    </h2>
+    <div class="company-content">
+      <div class="company-intro">
+        <p>
+          私たち 株式会社Vecta は、あらゆる立場の人がAIを利用できるプラットフォームを提供し、地域社会のデジタル化を支援するスタートアップです。
+        </p>
+      </div>
+
+      <div class="company-mission">
+        <h3>私たちのミッション</h3>
+        <p class="mission-statement">「AIは現場の"困った"を救えるか？」</p>
+        <p>
+          この問いに真正面から取り組むのが、Vectaの使命です。私たちは、単なる技術提供ではなく、現場の理解から始まり、使われる・根付くAIの開発を志しています。
+          社会の公共性に貢献できるテクノロジーを、Vectaは日本中に届けていきます。
+        </p>
+      </div>
+
+      <div class="company-values">
+        <h3>私たちの行動指針</h3>
+        <ul class="value-list">
+          <li>
+            <h4>地域の真価を見出す</h4>
+            <p>効率だけを追い求めるのではなく、その地域固有の伝統や文化、雰囲気を大切に守り育てる。</p>
+          </li>
+          <li>
+            <h4>シンプルさを追求する</h4>
+            <p>直感的で分かりやすいデザインを追求し、誰もが自然に「挑戦したい」と思えるサービスを提供する。</p>
+          </li>
+          <li>
+            <h4>地域と共に歩む</h4>
+            <p>地域の皆様と一緒になって企画・開発し、持続可能な形で活用される仕組みを創造する。</p>
+          </li>
+          <li>
+            <h4>可能性を引き出す</h4>
+            <p>活用されていない地域資源（設備、制度、知識）を再発見し、新たな可能性を切り拓く。</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="company-projects">
+        <h3>プロジェクト事例</h3>
+        <div class="project-card">
+          <h4>社内のOJT・業務引き継ぎ支援用ナレッジエージェント</h4>
+          <p>PDFや紙資料をベクトルデータに変換し、AIによる自然言語検索・要約機能を活用したチャットボットや業務引き継ぎ支援ナレッジエージェントを構築します。これにより、暗黙知の共有や業務の効率化を実現します。</p>
+          <h5 class="project-subheading">主な開発領域</h5>
+          <ul class="project-list">
+            <li>モバイルアプリ（iOS / Android）開発（Flutter / React Native など）</li>
+            <li>Webアプリケーション（フロントエンド + バックエンド）開発</li>
+            <li>Firebase や AWS などのクラウドバックエンドを活用した構築</li>
+            <li>LINEや各種APIとの連携を含むシステム開発</li>
+            <li>ユーザーインターフェースとユーザー体験（UI/UX）の設計</li>
+            <li>データベース構築・運用</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h4>地域の防災・自治会アプリ</h4>
+            <p>地域コミュニティの防災力を高め、自治会活動をデジタル化。
+  スマートフォンアプリを通じて、住民同士の情報共有と災害時の迅速な対応を実現するプロジェクトです。</p>
+          <p>自治会活動のデジタル化を通じて、住民の方々の利便性向上と防災力の強化を実現します。
+災害時の避難所情報や安否確認、平時の自治会活動のお知らせなど、スマートフォンアプリを通じて必要な情報を迅速に共有。高齢者でも使いやすいUIを採用し、地域コミュニティのデジタル化を支援します。</p>
+        </div>
+      </div>
+
+      <div class="company-info">
+        <h3>会社情報</h3>
+        <dl class="info-list">
+          <div class="info-item">
+            <dt>会社名</dt>
+            <dd>株式会社Vecta</dd>
+          </div>
+          <div class="info-item">
+            <dt>代表者</dt>
+            <dd>宮川直也</dd>
+          </div>
+          <div class="info-item">
+            <dt>設立</dt>
+            <dd>2025年4月</dd>
+          </div>
+          <div class="info-item">
+            <dt>所在地</dt>
+            <dd>〒150-0002<br>東京都渋谷区渋谷2-19-15<br>宮益坂ビルディング609</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .company {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #f0f2f5, white);
+  }
+
+  .company-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 30%),
+      radial-gradient(circle at 20% 80%, rgba(15, 76, 129, 0.1) 0%, transparent 30%);
+    z-index: -1;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .title-decoration {
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+  }
+
+  .company-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .company-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .company-mission h3,
+  .company-values h3,
+  .company-projects h3,
+  .company-info h3 {
+    color: var(--color-indigo);
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .mission-statement {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-indigo);
+    margin-bottom: 1rem;
+  }
+
+  .value-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-list li {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .value-list li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+  }
+
+  .value-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .value-list h4 {
+    color: var(--color-indigo);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .project-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card h4 {
+    color: var(--color-indigo);
+    margin-bottom: 1rem;
+  }
+
+  .project-tagline {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .project-subheading {
+    color: var(--color-indigo);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-list {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .info-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-list::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+  }
+
+  .info-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .info-item dt {
+    font-weight: 700;
+    color: var(--color-indigo);
+  }
+
+  @media (min-width: 481px) {
+    .section-title {
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+    }
+
+    .company-mission h3,
+    .company-values h3,
+    .company-projects h3,
+    .company-info h3 {
+      font-size: 1.6rem;
+    }
+
+    .mission-statement {
+      font-size: 1.5rem;
+    }
+
+    .value-list h4 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .company {
+      padding: 6rem 0;
+    }
+
+    .company-background {
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(15, 76, 129, 0.1) 0%, transparent 50%);
+    }
+
+    .section-title {
+      margin-bottom: 3rem;
+      font-size: 2.2rem;
+    }
+
+    .title-decoration::after {
+      bottom: -10px;
+    }
+
+    .company-content {
+      gap: 4rem;
+    }
+
+    .company-intro p {
+      font-size: 1.2rem;
+    }
+
+    .company-mission h3,
+    .company-values h3,
+    .company-projects h3,
+    .company-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-statement {
+      font-size: 1.6rem;
+    }
+
+    .value-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .value-list h4 {
+      font-size: 1.3rem;
+    }
+
+    .info-list {
+      padding: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .value-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .company-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  }
+</style>

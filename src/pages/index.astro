@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Concept from '../components/Concept.astro';
+import Features from '../components/Features.astro';
+import Vision from '../components/Vision.astro';
+import Company from '../components/Company/Company.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/global.css';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Vecta | まちの知識を未来につなぐ">
+	<Header />
+	<main>
+		<Hero />
+		<Concept />
+		<Features />
+		<Vision />
+		<Company />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>

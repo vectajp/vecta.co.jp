@@ -1,0 +1,175 @@
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/assets/logo_v.svg" alt="Vecta" height="40" loading="lazy">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#concept">コンセプト</a></li>
+          <li><a href="#features">特徴</a></li>
+          <li><a href="#vision">ビジョン</a></li>
+          <li><a href="#company">会社概要</a></li>
+          <li><a href="#contact" class="button">お問い合わせ</a></li>
+        </ul>
+        <button class="mobile-menu-button" aria-label="メニュー">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  .logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-indigo);
+  }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav a {
+    font-weight: 500;
+    display: block;
+    padding: 0.5rem;
+  }
+
+  nav a.button {
+    margin: 0.5rem 1rem;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: auto;
+  }
+
+  .mobile-menu-button span {
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-indigo);
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 769px) {
+    .header-content {
+      padding: 1rem 0;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav ul {
+      display: flex;
+      position: static;
+      width: auto;
+      background-color: transparent;
+      flex-direction: row;
+      padding: 0;
+      box-shadow: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a.button {
+      padding: 0.5rem 1rem;
+      margin: 0;
+    }
+
+    .mobile-menu-button {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const menuButton = document.querySelector('.mobile-menu-button');
+  const navMenu = document.querySelector('nav ul');
+
+  if (menuButton && navMenu) {
+    menuButton.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  }
+
+  // Anchor smooth scroll with header offset
+  document.querySelectorAll('nav ul a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      navMenu.classList.remove('active');
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const topPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: topPos, behavior: 'smooth' });
+    });
+  });
+</script>

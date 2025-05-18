@@ -1,0 +1,135 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-indigo: #0A1E3C;
+  --color-gold: #E69500;
+  --color-sumi: #2F2F2F;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-sumi);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  /* scroll-padding-top: 56px; */
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-indigo);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-gold);
+}
+
+button, .button {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+button:hover, .button:hover {
+  background-color: var(--color-indigo);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+@media (min-width: 481px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  button, .button {
+    width: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  section {
+    padding: 4rem 0;
+    /* scroll-margin-top: 72px; */
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}

@@ -1,0 +1,46 @@
+# noinspection YAMLSchemaValidation
+version: 1
+
+labels:
+  # Type labels
+  - label: "type:feature"
+    title: '^feat(?:\(.+?\))?\!?:'
+
+  - label: "type:fix"
+    title: '^fix(?:\(.+?\))?\!?:'
+
+  - label: "type:docs"
+    title: '^docs(?:\(.+?\))?\!?:'
+    files:
+      - "docs/.+"
+      - "**/README.md$"
+
+  - label: "type:style"
+    title: '^style(?:\(.+?\))?\!?:'
+
+  - label: "type:refactor"
+    title: '^refactor(?:\(.+?\))?\!?:'
+
+  - label: "type:perf"
+    title: '^perf(?:\(.+?\))?\!?:'
+
+  - label: "type:test"
+    title: '^test(?:\(.+?\))?\!?:'
+
+  - label: "type:build"
+    title: '^build(?:\(.+?\))?\!?:'
+    files:
+      - "**/pubspec.yaml$"
+      - "**/melos.yaml$"
+
+  - label: "type:ci"
+    title: '^ci(?:\(.+?\))?\!?:'
+    files:
+      - '\.github/.+'
+      - "tools/.+"
+
+  - label: "type:chore"
+    title: '^chore(?:\(.+?\))?\!?:'
+
+  - label: "type:revert"
+    title: '^revert(?:\(.+?\))?\!?:'

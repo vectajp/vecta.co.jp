@@ -1,0 +1,78 @@
+name: 'Pull Request Checks'
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    uses: ./.github/workflows/wc-changes.yml
+    with:
+      gh-app-id: ${{ vars.BOT_APP_ID }}
+    secrets:
+      gh-app-private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+  status-check:
+    runs-on: ubuntu-24.04-arm
+    needs:
+      - semantic-pull-request
+      - action
+    permissions: { }
+    if: failure()
+    steps:
+      - run: exit 1
+
+  semantic-pull-request:
+    name: Semantic Pull Request
+    runs-on: ubuntu-24.04-arm
+    needs:
+      - changes
+    if: needs.changes.outputs.semantic_pr == 'true'
+    steps:
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # https://github.com/marketplace/actions/semantic-pull-request
+      - uses: amannn/action-semantic-pull-request@0723387faaf9b38adef4775cd42cfd5155ed6017 # v5.5.3
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+  action:
+    runs-on: ubuntu-24.04-arm
+    needs: changes
+    if: needs.changes.outputs.action == 'true'
+    permissions:
+      checks: "write"
+      contents: "read"
+      pull-requests: "write"
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # https://github.com/marketplace/actions/actionlint-with-reviewdog
+      - uses: reviewdog/action-actionlint@a5524e1c19e62881d79c1f1b9b6f09f16356e281 # v1.65.2
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+          fail_level: error
+          filter_mode: nofilter
+          level: warning
+          reporter: github-pr-review

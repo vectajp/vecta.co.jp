@@ -1,0 +1,245 @@
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="title-decoration">お問い合わせ</span>
+    </h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>Vectaにご興味をお持ちいただき<br>ありがとうございます</h3>
+        <p>
+          ご相談・お問い合わせは<br>
+          こちらのフォームからお気軽にご連絡ください。
+        </p>
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <h4>メールでのお問い合わせ</h4>
+            <p>info@vecta.co.jp</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-container">
+        <form class="contact-form" aria-disabled="true">
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" required disabled>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required disabled>
+          </div>
+          <div class="form-group">
+            <label for="subject">件名</label>
+            <input type="text" id="subject" name="subject" required disabled>
+          </div>
+          <div class="form-group">
+            <label for="message">メッセージ</label>
+            <textarea id="message" name="message" rows="5" required disabled></textarea>
+          </div>
+          <button type="submit" class="submit-button" disabled>送信する</button>
+          <p class="form-note">※ 現在、フォームは開発中のため無効化されています。<br>お急ぎの方は、直接メールにてお問い合わせください。</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background-color: #f8f8f8;
+    position: relative;
+  }
+
+
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .title-decoration {
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    color: var(--color-indigo);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .contact-info p {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .contact-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  .contact-text h4 {
+    margin-bottom: 0.3rem;
+    color: var(--color-indigo);
+  }
+
+  .contact-text p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .contact-form-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-sumi);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-indigo);
+  }
+
+  .submit-button {
+    background-color: var(--color-indigo);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: var(--color-gold);
+  }
+
+  /* 無効化されたフォーム要素のスタイル */
+  .contact-form input:disabled,
+  .contact-form textarea:disabled,
+  .contact-form button:disabled {
+    background-color: #f5f5f5;
+    color: #a5a5a5;
+    border: 1px solid #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .contact-form {
+    opacity: 0.85;
+  }
+
+  .form-note {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+    }
+
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info br {
+      display: none;
+    }
+
+    .contact-form-container {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+    }
+
+    .contact-method {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  const contactForm = document.querySelector('.contact-form') as HTMLFormElement;
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // フォームが無効化されているため、ここには到達しないはずですが、念のため残しておきます
+      alert('お問い合わせありがとうございます。近日中にご連絡いたします。');
+      contactForm.reset();
+    });
+  }
+</script>

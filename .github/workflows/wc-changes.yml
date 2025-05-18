@@ -1,0 +1,103 @@
+name: "Check for changes in paths"
+
+on:
+  workflow_call:
+    inputs:
+      gh-app-id:
+        required: true
+        type: string
+    secrets:
+      gh-app-private-key:
+        required: true
+    outputs:
+      action:
+        value: ${{ jobs.changes.outputs.action }}
+      any:
+        value: ${{ jobs.changes.outputs.any }}
+      semantic_pr:
+        value: ${{ jobs.pr_type.outputs.semantic_pr }}
+
+jobs:
+  pr_type:
+    name: Pull Request Type
+    runs-on: ubuntu-24.04-arm
+    outputs:
+      semantic_pr: ${{ steps.check.outputs.semantic_pr }}
+    steps:
+      - name: Check Pull Request type
+        id: check
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const eventType = context.eventName;
+            const prAction = context.payload.action;
+
+            const targetTypes = ['opened', 'edited', 'synchronize', 'reopened'];
+            const isPullRequest = eventType.startsWith('pull_request');
+            const isTargetAction = targetTypes.includes(prAction);
+
+            console.log('Event Type:', eventType);
+            console.log('PR Action:', prAction);
+            console.log('Is Pull Request:', isPullRequest);
+            console.log('Is Target Action:', isTargetAction);
+
+            core.setOutput('semantic_pr', isPullRequest && isTargetAction);
+
+  changes:
+    name: Changes
+    runs-on: ubuntu-24.04-arm
+    outputs:
+      action: ${{ steps.filter.outputs.action }}
+      any: ${{ steps.filter.outputs.changes != '[]' }}
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        id: app-token
+        with:
+          app-id: ${{ inputs.gh-app-id }}
+          private-key: ${{ secrets.gh-app-private-key }}
+
+      # https://github.com/marketplace/actions/paths-changes-filter
+      - name: Paths Changes Filter
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+        id: filter
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          filters: |
+            action:
+              - '.github/actions/*.yml'
+              - '.github/workflows/*.yml'
+
+  display_outputs:
+    name: Display Outputs
+    runs-on: ubuntu-24.04-arm
+    needs:
+      - pr_type
+      - changes
+    steps:
+      - name: Display outputs
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const outputs = {
+              'PR Type Check': {
+                'semantic_pr': '${{ needs.pr_type.outputs.semantic_pr }}'
+              },
+              'Changes Check': {
+                'action': '${{ needs.changes.outputs.action }}',
+                'any': '${{ needs.changes.outputs.any }}',
+              }
+            };
+
+            console.log('=== Workflow Outputs ===');
+            for (const [category, values] of Object.entries(outputs)) {
+              console.log(`\n${category}:`);
+              for (const [key, value] of Object.entries(values)) {
+                console.log(`  ${key}: ${value}`);
+              }
+            }
