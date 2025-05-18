@@ -1,4 +1,4 @@
-![hero.png](public/assets/logo.png)
+![hero.svg](public/assets/logo.svg)
 
 # vecta.co.jp
 
