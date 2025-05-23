@@ -2,13 +2,13 @@
 ---
 
 <section id="concept" class="concept">
+  <div class="qdrant-bg-logo"></div>
   <div class="container">
     <h2 class="section-title">
       <span class="title-decoration">コンセプト</span>
     </h2>
     <div class="concept-content">
       <div class="concept-text">
-        <h3>ベクトルデータとは？</h3>
         <p>
           ベクトルデータとは、文章、画像、音声などの情報を数値の配列（ベクトル）として表現するデータ形式です。
           例えば、「犬」と「猫」という単語は意味的に近いため、ベクトル空間上でも近い位置に配置されます。
@@ -18,12 +18,6 @@
           ベクトルデータベースは、これらのベクトル化されたデータを効率的に保存・検索するために設計されたデータベースです。
           類似性に基づいた検索を高速に実行できるため、単なるキーワード検索では捉えられない「意味」や「文脈」を理解した高度なデータ活用が可能になります。
         </p>
-      </div>
-      <div class="concept-image">
-        <div class="image-container">
-          <div class="image-decoration"></div>
-          <img src="/assets/icon.svg" alt="Vectaのコンセプトイメージ" loading="lazy" />
-        </div>
       </div>
     </div>
   </div>
@@ -36,15 +30,23 @@
     overflow: hidden;
   }
 
-  .concept::before {
-    content: "";
+  .qdrant-bg-logo {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 420px;
+    background: url('/assets/qdrant_logo.svg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.15;
     z-index: 0;
+    pointer-events: none;
+  }
+
+  .concept > .container {
+    position: relative;
+    z-index: 1;
   }
 
   .section-title {
@@ -53,25 +55,16 @@
     font-size: 1.8rem;
   }
 
-  .title-decoration {
-    position: relative;
-    display: inline-block;
-  }
-
-  .title-decoration::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
-  }
-
   .concept-content {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    justify-items: center;
+  }
+
+  .concept-text {
+    text-align: center;
+    max-width: 700px;
   }
 
   .concept-text h3 {
@@ -133,11 +126,6 @@
   }
 
   @media (min-width: 769px) {
-    .concept::before {
-      width: 300px;
-      height: 300px;
-    }
-
     .section-title {
       margin-bottom: 3rem;
       font-size: 2.2rem;
@@ -148,9 +136,16 @@
     }
 
     .concept-content {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 4rem;
       align-items: center;
+      justify-items: center;
+    }
+
+    .concept-text {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .concept-text h3 {
@@ -173,5 +168,76 @@
       width: 100px;
       height: 100px;
     }
+  }
+
+  @media (max-width: 600px) {
+    .qdrant-bg-logo {
+      width: 260px;
+      height: 260px;
+    }
+  }
+
+  .integrations, .integrations-visual {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .integrations {
+    margin: 2.5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+    max-width: 300px;
+  }
+  .integrations-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+  .qdrant-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .qdrant-logo {
+    height: 28px;
+    width: auto;
+    filter: grayscale(1) brightness(0.7);
+    opacity: 0.8;
+    margin-bottom: 0.1rem;
+  }
+  .qdrant-caption {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.1rem;
+  }
+
+  .integrations-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.8;
+  }
+  .qdrant-logo-large {
+    height: 48px;
+    width: auto;
+    opacity: 0.85;
+    margin-bottom: 0.3rem;
+  }
+  .qdrant-caption {
+    font-size: 0.95rem;
+    color: #888;
+    margin-top: 0.1rem;
+    text-align: center;
   }
 </style>

@@ -1,14 +1,10 @@
 <section id="hero" class="hero">
-  <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      <h1>Vector Search That Grows With Our Town</h1>
-      <p class="hero-subtitle">
-        ベクトル類似性検索技術により、まちの知識を未来につなぐAIアプリケーションを開発します。
-      </p>
+      <h1>All with RAG!</h1>
+      <p class="hero-subtitle">ベクトル類似性検索技術により、<br>紙、PDF、画像、音声、すべての情報を<br>AIが使いやすい形に変換します。</p>
       <div class="hero-buttons">
-        <a href="#concept" class="button">詳しく見る</a>
-        <a href="#contact" class="button button-outline">お問い合わせ</a>
+        <a href="#contact" class="button">お問い合わせ</a>
       </div>
     </div>
   </div>
@@ -16,142 +12,86 @@
 
 <style>
   .hero {
-    position: relative;
-    height: 90vh;
-    min-height: 450px;
+    background: #fff;
+    color: #14213d;
+    min-height: 50vh;
     display: flex;
     align-items: center;
-    color: white;
-    margin-top: 0;
+    justify-content: center;
     padding: 0;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(15, 76, 129, 0.8), rgba(15, 76, 129, 0.4));
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/assets/logo.svg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    filter: brightness(0.7);
-  }
-
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-      linear-gradient(rgba(47, 47, 47, 0.4), rgba(47, 47, 47, 0.1)),
-      repeating-linear-gradient(
-        45deg,
-        rgba(212, 175, 55, 0.05) 0px,
-        rgba(212, 175, 55, 0.05) 1px,
-        transparent 1px,
-        transparent 10px
-      );
-    z-index: -1;
   }
 
   .hero-content {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    max-width: 100%;
-    padding: 1.5rem;
-    margin-top: 3rem;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
   }
 
   .hero h1 {
-    font-size: 2rem;
-    line-height: 1.3;
-    margin-bottom: 1.2rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .sp-only {
-    display: inline;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: #14213d;
   }
 
   .hero-buttons {
     display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    background: #14213d;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .button:hover {
+    background: #22325a;
+  }
+
+  .integrations {
+    margin-top: 2.5rem;
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    align-items: center;
+    opacity: 0.7;
   }
-
-  .button-outline {
-    background-color: transparent;
-    border: 2px solid var(--color-gold);
-    color: white;
+  .integrations-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-bottom: 0.5rem;
   }
-
-  .button-outline:hover {
-    background-color: var(--color-gold);
+  .qdrant-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
   }
-
-  @media (min-width: 481px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-      flex-direction: row;
-      justify-content: center;
-    }
+  .qdrant-logo {
+    height: 28px;
+    width: auto;
+    filter: grayscale(1) brightness(0.7);
+    opacity: 0.8;
+    margin-bottom: 0.1rem;
   }
-
-  @media (min-width: 769px) {
-    .sp-only {
-      display: none;
-    }
-    .hero {
-      height: 100vh;
-      min-height: 600px;
-    }
-
-    .hero-content {
-      padding: 2rem;
-      margin-top: 3.5rem;
-      text-align: left;
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-buttons {
-      justify-content: flex-start;
-    }
-
-    .hero-buttons .button {
-      width: auto;
-    }
+  .qdrant-caption {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.1rem;
   }
 </style>
