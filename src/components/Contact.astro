@@ -44,7 +44,9 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  @use '../styles/scss/_breakpoints.scss' as *;
+  
   .contact {
     background-color: #f8f8f8;
     position: relative;
@@ -189,7 +191,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-medium) {
     .section-title {
       font-size: 1.8rem;
       margin-bottom: 2.5rem;
@@ -213,7 +215,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-small) {
     .section-title {
       font-size: 1.5rem;
       margin-bottom: 2rem;

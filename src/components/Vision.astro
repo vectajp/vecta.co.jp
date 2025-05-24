@@ -20,7 +20,9 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  @use '../styles/scss/_breakpoints.scss' as *;
+  
   .vision {
     position: relative;
     color: white;
@@ -87,7 +89,7 @@
     margin-bottom: 1.2rem;
   }
 
-  @media (min-width: 481px) {
+  @media (min-width: $breakpoint-481) {
     .vision {
       padding: 4rem 0;
     }
@@ -108,7 +110,7 @@
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: $breakpoint-769) {
     .vision {
       padding: 6rem 0;
     }

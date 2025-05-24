@@ -1,3 +1,5 @@
+@use './scss/_breakpoints.scss' as *;
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -89,7 +91,7 @@ section {
   padding: 2rem 0;
 }
 
-@media (min-width: 481px) {
+@media (min-width: $breakpoint-481) {
   h1 {
     font-size: 2rem;
   }
@@ -111,7 +113,7 @@ section {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: $breakpoint-769) {
   h1 {
     font-size: 2.5rem;
   }
