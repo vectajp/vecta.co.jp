@@ -1,4 +1,26 @@
 {
+  "cSpell.customDictionaries": {
+    "app-words": {
+      "name": "app-words",
+      "path": "${workspaceRoot}/.cspell/app-words.txt",
+      "description": "Words specific to this application",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  "cSpell.ignorePaths": [
+    "node_modules",
+    "*.lock",
+    ".vscode",
+    ".env",
+    "renovate.json5",
+    "package.json",
+    "lefthook.yml",
+    "bootstrap.sh",
+    ".astro",
+    "dist",
+    ".github"
+  ],
   "debug.openDebug": "openOnDebugBreak",
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
