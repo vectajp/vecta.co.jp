@@ -8,10 +8,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "clean": "git clean -xdf node_modules",
-    "scaffold": "scaffdog"
+    "scaffold": "scaffdog",
+    "format": "biome format --write .",
+    "check": "biome check",
+    "check:fix": "biome check --write"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.4.0",
+    "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@commitlint/types": "19.8.1",
