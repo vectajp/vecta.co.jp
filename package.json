@@ -18,5 +18,8 @@
     "astro": "5.7.13",
     "lefthook": "1.11.13",
     "scaffdog": "4.1.0"
+  },
+  "dependencies": {
+    "sass": "^1.89.0"
   }
 }

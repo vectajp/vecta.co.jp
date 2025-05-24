@@ -27,7 +27,9 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 
-<style>
+<style lang="scss">
+  @use '../styles/scss/_breakpoints.scss' as *;
+  
   footer {
     background-color: var(--color-sumi);
     color: white;
@@ -96,7 +98,7 @@ const year = new Date().getFullYear();
     margin: 0;
   }
 
-  @media (max-width: var(--breakpoint-medium)) {
+  @media (max-width: $breakpoint-medium) {
     .footer-content {
       flex-direction: column;
       gap: 2rem;
@@ -107,7 +109,7 @@ const year = new Date().getFullYear();
     }
   }
 
-  @media (max-width: var(--breakpoint-small)) {
+  @media (max-width: $breakpoint-small) {
     .footer-links {
       flex-direction: column;
       gap: 1.5rem;

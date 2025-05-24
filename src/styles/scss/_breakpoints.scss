@@ -1,0 +1,13 @@
+// Breakpoint variables for responsive design
+$breakpoint-480: 480px;
+$breakpoint-481: 481px;
+$breakpoint-600: 600px;
+$breakpoint-768: 768px;
+$breakpoint-769: 769px;
+$breakpoint-1024: 1024px;
+$breakpoint-xlarge: 1280px;
+
+// Aliases for common use cases
+$breakpoint-small: $breakpoint-480;
+$breakpoint-medium: $breakpoint-768;
+$breakpoint-large: $breakpoint-1024;

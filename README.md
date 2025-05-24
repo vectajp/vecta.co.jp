@@ -95,7 +95,7 @@ vecta.co.jp/
 - 1024px: デスクトップ
 - 1280px: ワイドスクリーン
 
-これらのブレイクポイントは `src/styles/global.css` でCSS カスタムプロパティとして定義されています。
+これらのブレイクポイントは `src/styles/scss/_breakpoints.scss` でSass変数として定義されており、各コンポーネントでインポートして使用します。
 
 ### フォント
 

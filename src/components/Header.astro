@@ -18,7 +18,9 @@
   </div>
 </header>
 
-<style>
+<style lang="scss">
+  @use '../styles/scss/_breakpoints.scss' as *;
+  
   header {
     position: static;
     width: 100%;
@@ -107,7 +109,7 @@
     border-radius: 2px;
   }
 
-  @media (max-width: var(--breakpoint-medium)) {
+  @media (max-width: $breakpoint-medium) {
     .header-content.center {
       gap: 1rem;
     }

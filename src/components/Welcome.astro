@@ -41,7 +41,9 @@ import background from '../assets/background.svg';
 	</a>
 </div>
 
-<style>
+<style lang="scss">
+	@use '../styles/scss/_breakpoints.scss' as *;
+	
 	#background {
 		position: fixed;
 		top: 0;
@@ -177,7 +179,7 @@ import background from '../assets/background.svg';
 		}
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: $breakpoint-medium) {
 		#container {
 			display: flex;
 			flex-direction: column;

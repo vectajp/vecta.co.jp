@@ -8,4 +8,5 @@ export default defineConfig({
   site: "https://www.vecta.co.jp",
   // 追加の統合機能
   integrations: [sitemap()],
+  // Vite設定
 });
