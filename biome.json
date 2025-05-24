@@ -22,7 +22,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["dist", "node_modules"]
+    "ignore": ["dist", "node_modules", ".astro"]
   },
   "organizeImports": {
     "enabled": true
