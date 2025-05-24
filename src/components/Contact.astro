@@ -36,7 +36,7 @@
             <label for="message">メッセージ</label>
             <textarea id="message" name="message" rows="5" required disabled></textarea>
           </div>
-          <button type="submit" class="submit-button" disabled>送信する</button>
+          <button type="submit" class="button button-submit" disabled>送信する</button>
           <p class="form-note">※ 現在、フォームは開発中のため無効化されています。<br>お急ぎの方は、直接メールにてお問い合わせください。</p>
         </form>
       </div>
@@ -141,20 +141,7 @@
     border-color: var(--color-indigo);
   }
 
-  .submit-button {
-    background-color: var(--color-indigo);
-    color: var(--color-white);
-    padding: 1rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .submit-button:hover {
-    background-color: var(--color-gold);
-  }
+  /* Remove .submit-button styles - now using global button system */
 
   /* 無効化されたフォーム要素のスタイル */
   .contact-form input:disabled,

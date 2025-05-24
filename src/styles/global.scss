@@ -78,23 +78,69 @@ a:hover {
   color: var(--color-gold);
 }
 
-button, .button {
+/* Button System */
+.button {
   display: inline-block;
-  background-color: var(--color-gold);
-  color: var(--color-white);
   border: none;
-  padding: 0.8rem 1.5rem;
   border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
+  text-decoration: none;
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  width: 100%;
 }
 
-button:hover, .button:hover {
+/* Primary button - main CTA style */
+.button-primary {
+  background-color: var(--color-indigo-dark);
+  color: var(--color-white);
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+}
+
+.button-primary:hover {
+  background-color: var(--color-indigo-hover);
+  color: var(--color-white);
+}
+
+/* Secondary button - alternative style */
+.button-secondary {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.button-secondary:hover {
   background-color: var(--color-indigo);
   color: var(--color-white);
+}
+
+/* Submit button - form submission style */
+.button-submit {
+  background-color: var(--color-indigo);
+  color: var(--color-white);
+  padding: 1rem;
+}
+
+.button-submit:hover {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* Disabled state for all buttons */
+.button:disabled,
+.button-primary:disabled,
+.button-secondary:disabled,
+.button-submit:disabled {
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  border: 1px solid var(--color-border-medium);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .container {
@@ -125,7 +171,10 @@ section {
     padding: 3rem 0;
   }
 
-  button, .button {
+  .button,
+  .button-primary,
+  .button-secondary,
+  .button-submit {
     width: auto;
   }
 }
@@ -150,6 +199,28 @@ section {
 
   .container {
     max-width: 1200px;
+  }
+}
+
+/* Gradient button - special variant for Welcome/demo components */
+.button-gradient {
+  color: var(--color-white);
+  background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.button-gradient:hover {
+  color: rgb(230, 230, 230);
+  box-shadow: none;
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+  .button-gradient {
+    padding: 14px 18px;
   }
 }
 
