@@ -31,7 +31,7 @@ const year = new Date().getFullYear()
   @use '../styles/scss/_breakpoints.scss' as *;
   footer {
     background-color: var(--color-sumi);
-    color: white;
+    color: var(--color-white);
     padding: 3rem 0 1rem;
   }
 
@@ -42,12 +42,12 @@ const year = new Date().getFullYear()
   }
 
   .footer-logo h3 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 0.5rem;
   }
 
   .footer-logo p {
-    color: #888;
+    color: var(--color-muted-text);
     font-size: 0.9rem;
   }
 
@@ -58,7 +58,7 @@ const year = new Date().getFullYear()
 
   .footer-nav h4,
   .footer-social h4 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 1rem;
   }
 
@@ -76,7 +76,7 @@ const year = new Date().getFullYear()
 
   .footer-nav a,
   .footer-social a {
-    color: #ccc;
+    color: var(--color-footer-link);
     transition: color 0.3s ease;
   }
 
@@ -93,7 +93,7 @@ const year = new Date().getFullYear()
 
   .footer-bottom p {
     font-size: 0.9rem;
-    color: #999;
+    color: var(--color-footer-text);
     margin: 0;
   }
 
