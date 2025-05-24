@@ -26,6 +26,12 @@
   --color-indigo-darker: #1a2a47;
   --color-indigo-hover: #22325a;
 
+  /* Font family variables */
+  --font-primary: 'Noto Sans JP', sans-serif;
+  --font-secondary: 'Montserrat', 'Noto Sans JP', sans-serif;
+  --font-monospace: 'Share Tech Mono', 'Roboto Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --font-ui: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+
   /* Spacing variables for consistent section padding */
   --section-padding-mobile: 2rem 0;
   --section-padding-tablet: 3rem 0;
@@ -38,7 +44,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: var(--font-primary);
   color: var(--color-sumi);
   line-height: 1.6;
   scroll-behavior: smooth;
