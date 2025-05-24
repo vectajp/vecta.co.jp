@@ -6,6 +6,12 @@
   --color-indigo: #0A1E3C;
   --color-gold: #E69500;
   --color-sumi: #2F2F2F;
+  
+  /* Standard responsive breakpoints */
+  --breakpoint-small: 480px;
+  --breakpoint-medium: 768px;
+  --breakpoint-large: 1024px;
+  --breakpoint-xlarge: 1280px;
 }
 
 html,
@@ -89,7 +95,7 @@ section {
   padding: 2rem 0;
 }
 
-@media (min-width: 481px) {
+@media (min-width: var(--breakpoint-small)) {
   h1 {
     font-size: 2rem;
   }
@@ -111,7 +117,7 @@ section {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: var(--breakpoint-medium)) {
   h1 {
     font-size: 2.5rem;
   }

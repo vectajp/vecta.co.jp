@@ -285,7 +285,7 @@
     color: var(--color-indigo);
   }
 
-  @media (min-width: 481px) {
+  @media (min-width: var(--breakpoint-small)) {
     .section-title {
       margin-bottom: 2.5rem;
       font-size: 2rem;
@@ -307,7 +307,7 @@
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: var(--breakpoint-medium)) {
     .company {
       padding: 6rem 0;
     }
@@ -360,7 +360,7 @@
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: var(--breakpoint-large)) {
     .value-list {
       grid-template-columns: repeat(4, 1fr);
     }
@@ -410,7 +410,7 @@
     color: #082245;
     font-weight: bold;
   }
-  @media (max-width: 768px) {
+  @media (max-width: var(--breakpoint-medium)) {
     .brand-header__container {
       flex-direction: column;
       gap: 1rem;

@@ -85,6 +85,15 @@ vecta.co.jp/
   - コントラスト（白背景）: 約 4.5:1（AA基準クリア）
 - 墨色 (#2F2F2F) - 見出し、ボディテキスト
 
+### レスポンシブブレイクポイント
+
+- Small: 480px
+- Medium: 768px
+- Large: 1024px
+- XLarge: 1280px
+
+これらのブレイクポイントは `src/styles/global.css` でCSS カスタムプロパティとして定義されています。
+
 ### フォント
 
 - 見出し: Noto Sans JP (Bold)
