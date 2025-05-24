@@ -95,7 +95,6 @@
   @use '../styles/scss/_breakpoints.scss' as *;
   .company {
     position: relative;
-    padding: 3rem 0;
     overflow: hidden;
     background: linear-gradient(to bottom, var(--color-very-light-blue), var(--color-white));
   }
@@ -293,9 +292,7 @@
   }
 
   @media (min-width: $breakpoint-769) {
-    .company {
-      padding: 6rem 0;
-    }
+    /* Removed custom padding - now using global section padding */
 
     /* Responsive background pattern now handled by utility classes */
 

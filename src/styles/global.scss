@@ -25,6 +25,12 @@
   --color-indigo-dark: #14213d;
   --color-indigo-darker: #1a2a47;
   --color-indigo-hover: #22325a;
+
+  /* Spacing variables for consistent section padding */
+  --section-padding-mobile: 2rem 0;
+  --section-padding-tablet: 3rem 0;
+  --section-padding-desktop: 4rem 0;
+  --section-padding-large: 6rem 0;
 }
 
 html,
@@ -151,7 +157,7 @@ a:hover {
 }
 
 section {
-  padding: 2rem 0;
+  padding: var(--section-padding-mobile);
 }
 
 @media (min-width: $breakpoint-481) {
@@ -168,7 +174,7 @@ section {
   }
 
   section {
-    padding: 3rem 0;
+    padding: var(--section-padding-tablet);
   }
 
   .button,
@@ -193,12 +199,19 @@ section {
   }
 
   section {
-    padding: 4rem 0;
+    padding: var(--section-padding-desktop);
     /* scroll-margin-top: 72px; */
   }
 
   .container {
     max-width: 1200px;
+  }
+}
+
+/* Add new breakpoint for large screens */
+@media (min-width: $breakpoint-1024) {
+  section {
+    padding: var(--section-padding-large);
   }
 }
 
