@@ -66,10 +66,34 @@ const breadcrumbSchema = JSON.stringify({
     },
   ],
 })
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Vectaとは何ですか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Vectaは、アナログ情報をベクトルデータの「ブロック」へ構造化することで、世の中の知識を構造化する会社です。',
+      },
+    },
+    {
+      '@type': 'Question', 
+      name: 'RAGとは何ですか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'RAG（Retrieval-Augmented Generation）は、ベクトル類似性検索技術により、紙、PDF、画像、音声、すべての情報をAIが使いやすい形に変換する技術です。',
+      },
+    },
+  ],
+})
 ---
 
 <!-- 基本的なメタタグ -->
 <meta name="description" content={description} />
+<meta name="keywords" content="RAG,AI,ベクトル検索,構造化データ,人工知能,情報検索,知識管理,Vecta" />
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Open Graph Protocol -->
@@ -78,6 +102,8 @@ const breadcrumbSchema = JSON.stringify({
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:image" content={ogpImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="Vecta" />
 <meta property="og:locale" content="ja_JP" />
 
@@ -91,6 +117,7 @@ const breadcrumbSchema = JSON.stringify({
 <script type="application/ld+json" set:html={websiteSchema}></script>
 <script type="application/ld+json" set:html={organizationSchema}></script>
 <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+<script type="application/ld+json" set:html={faqSchema}></script>
 
 <!-- タイトル -->
 <title>{title}</title>
