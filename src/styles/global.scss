@@ -8,6 +8,23 @@
   --color-indigo: #0A1E3C;
   --color-gold: #E69500;
   --color-sumi: #2F2F2F;
+
+  /* Additional color variables */
+  --color-white: #fff;
+  --color-light-gray: #f8f8f8;
+  --color-very-light-blue: #f0f2f5;
+  --color-muted-text: #888;
+  --color-border-light: #ddd;
+  --color-border-medium: #ccc;
+  --color-dark-text: #111827;
+  --color-medium-text: #4b5563;
+  --color-disabled-bg: #f5f5f5;
+  --color-disabled-text: #a5a5a5;
+  --color-footer-text: #999;
+  --color-footer-link: #ccc;
+  --color-indigo-dark: #14213d;
+  --color-indigo-darker: #1a2a47;
+  --color-indigo-hover: #22325a;
 }
 
 html,
@@ -64,7 +81,7 @@ a:hover {
 button, .button {
   display: inline-block;
   background-color: var(--color-gold);
-  color: white;
+  color: var(--color-white);
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
@@ -77,7 +94,7 @@ button, .button {
 
 button:hover, .button:hover {
   background-color: var(--color-indigo);
-  color: white;
+  color: var(--color-white);
 }
 
 .container {
@@ -152,7 +169,7 @@ section {
 }
 
 .title-decoration--light::after {
-  background: linear-gradient(90deg, white, var(--color-gold));
+  background: linear-gradient(90deg, var(--color-white), var(--color-gold));
 }
 
 @media (min-width: $breakpoint-769) {
