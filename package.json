@@ -10,8 +10,8 @@
     "clean": "git clean -xdf node_modules",
     "scaffold": "scaffdog",
     "format": "biome format --write .",
-    "lint": "biome check .",
-    "lint:fix": "biome check --apply ."
+    "check": "biome check",
+    "check:fix": "biome check --write"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.4.0",
