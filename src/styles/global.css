@@ -7,10 +7,13 @@
   --color-gold: #E69500;
   --color-sumi: #2F2F2F;
   
-  /* Standard responsive breakpoints */
-  --breakpoint-small: 480px;
-  --breakpoint-medium: 768px;
-  --breakpoint-large: 1024px;
+  /* Standard responsive breakpoints - preserving original values */
+  --breakpoint-480: 480px;
+  --breakpoint-481: 481px;
+  --breakpoint-600: 600px;
+  --breakpoint-768: 768px;
+  --breakpoint-769: 769px;
+  --breakpoint-1024: 1024px;
   --breakpoint-xlarge: 1280px;
 }
 
@@ -95,7 +98,7 @@ section {
   padding: 2rem 0;
 }
 
-@media (min-width: var(--breakpoint-small)) {
+@media (min-width: var(--breakpoint-481)) {
   h1 {
     font-size: 2rem;
   }
@@ -117,7 +120,7 @@ section {
   }
 }
 
-@media (min-width: var(--breakpoint-medium)) {
+@media (min-width: var(--breakpoint-769)) {
   h1 {
     font-size: 2.5rem;
   }
