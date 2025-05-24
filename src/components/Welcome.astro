@@ -14,7 +14,7 @@ import background from '../assets/background.svg'
 				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
 			</h1>
 			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
+				<a class="button button-gradient" href="https://docs.astro.build">Read our docs</a>
 				<a href="https://astro.build/chat"
 					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
 						><path
@@ -100,19 +100,7 @@ import background from '../assets/background.svg'
 		margin-left: 8px;
 	}
 
-	#links a.button {
-		color: var(--color-white);
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
+	/* Remove custom button styles - now using global button system */
 
 	pre {
 		font-family:
@@ -193,9 +181,7 @@ import background from '../assets/background.svg'
 			flex-wrap: wrap;
 		}
 
-		#links a.button {
-			padding: 14px 18px;
-		}
+		/* Media query button styles moved to global.scss */
 
 		#news {
 			right: 16px;
