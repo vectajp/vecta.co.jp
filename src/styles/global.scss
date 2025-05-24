@@ -135,3 +135,28 @@ section {
     max-width: 1200px;
   }
 }
+
+.title-decoration {
+  position: relative;
+  display: inline-block;
+}
+
+.title-decoration::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
+}
+
+.title-decoration--light::after {
+  background: linear-gradient(90deg, white, var(--color-gold));
+}
+
+@media (min-width: $breakpoint-769) {
+  .title-decoration::after {
+    bottom: -10px;
+  }
+}
