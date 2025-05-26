@@ -80,6 +80,7 @@
   }
 
   .nav-link {
+    position: relative;
     font-family: var(--font-secondary);
     font-size: 1.1rem;
     font-weight: 500;
@@ -93,21 +94,30 @@
     display: inline-block;
   }
 
-  .nav-link.active,
-  .nav-link:hover {
-    color: var(--color-indigo-darker);
-  }
-
-  .nav-link.active::after,
-  .nav-link:hover::after {
+  .nav-link::after {
     content: '';
     display: block;
     margin: 0 auto;
     margin-top: 0.4rem;
     width: 2.5rem;
     height: 3px;
-    background: var(--color-indigo-darker);
+    background: transparent;
     border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    background: var(--color-indigo-darker);
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    color: var(--color-indigo-darker);
+  }
+
+  .nav-link:focus, .nav-link:focus-visible {
+    outline: none;
   }
 
   @media (max-width: $breakpoint-medium) {
