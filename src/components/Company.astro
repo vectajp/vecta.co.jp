@@ -42,30 +42,6 @@
         </ul>
       </div>
 
-      <div class="company-projects">
-        <h3>プロジェクト事例</h3>
-        <div class="project-card">
-          <h4>社内のOJT・業務引き継ぎ支援用ナレッジエージェント</h4>
-          <p>PDFや紙資料をベクトルデータに変換し、AIによる自然言語検索・要約機能を活用したチャットボットや業務引き継ぎ支援ナレッジエージェントを構築します。これにより、暗黙知の共有や業務の効率化を実現します。</p>
-          <h5 class="project-subheading">主な開発領域</h5>
-          <ul class="project-list">
-            <li>モバイルアプリ（iOS / Android）開発（Flutter / React Native など）</li>
-            <li>Webアプリケーション（フロントエンド + バックエンド）開発</li>
-            <li>Firebase や AWS などのクラウドバックエンドを活用した構築</li>
-            <li>LINEや各種APIとの連携を含むシステム開発</li>
-            <li>ユーザーインターフェースとユーザー体験（UI/UX）の設計</li>
-            <li>データベース構築・運用</li>
-          </ul>
-        </div>
-        <div class="project-card">
-          <h4>地域の防災・自治会アプリ</h4>
-            <p>地域コミュニティの防災力を高め、自治会活動をデジタル化。
-  スマートフォンアプリを通じて、住民同士の情報共有と災害時の迅速な対応を実現するプロジェクトです。</p>
-          <p>自治会活動のデジタル化を通じて、住民の方々の利便性向上と防災力の強化を実現します。
-災害時の避難所情報や安否確認、平時の自治会活動のお知らせなど、スマートフォンアプリを通じて必要な情報を迅速に共有。高齢者でも使いやすいUIを採用し、地域コミュニティのデジタル化を支援します。</p>
-        </div>
-      </div>
-
       <div class="company-info">
         <h3>会社情報</h3>
         <dl class="info-list">
@@ -129,7 +105,6 @@
 
   .company-mission h3,
   .company-values h3,
-  .company-projects h3,
   .company-info h3 {
     color: var(--color-indigo);
     margin-bottom: 1.2rem;
@@ -182,58 +157,6 @@
     font-size: 1.1rem;
   }
 
-  .project-card {
-    background-color: var(--color-white);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-
-  .project-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-indigo), var(--color-gold));
-  }
-
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-card h4 {
-    color: var(--color-indigo);
-    margin-bottom: 1rem;
-  }
-
-  .project-tagline {
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .project-subheading {
-    color: var(--color-indigo);
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-list {
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-list li {
-    margin-bottom: 0.5rem;
-  }
-
   .info-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -277,7 +200,6 @@
 
     .company-mission h3,
     .company-values h3,
-    .company-projects h3,
     .company-info h3 {
       font-size: 1.6rem;
     }
@@ -313,7 +235,6 @@
 
     .company-mission h3,
     .company-values h3,
-    .company-projects h3,
     .company-info h3 {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
