@@ -16,11 +16,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 		<ArticleBaseHead title={title} description={description} />
-		<style>
+		<style lang="scss">
+			@use '../styles/scss/_breakpoints.scss' as *;
+
 			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1rem;
 			}
 			.hero-image {
 				width: 100%;
@@ -53,6 +55,35 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+
+			/* Mobile responsive styles */
+			@media (max-width: $breakpoint-medium) {
+				.prose {
+					width: 100%;
+					max-width: calc(100% - 1rem);
+					padding: 0.75em;
+				}
+				.title {
+					padding: 0.75em 0;
+				}
+				.title h1 {
+					font-size: 1.5rem;
+					line-height: 1.2;
+				}
+			}
+
+			@media (max-width: $breakpoint-small) {
+				.prose {
+					max-width: calc(100% - 0.5rem);
+					padding: 0.5em;
+				}
+				.title {
+					padding: 0.5em 0;
+				}
+				.title h1 {
+					font-size: 1.25rem;
+				}
 			}
 		</style>
 	</head>
