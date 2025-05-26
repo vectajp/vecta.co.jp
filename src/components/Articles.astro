@@ -28,6 +28,9 @@ const posts = (await getCollection('article'))
         ))
       }
     </div>
+    <div class="view-all-link">
+      <a href="/article/">ニュース一覧へ</a>
+    </div>
   </div>
 </section>
 
@@ -119,5 +122,25 @@ const posts = (await getCollection('article'))
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+  }
+
+  .view-all-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .view-all-link a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-indigo);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-all-link a:hover {
+    background-color: var(--color-gold);
   }
 </style>
