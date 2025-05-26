@@ -1,9 +1,10 @@
 ---
 import SEO from '../components/SEO.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
 
 const {
   title: titlePrefix,
-  description = 'アナログ情報をベクトルデータの「ブロック」へ構造化することで、世の中の知識を構造化する。Vectaは「まち」にある色々なカタチの「知識」を未来につなぐことがミッションです。',
+  description = SITE_DESCRIPTION,
   ogpImageURL = new URL('/ogp.png', Astro.url),
 } = Astro.props
 ---
@@ -17,7 +18,7 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-		<meta name="apple-mobile-web-app-title" content="Vecta" />
+		<meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
 		<link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
