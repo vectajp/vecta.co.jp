@@ -64,8 +64,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				main {
 					width: calc(100% - 1rem);
 				}
-				.hero-image {
-					padding: 0 1rem;
+				.hero-image img {
+					margin: 0 1rem;
 				}
 				.prose {
 					width: 100%;
@@ -85,8 +85,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				main {
 					width: calc(100% - 0.5rem);
 				}
-				.hero-image {
-					padding: 0 0.75rem;
+				.hero-image img {
+					margin: 0 0.75rem;
+					border-radius: 8px;
 				}
 				.prose {
 					max-width: calc(100% - 0.5rem);
@@ -97,9 +98,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				}
 				.title h1 {
 					font-size: 1.25rem;
-				}
-				.hero-image img {
-					border-radius: 8px;
 				}
 			}
 		</style>
