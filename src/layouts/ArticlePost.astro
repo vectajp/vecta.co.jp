@@ -32,6 +32,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+				width: 100%;
+				max-width: 100%;
 			}
 			.prose {
 				width: 720px;
@@ -62,6 +64,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 				main {
 					width: calc(100% - 1rem);
 				}
+				.hero-image {
+					padding: 0 1rem;
+				}
 				.prose {
 					width: 100%;
 					max-width: calc(100% - 1rem);
@@ -79,6 +84,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 			@media (max-width: $breakpoint-small) {
 				main {
 					width: calc(100% - 0.5rem);
+				}
+				.hero-image {
+					padding: 0 0.75rem;
 				}
 				.prose {
 					max-width: calc(100% - 0.5rem);
