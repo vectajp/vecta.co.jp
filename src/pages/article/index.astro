@@ -15,10 +15,12 @@ const posts = (await getCollection('article')).sort(
 	<head>
 		<meta charset="UTF-8" />
     <ArticleBaseHead title={'記事 | Vecta'} description={'Vectaの記事一覧ページです。'} />
-		<style>
+		<style lang="scss">
+			@use '../../styles/scss/_breakpoints.scss' as *;
 			main {
-				width: 960px;
+				max-width: 1200px;
 				margin: 0 auto;
+				padding: 0 1rem;
 			}
 			ul {
 				display: flex;
@@ -69,7 +71,10 @@ const posts = (await getCollection('article')).sort(
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
-			@media (max-width: 720px) {
+			@media (max-width: $breakpoint-medium) {
+				main {
+					padding: 0 1rem;
+				}
 				ul {
 					gap: 0.5em;
 				}
@@ -82,6 +87,17 @@ const posts = (await getCollection('article')).sort(
 				}
 				ul li:first-child .title {
 					font-size: 1.563em;
+				}
+			}
+			@media (max-width: $breakpoint-small) {
+				main {
+					padding: 0 0.5rem;
+				}
+				ul {
+					gap: 0.25rem;
+				}
+				ul li:first-child .title {
+					font-size: 1.25em;
 				}
 			}
 		</style>
