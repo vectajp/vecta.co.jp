@@ -1,5 +1,6 @@
 ---
 import '../styles/global.scss'
+import { SITE_TITLE } from '../consts'
 
 interface Props {
   title: string
@@ -16,7 +17,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
 <link
 	rel="alternate"
 	type="application/rss+xml"
-	title={'Vecta'}
+	title={SITE_TITLE}
 	href={new URL('rss.xml', Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
