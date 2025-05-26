@@ -1,7 +1,7 @@
 ---
 title: '【お知らせ】株式会社Vecta 公式ホームページを開設しました'
 description: '今後も、ホームページを通じて皆さまに価値ある情報を発信し、Vectaの取り組みやビジョンをお伝えしてまいります。'
-pubDate: '2025/05/27'
+pubDate: '2025/05/01'
 heroImage: '/assets/logo.svg'
 ---
 
