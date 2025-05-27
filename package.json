@@ -14,7 +14,8 @@
     "check:fix": "biome check --write"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.3.0"
+    "@astrojs/mdx": "4.3.0",
+    "@astrojs/rss": "4.0.11"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.4.0",
