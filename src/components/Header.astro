@@ -1,3 +1,7 @@
+---
+import { navigationItems } from '../data/navigation'
+---
+
 <header>
   <div class="container">
     <div class="header-content center">
@@ -8,10 +12,11 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#articles" class="nav-link">ニュース</a></li>
-          <li><a href="#company" class="nav-link">会社概要</a></li>
-          <li><a href="#projects" class="nav-link">プロジェクト</a></li>
-          <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+          {navigationItems.map((item) => (
+            <li>
+              <a href={item.href} class="nav-link">{item.label}</a>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
