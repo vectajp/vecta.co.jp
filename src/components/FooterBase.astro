@@ -1,0 +1,122 @@
+---
+export interface Props {
+  showNavigation?: boolean
+}
+
+const { showNavigation = false } = Astro.props
+const year = new Date().getFullYear()
+
+import { navigationItems } from '../data/navigation'
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Vecta</h3>
+        <p>All with RAG!</p>
+      </div>
+      {showNavigation && (
+        <div class="footer-links">
+          <div class="footer-nav">
+            <h4>サイトマップ</h4>
+            <ul>
+              {navigationItems.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {year} Vecta. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use '../styles/scss/_breakpoints.scss' as *;
+  footer {
+    background-color: var(--color-sumi);
+    color: var(--color-white);
+    padding: var(--section-padding-tablet) 0 1rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo h3 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo p {
+    color: var(--color-muted-text);
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-nav h4 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-nav a {
+    color: var(--color-footer-link);
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-gold);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.9rem;
+    color: var(--color-footer-text);
+    margin: 0;
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: $breakpoint-small) {
+    .footer-links {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -22,6 +22,7 @@
 
 <style lang="scss">
   @use '../styles/scss/_breakpoints.scss' as *;
+  @use '../styles/scss/_section.scss';
   .vision {
     position: relative;
     color: var(--color-white);
@@ -44,9 +45,6 @@
   }
 
   .section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
     color: var(--color-white);
   }
 
@@ -74,11 +72,6 @@
   @media (min-width: $breakpoint-481) {
     /* Removed custom padding - now using global section padding */
 
-    .section-title {
-      margin-bottom: 2.5rem;
-      font-size: 2rem;
-    }
-
     .vision-message-text {
       font-size: 1.4rem;
       margin: 0 0 2rem;
@@ -97,11 +90,6 @@
 
     .vision-content {
       max-width: 900px;
-    }
-
-    .section-title {
-      margin-bottom: 3rem;
-      font-size: 2.2rem;
     }
 
     /* Responsive title decoration styles moved to global.scss */

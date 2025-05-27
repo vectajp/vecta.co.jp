@@ -25,6 +25,7 @@
 
 <style lang="scss">
   @use '../styles/scss/_breakpoints.scss' as *;
+  @use '../styles/scss/_section.scss';
   .concept {
     background-color: var(--color-light-gray);
     position: relative;
@@ -50,11 +51,6 @@
     z-index: 1;
   }
 
-  .section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-  }
 
   .concept-content {
     display: grid;
@@ -116,22 +112,12 @@
   }
 
   @media (min-width: $breakpoint-481) {
-    .section-title {
-      margin-bottom: 2.5rem;
-      font-size: 2rem;
-    }
-
     .concept-text h3 {
       font-size: 1.6rem;
     }
   }
 
   @media (min-width: $breakpoint-769) {
-    .section-title {
-      margin-bottom: 3rem;
-      font-size: 2.2rem;
-    }
-
     /* Responsive title decoration styles moved to global.scss */
 
     .concept-content {
