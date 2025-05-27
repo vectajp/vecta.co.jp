@@ -8,70 +8,104 @@ Vectaのコーポレートサイト。
 
 ## 技術スタック
 
-- **フロントエンドフレームワーク**: [Astro.js](https://astro.build/)
-- **スタイル**: CSS / CSS Modules
+- **フロントエンドフレームワーク**: [Astro.js](https://astro.build/) (静的サイトジェネレーター)
+- **コンテンツ管理**: MDX / Markdown
+- **スタイル**: SCSS / CSS Modules
+- **パッケージマネージャー**: [Bun](https://bun.sh/)
+- **コード品質管理**: [Biome](https://biomejs.dev/) (フォーマット・リント)
+- **コミット規約**: Conventional Commits (Lefthook + commitlint)
 - **フォント**: Noto Sans JP
 
 ## 開発方法
 
 ### 必要条件
 
-- Node.js 16.x 以上
-- npm または Bun
+- [Bun](https://bun.sh/) (推奨) または Node.js 18.x 以上
+- [mise](https://mise.jdx.dev/) (オプション: ツールバージョン管理)
 
-### インストール
+### セットアップ
 
 ```bash
-# 依存関係のインストール
-npm install
-# または
+# miseがインストールされている場合
+mise run bootstrap  # または mise bs
+
+# miseがない場合
 bun install
 ```
 
-### 開発サーバーの起動
+### 開発コマンド
 
 ```bash
-npm run dev
-# または
+# 開発サーバーの起動 (http://localhost:4321)
 bun run dev
-```
 
-開発サーバーが起動したら、ブラウザで [http://localhost:4321](http://localhost:4321) にアクセスしてください。
-
-### ビルド
-
-```bash
-npm run build
-# または
+# プロダクションビルド
 bun run build
-```
 
-ビルドされたファイルは `dist` ディレクトリに出力されます。
-
-### プレビュー
-
-```bash
-npm run preview
-# または
+# ビルドのプレビュー
 bun run preview
 ```
 
-ビルドされたサイトをローカルでプレビューできます。
+### コード品質管理
+
+```bash
+# コードフォーマット
+bun run format
+
+# リント
+bun run check
+
+# リント + 自動修正
+bun run check:fix
+
+# ツール情報の確認 (miseが必要)
+mise run doctor  # または mise dr
+```
 
 ## プロジェクト構成
 
 ```
 vecta.co.jp/
 ├── public/          # 静的ファイル
-│   └── assets/      # 画像などのアセット
+│   ├── article/     # 記事用画像
+│   ├── assets/      # ロゴ・アイコンなどのアセット
+│   └── icons/       # ファビコン・アプリアイコン
 ├── src/             # ソースコード
 │   ├── assets/      # コンポーネントで使用するアセット
 │   ├── components/  # Astroコンポーネント
+│   ├── content/     # コンテンツ管理
+│   │   └── article/ # MDX/Markdown記事
+│   ├── data/        # ナビゲーションなどのデータ
 │   ├── layouts/     # レイアウトコンポーネント
-│   ├── pages/       # ページコンポーネント
-│   └── styles/      # グローバルスタイル
+│   ├── pages/       # ページコンポーネント（ファイルベースルーティング）
+│   │   └── article/ # 記事ページ
+│   └── styles/      # グローバルスタイル・SCSS変数
+│       └── scss/    # 共有SCSS（ブレイクポイントなど）
+├── tools/           # 開発ツール・スクリプト
+├── dist/            # ビルド出力（gitignored）
 └── ...
 ```
+
+## コンテンツ管理
+
+### 記事（Article）
+
+`src/content/article/` ディレクトリにMDXまたはMarkdownファイルを配置することで記事を追加できます。
+
+記事のフロントマター：
+```yaml
+---
+title: '記事タイトル'
+description: '記事の説明'
+pubDate: 'Jan 22 2025'
+heroImage: '/article/hero-image.png' # オプション
+---
+```
+
+- MDXファイルではAstroコンポーネントを使用可能
+- Zodスキーマによる型安全な検証
+- 自動的にRSSフィードに追加
+- 動的ルーティング（`/article/[slug]`）
 
 ## デザインガイドライン
 
@@ -101,6 +135,26 @@ vecta.co.jp/
 
 - 見出し: Noto Sans JP (Bold)
 - 本文: Noto Sans JP (Regular)
+
+## 開発ツール
+
+### コード品質
+
+- **Biome**: 高速なフォーマッター・リンターツール
+  - ESLint + Prettierの代替として使用
+  - 設定は `biome.json` で管理
+
+### Git Hooks
+
+- **Lefthook**: 高速なGit hooks管理ツール
+  - コミット前のフォーマット・リントを自動実行
+  - Conventional Commitsの強制
+
+### ツールバージョン管理
+
+- **mise**: 開発環境のツールバージョンを統一
+  - Node.js、Bunなどのバージョンを `mise.toml` で管理
+  - カスタムタスクの定義
 
 ## ライセンス
 
