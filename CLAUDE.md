@@ -62,3 +62,19 @@ Articles support:
 - `astro.config.mjs`: Astro configuration with site URL and integrations
 - `biome.json`: Code formatting and linting rules
 - `mise.toml`: Tool version management and custom tasks
+
+## Git Commit Convention
+
+Use these prefixes from `.gitmessage.txt` for commit messages. **Write commit messages in Japanese.**
+
+- **feat**: 新機能
+- **fix**: バグ修正
+- **docs**: ドキュメントのみの変更
+- **style**: コードの意味に影響しない変更（空白、書式、セミコロンの欠落など）
+- **refactor**: バグの修正でも機能の追加でもないコード変更
+- **perf**: パフォーマンスを向上させるコード変更
+- **test**: 不足しているテストの追加や既存のテストの修正
+- **build**: ビルドシステムや外部の依存関係に影響する変更
+- **ci**: CI の設定ファイルやスクリプトの変更
+- **chore**: src やテストファイルを変更しないその他の変更
+- **revert**: 以前のコミットを取り消す
