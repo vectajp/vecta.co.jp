@@ -1,0 +1,2 @@
+# Redirect non-www to www
+https://vecta.co.jp/* https://www.vecta.co.jp/:splat 301!
