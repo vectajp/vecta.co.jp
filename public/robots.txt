@@ -1,6 +1,6 @@
 # robots.txt for vecta.co.jp
 # Sitemaps help search engines discover content efficiently
 User-agent: *
-Disallow:
+Disallow: /cdn-cgi/
 
 Sitemap: https://www.vecta.co.jp/sitemap-index.xml
