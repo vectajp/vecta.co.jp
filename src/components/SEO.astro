@@ -30,11 +30,6 @@ const websiteSchema = JSON.stringify({
   name: SITE_TITLE,
   url: Astro.site?.toString(),
   description: description,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${Astro.site}?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
-  },
 })
 
 const organizationSchema = JSON.stringify({
