@@ -333,18 +333,28 @@
       let isValid = true;
 
       inputs.forEach((input) => {
-        const fieldIsValid = validateField(input as HTMLInputElement | HTMLTextAreaElement, showErrors);
-        if (!fieldIsValid) {
-          isValid = false;
+        const field = input as HTMLInputElement | HTMLTextAreaElement;
+        const validator = validators[field.name as keyof typeof validators];
+        
+        if (validator) {
+          const error = validator(field.value);
+          if (error) {
+            isValid = false;
+          }
+          
+          // エラー表示は、タッチされたフィールドのみ
+          if (showErrors && touchedFields.has(field.name)) {
+            const errorElement = document.getElementById(`${field.name}-error`);
+            if (errorElement) {
+              errorElement.textContent = error;
+              field.classList.toggle('error', !!error);
+            }
+          }
         }
       });
 
-      // 初期状態では送信ボタンを有効にしておく
-      if (!showErrors && touchedFields.size === 0) {
-        submitButton.disabled = false;
-      } else {
-        submitButton.disabled = !isValid;
-      }
+      // 送信ボタンの状態を常に更新
+      submitButton.disabled = !isValid;
       
       return isValid;
     };
@@ -360,10 +370,14 @@
 
       field.addEventListener('input', () => {
         const fieldName = (field as HTMLInputElement | HTMLTextAreaElement).name;
+        
+        // タッチされたフィールドのみエラー表示
         if (touchedFields.has(fieldName)) {
           validateField(field as HTMLInputElement | HTMLTextAreaElement);
-          validateForm(true);
         }
+        
+        // 送信ボタンの状態は常に更新（エラー表示なし）
+        validateForm(false);
       });
     });
 
