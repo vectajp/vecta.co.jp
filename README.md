@@ -2,6 +2,8 @@
 
 # vecta.co.jp
 
+[![CI](https://github.com/vectajp/vecta.co.jp/actions/workflows/ci.yml/badge.svg)](https://github.com/vectajp/vecta.co.jp/actions/workflows/ci.yml)
+
 Vectaのコーポレートサイト。
 
 ロゴアイコンは、「書類」などのアナログ情報を、ベクトルデータの「ブロック」へ構造化することで、世の中の知識を使いやすく整理し、誰でもアクセスできる仕組みを組み立てるというVectaのミッションを表現したものです。
@@ -34,6 +36,14 @@ bun install
 ```
 
 ### 環境変数の設定
+
+```bash
+# 環境変数ファイルを作成
+cp .env.example .env.local
+
+# .env.localを編集して必要な値を設定
+# PUBLIC_API_BASE_URL=http://localhost:8787
+```
 
 #### 本番環境の設定（重要）
 
@@ -152,6 +162,26 @@ heroImage: '/article/hero-image.png' # オプション
 - 見出し: Noto Sans JP (Bold)
 - 本文: Noto Sans JP (Regular)
 
+## お問い合わせ機能
+
+### 概要
+サイト内のお問い合わせフォームは、外部APIと連携して動作します。
+
+### 必要な設定
+1. **APIエンドポイントの環境変数設定**（上記の「環境変数の設定」参照）
+2. **APIサーバー側のCORS設定**
+   - 許可するOrigin: `https://vecta.co.jp`, `https://www.vecta.co.jp`
+   - 開発環境: `http://localhost:4321`
+
+### フォーム仕様
+- **必須項目**: お名前、メールアドレス、件名、メッセージ
+- **任意項目**: 会社名、電話番号
+- **バリデーション**: リアルタイムエラー表示（タッチ後）
+- **文字数制限**:
+  - お名前: 100文字以内
+  - 件名: 200文字以内
+  - メッセージ: 1000文字以内
+
 ## 開発ツール
 
 ### コード品質
@@ -171,6 +201,39 @@ heroImage: '/article/hero-image.png' # オプション
 - **mise**: 開発環境のツールバージョンを統一
   - Node.js、Bunなどのバージョンを `mise.toml` で管理
   - カスタムタスクの定義
+
+## デプロイメント
+
+### Cloudflare Pages
+このサイトはCloudflare Pagesにデプロイされています。
+
+- **自動デプロイ**: GitHubのmainブランチへのプッシュで自動デプロイ
+- **ビルドコマンド**: `bun run build`
+- **出力ディレクトリ**: `dist`
+- **環境変数**: Cloudflare Pagesダッシュボードで設定（上記参照）
+
+### 自動チェック（GitHub Actions）
+以下の項目はGitHub Actionsで自動的にチェックされます：
+- ✅ ビルドの成功（`bun run build`）
+- ✅ リントチェック（`bun run check`）
+- ✅ コードフォーマット（PRのみ）
+
+### 手動確認が必要な項目
+- [ ] 環境変数が本番環境に設定されていることを確認
+- [ ] APIサーバーのCORS設定が正しいことを確認
+
+## トラブルシューティング
+
+### お問い合わせフォームが動作しない
+1. **ブラウザの開発者ツール**でコンソールエラーを確認
+2. **CORSエラー**: APIサーバー側でOriginの許可設定を確認
+3. **405エラー**: APIエンドポイントのパスとメソッド（POST）を確認
+4. **環境変数未設定**: `PUBLIC_API_BASE_URL`が設定されているか確認
+
+### ビルドエラー
+- `bun install` を実行して依存関係を更新
+- `.astro`ディレクトリを削除して再ビルド
+- Node.jsのバージョンを確認（18.x以上）
 
 ## ライセンス
 
