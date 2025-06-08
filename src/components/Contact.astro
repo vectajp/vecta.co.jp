@@ -19,25 +19,43 @@
         </div>
       </div>
       <div class="contact-form-container">
-        <form class="contact-form" aria-disabled="true">
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
-            <label for="name">お名前</label>
-            <input type="text" id="name" name="name" required disabled>
+            <label for="name">お名前 <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message" id="name-error"></span>
           </div>
           <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <input type="email" id="email" name="email" required disabled>
+            <label for="email">メールアドレス <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="email-error"></span>
           </div>
           <div class="form-group">
-            <label for="subject">件名</label>
-            <input type="text" id="subject" name="subject" required disabled>
+            <label for="company">会社名</label>
+            <input type="text" id="company" name="company">
           </div>
           <div class="form-group">
-            <label for="message">メッセージ</label>
-            <textarea id="message" name="message" rows="5" required disabled></textarea>
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone">
+            <span class="error-message" id="phone-error"></span>
           </div>
-          <button type="submit" class="button button-submit" disabled>送信する</button>
-          <p class="form-note">※ 現在、フォームは開発中のため無効化されています。<br>お急ぎの方は、直接メールにてお問い合わせください。</p>
+          <div class="form-group">
+            <label for="subject">件名 <span class="required">*</span></label>
+            <input type="text" id="subject" name="subject" required>
+            <span class="error-message" id="subject-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">メッセージ <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="error-message" id="message-error"></span>
+          </div>
+          <button type="submit" class="button button-submit" id="submitButton">送信する</button>
+          <div id="success-message" class="success-message" style="display: none;">
+            <p>お問い合わせありがとうございます。<br>担当者より折り返しご連絡いたします。</p>
+          </div>
+          <div id="error-message" class="error-message-general" style="display: none;">
+            <p>送信中にエラーが発生しました。<br>しばらく経ってから再度お試しください。</p>
+          </div>
         </form>
       </div>
     </div>
@@ -143,26 +161,67 @@
 
   /* Remove .submit-button styles - now using global button system */
 
-  /* 無効化されたフォーム要素のスタイル */
-  .contact-form input:disabled,
-  .contact-form textarea:disabled,
-  .contact-form button:disabled {
+  /* 必須項目マーク */
+  .required {
+    color: var(--color-orange);
+    font-weight: bold;
+  }
+
+  /* エラーメッセージ */
+  .error-message {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.2em;
+  }
+
+  /* エラー時の入力フィールド */
+  .form-group input.error,
+  .form-group textarea.error {
+    border-color: #dc3545;
+  }
+
+  /* 成功・エラーメッセージ */
+  .success-message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.3s ease-in;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .error-message-general {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* 送信ボタンの無効化 */
+  .button-submit:disabled {
     background-color: var(--color-disabled-bg);
     color: var(--color-disabled-text);
-    border: 1px solid var(--color-border-medium);
     cursor: not-allowed;
     opacity: 0.7;
-  }
-
-  .contact-form {
-    opacity: 0.85;
-  }
-
-  .form-note {
-    font-size: 0.9em;
-    color: var(--color-muted-text);
-    margin-top: 1rem;
-    text-align: center;
   }
 
   @media (max-width: $breakpoint-medium) {
@@ -208,14 +267,220 @@
 </style>
 
 <script>
-  const contactForm = document.querySelector('.contact-form') as HTMLFormElement;
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // フォームが無効化されているため、ここには到達しないはずですが、念のため残しておきます
-      alert('お問い合わせありがとうございます。近日中にご連絡いたします。');
-      contactForm.reset();
+    // バリデーションルール
+    const validators = {
+      name: (value: string) => {
+        if (!value.trim()) return 'お名前を入力してください';
+        if (value.length > 100) return 'お名前は100文字以内で入力してください';
+        return '';
+      },
+      email: (value: string) => {
+        if (!value.trim()) return 'メールアドレスを入力してください';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return '有効なメールアドレスを入力してください';
+        return '';
+      },
+      phone: (value: string) => {
+        if (!value) return '';
+        const phoneRegex = /^[\d-+()]+$/;
+        if (!phoneRegex.test(value)) return '有効な電話番号を入力してください';
+        return '';
+      },
+      subject: (value: string) => {
+        if (!value.trim()) return '件名を入力してください';
+        if (value.length > 200) return '件名は200文字以内で入力してください';
+        return '';
+      },
+      message: (value: string) => {
+        if (!value.trim()) return 'メッセージを入力してください';
+        if (value.length > 1000) return 'メッセージは1000文字以内で入力してください';
+        return '';
+      },
+    };
+
+    // フィールドがタッチされたかを記録
+    const touchedFields = new Set<string>();
+
+    // リアルタイムバリデーション
+    const validateField = (field: HTMLInputElement | HTMLTextAreaElement, showError = true) => {
+      const errorElement = document.getElementById(`${field.name}-error`);
+      const validator = validators[field.name as keyof typeof validators];
+
+      if (validator && errorElement) {
+        const error = validator(field.value);
+        
+        // タッチされたフィールドまたは送信時のみエラーを表示
+        if (showError && touchedFields.has(field.name)) {
+          errorElement.textContent = error;
+          field.classList.toggle('error', !!error);
+        }
+        
+        return !error;
+      }
+      
+      return true;
+    };
+
+    // フォーム全体のバリデーション
+    const validateForm = (showErrors = false) => {
+      const inputs = form.querySelectorAll('input[required], textarea[required]');
+      let isValid = true;
+
+      inputs.forEach((input) => {
+        const fieldIsValid = validateField(input as HTMLInputElement | HTMLTextAreaElement, showErrors);
+        if (!fieldIsValid) {
+          isValid = false;
+        }
+      });
+
+      // 初期状態では送信ボタンを有効にしておく
+      if (!showErrors && touchedFields.size === 0) {
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = !isValid;
+      }
+      
+      return isValid;
+    };
+
+    // 入力フィールドのイベントリスナー
+    form.querySelectorAll('input, textarea').forEach((field) => {
+      field.addEventListener('blur', () => {
+        const fieldName = (field as HTMLInputElement | HTMLTextAreaElement).name;
+        touchedFields.add(fieldName);
+        validateField(field as HTMLInputElement | HTMLTextAreaElement);
+        validateForm(true);
+      });
+
+      field.addEventListener('input', () => {
+        const fieldName = (field as HTMLInputElement | HTMLTextAreaElement).name;
+        if (touchedFields.has(fieldName)) {
+          validateField(field as HTMLInputElement | HTMLTextAreaElement);
+          validateForm(true);
+        }
+      });
     });
-  }
+
+    // フォーム送信処理
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // すべてのフィールドをタッチ済みにして、エラーを表示
+      form.querySelectorAll('input, textarea').forEach((field) => {
+        touchedFields.add((field as HTMLInputElement | HTMLTextAreaElement).name);
+      });
+
+      if (!validateForm(true)) return;
+
+      submitButton.disabled = true;
+      submitButton.textContent = '送信中...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+
+        console.log('API_BASE_URL:', API_BASE_URL);
+        console.log('Sending data:', data);
+
+        // 直接APIを呼び出す（CORS設定が必要）
+        const response = await fetch(`${API_BASE_URL}/contacts`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        console.log('Response status:', response.status);
+        console.log('Response ok:', response.ok);
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('API error response:', errorText);
+          throw new Error(`API request failed: ${response.status} - ${errorText}`);
+        }
+
+        const result = await response.json();
+        console.log('API success response:', result);
+
+        // 成功時の処理
+        // フォームをリセット
+        form.reset();
+        
+        // タッチ状態をリセット
+        touchedFields.clear();
+        
+        // エラー表示をクリア
+        form.querySelectorAll('.error-message').forEach((el) => {
+          el.textContent = '';
+        });
+        form.querySelectorAll('input, textarea').forEach((field) => {
+          field.classList.remove('error');
+        });
+        
+        // 成功メッセージを表示
+        successMessage!.style.display = 'block';
+        errorMessage!.style.display = 'none';
+        
+        // ボタンを元に戻す
+        submitButton.disabled = false;
+        submitButton.textContent = '送信する';
+        
+        // フォームは表示したままにする
+        // 5秒後に成功メッセージを非表示にする
+        setTimeout(() => {
+          successMessage!.style.display = 'none';
+        }, 5000);
+        
+        // バリデーションをリセット
+        validateForm(false);
+      } catch (error: any) {
+        // エラー時の処理
+        console.error('Contact form submission error:', error);
+
+        let errorMessage = 'エラーが発生しました';
+
+        if (error instanceof Error) {
+          console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            type: error.name
+          });
+
+          // CORSエラーの可能性を判定
+          if (error.message.includes('Failed to fetch')) {
+            errorMessage = 'サーバーへの接続に失敗しました。CORSエラーの可能性があります。';
+            console.error('CORS Error: APIサーバーでCORS設定を確認してください。');
+            console.error('許可が必要なOrigin:', window.location.origin);
+          } else {
+            errorMessage = `エラーが発生しました: ${error.message}`;
+          }
+        }
+
+        // エラーメッセージを表示
+        const errorMessageEl = document.getElementById('error-message');
+        if (errorMessageEl) {
+          const errorP = errorMessageEl.querySelector('p');
+          if (errorP) {
+            errorP.textContent = errorMessage;
+          }
+        }
+
+        errorMessageEl!.style.display = 'block';
+        submitButton.disabled = false;
+        submitButton.textContent = '送信する';
+      }
+    });
+
+    // 初期状態では送信ボタンを有効に
+    submitButton.disabled = false;
+  });
 </script>
