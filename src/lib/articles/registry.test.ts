@@ -27,6 +27,13 @@ describe('article registry', () => {
     }
   })
 
+  test('keeps videoId unique across video-based articles', () => {
+    const videoIds = articles
+      .map((article) => article.videoId)
+      .filter((id): id is string => Boolean(id))
+    expect(new Set(videoIds).size).toBe(videoIds.length)
+  })
+
   test('keeps merged article URLs redirected to the canonical article', () => {
     expect(articleRedirects['homepage-launch']).toBe('vecta-launch-story')
   })
