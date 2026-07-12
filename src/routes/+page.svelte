@@ -157,7 +157,7 @@
           <h2>製品概要</h2>
         </div>
         <div class="article-grid">
-          <article class="swarrow-card">
+          <article class="swarrow-card card">
             <a href="https://swarrow.com/">
               <div class="swarrow-card-media">
                 <img
@@ -211,7 +211,7 @@
         </div>
         <div class="company-content">
           <div class="company-info">
-            <dl class="info-list">
+            <dl class="info-list card">
               {#each companyDetails as item (item.label)}
                 <div class="info-item">
                   <dt>{item.label}</dt>
@@ -232,7 +232,7 @@
         </div>
         <div class="contact-content">
           <p class="contact-lead">{contact.lead}</p>
-          <div class="contact-card">
+          <div class="contact-card card">
             <ContactForm />
           </div>
         </div>
@@ -476,13 +476,6 @@
     margin: 0;
   }
 
-  .info-list {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
-  }
-
   .section-action {
     margin-top: 0;
     text-align: left;
@@ -503,6 +496,11 @@
 
   .info-list {
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 1.35rem;
+    margin: 0;
     overflow: hidden;
   }
 
@@ -514,14 +512,6 @@
     width: 4px;
     height: 100%;
     background: var(--color-gold);
-  }
-
-  .info-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 1.35rem;
-    margin: 0;
   }
 
   .info-item {
@@ -554,10 +544,6 @@
   .swarrow-card {
     height: 100%;
     overflow: hidden;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
     transition:
       border-color 0.2s ease,
       transform 0.2s ease,
@@ -661,10 +647,6 @@
   }
 
   .contact-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
     padding: 1.35rem;
   }
 
