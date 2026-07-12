@@ -31,6 +31,7 @@ export const navItems: NavItem[] = [
   { href: '#projects', label: '製品概要' },
   { href: '#articles', label: 'ニュース' },
   { href: '#company', label: '会社概要' },
+  { href: '#contact', label: 'お問い合わせ' },
 ]
 
 export const hero = {
@@ -38,6 +39,12 @@ export const hero = {
   subtitle:
     '紙、PDF、音声、画像、経験。地域に眠る知識をAIが扱える形に整え、誰もが必要な情報へ届く社会をつくる。それがVectaのミッションです。',
   cta: 'Vectaに相談する',
+}
+
+export const contact = {
+  kicker: 'Contact',
+  title: 'Vectaに相談する',
+  lead: '自治体・公共領域でのAI活用、地域情報の整理、庁内ナレッジの継承など、構想段階からご相談ください。',
 }
 
 export const conceptParagraphs = [

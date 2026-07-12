@@ -14,6 +14,7 @@ describe('vecta site content', () => {
       '#projects',
       '#articles',
       '#company',
+      '#contact',
     ])
   })
 })
