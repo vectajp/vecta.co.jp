@@ -8,8 +8,8 @@ describe('seo helpers', () => {
   })
 
   test('builds canonical URLs from paths', () => {
-    expect(buildCanonicalUrl('/article/about-gdrant/')).toBe(
-      'https://www.vecta.co.jp/article/about-gdrant/',
+    expect(buildCanonicalUrl('/article/what-is-vector-data/')).toBe(
+      'https://www.vecta.co.jp/article/what-is-vector-data/',
     )
   })
 

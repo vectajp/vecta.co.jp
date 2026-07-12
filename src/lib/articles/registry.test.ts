@@ -4,8 +4,8 @@ import { articleRedirects, articles, getArticleBySlug } from './registry'
 describe('article registry', () => {
   test('contains the existing article slugs', () => {
     expect(articles.map((article) => article.slug).sort()).toEqual([
-      'about-gdrant',
       'vecta-launch-story',
+      'what-is-vector-data',
     ])
   })
 
@@ -25,5 +25,6 @@ describe('article registry', () => {
 
   test('keeps merged article URLs redirected to the canonical article', () => {
     expect(articleRedirects['homepage-launch']).toBe('vecta-launch-story')
+    expect(articleRedirects['about-gdrant']).toBe('what-is-vector-data')
   })
 })
