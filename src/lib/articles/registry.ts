@@ -5,6 +5,16 @@ const byNewest = (a: ArticleMeta, b: ArticleMeta) =>
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'digital-jpn-press-conference-2026-07-10',
+    title: 'デジタル庁会見ダイジェスト(2026年7月10日)',
+    description:
+      '松本大臣が若手国家公務員ワークショップの開催報告と、ガバメントAI「源内」における国産クラウド上での国産基盤モデルの試用開始を発表した2026年7月10日の会見の要約です。',
+    publishedAt: new Date('2026-07-10T00:00:00+09:00'),
+    heroImage: 'https://i.ytimg.com/vi/sVduWLXdk7U/hqdefault.jpg',
+    videoId: 'sVduWLXdk7U',
+    component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
+  },
+  {
     slug: 'about-gdrant',
     title: 'What is Qdrant?',
     description:

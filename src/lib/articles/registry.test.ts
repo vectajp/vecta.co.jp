@@ -24,6 +24,9 @@ describe('article registry', () => {
       expect(article.description.length).toBeGreaterThan(0)
       expect(article.heroImage).toMatch(/^(\/|https:\/\/)/)
       expect(getArticleBySlug(article.slug)?.slug).toBe(article.slug)
+      if (article.videoId) {
+        expect(article.videoId).toMatch(/^[A-Za-z0-9_-]{11}$/)
+      }
     }
   })
 
