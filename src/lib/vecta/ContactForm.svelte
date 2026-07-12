@@ -7,11 +7,6 @@
   } from './contact'
 
   type FieldName = keyof ContactFormValues
-  type Props = {
-    idPrefix?: string
-  }
-
-  let { idPrefix = 'contact' }: Props = $props()
 
   const fields: FieldName[] = [
     'name',
@@ -40,7 +35,7 @@
 
   const validation = $derived(validateContactForm(values))
 
-  const fieldId = (field: FieldName) => `${idPrefix}-${field}`
+  const fieldId = (field: FieldName) => `contact-${field}`
 
   const visibleError = (field: FieldName) =>
     touched[field] ? validation.errors[field] : undefined
