@@ -1,7 +1,4 @@
 <script lang="ts">
-  import type { Component } from 'svelte'
-  import AboutGdrant from '$lib/articles/posts/AboutGdrant.svelte'
-  import VectaLaunchStory from '$lib/articles/posts/VectaLaunchStory.svelte'
   import ArticleLayout from '$lib/vecta/ArticleLayout.svelte'
   import { site } from '$lib/vecta/content'
   import {
@@ -14,12 +11,7 @@
 
   let { data }: { data: PageData } = $props()
 
-  const componentBySlug: Record<string, Component> = {
-    'about-gdrant': AboutGdrant,
-    'vecta-launch-story': VectaLaunchStory,
-  }
-
-  const ArticleComponent = $derived(componentBySlug[data.article.slug])
+  const ArticleComponent = $derived(data.content)
   const seo = $derived(
     buildPageSeo({
       title: data.article.title,
@@ -68,7 +60,5 @@
 </svelte:head>
 
 <ArticleLayout article={data.article}>
-  {#if ArticleComponent}
-    <ArticleComponent />
-  {/if}
+  <ArticleComponent />
 </ArticleLayout>

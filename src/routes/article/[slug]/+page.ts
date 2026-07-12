@@ -8,7 +8,7 @@ import {
 export const entries = () =>
   [...articleSlugs, ...Object.keys(articleRedirects)].map((slug) => ({ slug }))
 
-export const load = ({ params }) => {
+export const load = async ({ params }) => {
   const redirectTarget = articleRedirects[params.slug]
   if (redirectTarget) {
     redirect(308, `/article/${redirectTarget}/`)
@@ -19,6 +19,8 @@ export const load = ({ params }) => {
     error(404, 'Article not found')
   }
 
+  const { default: content } = await article.component()
+
   return {
     article: {
       slug: article.slug,
@@ -28,5 +30,6 @@ export const load = ({ params }) => {
       updatedAt: article.updatedAt,
       heroImage: article.heroImage,
     },
+    content,
   }
 }
