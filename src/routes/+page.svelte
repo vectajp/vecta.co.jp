@@ -2,10 +2,12 @@
   import { onMount } from 'svelte'
   import { articles } from '$lib/articles/registry'
   import ArticleCard from '$lib/vecta/ArticleCard.svelte'
+  import ContactForm from '$lib/vecta/ContactForm.svelte'
   import ContactModal from '$lib/vecta/ContactModal.svelte'
   import {
     companyDetails,
     conceptParagraphs,
+    contact,
     hero,
     site,
   } from '$lib/vecta/content'
@@ -237,6 +239,21 @@
                 </div>
               {/each}
             </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p>{contact.kicker}</p>
+          <h2>{contact.title}</h2>
+        </div>
+        <div class="contact-content">
+          <p class="contact-lead">{contact.lead}</p>
+          <div class="contact-card">
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -652,6 +669,32 @@
     font-size: 0.88rem;
     line-height: 1.75;
   }
+
+  .contact-section {
+    background: var(--color-white);
+  }
+
+  .contact-content {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 720px;
+  }
+
+  .contact-lead {
+    color: var(--color-medium-text);
+    font-size: 1.04rem;
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  .contact-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
+    padding: 1.35rem;
+  }
+
   @media (min-width: 600px) {
     .hero-actions {
       flex-direction: row;
@@ -701,6 +744,10 @@
     }
 
     .info-list {
+      padding: 2rem;
+    }
+
+    .contact-card {
       padding: 2rem;
     }
   }
