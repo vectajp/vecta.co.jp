@@ -36,7 +36,7 @@ const run = (cmd: string[]) => {
   }
 }
 
-const fail = (message: string): never => {
+function fail(message: string): never {
   console.error(`[NG] ${message}`)
   process.exit(1)
 }
