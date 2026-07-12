@@ -2,9 +2,9 @@ import { describe, expect, test } from 'bun:test'
 import { articleRedirects, articles, getArticleBySlug } from './registry'
 
 describe('article registry', () => {
-  test('contains the founding article slugs', () => {
+  test('contains the curated article slugs', () => {
     const slugs = articles.map((article) => article.slug)
-    expect(slugs).toContain('about-gdrant')
+    expect(slugs).toContain('what-is-vector-data')
     expect(slugs).toContain('vecta-launch-story')
   })
 
@@ -39,5 +39,6 @@ describe('article registry', () => {
 
   test('keeps merged article URLs redirected to the canonical article', () => {
     expect(articleRedirects['homepage-launch']).toBe('vecta-launch-story')
+    expect(articleRedirects['about-gdrant']).toBe('what-is-vector-data')
   })
 })

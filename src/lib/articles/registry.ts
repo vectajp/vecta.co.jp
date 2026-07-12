@@ -5,6 +5,15 @@ const byNewest = (a: ArticleMeta, b: ArticleMeta) =>
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'what-is-vector-data',
+    title: 'ベクトルデータとは？まちの情報を「意味」で探せるようにする技術',
+    description:
+      '「あの資料、どこにあったっけ」——キーワードが一致しないと見つからない検索の限界を、「意味の近さ」で越えるのがベクトルデータです。自治体の現場の例を使って、専門用語をできるだけ使わずに解説します。',
+    publishedAt: new Date('2026-07-13T00:00:00+09:00'),
+    heroImage: '/article/what-is-vector-data.png',
+    component: () => import('./posts/WhatIsVectorData.svelte'),
+  },
+  {
     slug: 'digital-jpn-press-conference-2026-07-10',
     title: 'デジタル庁会見ダイジェスト(2026年7月10日)',
     description:
@@ -13,15 +22,6 @@ export const articles: ArticleMeta[] = [
     heroImage: 'https://i.ytimg.com/vi/sVduWLXdk7U/hqdefault.jpg',
     videoId: 'sVduWLXdk7U',
     component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
-  },
-  {
-    slug: 'about-gdrant',
-    title: 'What is Qdrant?',
-    description:
-      'Qdrant（クワッドラント）は、オープンソースのベクトル検索エンジン兼ベクトルデータベースです。高次元ベクトルデータを効率的に保存・検索するための専用システムとして、AI技術を活用したアプリケーション開発に最適化されています。',
-    publishedAt: new Date('2025-05-27T00:00:00+09:00'),
-    heroImage: '/article/about-gdrant.png',
-    component: () => import('./posts/AboutGdrant.svelte'),
   },
   {
     slug: 'vecta-launch-story',
@@ -39,6 +39,7 @@ export const articleSlugs = articles.map((article) => article.slug)
 
 export const articleRedirects: Record<string, string> = {
   'homepage-launch': 'vecta-launch-story',
+  'about-gdrant': 'what-is-vector-data',
 }
 
 export const getArticleBySlug = (slug: string) =>
