@@ -6,8 +6,9 @@
   import {
     companyDetails,
     conceptParagraphs,
-    contact,
+    contactLead,
     hero,
+    sectionHeadings,
     site,
   } from '$lib/vecta/content'
   import Footer from '$lib/vecta/Footer.svelte'
@@ -110,8 +111,8 @@
     <section id="concept" class="concept-section">
       <div class="container section-layout concept-layout">
         <div class="section-heading section-heading--light">
-          <p>Concept</p>
-          <h2>コンセプト</h2>
+          <p>{sectionHeadings.concept.kicker}</p>
+          <h2>{sectionHeadings.concept.title}</h2>
         </div>
         <div class="concept-content">
           <div class="concept-copy">
@@ -153,8 +154,8 @@
     <section id="projects" class="projects-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>Product</p>
-          <h2>製品概要</h2>
+          <p>{sectionHeadings.projects.kicker}</p>
+          <h2>{sectionHeadings.projects.title}</h2>
         </div>
         <div class="article-grid">
           <article class="swarrow-card card">
@@ -189,8 +190,8 @@
     <section id="articles" class="articles-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>News</p>
-          <h2>ニュース</h2>
+          <p>{sectionHeadings.articles.kicker}</p>
+          <h2>{sectionHeadings.articles.title}</h2>
         </div>
         <div class="article-grid">
           {#each featuredArticles as article (article.slug)}
@@ -206,8 +207,8 @@
     <section id="company" class="company-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>Company</p>
-          <h2>会社概要</h2>
+          <p>{sectionHeadings.company.kicker}</p>
+          <h2>{sectionHeadings.company.title}</h2>
         </div>
         <div class="company-content">
           <div class="company-info">
@@ -227,11 +228,11 @@
     <section id="contact" class="contact-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>{contact.kicker}</p>
-          <h2>{contact.title}</h2>
+          <p>{sectionHeadings.contact.kicker}</p>
+          <h2>{sectionHeadings.contact.title}</h2>
         </div>
         <div class="contact-content">
-          <p class="contact-lead">{contact.lead}</p>
+          <p class="contact-lead">{contactLead}</p>
           <div class="contact-card card">
             <ContactForm />
           </div>
