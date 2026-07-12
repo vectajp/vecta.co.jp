@@ -7,13 +7,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 # Development
 bun run dev          # Start dev server at localhost:4321
-bun run build        # Build for production
-bun run preview      # Preview production build
+bun run build        # Build the static site into dist/
+bun run preview      # Preview the production build
 
 # Code Quality
 bun run format       # Format code with Biome
-bun run check        # Lint code with Biome  
-bun run check:fix    # Lint and fix code with Biome
+bun run check        # Biome + Svelte type check + Bun tests
+bun run check:fix    # Lint and fix with Biome
 
 # Project Setup (if mise is installed)
 mise run bootstrap   # Initialize workspace (alias: mise bs)
@@ -22,46 +22,45 @@ mise run doctor      # Show tooling info (alias: mise dr)
 
 ## Architecture Overview
 
-This is a **corporate website for Vecta** built with Astro.js. The site focuses on presenting Vecta's mission of structuring analog information into vector data blocks.
+This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `@sveltejs/adapter-static`. It is a prerendered static site deployed from the `dist/` output directory.
 
 ### Content Structure
 
-- **Pages**: Located in `src/pages/`, uses file-based routing
-- **Articles**: MDX/Markdown files in `src/content/article/` with Zod schema validation
-- **Components**: Astro components in `src/components/` for each major section (Hero, Vision, Company, etc.)
-- **Layouts**: Base layouts in `src/layouts/` 
+- **Routes**: SvelteKit routes in `src/routes/`.
+- **Home page**: `src/routes/+page.svelte` renders the corporate landing page.
+- **Articles**: metadata lives in `src/lib/articles/registry.ts`; article bodies are Svelte components under `src/lib/articles/posts/`.
+- **Vecta content**: company, navigation, project, and hero copy lives in `src/lib/vecta/content.ts`.
+- **SEO**: title, canonical URL, OGP, JSON-LD, and sitemap helpers live in `src/lib/vecta/seo.ts`.
+- **Static assets**: stored in `public/`, configured as the SvelteKit assets directory in `vite.config.ts`.
 
 ### Key Technical Decisions
 
-1. **Astro.js with MDX**: Static site generation with dynamic content support
-2. **Bun**: Used as package manager and runtime for fast development
-3. **Biome**: Single tool for both formatting and linting (replaces ESLint + Prettier)
-4. **SCSS Modules**: Component-scoped styling with shared breakpoint variables
-5. **Conventional Commits**: Enforced via Lefthook and commitlint
+1. **SvelteKit static output**: `adapter-static` writes both pages and assets to `dist/`.
+2. **Svelte article bodies**: each article body is a `.svelte` component.
+3. **Typed registries**: route-facing content is centralized in typed registries under `src/lib/`.
+4. **Trailing slash URLs**: `src/routes/+layout.ts` exports `trailingSlash = 'always'` to preserve `/article/{slug}/` URLs.
+5. **Contact form**: validation and payload shaping are pure helpers in `src/lib/vecta/contact.ts`; UI state lives in `ContactForm.svelte`.
+6. **Biome + svelte-check + Bun test**: `bun run check` is the main local quality gate.
+7. **Conventional Commits**: enforced via Lefthook and commitlint. Commit messages are written in Japanese.
 
 ### Styling Architecture
 
-- **Global styles**: `src/styles/global.scss`
-- **Breakpoints**: Defined in `src/styles/scss/_breakpoints.scss` as Sass variables
+- **Global styles**: `src/styles/global.css`
+- **Component styles**: colocated `<style>` blocks in Svelte components
 - **Color Palette**:
-  - Navy: `#0A1E3C` (main color)
-  - Golden Orange: `#E69500` (CTA/emphasis)
-  - Ink: `#2F2F2F` (text)
-
-### Content Management
-
-Articles support:
-- Frontmatter with title, description, pubDate, and optional heroImage
-- MDX for rich content with components
-- Automatic RSS feed generation
-- Dynamic routing via `[...slug].astro`
+  - Navy: `#0A1E3C`
+  - Golden Orange: `#E69500`
+  - Ink: `#2F2F2F`
 
 ### Important Files
 
-- `src/consts.ts`: Site-wide constants (title, description)
-- `astro.config.mjs`: Astro configuration with site URL and integrations
-- `biome.json`: Code formatting and linting rules
-- `mise.toml`: Tool version management and custom tasks
+- `vite.config.ts`: SvelteKit plugin, static adapter, port, and `public/` asset directory configuration
+- `src/routes/+layout.ts`: prerender and trailing slash policy
+- `src/lib/vecta/content.ts`: site-wide Vecta content
+- `src/lib/articles/registry.ts`: article metadata and component loader registry
+- `src/lib/vecta/seo.ts`: SEO metadata, structured data, and sitemap XML generation
+- `biome.json`: formatting and linting rules
+- `mise.toml`: local tool version management and custom tasks
 
 ## Git Commit Convention
 
