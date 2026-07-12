@@ -2,11 +2,13 @@
   import { onMount } from 'svelte'
   import { articles } from '$lib/articles/registry'
   import ArticleCard from '$lib/vecta/ArticleCard.svelte'
-  import ContactModal from '$lib/vecta/ContactModal.svelte'
+  import ContactForm from '$lib/vecta/ContactForm.svelte'
   import {
     companyDetails,
     conceptParagraphs,
+    contactLead,
     hero,
+    sectionHeadings,
     site,
   } from '$lib/vecta/content'
   import Footer from '$lib/vecta/Footer.svelte'
@@ -27,16 +29,6 @@
     buildBreadcrumbJsonLd([{ name: 'ホーム', path: '/' }]),
     buildFaqJsonLd(),
   ]
-  let contactModalOpen = $state(false)
-
-  const openContactModal = () => {
-    contactModalOpen = true
-  }
-
-  const closeContactModal = () => {
-    contactModalOpen = false
-  }
-
   onMount(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return
@@ -86,15 +78,6 @@
           <p class="hero-kicker">{site.title}</p>
           <h1>{hero.title}</h1>
           <p class="hero-subtitle">{hero.subtitle}</p>
-          <div class="hero-actions">
-            <button
-              type="button"
-              class="button button-primary"
-              onclick={openContactModal}
-            >
-              {hero.cta}
-            </button>
-          </div>
         </div>
 
         <div class="hero-media" aria-hidden="true">
@@ -128,8 +111,8 @@
     <section id="concept" class="concept-section">
       <div class="container section-layout concept-layout">
         <div class="section-heading section-heading--light">
-          <p>Concept</p>
-          <h2>コンセプト</h2>
+          <p>{sectionHeadings.concept.kicker}</p>
+          <h2>{sectionHeadings.concept.title}</h2>
         </div>
         <div class="concept-content">
           <div class="concept-copy">
@@ -171,11 +154,11 @@
     <section id="projects" class="projects-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>Product</p>
-          <h2>製品概要</h2>
+          <p>{sectionHeadings.projects.kicker}</p>
+          <h2>{sectionHeadings.projects.title}</h2>
         </div>
         <div class="article-grid">
-          <article class="swarrow-card">
+          <article class="swarrow-card card">
             <a href="https://swarrow.com/">
               <div class="swarrow-card-media">
                 <img
@@ -207,8 +190,8 @@
     <section id="articles" class="articles-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>News</p>
-          <h2>ニュース</h2>
+          <p>{sectionHeadings.articles.kicker}</p>
+          <h2>{sectionHeadings.articles.title}</h2>
         </div>
         <div class="article-grid">
           {#each featuredArticles as article (article.slug)}
@@ -224,12 +207,12 @@
     <section id="company" class="company-section">
       <div class="container section-layout">
         <div class="section-heading">
-          <p>Company</p>
-          <h2>会社概要</h2>
+          <p>{sectionHeadings.company.kicker}</p>
+          <h2>{sectionHeadings.company.title}</h2>
         </div>
         <div class="company-content">
           <div class="company-info">
-            <dl class="info-list">
+            <dl class="info-list card">
               {#each companyDetails as item (item.label)}
                 <div class="info-item">
                   <dt>{item.label}</dt>
@@ -241,10 +224,24 @@
         </div>
       </div>
     </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p>{sectionHeadings.contact.kicker}</p>
+          <h2>{sectionHeadings.contact.title}</h2>
+        </div>
+        <div class="contact-content">
+          <p class="contact-lead">{contactLead}</p>
+          <div class="contact-card card">
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
-  <ContactModal open={contactModalOpen} onClose={closeContactModal} />
 </div>
 
 <style>
@@ -312,14 +309,8 @@
     color: var(--color-indigo-dark);
     font-size: 1.08rem;
     line-height: 1.95;
-    margin: 0 0 2rem;
+    margin: 0;
     max-width: 640px;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
   }
 
   .hero-media {
@@ -486,13 +477,6 @@
     margin: 0;
   }
 
-  .info-list {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
-  }
-
   .section-action {
     margin-top: 0;
     text-align: left;
@@ -513,6 +497,11 @@
 
   .info-list {
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 1.35rem;
+    margin: 0;
     overflow: hidden;
   }
 
@@ -524,14 +513,6 @@
     width: 4px;
     height: 100%;
     background: var(--color-gold);
-  }
-
-  .info-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 1.35rem;
-    margin: 0;
   }
 
   .info-item {
@@ -564,10 +545,6 @@
   .swarrow-card {
     height: 100%;
     overflow: hidden;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
     transition:
       border-color 0.2s ease,
       transform 0.2s ease,
@@ -652,11 +629,26 @@
     font-size: 0.88rem;
     line-height: 1.75;
   }
-  @media (min-width: 600px) {
-    .hero-actions {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
+
+  .contact-section {
+    background: var(--color-white);
+  }
+
+  .contact-content {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 720px;
+  }
+
+  .contact-lead {
+    color: var(--color-medium-text);
+    font-size: 1.04rem;
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  .contact-card {
+    padding: 1.35rem;
   }
 
   @media (min-width: 769px) {
@@ -701,6 +693,10 @@
     }
 
     .info-list {
+      padding: 2rem;
+    }
+
+    .contact-card {
       padding: 2rem;
     }
   }

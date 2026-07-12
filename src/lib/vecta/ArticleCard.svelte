@@ -14,7 +14,7 @@
   })
 </script>
 
-<article class="article-card">
+<article class="article-card card">
   <a href={`/article/${article.slug}/`}>
     <img
       src={article.heroImage}
@@ -38,10 +38,6 @@
   .article-card {
     height: 100%;
     overflow: hidden;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
     transition:
       border-color 0.2s ease,
       transform 0.2s ease,

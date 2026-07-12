@@ -16,6 +16,11 @@ export type CompanyInfoItem = {
   value: string
 }
 
+export type SectionHeading = {
+  kicker: string
+  title: string
+}
+
 export const site: SiteContent = {
   title: 'Vecta',
   description:
@@ -31,14 +36,28 @@ export const navItems: NavItem[] = [
   { href: '#projects', label: '製品概要' },
   { href: '#articles', label: 'ニュース' },
   { href: '#company', label: '会社概要' },
+  { href: '#contact', label: 'お問い合わせ' },
 ]
 
 export const hero = {
   title: 'まちの知識を、未来につなぐ',
   subtitle:
     '紙、PDF、音声、画像、経験。地域に眠る知識をAIが扱える形に整え、誰もが必要な情報へ届く社会をつくる。それがVectaのミッションです。',
-  cta: 'Vectaに相談する',
 }
+
+export const sectionHeadings: Record<
+  'concept' | 'projects' | 'articles' | 'company' | 'contact',
+  SectionHeading
+> = {
+  concept: { kicker: 'Concept', title: 'コンセプト' },
+  projects: { kicker: 'Product', title: '製品概要' },
+  articles: { kicker: 'News', title: 'ニュース' },
+  company: { kicker: 'Company', title: '会社概要' },
+  contact: { kicker: 'Contact', title: 'Vectaに相談する' },
+}
+
+export const contactLead =
+  '自治体・公共領域でのAI活用、地域情報の整理、庁内ナレッジの継承など、構想段階からご相談ください。'
 
 export const conceptParagraphs = [
   '公共に必要な情報ほど、紙、PDF、画像、音声、経験知としてさまざまな場所に分散しています。Vectaは、それらをベクトルデータとして整理し、AIが意味や文脈で探せる知識基盤へ変えていきます。',
