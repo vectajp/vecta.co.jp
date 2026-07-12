@@ -29,6 +29,7 @@ This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `
 - **Routes**: SvelteKit routes in `src/routes/`.
 - **Home page**: `src/routes/+page.svelte` renders the corporate landing page.
 - **Articles**: metadata lives in `src/lib/articles/registry.ts`; article bodies are Svelte components under `src/lib/articles/posts/`.
+- **Digest articles**: Digital Agency press-conference digest articles are Markdown bodies in `src/lib/articles/posts/*.md` rendered through `MarkdownBody.svelte` via fixed-template Svelte wrappers. Generation is handled by the `digest` skill (`.claude/skills/digest/`) and the fetch CLI (`scripts/digest/`).
 - **Vecta content**: company, navigation, project, and hero copy lives in `src/lib/vecta/content.ts`.
 - **SEO**: title, canonical URL, OGP, JSON-LD, and sitemap helpers live in `src/lib/vecta/seo.ts`.
 - **Static assets**: stored in `public/`, configured as the SvelteKit assets directory in `vite.config.ts`.
