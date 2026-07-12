@@ -77,7 +77,8 @@ const collectProcessedIds = (): Set<string> => {
   return ids
 }
 
-const fetchTranscript = async (videoId: string): Promise<string> => {
+// 字幕未生成(null)でスキップした動画は registry にも PR にも載らないため、次回実行で自動的に再対象になる
+const fetchTranscript = async (videoId: string): Promise<string | null> => {
   const dir = await mkdtemp(join(tmpdir(), 'digest-'))
   try {
     const result = run([
@@ -98,7 +99,7 @@ const fetchTranscript = async (videoId: string): Promise<string> => {
     }
     const captionsFile = Bun.file(join(dir, `${videoId}.ja-orig.json3`))
     if (!(await captionsFile.exists())) {
-      fail(`日本語自動字幕 (ja-orig) が見つかりません (${videoId})`)
+      return null
     }
     const captions = (await captionsFile.json()) as Json3Captions
     return json3ToTranscript(captions)
@@ -170,11 +171,18 @@ const main = async () => {
   const sources: DigestSource[] = []
   for (const entry of targets) {
     console.error(`[OK] 字幕取得中: ${entry.title} (${entry.videoId})`)
+    const transcript = await fetchTranscript(entry.videoId)
+    if (transcript === null) {
+      console.error(
+        `[WARNING] 日本語自動字幕が未生成のためスキップします: ${entry.title} (${entry.videoId})`,
+      )
+      continue
+    }
     sources.push({
       ...entry,
       videoUrl: `https://www.youtube.com/watch?v=${entry.videoId}`,
       thumbnailUrl: `https://i.ytimg.com/vi/${entry.videoId}/hqdefault.jpg`,
-      transcript: await fetchTranscript(entry.videoId),
+      transcript,
     })
   }
   console.log(JSON.stringify(sources, null, 2))
