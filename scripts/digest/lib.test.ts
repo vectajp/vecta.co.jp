@@ -1,5 +1,10 @@
 import { describe, expect, test } from 'bun:test'
-import { isPressConference, parseFeed, parseVideoId } from './lib'
+import {
+  isPressConference,
+  json3ToTranscript,
+  parseFeed,
+  parseVideoId,
+} from './lib'
 
 const feedXml = await Bun.file(
   new URL('./fixtures/feed.xml', import.meta.url),
@@ -16,6 +21,7 @@ describe('parseFeed', () => {
       description:
         '若手国家公務員のワークショップ開催/ガバメントAI 源内の国産クラウド上での国産基盤モデルの試用開始',
     })
+    expect(entries[1].videoId).toBe('ezYtIvXKh68')
   })
 })
 
@@ -26,6 +32,25 @@ describe('isPressConference', () => {
 
   test('rejects other videos', () => {
     expect(isPressConference('マイナポータル紹介動画')).toBe(false)
+  })
+})
+
+describe('json3ToTranscript', () => {
+  test('joins segment texts and drops newline-only segments', () => {
+    const captions = {
+      events: [
+        { segs: [{ utf8: 'はいおはようございます' }, { utf8: '\n' }] },
+        {},
+        { segs: [{ utf8: 'えっと一昨日の' }, { utf8: '7月8日にですね' }] },
+      ],
+    }
+    expect(json3ToTranscript(captions)).toBe(
+      'はいおはようございますえっと一昨日の7月8日にですね',
+    )
+  })
+
+  test('returns empty string for empty captions', () => {
+    expect(json3ToTranscript({})).toBe('')
   })
 })
 

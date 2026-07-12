@@ -22,6 +22,19 @@ export const parseFeed = (xml: string): VideoEntry[] =>
 export const isPressConference = (title: string): boolean =>
   title.includes('記者会見')
 
+type Json3Segment = { utf8?: string }
+type Json3Event = { segs?: Json3Segment[] }
+export type Json3Captions = { events?: Json3Event[] }
+
+export const json3ToTranscript = (captions: Json3Captions): string =>
+  (captions.events ?? [])
+    .flatMap((event) => event.segs ?? [])
+    .map((seg) => seg.utf8 ?? '')
+    .filter((text) => text !== '\n')
+    .join('')
+    .replace(/\s+/g, ' ')
+    .trim()
+
 const VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/
 
 export const parseVideoId = (input: string): string | undefined => {
