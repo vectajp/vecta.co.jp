@@ -3,7 +3,6 @@
   import { articles } from '$lib/articles/registry'
   import ArticleCard from '$lib/vecta/ArticleCard.svelte'
   import ContactForm from '$lib/vecta/ContactForm.svelte'
-  import ContactModal from '$lib/vecta/ContactModal.svelte'
   import {
     companyDetails,
     conceptParagraphs,
@@ -29,16 +28,6 @@
     buildBreadcrumbJsonLd([{ name: 'ホーム', path: '/' }]),
     buildFaqJsonLd(),
   ]
-  let contactModalOpen = $state(false)
-
-  const openContactModal = () => {
-    contactModalOpen = true
-  }
-
-  const closeContactModal = () => {
-    contactModalOpen = false
-  }
-
   onMount(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return
@@ -88,15 +77,6 @@
           <p class="hero-kicker">{site.title}</p>
           <h1>{hero.title}</h1>
           <p class="hero-subtitle">{hero.subtitle}</p>
-          <div class="hero-actions">
-            <button
-              type="button"
-              class="button button-primary"
-              onclick={openContactModal}
-            >
-              {hero.cta}
-            </button>
-          </div>
         </div>
 
         <div class="hero-media" aria-hidden="true">
@@ -261,7 +241,6 @@
   </main>
 
   <Footer />
-  <ContactModal open={contactModalOpen} onClose={closeContactModal} />
 </div>
 
 <style>
@@ -329,14 +308,8 @@
     color: var(--color-indigo-dark);
     font-size: 1.08rem;
     line-height: 1.95;
-    margin: 0 0 2rem;
+    margin: 0;
     max-width: 640px;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
   }
 
   .hero-media {
@@ -693,13 +666,6 @@
     border-radius: 8px;
     box-shadow: 0 14px 36px rgba(9, 27, 51, 0.07);
     padding: 1.35rem;
-  }
-
-  @media (min-width: 600px) {
-    .hero-actions {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
   }
 
   @media (min-width: 769px) {

@@ -128,23 +128,6 @@ a:hover {
   width: 100%;
 }
 
-/* Primary button - main CTA style */
-.button-primary {
-  background-color: var(--color-indigo);
-  color: var(--color-white);
-  border-color: var(--color-indigo);
-  box-shadow: 0 12px 30px rgba(9, 27, 51, 0.18);
-  font-size: 1.05rem;
-  font-weight: 600;
-  padding: 0.95rem 1.65rem;
-}
-
-.button-primary:hover {
-  background-color: var(--color-indigo-darker);
-  color: var(--color-white);
-  transform: translateY(-2px);
-}
-
 /* Secondary button - alternative style */
 .button-secondary {
   background-color: var(--color-white);
@@ -174,7 +157,6 @@ a:hover {
 
 /* Disabled state for all buttons */
 .button:disabled,
-.button-primary:disabled,
 .button-secondary:disabled,
 .button-submit:disabled {
   background-color: var(--color-disabled-bg);
@@ -213,7 +195,6 @@ section {
   }
 
   .button,
-  .button-primary,
   .button-secondary,
   .button-submit {
     width: auto;

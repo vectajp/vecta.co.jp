@@ -38,7 +38,6 @@ export const hero = {
   title: 'まちの知識を、未来につなぐ',
   subtitle:
     '紙、PDF、音声、画像、経験。地域に眠る知識をAIが扱える形に整え、誰もが必要な情報へ届く社会をつくる。それがVectaのミッションです。',
-  cta: 'Vectaに相談する',
 }
 
 export const contact = {
