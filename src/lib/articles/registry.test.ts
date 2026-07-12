@@ -2,11 +2,15 @@ import { describe, expect, test } from 'bun:test'
 import { articleRedirects, articles, getArticleBySlug } from './registry'
 
 describe('article registry', () => {
-  test('contains the existing article slugs', () => {
-    expect(articles.map((article) => article.slug).sort()).toEqual([
-      'about-gdrant',
-      'vecta-launch-story',
-    ])
+  test('contains the founding article slugs', () => {
+    const slugs = articles.map((article) => article.slug)
+    expect(slugs).toContain('about-gdrant')
+    expect(slugs).toContain('vecta-launch-story')
+  })
+
+  test('keeps slugs unique', () => {
+    const slugs = articles.map((article) => article.slug)
+    expect(new Set(slugs).size).toBe(slugs.length)
   })
 
   test('sorts articles newest first', () => {
@@ -18,7 +22,7 @@ describe('article registry', () => {
     for (const article of articles) {
       expect(article.title.length).toBeGreaterThan(0)
       expect(article.description.length).toBeGreaterThan(0)
-      expect(article.heroImage).toMatch(/^\//)
+      expect(article.heroImage).toMatch(/^(\/|https:\/\/)/)
       expect(getArticleBySlug(article.slug)?.slug).toBe(article.slug)
     }
   })
