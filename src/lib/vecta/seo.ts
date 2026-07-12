@@ -18,6 +18,15 @@ type SitemapUrl = {
   lastmod?: string
 }
 
+// en-CA ロケールは YYYY-MM-DD 形式を返す
+const formatDateJst = (date: Date) =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date)
+
 const ensureTrailingSlash = (path: string) => {
   if (path === '') {
     return '/'
@@ -143,9 +152,7 @@ export const buildSitemapXml = () => {
     { loc: buildCanonicalUrl('/article/'), priority: '0.8' },
     ...articles.map((article) => ({
       loc: buildCanonicalUrl(`/article/${article.slug}/`),
-      lastmod: (article.updatedAt ?? article.publishedAt)
-        .toISOString()
-        .slice(0, 10),
+      lastmod: formatDateJst(article.updatedAt ?? article.publishedAt),
       priority: '0.7',
     })),
   ]

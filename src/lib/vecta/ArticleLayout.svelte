@@ -14,6 +14,7 @@
   let { article, children }: Props = $props()
 
   const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
     year: 'numeric',
     month: 'long',
     day: 'numeric',

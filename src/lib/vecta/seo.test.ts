@@ -1,5 +1,10 @@
 import { describe, expect, test } from 'bun:test'
-import { buildCanonicalUrl, buildOrganizationJsonLd, buildTitle } from './seo'
+import {
+  buildCanonicalUrl,
+  buildOrganizationJsonLd,
+  buildSitemapXml,
+  buildTitle,
+} from './seo'
 
 describe('seo helpers', () => {
   test('builds Vecta titles', () => {
@@ -15,5 +20,9 @@ describe('seo helpers', () => {
 
   test('keeps organization structured data', () => {
     expect(buildOrganizationJsonLd().name).toBe('株式会社Vecta')
+  })
+
+  test('renders sitemap lastmod dates in JST regardless of build TZ', () => {
+    expect(buildSitemapXml()).toContain('<lastmod>2026-07-10</lastmod>')
   })
 })
