@@ -29,3 +29,7 @@ pnpm-debug.log*
 .idea/*
 # Keep the project icon.
 !/.idea/icon.svg
+
+# Claude Code ローカルファイル(skills のみ追跡)
+.claude/*
+!.claude/skills/
