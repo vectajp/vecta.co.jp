@@ -1,9 +1,11 @@
 import { describe, expect, test } from 'bun:test'
 import {
+  extractVideoIdTrailers,
   isPressConference,
   json3ToTranscript,
   parseFeed,
   parseVideoId,
+  selectUnprocessed,
 } from './lib'
 
 const feedXml = await Bun.file(
@@ -52,6 +54,13 @@ describe('json3ToTranscript', () => {
   test('returns empty string for empty captions', () => {
     expect(json3ToTranscript({})).toBe('')
   })
+
+  test('collapses whitespace from latin segments', () => {
+    const captions = {
+      events: [{ segs: [{ utf8: 'ガバメント' }, { utf8: 'AI  源内' }] }],
+    }
+    expect(json3ToTranscript(captions)).toBe('ガバメントAI 源内')
+  })
 })
 
 describe('parseVideoId', () => {
@@ -67,5 +76,36 @@ describe('parseVideoId', () => {
     // 注: 11文字ちょうどの英数字はすべて有効 ID として扱われる('not-a-video' は11文字なので不正入力の例に使えない)
     expect(parseVideoId('not a video')).toBeUndefined()
     expect(parseVideoId('https://example.com/')).toBeUndefined()
+  })
+})
+
+describe('extractVideoIdTrailers', () => {
+  test('extracts Video-ID trailer lines from PR bodies', () => {
+    const body =
+      '## 概要\n記事を追加\n\nVideo-ID: sVduWLXdk7U\nVideo-ID: ezYtIvXKh68\n'
+    expect(extractVideoIdTrailers(body)).toEqual(['sVduWLXdk7U', 'ezYtIvXKh68'])
+  })
+
+  test('handles CRLF bodies edited via the GitHub web UI', () => {
+    const body = 'Video-ID: sVduWLXdk7U\r\nVideo-ID: ezYtIvXKh68\r\n'
+    expect(extractVideoIdTrailers(body)).toEqual(['sVduWLXdk7U', 'ezYtIvXKh68'])
+  })
+
+  test('ignores malformed lines', () => {
+    expect(
+      extractVideoIdTrailers('Video-ID: short\nVideoID: sVduWLXdk7U'),
+    ).toEqual([])
+  })
+})
+
+describe('selectUnprocessed', () => {
+  test('filters out processed video ids', () => {
+    const entries = [
+      { videoId: 'aaaaaaaaaaa', title: 't1', publishedAt: '', description: '' },
+      { videoId: 'bbbbbbbbbbb', title: 't2', publishedAt: '', description: '' },
+    ]
+    expect(
+      selectUnprocessed(entries, ['aaaaaaaaaaa']).map((e) => e.videoId),
+    ).toEqual(['bbbbbbbbbbb'])
   })
 })

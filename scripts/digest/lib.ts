@@ -57,3 +57,17 @@ export const parseVideoId = (input: string): string | undefined => {
   }
   return undefined
 }
+
+// \r? は GitHub Web UI 編集で本文が CRLF 化されても照合が破れないための許容
+export const extractVideoIdTrailers = (text: string): string[] =>
+  [...text.matchAll(/^Video-ID:[ \t]*([A-Za-z0-9_-]{11})[ \t]*\r?$/gm)].map(
+    (match) => match[1],
+  )
+
+export const selectUnprocessed = (
+  entries: VideoEntry[],
+  processedIds: Iterable<string>,
+): VideoEntry[] => {
+  const processed = new Set(processedIds)
+  return entries.filter((entry) => !processed.has(entry.videoId))
+}
