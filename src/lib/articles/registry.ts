@@ -31,7 +31,7 @@ export const articles: ArticleMeta[] = [
     description:
       '生成AIの適用対象を音声・画像・AIエージェントへ拡大した調達・利活用ガイドライン改定を要約し、ガバナンス設計の観点からVectaの考察を添えました。',
     publishedAt: new Date('2026-06-12T00:00:00+09:00'),
-    heroImage: '/article/digest-press-conference.svg',
+    heroImage: '/article/digital-jpn-press-conference-2026-06-12.png',
     videoId: '5dMcm0BOQrI',
     component: () => import('./posts/DigitalJpnPressConference20260612.svelte'),
   },
