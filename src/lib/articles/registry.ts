@@ -25,6 +25,17 @@ export const articles: ArticleMeta[] = [
     component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
   },
   {
+    slug: 'digital-jpn-press-conference-2026-06-12',
+    title:
+      '生成AIの利活用促進とガバナンス強化は両立できるか——ガイドライン改定考察(2026年6月12日)',
+    description:
+      '生成AIの適用対象を音声・画像・AIエージェントへ拡大した調達・利活用ガイドライン改定を要約し、ガバナンス設計の観点からVectaの考察を添えました。',
+    publishedAt: new Date('2026-06-12T00:00:00+09:00'),
+    heroImage: '/article/digest-press-conference.svg',
+    videoId: '5dMcm0BOQrI',
+    component: () => import('./posts/DigitalJpnPressConference20260612.svelte'),
+  },
+  {
     slug: 'vecta-launch-story',
     title: '株式会社Vecta、始動',
     description:
