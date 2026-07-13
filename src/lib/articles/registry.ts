@@ -15,9 +15,10 @@ export const articles: ArticleMeta[] = [
   },
   {
     slug: 'digital-jpn-press-conference-2026-07-10',
-    title: 'デジタル庁会見ダイジェスト(2026年7月10日)',
+    title:
+      '純国産AIは行政の信頼を築けるか——ガバメントAI「源内」考察(2026年7月10日)',
     description:
-      '松本大臣が若手国家公務員ワークショップの開催報告と、ガバメントAI「源内」における国産クラウド上での国産基盤モデルの試用開始を発表した2026年7月10日の会見の要約です。',
+      'ガバメントAI「源内」で国産クラウド×国産AIの試用が始まった2026年7月10日の会見を要約し、行政AIの信頼構築という観点からVectaの考察を添えました。',
     publishedAt: new Date('2026-07-10T00:00:00+09:00'),
     heroImage: '/article/digest-press-conference.svg',
     videoId: 'sVduWLXdk7U',
