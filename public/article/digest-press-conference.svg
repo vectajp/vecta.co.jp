@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="会見ダイジェスト">
+  <title>会見ダイジェスト</title>
+  <defs>
+    <pattern id="digest-dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="rgba(255,255,255,0.10)" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="600" fill="#0a1e3c" />
+  <rect width="1200" height="600" fill="url(#digest-dots)" />
+  <rect x="0" y="0" width="10" height="600" fill="#e69500" />
+  <text
+    x="96"
+    y="222"
+    font-family="ui-monospace, 'Roboto Mono', Menlo, Consolas, monospace"
+    font-size="26"
+    letter-spacing="6"
+    fill="#e69500"
+  >NEWS DIGEST</text>
+  <text
+    x="94"
+    y="330"
+    font-family="'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif"
+    font-size="72"
+    font-weight="700"
+    fill="#fbfaf7"
+  >会見ダイジェスト</text>
+  <text
+    x="96"
+    y="392"
+    font-family="'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif"
+    font-size="26"
+    fill="rgba(251,250,247,0.65)"
+  >Vecta による AI 要約</text>
+</svg>

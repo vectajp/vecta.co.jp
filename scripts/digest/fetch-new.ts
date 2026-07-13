@@ -18,7 +18,6 @@ const FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_
 
 type DigestSource = VideoEntry & {
   videoUrl: string
-  thumbnailUrl: string
   transcript: string
 }
 
@@ -181,7 +180,6 @@ const main = async () => {
     sources.push({
       ...entry,
       videoUrl: `https://www.youtube.com/watch?v=${entry.videoId}`,
-      thumbnailUrl: `https://i.ytimg.com/vi/${entry.videoId}/hqdefault.jpg`,
       transcript,
     })
   }
