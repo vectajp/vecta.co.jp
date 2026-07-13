@@ -52,6 +52,7 @@ This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `
   - Navy: `#0A1E3C`
   - Golden Orange: `#E69500`
   - Ink: `#2F2F2F`
+  - Vector Blue: `#2F6FED`
 
 ### Important Files
 

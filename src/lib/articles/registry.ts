@@ -25,6 +25,17 @@ export const articles: ArticleMeta[] = [
     component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
   },
   {
+    slug: 'gov-cybersecurity-guideline-2026-revision',
+    title:
+      'パッチのためにシステムを止める決断は妥当か——政府機関等対策基準ガイドライン改定を深掘りする',
+    description:
+      '政府機関等の対策基準策定のためのガイドライン改定を一次資料から深掘りリサーチし、AI時代のパッチ運用とシステム停止判断についてVectaの考察を添えました。',
+    publishedAt: new Date('2026-07-13T00:00:00+09:00'),
+    heroImage: '/article/research-article.svg',
+    component: () =>
+      import('./posts/GovCybersecurityGuideline2026Revision.svelte'),
+  },
+  {
     slug: 'digital-jpn-press-conference-2026-06-12',
     title:
       '生成AIの利活用促進とガバナンス強化は両立できるか——ガイドライン改定考察(2026年6月12日)',
