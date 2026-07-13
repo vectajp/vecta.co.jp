@@ -54,5 +54,3 @@
 
 - 動画: [松本大臣記者会見(令和8年7月10日)](https://www.youtube.com/watch?v=sVduWLXdk7U)
 - チャンネル: [デジタル庁 YouTube チャンネル](https://www.youtube.com/@digital_jpn)
-
-本記事はデジタル庁公式動画の自動文字起こしを基に AI が要約・整形したものです。正確な内容は元動画をご確認ください。出典: デジタル庁(公共データ利用規約 v1.0 / CC BY 4.0 互換に基づき編集・加工)
