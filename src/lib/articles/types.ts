@@ -11,5 +11,7 @@ export type ArticleMeta = {
   publishedAt: Date
   updatedAt?: Date
   heroImage: string
+  /** YouTube 動画由来の記事で重複生成防止の照合キーに使う動画 ID */
+  videoId?: string
   component: ArticleComponentLoader
 }

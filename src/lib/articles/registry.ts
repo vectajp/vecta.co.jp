@@ -14,6 +14,39 @@ export const articles: ArticleMeta[] = [
     component: () => import('./posts/WhatIsVectorData.svelte'),
   },
   {
+    slug: 'digital-jpn-press-conference-2026-07-10',
+    title:
+      '純国産AIは行政の信頼を築けるか——ガバメントAI「源内」考察(2026年7月10日)',
+    description:
+      'ガバメントAI「源内」で国産クラウド×国産AIの試用が始まった2026年7月10日の会見を要約し、行政AIの信頼構築という観点からVectaの考察を添えました。',
+    publishedAt: new Date('2026-07-10T00:00:00+09:00'),
+    heroImage: '/article/digital-jpn-press-conference-2026-07-10.png',
+    videoId: 'sVduWLXdk7U',
+    component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
+  },
+  {
+    slug: 'gov-cybersecurity-guideline-2026-revision',
+    title:
+      'パッチのためにシステムを止める決断は妥当か——政府機関等対策基準ガイドライン改定を深掘りする',
+    description:
+      '政府機関等の対策基準策定のためのガイドライン改定を一次資料から深掘りリサーチし、AI時代のパッチ運用とシステム停止判断についてVectaの考察を添えました。',
+    publishedAt: new Date('2026-07-13T00:00:00+09:00'),
+    heroImage: '/article/research-article.svg',
+    component: () =>
+      import('./posts/GovCybersecurityGuideline2026Revision.svelte'),
+  },
+  {
+    slug: 'digital-jpn-press-conference-2026-06-12',
+    title:
+      '生成AIの利活用促進とガバナンス強化は両立できるか——ガイドライン改定考察(2026年6月12日)',
+    description:
+      '生成AIの適用対象を音声・画像・AIエージェントへ拡大した調達・利活用ガイドライン改定を要約し、ガバナンス設計の観点からVectaの考察を添えました。',
+    publishedAt: new Date('2026-06-12T00:00:00+09:00'),
+    heroImage: '/article/digital-jpn-press-conference-2026-06-12.png',
+    videoId: '5dMcm0BOQrI',
+    component: () => import('./posts/DigitalJpnPressConference20260612.svelte'),
+  },
+  {
     slug: 'vecta-launch-story',
     title: '株式会社Vecta、始動',
     description:
@@ -26,6 +59,11 @@ export const articles: ArticleMeta[] = [
 ].sort(byNewest)
 
 export const articleSlugs = articles.map((article) => article.slug)
+
+// 動画由来のダイジェスト記事はホームページのトップ枠には出さず、/article/ 一覧のみに掲載する
+export const featuredArticles = articles
+  .filter((article) => !article.videoId)
+  .slice(0, 3)
 
 export const articleRedirects: Record<string, string> = {
   'homepage-launch': 'vecta-launch-story',

@@ -29,6 +29,7 @@ This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `
 - **Routes**: SvelteKit routes in `src/routes/`.
 - **Home page**: `src/routes/+page.svelte` renders the corporate landing page.
 - **Articles**: metadata lives in `src/lib/articles/registry.ts`; article bodies are Svelte components under `src/lib/articles/posts/`.
+- **Digest articles**: Digital Agency press-conference digest articles are Markdown bodies in `src/lib/articles/posts/*.md` rendered through `MarkdownBody.svelte` via fixed-template Svelte wrappers. Generation is handled by the `digest` skill (`.claude/skills/digest/`) and the fetch CLI (`scripts/digest/`).
 - **Vecta content**: company, navigation, project, and hero copy lives in `src/lib/vecta/content.ts`.
 - **SEO**: title, canonical URL, OGP, JSON-LD, and sitemap helpers live in `src/lib/vecta/seo.ts`.
 - **Static assets**: stored in `public/`, configured as the SvelteKit assets directory in `vite.config.ts`.
@@ -36,7 +37,7 @@ This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `
 ### Key Technical Decisions
 
 1. **SvelteKit static output**: `adapter-static` writes both pages and assets to `dist/`.
-2. **Svelte article bodies**: each article body is a `.svelte` component.
+2. **Svelte article bodies**: each article body is a `.svelte` component (digest articles wrap Markdown via `MarkdownBody.svelte`).
 3. **Typed registries**: route-facing content is centralized in typed registries under `src/lib/`.
 4. **Trailing slash URLs**: `src/routes/+layout.ts` exports `trailingSlash = 'always'` to preserve `/article/{slug}/` URLs.
 5. **Contact form**: validation and payload shaping are pure helpers in `src/lib/vecta/contact.ts`; UI state lives in `ContactForm.svelte`.
@@ -51,6 +52,7 @@ This is a corporate website for Vecta built with SvelteKit, Svelte 5, Bun, and `
   - Navy: `#0A1E3C`
   - Golden Orange: `#E69500`
   - Ink: `#2F2F2F`
+  - Vector Blue: `#2F6FED`
 
 ### Important Files
 

@@ -132,6 +132,12 @@ vecta.co.jp/
 
 記事 URL は `/article/{slug}/` の trailing slash 形式で静的生成されます。
 
+### ダイジェスト記事
+
+デジタル庁の記者会見動画を要約したダイジェスト記事は、Markdown 本文 (`src/lib/articles/posts/*.md`) を固定テンプレートの Svelte ラッパー経由で `MarkdownBody.svelte` が描画します。registry のエントリには重複生成防止の照合キーとして `videoId` を含めます。
+
+記事の生成は `.claude/skills/digest/` スキル (Claude Code) と取得 CLI (`scripts/digest/`) が担当し、公開は必ず PR の人間レビューを経ます。
+
 ## デザインガイドライン
 
 ### カラーパレット
