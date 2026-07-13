@@ -20,7 +20,7 @@ export const articles: ArticleMeta[] = [
     description:
       'ガバメントAI「源内」で国産クラウド×国産AIの試用が始まった2026年7月10日の会見を要約し、行政AIの信頼構築という観点からVectaの考察を添えました。',
     publishedAt: new Date('2026-07-10T00:00:00+09:00'),
-    heroImage: '/article/digest-press-conference.svg',
+    heroImage: '/article/digital-jpn-press-conference-2026-07-10.png',
     videoId: 'sVduWLXdk7U',
     component: () => import('./posts/DigitalJpnPressConference20260710.svelte'),
   },
