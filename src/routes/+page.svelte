@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { articles } from '$lib/articles/registry'
+  import { featuredArticles } from '$lib/articles/registry'
   import ArticleCard from '$lib/vecta/ArticleCard.svelte'
   import ContactForm from '$lib/vecta/ContactForm.svelte'
   import {
@@ -21,7 +21,6 @@
     buildWebsiteJsonLd,
   } from '$lib/vecta/seo'
 
-  const featuredArticles = articles.slice(0, 3)
   const seo = buildPageSeo()
   const jsonLd = [
     buildWebsiteJsonLd(),

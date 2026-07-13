@@ -1,5 +1,10 @@
 import { describe, expect, test } from 'bun:test'
-import { articleRedirects, articles, getArticleBySlug } from './registry'
+import {
+  articleRedirects,
+  articles,
+  featuredArticles,
+  getArticleBySlug,
+} from './registry'
 
 describe('article registry', () => {
   test('contains the curated article slugs', () => {
@@ -40,5 +45,10 @@ describe('article registry', () => {
   test('keeps merged article URLs redirected to the canonical article', () => {
     expect(articleRedirects['homepage-launch']).toBe('vecta-launch-story')
     expect(articleRedirects['about-gdrant']).toBe('what-is-vector-data')
+  })
+
+  test('excludes video-sourced digest articles from the featured homepage selection', () => {
+    expect(featuredArticles.length).toBeLessThanOrEqual(3)
+    expect(featuredArticles.every((article) => !article.videoId)).toBe(true)
   })
 })

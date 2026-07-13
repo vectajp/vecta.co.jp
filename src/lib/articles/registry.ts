@@ -37,6 +37,11 @@ export const articles: ArticleMeta[] = [
 
 export const articleSlugs = articles.map((article) => article.slug)
 
+// 動画由来のダイジェスト記事はホームページのトップ枠には出さず、/article/ 一覧のみに掲載する
+export const featuredArticles = articles
+  .filter((article) => !article.videoId)
+  .slice(0, 3)
+
 export const articleRedirects: Record<string, string> = {
   'homepage-launch': 'vecta-launch-story',
   'about-gdrant': 'what-is-vector-data',
