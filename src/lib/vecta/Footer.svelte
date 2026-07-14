@@ -10,10 +10,10 @@
     <div class="footer-content">
       <div class="footer-brand">
         <img
-          src="/assets/logo_horizontal.svg"
+          src="/assets/logo_horizontal_inverted.svg"
           alt="Vecta"
-          width="300"
-          height="100"
+          width="1030"
+          height="365"
           loading="lazy"
           decoding="async"
         >
@@ -55,7 +55,6 @@
     width: 150px;
     height: auto;
     margin-bottom: 0.75rem;
-    filter: brightness(0) invert(1);
   }
 
   .footer-brand p {
