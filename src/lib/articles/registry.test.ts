@@ -47,6 +47,19 @@ describe('article registry', () => {
     expect(articleRedirects['about-gdrant']).toBe('what-is-vector-data')
   })
 
+  test('keeps the vector data article image aligned with the declared OGP size', async () => {
+    const image = Bun.file(
+      new URL(
+        '../../../public/article/what-is-vector-data.png',
+        import.meta.url,
+      ),
+    )
+    const header = new DataView(await image.arrayBuffer())
+
+    expect(header.getUint32(16)).toBe(1200)
+    expect(header.getUint32(20)).toBe(630)
+  })
+
   test('excludes video-sourced digest articles from the featured homepage selection', () => {
     expect(featuredArticles.length).toBeLessThanOrEqual(3)
     expect(featuredArticles.every((article) => !article.videoId)).toBe(true)
