@@ -12,8 +12,8 @@
         <img
           src="/assets/logo_horizontal.svg"
           alt="Vecta"
-          width="300"
-          height="100"
+          width="1030"
+          height="365"
           loading="lazy"
           decoding="async"
         >
