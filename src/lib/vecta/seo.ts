@@ -132,8 +132,8 @@ export const buildArticleJsonLd = (article: ArticlePageMeta): JsonLd => ({
   '@type': 'Article',
   headline: article.title,
   description: article.description,
-  datePublished: article.publishedAt.toISOString(),
-  dateModified: (article.updatedAt ?? article.publishedAt).toISOString(),
+  datePublished: formatDateJst(article.publishedAt),
+  dateModified: formatDateJst(article.updatedAt ?? article.publishedAt),
   image: buildAbsoluteUrl(article.heroImage),
   mainEntityOfPage: buildCanonicalUrl(`/article/${article.slug}/`),
   publisher: {
