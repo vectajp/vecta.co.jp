@@ -44,6 +44,7 @@ cp .env.example .env.local
 
 # .env.local を編集して必要な値を設定
 # PUBLIC_API_BASE_URL=http://localhost:8787
+PUBLIC_GA_MEASUREMENT_ID=
 ```
 
 #### 本番環境の設定
@@ -59,6 +60,16 @@ cp .env.example .env.local
 5. 「保存してデプロイ」をクリック
 
 この設定を行わないと、本番環境でお問い合わせフォームが動作しません。
+
+### Google Analytics 4
+
+Vecta のアクセス状況は Google Analytics 4 で計測する。`PUBLIC_GA_MEASUREMENT_ID` には、このサイト専用の GA4 プロパティの Measurement ID を設定する。
+
+- `.env.example` と Git には実 ID を保存しない。
+- Cloudflare Pages の Production と Preview に、それぞれ `PUBLIC_GA_MEASUREMENT_ID` を設定する。
+- 値が未設定または不正な場合は、Google Analytics を読み込まない。
+- デプロイ後は Tag Assistant と GA4 Realtime で、タグが1個だけ検出されることを確認する。
+- プライバシー開示は `/privacy/` で公開する。開示文面は Production 反映前に事業・法務責任者が確認する。
 
 ### 開発コマンド
 
