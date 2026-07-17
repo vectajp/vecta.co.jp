@@ -28,6 +28,9 @@
               <a href={hrefFor(item.href)}>{item.label}</a>
             </li>
           {/each}
+          <li>
+            <a href="/privacy/">プライバシーについて</a>
+          </li>
         </ul>
       </nav>
     </div>
