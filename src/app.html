@@ -2,12 +2,14 @@
 <html lang="ja">
   <head>
     <script data-ga-measurement-id="%sveltekit.env.PUBLIC_GA_MEASUREMENT_ID%">
-      const measurementId = document.currentScript?.getAttribute('data-ga-measurement-id') ?? ''
+      const measurementId =
+        document.currentScript?.getAttribute('data-ga-measurement-id') ?? ''
+      const gtag = (...args) => {
+        window.dataLayer.push(args)
+      }
+
       if (/^G-[A-Z0-9]+$/.test(measurementId)) {
         window.dataLayer = window.dataLayer || []
-        function gtag() {
-          window.dataLayer.push(arguments)
-        }
         gtag('js', new Date())
         gtag('config', measurementId)
 
