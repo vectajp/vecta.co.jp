@@ -511,6 +511,7 @@ git -C "/Users/sakurai.yuki/code/github/vectajp/swarrow.com" commit -m "docs: Sw
 **Files:**
 
 - Create: `swarrow.com/src/routes/privacy/+page.svelte`
+- Create: `swarrow.com/src/routes/privacy/+page.ts`
 - Modify: `swarrow.com/src/routes/+page.svelte`
 - Modify: `swarrow.com/tests/seo/build-output.test.ts`
 
@@ -564,6 +565,12 @@ bun --bun run test:seo
 Expected: FAIL with `ENOENT` because `build/privacy/index.html` does not yet exist.
 
 **Step 3: Write minimal implementation**
+
+Create `swarrow.com/src/routes/privacy/+page.ts` so the `/privacy/` link is emitted as `build/privacy/index.html` rather than the adapter-static default `build/privacy.html`:
+
+```ts
+export const trailingSlash = "always";
+```
 
 Create `swarrow.com/src/routes/privacy/+page.svelte`:
 
@@ -735,7 +742,7 @@ Expected: PASS; build output contains one deterministic test tag, a footer priva
 **Step 5: Commit**
 
 ```bash
-git -C "/Users/sakurai.yuki/code/github/vectajp/swarrow.com" add src/routes/privacy/+page.svelte src/routes/+page.svelte tests/seo/build-output.test.ts
+git -C "/Users/sakurai.yuki/code/github/vectajp/swarrow.com" add src/routes/privacy/+page.svelte src/routes/privacy/+page.ts src/routes/+page.svelte tests/seo/build-output.test.ts
 git -C "/Users/sakurai.yuki/code/github/vectajp/swarrow.com" commit -m "feat: Swarrow にプライバシー開示を追加"
 ```
 
