@@ -4,12 +4,14 @@
     <script data-ga-measurement-id="%sveltekit.env.PUBLIC_GA_MEASUREMENT_ID%">
       const measurementId =
         document.currentScript?.getAttribute('data-ga-measurement-id') ?? ''
-      const gtag = (...args) => {
-        window.dataLayer.push(args)
-      }
 
       if (/^G-[A-Z0-9]+$/.test(measurementId)) {
         window.dataLayer = window.dataLayer || []
+        // biome-ignore lint/correctness/noInnerDeclarations: Google tag uses this standard queue function.
+        function gtag() {
+          // biome-ignore lint/complexity/noArguments: Google tag requires its arguments object in dataLayer.
+          window.dataLayer.push(arguments)
+        }
         gtag('js', new Date())
         gtag('config', measurementId)
 
