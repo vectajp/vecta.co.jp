@@ -1,0 +1,39 @@
+{
+  "css.validate": false,
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    ".env.template": ".env*",
+    ".dev.vars.example": ".dev.vars",
+    "*.ts": "$(capture).test.ts, $(capture).spec.ts",
+    "package.json": "package-lock.json, bun.lockb, bun.lock, bun.lockb, .npmrc",
+    "CLAUDE.md": "AGENTS.md",
+    "cspell.json": "app-words.txt"
+  }
+}

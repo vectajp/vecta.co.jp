@@ -13,7 +13,8 @@
       "!node_modules",
       "!.svelte-kit",
       "!public/**/*.svg",
-      "!src/assets/**/*.svg"
+      "!src/assets/**/*.svg",
+      "!apps"
     ]
   },
   "html": {

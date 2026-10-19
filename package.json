@@ -23,12 +23,25 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''",
-    "test": "bun test --pass-with-no-tests",
+    "test": "bun test src scripts packages",
     "clean": "git clean -xdf node_modules dist .svelte-kit",
     "scaffold": "scaffdog",
     "format": "biome format --write .",
-    "check": "biome check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && bun run test",
-    "check:fix": "biome check --write"
+    "check": "bun run check:vecta && bun run --cwd apps/swarrow check",
+    "check:fix": "biome check --write",
+    "check:vecta": "biome check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && bun run test",
+    "build:swarrow": "bun run --cwd apps/swarrow build",
+    "build:all": "bun run build && bun run build:swarrow",
+    "dev:swarrow": "bun run --cwd apps/swarrow dev",
+    "test:seo": "bun run --cwd apps/swarrow test:seo"
   },
-  "type": "module"
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@vecta/site-content": "workspace:*"
+  }
 }

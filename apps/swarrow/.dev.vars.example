@@ -1,0 +1,2 @@
+# Pages Functions no longer send mail directly.
+# Keep this file for Cloudflare Pages local development compatibility.

@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test'
+import { productNews } from '@vecta/site-content/news'
 import {
   articleRedirects,
   articles,
@@ -11,6 +12,7 @@ describe('article registry', () => {
     const slugs = articles.map((article) => article.slug)
     expect(slugs).toContain('what-is-vector-data')
     expect(slugs).toContain('vecta-launch-story')
+    expect(slugs).toContain('miyakonojo-ai-window-nhk')
   })
 
   test('keeps slugs unique', () => {
@@ -32,6 +34,19 @@ describe('article registry', () => {
       if (article.videoId) {
         expect(article.videoId).toMatch(/^[A-Za-z0-9_-]{11}$/)
       }
+    }
+  })
+
+  test('provides a registered article and local cover for every product news item', async () => {
+    for (const news of productNews) {
+      const article = getArticleBySlug(news.slug)
+      expect(article?.category).toBe(news.category)
+      expect(article?.heroImageAlt).toBeTruthy()
+      expect(
+        await Bun.file(
+          new URL(`../../../public${news.image}`, import.meta.url),
+        ).exists(),
+      ).toBe(true)
     }
   })
 

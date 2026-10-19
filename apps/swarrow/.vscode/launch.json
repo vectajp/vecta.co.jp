@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Sales Deck",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "cwd": "${workspaceFolder}/docs/sales/miyagawa",
+      "serverReadyAction": {
+        "pattern": "Serving HTTP on .* port ([0-9]+)",
+        "uriFormat": "http://127.0.0.1:%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "Swarrow Site: Dev",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bun run dev",
+      "cwd": "${workspaceFolder}",
+      "serverReadyAction": {
+        "pattern": "Local.*http://localhost:([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "openExternally"
+      }
+    }
+  ]
+}

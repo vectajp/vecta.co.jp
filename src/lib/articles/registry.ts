@@ -1,11 +1,57 @@
-import type { ArticleMeta } from './types'
+import { productNews } from '@vecta/site-content/news'
+import type { ArticleComponentLoader, ArticleMeta } from './types'
+
+const productArticleComponents: Record<
+  (typeof productNews)[number]['slug'],
+  ArticleComponentLoader
+> = {
+  'miyakonojo-ai-window-launch-202610': () =>
+    import('./posts/MiyakonojoAiWindowLaunch202610.svelte'),
+  'swarrowchat-usage-report-202607': () =>
+    import('./posts/SwarrowChatUsageReport202607.svelte'),
+  'swarrowchat-question-categories-202610': () =>
+    import('./posts/SwarrowChatQuestionCategories202610.svelte'),
+  'swarrowchat-widget-layout-202609': () =>
+    import('./posts/SwarrowChatWidgetLayout202609.svelte'),
+  'swarrowchat-multilingual-guide-202610': () =>
+    import('./posts/SwarrowChatMultilingualGuide202610.svelte'),
+  'swarrowchat-website-updates-202604': () =>
+    import('./posts/SwarrowChatWebsiteUpdates202604.svelte'),
+  'swarrowcall-response-latency-202604': () =>
+    import('./posts/SwarrowCallResponseLatency202604.svelte'),
+  'swarrowcall-phone-transfer-202605': () =>
+    import('./posts/SwarrowCallPhoneTransfer202605.svelte'),
+  'swarrowchat-voice-navigation-202610': () =>
+    import('./posts/SwarrowChatVoiceNavigation202610.svelte'),
+  'miyakonojo-digital-gyosei-2026': () =>
+    import('./posts/MiyakonojoDigitalGyosei2026.svelte'),
+  'miyakonojo-ai-window-nhk': () =>
+    import('./posts/MiyakonojoAiWindowNhk.svelte'),
+  'miyakonojo-dx-challenge-2026': () =>
+    import('./posts/MiyakonojoDxChallenge2026.svelte'),
+}
 
 const byNewest = (a: ArticleMeta, b: ArticleMeta) =>
   b.publishedAt.getTime() - a.publishedAt.getTime()
 
-export const articles: ArticleMeta[] = [
+const allArticles: ArticleMeta[] = [
+  ...productNews.map(
+    (news): ArticleMeta => ({
+      slug: news.slug,
+      category: news.category,
+      title: news.title,
+      description: news.description,
+      publishedAt: new Date(`${news.date}T00:00:00+09:00`),
+      heroImage: news.image,
+      heroImageAlt: news.imageAlt,
+      heroImageWidth: news.imageWidth,
+      heroImageHeight: news.imageHeight,
+      component: productArticleComponents[news.slug],
+    }),
+  ),
   {
     slug: 'what-is-vector-data',
+    category: 'コラム',
     title: 'ベクトルデータとは？まちの情報を「意味」で探せるようにする技術',
     description:
       '「あの資料、どこにあったっけ」——キーワードが一致しないと見つからない検索の限界を、「意味の近さ」で越えるのがベクトルデータです。自治体の現場の例を使って、専門用語をできるだけ使わずに解説します。',
@@ -15,6 +61,7 @@ export const articles: ArticleMeta[] = [
   },
   {
     slug: 'digital-jpn-press-conference-2026-07-10',
+    category: 'コラム',
     title:
       '純国産AIは行政の信頼を築けるか——ガバメントAI「源内」考察(2026年7月10日)',
     description:
@@ -26,6 +73,7 @@ export const articles: ArticleMeta[] = [
   },
   {
     slug: 'gov-cybersecurity-guideline-2026-revision',
+    category: 'コラム',
     title:
       'パッチのためにシステムを止める決断は妥当か——政府機関等対策基準ガイドライン改定を深掘りする',
     description:
@@ -37,6 +85,7 @@ export const articles: ArticleMeta[] = [
   },
   {
     slug: 'digital-jpn-press-conference-2026-06-12',
+    category: 'コラム',
     title:
       '生成AIの利活用促進とガバナンス強化は両立できるか——ガイドライン改定考察(2026年6月12日)',
     description:
@@ -48,6 +97,7 @@ export const articles: ArticleMeta[] = [
   },
   {
     slug: 'vecta-launch-story',
+    category: 'お知らせ',
     title: '株式会社Vecta、始動',
     description:
       'ベクトルデータベースとAIの可能性を、もっと身近に。株式会社Vectaの始動と公式ホームページ開設のお知らせ。',
@@ -56,7 +106,9 @@ export const articles: ArticleMeta[] = [
     heroImage: '/article/vecta-launch-story-logo.svg',
     component: () => import('./posts/VectaLaunchStory.svelte'),
   },
-].sort(byNewest)
+]
+
+export const articles = allArticles.sort(byNewest)
 
 export const articleSlugs = articles.map((article) => article.slug)
 

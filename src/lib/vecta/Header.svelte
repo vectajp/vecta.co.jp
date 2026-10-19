@@ -1,137 +1,76 @@
 <script lang="ts">
   import { navItems } from './content'
-
-  const hrefFor = (href: string) => (href.startsWith('#') ? `/${href}` : href)
+  import { siteHref } from './links'
 </script>
-
 <header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <a class="brand" href="/" aria-label="Vecta トップページへ">
-        <img
-          src="/assets/logo_horizontal.svg"
-          alt="Vecta"
-          width="1030"
-          height="365"
-          loading="eager"
-          decoding="async"
-        >
-      </a>
-
-      <nav class="site-nav" aria-label="グローバルナビゲーション">
-        {#each navItems as item (item.href)}
-          <a class="nav-link" href={hrefFor(item.href)}>{item.label}</a>
-        {/each}
-      </nav>
-    </div>
+  <div class="container header-content">
+    <a class="brand" href="/" aria-label="Vecta トップページへ"
+      ><img
+        src="/assets/logo_horizontal.svg"
+        alt="Vecta"
+        width="1030"
+        height="365"
+      ></a
+    >
+    <nav class="site-nav" aria-label="グローバルナビゲーション">
+      {#each navItems as item (item.href)}
+        <a href={siteHref(item.href)}>{item.label}</a>
+      {/each}
+    </nav>
   </div>
 </header>
-
 <style>
   .site-header {
     position: sticky;
     top: 0;
     z-index: 20;
-    width: 100%;
-    background: rgba(251, 250, 247, 0.9);
+    background: var(--color-white);
     border-bottom: 1px solid var(--color-line);
-    backdrop-filter: blur(18px);
   }
-
   .header-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.75rem 0;
+    gap: 32px;
+    min-height: 84px;
   }
-
   .brand {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    margin-right: auto;
+    display: flex;
   }
-
   .brand img {
     display: block;
-    width: 132px;
+    width: 150px;
     height: auto;
   }
-
   .site-nav {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 0.35rem;
-    max-width: min(100%, calc(100vw - 11rem));
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-link {
-    position: relative;
-    display: inline-flex;
     align-items: center;
-    flex: 0 0 auto;
-    min-height: 2.25rem;
-    padding: 0.45rem 0.65rem;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    color: var(--color-indigo-darker);
-    font-family: var(--font-secondary);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0;
+    gap: 28px;
   }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0.65rem;
-    right: 0.65rem;
-    bottom: 0.35rem;
-    height: 2px;
-    background: var(--color-gold);
-    border-radius: 999px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+  .site-nav a {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
   }
-
-  .nav-link:hover,
-  .nav-link:focus-visible {
-    background: rgba(47, 111, 237, 0.08);
-    border-color: rgba(47, 111, 237, 0.16);
-    color: var(--color-indigo);
-  }
-
-  .nav-link:hover::after,
-  .nav-link:focus-visible::after {
-    opacity: 1;
-  }
-
-  @media (min-width: 769px) {
+  @media (max-width: 800px) {
     .header-content {
-      gap: 2rem;
-      padding: 0.9rem 0;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
-
     .brand img {
-      width: 154px;
+      width: 114px;
     }
-
     .site-nav {
-      gap: 0.25rem;
-      max-width: none;
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+      gap: 12px;
     }
-
-    .nav-link {
-      padding: 0.5rem 0.82rem;
-      font-size: 0.9rem;
+    .site-nav a {
+      font-size: 12px;
+      padding: 8px 0;
     }
   }
 </style>

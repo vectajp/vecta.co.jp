@@ -28,19 +28,21 @@
     <header class="article-hero">
       <div class="container">
         <a class="back-link" href="/article/">ニュース一覧へ</a>
-        <div class="article-hero-grid">
+        <div class="article-hero-stack">
           <div class="article-heading">
-            <time datetime={article.publishedAt.toISOString()}>
-              {dateFormatter.format(article.publishedAt)}
-            </time>
+            <div class="article-meta">
+              <time datetime={article.publishedAt.toISOString()}>
+                {dateFormatter.format(article.publishedAt)}
+              </time>
+              <span class="news-label">{article.category}</span>
+            </div>
             <h1>{article.title}</h1>
-            <p>{article.description}</p>
           </div>
           <img
             src={article.heroImage}
-            alt=""
-            width="720"
-            height="360"
+            alt={article.heroImageAlt ?? ''}
+            width={article.heroImageWidth ?? 1200}
+            height={article.heroImageHeight ?? 630}
             loading="eager"
             decoding="async"
           >
@@ -64,29 +66,20 @@
   }
 
   .article-hero {
-    background:
-      linear-gradient(rgba(9, 27, 51, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(9, 27, 51, 0.035) 1px, transparent 1px),
-      linear-gradient(180deg, var(--color-paper) 0%, var(--color-white) 100%);
-    background-size:
-      42px 42px,
-      42px 42px,
-      auto;
-    padding: 3rem 0;
+    padding: 40px 0 0;
+  }
+
+  .article-hero > .container {
+    max-width: 900px;
   }
 
   .back-link {
     display: inline-flex;
     align-items: center;
-    min-height: 2.25rem;
-    padding: 0.35rem 0.75rem;
-    border: 1px solid var(--color-line);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    color: var(--color-indigo);
-    font-size: 0.92rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    min-height: 32px;
+    color: var(--color-medium-text);
+    font-size: 14px;
+    margin-bottom: 32px;
   }
 
   .back-link:hover,
@@ -94,52 +87,44 @@
     color: var(--color-gold);
   }
 
-  .article-hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
+  .article-hero-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
   .article-heading {
-    max-width: 780px;
+    width: 100%;
   }
 
-  .article-heading time {
-    display: block;
-    color: var(--color-vector-blue);
-    font-family: var(--font-monospace);
-    font-size: 0.82rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-bottom: 20px;
+    color: var(--color-medium-text);
+    font-size: 14px;
   }
 
   .article-heading h1 {
     color: var(--color-indigo);
-    font-size: 2.15rem;
-    line-height: 1.35;
-    margin-bottom: 1rem;
-  }
-
-  .article-heading p {
-    color: var(--color-medium-text);
-    line-height: 1.8;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.55;
+    margin: 0;
+    overflow-wrap: anywhere;
   }
 
   .article-hero img {
+    display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 2 / 1;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--color-line);
-    box-shadow: var(--shadow-soft);
   }
 
   .article-content {
-    max-width: 820px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 3rem 0 5rem;
+    padding: 32px 0 80px;
   }
 
   .article-content :global(.article-body) {
@@ -186,20 +171,7 @@
 
   @media (min-width: 769px) {
     .article-hero {
-      padding: 4rem 0;
-    }
-
-    .article-hero-grid {
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-      gap: 3rem;
-    }
-
-    .article-heading h1 {
-      font-size: 3rem;
-    }
-
-    .article-content {
-      padding: 4rem 0 6rem;
+      padding-top: 48px;
     }
 
     .article-content :global(.article-body) {

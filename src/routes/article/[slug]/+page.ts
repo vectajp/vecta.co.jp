@@ -25,10 +25,14 @@ export const load = async ({ params }) => {
     article: {
       slug: article.slug,
       title: article.title,
+      category: article.category,
       description: article.description,
       publishedAt: article.publishedAt,
       updatedAt: article.updatedAt,
       heroImage: article.heroImage,
+      heroImageAlt: article.heroImageAlt,
+      heroImageWidth: article.heroImageWidth,
+      heroImageHeight: article.heroImageHeight,
     },
     content,
   }

@@ -18,6 +18,7 @@
 <article class="article-card card">
   <a href={`/article/${article.slug}/`}>
     <img
+      class:preserve-frame={article.slug === 'miyakonojo-ai-window-nhk'}
       src={article.heroImage}
       alt=""
       width="360"
@@ -26,10 +27,13 @@
       decoding="async"
     >
     <div class="article-card-body">
-      <h3>{article.title}</h3>
-      <time datetime={article.publishedAt.toISOString()}>
-        {dateFormatter.format(article.publishedAt)}
-      </time>
+      <div class="article-card-meta">
+        <time datetime={article.publishedAt.toISOString()}>
+          {dateFormatter.format(article.publishedAt)}
+        </time>
+        <span class="news-label">{article.category}</span>
+      </div>
+      <h2>{article.title}</h2>
       <p>{article.description}</p>
     </div>
   </a>
@@ -73,7 +77,11 @@
     padding: 1.2rem;
   }
 
-  .article-card h3 {
+  .article-card img.preserve-frame {
+    object-fit: contain;
+  }
+
+  .article-card h2 {
     color: var(--color-indigo);
     font-size: 1.05rem;
     line-height: 1.45;
@@ -82,11 +90,16 @@
 
   .article-card time {
     display: block;
-    order: -1;
     color: var(--color-vector-blue);
-    font-family: var(--font-monospace);
     font-size: 0.78rem;
-    margin-bottom: 0.7rem;
+  }
+
+  .article-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-bottom: 0.9rem;
   }
 
   .article-card p {

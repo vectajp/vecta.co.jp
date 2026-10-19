@@ -8,22 +8,13 @@ describe('vecta site content', () => {
     expect(site.description).toContain('公共性')
   })
 
-  test('keeps required navigation anchors', () => {
-    expect(navItems.map((item) => item.href)).toEqual([
-      '#concept',
-      '#projects',
-      '#articles',
-      '#company',
-      '#contact',
+  test('links the two services, news and company information', () => {
+    expect(navItems).toEqual([
+      { href: 'https://swarrow.com/chat', label: 'SwarrowChat' },
+      { href: 'https://swarrow.com/call', label: 'SwarrowCall' },
+      { href: '/article/', label: 'ニュース' },
+      { href: '/company/', label: '会社情報' },
     ])
-  })
-
-  test('defines a section heading for every navigation anchor', () => {
-    for (const item of navItems) {
-      const key = item.href.slice(1) as keyof typeof sectionHeadings
-      expect(sectionHeadings[key]).toBeDefined()
-      expect(sectionHeadings[key].kicker).not.toBeEmpty()
-      expect(sectionHeadings[key].title).not.toBeEmpty()
-    }
+    expect(sectionHeadings.company.title).toBe('会社情報')
   })
 })

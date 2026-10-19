@@ -4,7 +4,15 @@
 
 [![CI](https://github.com/vectajp/vecta.co.jp/actions/workflows/ci.yml/badge.svg)](https://github.com/vectajp/vecta.co.jp/actions/workflows/ci.yml)
 
-Vecta のコーポレートサイト。
+Vecta の会社サイトと SwarrowChat / SwarrowCall の製品サイトを管理するBun workspace。
+
+- Vecta: ルートの `src/`・`public/` → `dist/`
+- Swarrow: `apps/swarrow/` → `apps/swarrow/build/`
+- 共通ニュース: `packages/site-content/news.ts`
+- デザイン・資料・コピーの共通方針: [DESIGN.md](DESIGN.md)
+- 開発・公開元の切替: [docs/site-workspace.md](docs/site-workspace.md)
+
+`bun run dev:swarrow` で製品サイト、`bun run build:all` で両サイトをビルドする。
 
 ロゴアイコンは、「書類」などのアナログ情報を、ベクトルデータの「ブロック」へ構造化することで、世の中の知識を使いやすく整理し、誰でもアクセスできる仕組みを組み立てるという Vecta のミッションを表現したものです。
 

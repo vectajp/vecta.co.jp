@@ -1,21 +1,12 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import { featuredArticles } from '$lib/articles/registry'
-  import ArticleCard from '$lib/vecta/ArticleCard.svelte'
   import ContactForm from '$lib/vecta/ContactForm.svelte'
-  import {
-    companyDetails,
-    conceptParagraphs,
-    contactLead,
-    hero,
-    sectionHeadings,
-    site,
-  } from '$lib/vecta/content'
+  import { conceptParagraphs, site } from '$lib/vecta/content'
   import Footer from '$lib/vecta/Footer.svelte'
   import Header from '$lib/vecta/Header.svelte'
+  import { siteHref } from '$lib/vecta/links'
   import {
     buildBreadcrumbJsonLd,
-    buildFaqJsonLd,
     buildOrganizationJsonLd,
     buildPageSeo,
     buildWebsiteJsonLd,
@@ -26,23 +17,18 @@
     buildWebsiteJsonLd(),
     buildOrganizationJsonLd(),
     buildBreadcrumbJsonLd([{ name: 'ホーム', path: '/' }]),
-    buildFaqJsonLd(),
   ]
-  onMount(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return
-    }
-
-    const videos = document.querySelectorAll<HTMLVideoElement>(
-      '[data-motion-video]',
-    )
-    for (const video of videos) {
-      video.muted = true
-      void video.play().catch(() => {})
-    }
-  })
+  const latest = featuredArticles[0]
+  const dateLabel = (date: Date) =>
+    new Intl.DateTimeFormat('ja-JP', {
+      timeZone: 'Asia/Tokyo',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    })
+      .format(date)
+      .replaceAll('/', '.')
 </script>
-
 <svelte:head>
   <title>{seo.title}</title>
   <meta name="description" content={seo.description}>
@@ -66,657 +52,497 @@
     {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
   {/each}
 </svelte:head>
-
-<div class="page">
-  <Header />
-
-  <main>
-    <section id="hero" class="hero-section">
-      <div class="container hero-layout">
-        <div class="hero-content">
-          <p class="hero-kicker">{site.title}</p>
-          <h1>{hero.title}</h1>
-          <p class="hero-subtitle">{hero.subtitle}</p>
+{#snippet arrow()}
+  <svg
+    viewBox="0 0 24 24"
+    width="22"
+    height="22"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    aria-hidden="true"
+  >
+    <path d="M4 12h15m-6-6 6 6-6 6" />
+  </svg>
+{/snippet}
+<Header />
+<main>
+  <section class="hero-section" aria-labelledby="hero-title">
+    <img
+      class="hero-image"
+      src="/assets/vecta-city-2026.webp"
+      alt=""
+      width="2400"
+      height="1000"
+      fetchpriority="high"
+    >
+    <div class="container hero-content">
+      <p class="hero-company">株式会社Vecta</p>
+      <h1 id="hero-title">
+        <span>地域の知識を</span><span>誰もが使える社会へ</span>
+      </h1>
+    </div>
+  </section>
+  {#if latest}
+    <div class="container latest">
+      <a href="/article/{latest.slug}/" class="news-strip">
+        <time datetime={latest.publishedAt.toISOString()}
+          >{dateLabel(latest.publishedAt)}</time
+        >
+        <span class="news-label">{latest.category ?? 'お知らせ'}</span>
+        <span class="news-strip-title">{latest.title}</span>
+        {@render arrow()}
+      </a>
+    </div>
+  {/if}
+  <section
+    id="projects"
+    class="services container"
+    aria-labelledby="services-title"
+  >
+    <div class="services-intro">
+      <h2 id="services-title">自治体の問い合わせ対応を支えるサービス</h2>
+    </div>
+    <div class="services-grid">
+      <article class="service">
+        <div class="service-heading">
+          <img src="/assets/swarrow-icon.png" alt="" width="120" height="120">
+          <div>
+            <h3>SwarrowChat</h3>
+            <p>自治体ホームページ AIチャットボット</p>
+          </div>
         </div>
-
-        <div class="hero-media" aria-hidden="true">
-          <video
-            class="hero-video"
-            data-motion-video
-            poster="/assets/hero-city-poster.webp"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            width="1280"
-            height="720"
+        <figure class="service-media chat-media">
+          <a
+            href={siteHref('https://swarrow.com/chat')}
+            aria-label="SwarrowChatの詳細を見る"
+            ><img
+              src="/assets/swarrowchat-wide.webp"
+              alt="SwarrowChatで回答と参照資料を確認する画面"
+              width="980"
+              height="760"
+              loading="lazy"
+            ></a
           >
-            <source src="/assets/hero-city.webm" type="video/webm">
-            <source src="/assets/hero-city.mp4" type="video/mp4">
-            <img
-              class="hero-video-fallback"
-              src="/assets/hero-city.webp"
-              alt=""
-              width="960"
-              height="540"
-              loading="eager"
-              decoding="async"
-            >
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <section id="concept" class="concept-section">
-      <div class="container section-layout concept-layout">
-        <div class="section-heading section-heading--light">
-          <p>{sectionHeadings.concept.kicker}</p>
-          <h2>{sectionHeadings.concept.title}</h2>
-        </div>
-        <div class="concept-content">
-          <div class="concept-copy">
-            {#each conceptParagraphs as paragraph}
-              <p>{paragraph}</p>
-            {/each}
-          </div>
-          <figure class="concept-visual" aria-hidden="true">
-            <video
-              class="concept-video"
-              data-motion-video
-              poster="/assets/concept-knowledge-poster.webp"
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              width="960"
-              height="540"
-            >
-              <source
-                src="/assets/concept-knowledge-loop.webm"
-                type="video/webm"
-              >
-              <img
-                class="concept-video-fallback"
-                src="/assets/concept-knowledge-poster.webp"
-                alt=""
-                width="960"
-                height="540"
-                loading="lazy"
-                decoding="async"
-              >
-            </video>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-      <div class="container section-layout">
-        <div class="section-heading">
-          <p>{sectionHeadings.projects.kicker}</p>
-          <h2>{sectionHeadings.projects.title}</h2>
-        </div>
-        <div class="article-grid">
-          <article class="swarrow-card card">
-            <a href="https://swarrow.com/">
-              <div class="swarrow-card-media">
-                <img
-                  src="/assets/Swarrow_Logo.png"
-                  alt="Swarrow"
-                  width="789"
-                  height="820"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-              <div class="swarrow-card-body">
-                <h3>Swarrow</h3>
-                <p class="swarrow-card-kind">自治体 AI サービス</p>
-                <p class="swarrow-card-lede">
-                  <span>回答精度に妥協しない。</span>
-                  <span>自治体フルチューニングAI。</span>
-                </p>
-                <p class="swarrow-card-description">
-                  チャットやコールセンターのAI機能を安心してご利用いただくには、回答精度を支える設計が欠かせません。自治体の公式情報・回答ルール・職員への引き継ぎなどを、実際のオペレーションに合わせて個別に設計します。公開後も利用状況をもとに回答品質を継続的に高め、運用を重ねるほど改善につなげられる仕組みを整えます。
-                </p>
-              </div>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="articles" class="articles-section">
-      <div class="container section-layout">
-        <div class="section-heading">
-          <p>{sectionHeadings.articles.kicker}</p>
-          <h2>{sectionHeadings.articles.title}</h2>
-        </div>
-        <div class="article-grid">
-          {#each featuredArticles as article (article.slug)}
-            <ArticleCard {article} />
-          {/each}
-        </div>
-        <div class="section-action">
-          <a href="/article/" class="button button-secondary">ニュース一覧へ</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="company" class="company-section">
-      <div class="container section-layout">
-        <div class="section-heading">
-          <p>{sectionHeadings.company.kicker}</p>
-          <h2>{sectionHeadings.company.title}</h2>
-        </div>
-        <div class="company-content">
-          <div class="company-info">
-            <dl class="info-list card">
-              {#each companyDetails as item (item.label)}
-                <div class="info-item">
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              {/each}
-            </dl>
+        </figure>
+        <p class="service-description">
+          公式情報をもとに質問に答え、手続きへ案内
+        </p>
+        <a class="text-link" href={siteHref('https://swarrow.com/chat')}
+          >詳しく見る {@render arrow()}</a
+        >
+      </article>
+      <article class="service">
+        <div class="service-heading">
+          <img src="/assets/swarrow-icon.png" alt="" width="120" height="120">
+          <div>
+            <h3>SwarrowCall</h3>
+            <p>電話のAI窓口</p>
           </div>
         </div>
+        <figure class="service-media call-media">
+          <a
+            href={siteHref('https://swarrow.com/call')}
+            aria-label="SwarrowCallの詳細を見る"
+            ><img
+              src="/assets/swarrowcall-service.webp"
+              alt="利用者からの電話にAIが応答し、必要な情報や担当先へ案内するSwarrowCall"
+              width="1586"
+              height="992"
+              loading="lazy"
+            ></a
+          >
+        </figure>
+        <p class="service-description">電話の一次受付や担当課への案内を支援</p>
+        <a class="text-link" href={siteHref('https://swarrow.com/call')}
+          >詳しく見る {@render arrow()}</a
+        >
+      </article>
+    </div>
+  </section>
+  <section id="concept" class="about-section" aria-labelledby="about-title">
+    <img
+      src="/assets/vecta-river-2026.webp"
+      alt=""
+      width="1800"
+      height="700"
+      loading="lazy"
+    >
+    <div class="container">
+      <div class="about-copy">
+        <h2 id="about-title">Vectaについて</h2>
+        {#each conceptParagraphs as paragraph}
+          <p>{paragraph}</p>
+        {/each}
+        <a id="company" class="text-link" href="/company/"
+          >会社情報を見る {@render arrow()}</a
+        >
       </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="container section-layout">
-        <div class="section-heading">
-          <p>{sectionHeadings.contact.kicker}</p>
-          <h2>{sectionHeadings.contact.title}</h2>
-        </div>
-        <div class="contact-content">
-          <p class="contact-lead">{contactLead}</p>
-          <div class="contact-card card">
-            <ContactForm />
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-</div>
-
+    </div>
+  </section>
+  <section
+    id="articles"
+    class="news-section container"
+    aria-labelledby="news-title"
+  >
+    <div class="section-top">
+      <h2 id="news-title">ニュース</h2>
+      <a class="text-link" href="/article/">一覧を見る {@render arrow()}</a>
+    </div>
+    <ul class="article-list">
+      {#each featuredArticles as article (article.slug)}
+        <li>
+          <a href="/article/{article.slug}/"
+            ><time datetime={article.publishedAt.toISOString()}
+              >{dateLabel(article.publishedAt)}</time
+            ><span class="news-label">{article.category}</span
+            ><span class="article-title">{article.title}</span>
+            {@render arrow()}</a
+          >
+        </li>
+      {/each}
+    </ul>
+  </section>
+  <section
+    id="contact"
+    class="contact-section container"
+    aria-labelledby="contact-title"
+  >
+    <div class="contact-copy">
+      <h2 id="contact-title">お問い合わせ</h2>
+    </div>
+    <div class="contact-form"><ContactForm /></div>
+  </section>
+</main>
+<Footer />
 <style>
-  .page {
-    background: var(--color-paper);
+  main {
+    color: var(--color-indigo);
   }
-
+  section[id] {
+    scroll-margin-top: 100px;
+  }
   .hero-section {
     position: relative;
-    overflow: hidden;
+    min-height: clamp(470px, 47vw, 650px);
+    padding: 0;
     isolation: isolate;
-    min-height: 640px;
-    padding: 3.25rem 0 4.75rem;
-    background: linear-gradient(
-      180deg,
-      var(--color-paper) 0%,
-      #f8f9f5 48%,
-      #f5f7f4 100%
-    );
-    color: var(--color-indigo-dark);
   }
-
-  .hero-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    align-items: center;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-  }
-
-  .hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    color: var(--color-vector-blue);
-    font-family: var(--font-monospace);
-    font-size: 0.88rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-
-  .hero-kicker::before {
-    content: "";
-    width: 2.25rem;
-    height: 1px;
-    background: var(--color-vector-blue);
-  }
-
-  .hero-content h1 {
-    color: var(--color-indigo-dark);
-    font-family: var(--font-secondary);
-    font-size: clamp(2.35rem, 10vw, 3.1rem);
-    line-height: 1.18;
-    margin-bottom: 1.15rem;
-    text-wrap: balance;
-  }
-
-  .hero-subtitle {
-    color: var(--color-indigo-dark);
-    font-size: 1.08rem;
-    line-height: 1.95;
-    margin: 0;
-    max-width: 640px;
-  }
-
-  .hero-media {
-    position: relative;
-    display: flex;
-    z-index: 1;
-    justify-content: center;
-    width: 100%;
-    min-width: 0;
-    margin: 0 auto;
-  }
-
-  .hero-video,
-  .hero-video-fallback {
-    display: block;
-    width: min(1120px, 126vw);
-    max-width: none;
-    height: auto;
-    background: #f5f7f4;
-    filter: brightness(1.055) contrast(0.99);
-    object-fit: contain;
-    -webkit-mask-image:
-      linear-gradient(
-        90deg,
-        transparent 0,
-        #000 11%,
-        #000 91%,
-        transparent 100%
-      ),
-      linear-gradient(
-        180deg,
-        transparent 0,
-        #000 10%,
-        #000 92%,
-        transparent 100%
-      );
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(
-        90deg,
-        transparent 0,
-        #000 11%,
-        #000 91%,
-        transparent 100%
-      ),
-      linear-gradient(
-        180deg,
-        transparent 0,
-        #000 10%,
-        #000 92%,
-        transparent 100%
-      );
-    mask-composite: intersect;
-  }
-
-  section {
-    scroll-margin-top: 5rem;
-  }
-
-  .section-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1.75rem, 3vw, 2.75rem);
-  }
-
-  .section-heading {
-    max-width: 42rem;
-  }
-
-  .section-heading p {
-    color: var(--color-vector-blue);
-    font-family: var(--font-monospace);
-    font-size: 0.82rem;
-    font-weight: 700;
-    margin-bottom: 0.55rem;
-    text-transform: uppercase;
-  }
-
-  .section-heading h2 {
-    color: var(--color-indigo);
-    font-size: 2rem;
-    line-height: 1.2;
-    margin: 0;
-  }
-
-  .section-heading--light p {
-    color: var(--color-amber-soft);
-  }
-
-  .section-heading--light h2 {
-    color: var(--color-white);
-  }
-
-  .concept-section {
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      var(--color-indigo);
-    background-size: 42px 42px;
-    color: var(--color-white);
-  }
-
-  .concept-layout {
-    display: grid;
-    gap: clamp(1.75rem, 3vw, 2.75rem);
-  }
-
-  .concept-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.6rem;
-    max-width: 1100px;
-  }
-
-  .concept-copy {
-    display: grid;
-    max-width: 820px;
-    gap: 1.1rem;
-  }
-
-  .concept-copy p {
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 1.04rem;
-    line-height: 1.95;
-    margin: 0;
-  }
-
-  .concept-visual {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.22);
-  }
-
-  .concept-visual::after {
-    content: "";
+  .hero-image {
     position: absolute;
     inset: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-  }
-
-  .concept-video,
-  .concept-video-fallback {
-    display: block;
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    background: #f4f7ff;
-  }
-
-  .articles-section {
-    background: var(--color-white);
-  }
-
-  .article-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 0;
-  }
-
-  .section-action {
-    margin-top: 0;
-    text-align: left;
-  }
-
-  .company-section,
-  .projects-section {
-    background: var(--color-mist);
-  }
-
-  .company-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0;
-  }
-
-  .info-list {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 1.35rem;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .info-list::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
     height: 100%;
-    background: var(--color-gold);
+    object-fit: cover;
+    z-index: -1;
   }
-
-  .info-item {
-    display: grid;
-    grid-template-columns: minmax(5rem, 0.35fr) 1fr;
-    gap: 1rem;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid var(--color-line);
+  .hero-content {
+    padding-top: clamp(42px, 5vw, 76px);
   }
-
-  .info-item:first-child {
-    padding-top: 0;
+  .hero-company {
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 600;
   }
-
-  .info-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  h1 {
+    max-width: 10.3em;
+    font-size: clamp(38px, 4.5vw, 64px);
+    line-height: 1.32;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin-bottom: 20px;
   }
-
-  .info-item dt {
+  h1 span {
+    display: inline-block;
+  }
+  .latest {
+    padding-top: 24px;
+  }
+  .news-strip {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: var(--color-mist);
+    padding: 20px 28px;
     color: var(--color-indigo);
+  }
+  .news-strip time {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .news-label {
+    background: var(--color-vector-blue-soft);
+    font-size: 13px;
+    padding: 4px 12px;
+    white-space: nowrap;
     font-weight: 700;
   }
-
-  .info-item dd {
-    color: var(--color-medium-text);
-    margin: 0;
+  .news-strip-title {
+    flex: 1;
+    font-size: 15px;
   }
-
-  .swarrow-card {
-    height: 100%;
-    overflow: hidden;
-    transition:
-      border-color 0.2s ease,
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+  .news-strip svg {
+    flex-shrink: 0;
   }
-
-  .swarrow-card:hover {
-    border-color: rgba(47, 111, 237, 0.35);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-soft);
+  .services {
+    padding-top: 70px;
+    padding-bottom: 72px;
   }
-
-  .swarrow-card a {
+  .services-intro {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  h2 {
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+  .service {
+    min-width: 0;
+  }
+  .service-heading {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: inherit;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
   }
-
-  .swarrow-card-media {
+  .service-heading > img {
+    width: 64px;
+    height: 64px;
+  }
+  .service-heading h3 {
+    font-size: clamp(25px, 3.15vw, 40px);
+    letter-spacing: -0.035em;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+  .service-heading p {
+    margin: 0;
+    font-size: 17px;
+  }
+  .service-media {
+    margin: 0 0 22px;
+  }
+  .service-media a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 190px;
-    padding: 1.25rem;
+    aspect-ratio: 8 / 5;
     background: var(--color-mist);
+    border-radius: 12px;
+    overflow: hidden;
   }
-
-  .swarrow-card-media img {
+  .service-media img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .chat-media a {
+    padding: 22px 32px;
+    background: var(--color-service-sky);
+  }
+  .chat-media img {
     width: auto;
-    max-width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: top center;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
   }
-
-  .swarrow-card-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 1.2rem;
+  .service-description {
+    font-size: 17px;
+    margin-bottom: 12px;
   }
-
-  .swarrow-card h3 {
-    color: var(--color-indigo);
-    font-size: 1.05rem;
-    line-height: 1.45;
-    margin-bottom: 0.45rem;
-  }
-
-  .swarrow-card p.swarrow-card-kind {
-    display: block;
-    order: -1;
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     color: var(--color-vector-blue);
-    font-family: var(--font-monospace);
-    font-size: 0.78rem;
-    margin-bottom: 0.7rem;
-    text-transform: uppercase;
-  }
-
-  .swarrow-card p {
-    color: var(--color-medium-text);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .swarrow-card p.swarrow-card-lede {
-    color: var(--color-indigo);
-    font-size: 0.95rem;
     font-weight: 700;
-    line-height: 1.65;
-    margin-bottom: 0.7rem;
   }
-
-  .swarrow-card-lede span {
-    display: block;
+  .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
-
-  .swarrow-card p.swarrow-card-description {
-    font-size: 0.88rem;
-    line-height: 1.75;
+  .about-section {
+    position: relative;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    padding: 48px 0;
+    background: var(--color-mist);
+    overflow: hidden;
   }
-
-  .contact-section {
-    background: var(--color-white);
+  .about-section > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
-
-  .contact-content {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 720px;
+  .about-copy {
+    max-width: 470px;
   }
-
-  .contact-lead {
-    color: var(--color-medium-text);
-    font-size: 1.04rem;
-    line-height: 1.85;
+  .about-copy p {
+    line-height: 1.9;
+    margin-bottom: 14px;
+  }
+  .about-copy .text-link {
+    margin-top: 14px;
+  }
+  .news-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .section-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .section-top h2 {
     margin: 0;
   }
-
-  .contact-card {
-    padding: 1.35rem;
+  .article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-line);
   }
-
-  @media (min-width: 769px) {
+  .article-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .article-list a {
+    display: grid;
+    grid-template-columns: 110px 120px 1fr 24px;
+    align-items: center;
+    gap: 24px;
+    padding: 25px 0;
+  }
+  .article-list time {
+    font-size: 14px;
+    color: var(--color-medium-text);
+  }
+  .contact-section {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 64px;
+    padding-top: 72px;
+    padding-bottom: 80px;
+  }
+  @media (min-width: 801px) and (max-width: 1000px) {
+    .service-heading {
+      min-height: 100px;
+    }
+  }
+  @media (max-width: 800px) {
     .hero-section {
-      padding: 4.75rem 0 5.75rem;
+      min-height: 500px;
+    }
+    .hero-content {
+      padding-top: 36px;
+    }
+    .hero-image {
+      object-position: 58% center;
+    }
+    h1 {
+      max-width: 10em;
+      font-size: clamp(34px, 5.6vw, 46px);
+    }
+    .hero-company {
+      font-size: 16px;
     }
 
-    .hero-layout {
-      grid-template-columns: minmax(400px, 0.44fr) minmax(0, 1fr);
-      gap: clamp(0.75rem, 2vw, 1.75rem);
+    .news-strip {
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      padding: 18px;
     }
-
-    .hero-content h1 {
-      font-size: 3.35rem;
+    .news-strip-title {
+      flex: 1 1 calc(100% - 40px);
+      font-size: 14px;
     }
-
-    .hero-subtitle {
-      font-size: 1.22rem;
+    .services {
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
-
-    .hero-video,
-    .hero-video-fallback {
-      width: min(1120px, 116%);
+    .services-intro {
+      text-align: left;
+      margin-bottom: 32px;
     }
-
-    .section-heading h2 {
-      font-size: 2.2rem;
-    }
-
-    .concept-content {
-      grid-template-columns: minmax(0, 0.78fr) minmax(300px, 0.72fr);
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .concept-visual {
-      width: 100%;
-    }
-
-    .article-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .info-list {
-      padding: 2rem;
-    }
-
-    .contact-card {
-      padding: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-content h1 {
-      font-size: 2.12rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-    }
-
-    .hero-video,
-    .hero-video-fallback {
-      width: min(760px, 132vw);
-    }
-
-    .info-item {
+    .services-grid {
       grid-template-columns: 1fr;
-      gap: 0.35rem;
+      gap: 36px;
+    }
+    .service {
+      padding: 0;
+    }
+    .service + .service {
+      border-left: 0;
+      border-top: 1px solid var(--color-line);
+      padding: 36px 0 0;
+    }
+    .service-heading h3 {
+      font-size: clamp(28px, 7vw, 38px);
+    }
+    .service-heading p {
+      font-size: 15px;
+    }
+    .service-heading > img {
+      width: 52px;
+      height: 52px;
+    }
+    .service-heading {
+      gap: 14px;
+    }
+    .chat-media a {
+      padding: 16px 20px;
+    }
+    .about-section {
+      padding: 36px 0 210px;
+    }
+    .about-section > img {
+      object-position: 65% bottom;
+    }
+    .about-copy {
+      padding: 20px;
+      background: var(--color-white);
+    }
+    .news-section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .article-list a {
+      grid-template-columns: 1fr 1fr 24px;
+      gap: 8px 16px;
+      padding: 20px 0;
+    }
+    .article-list time {
+      grid-column: 1;
+    }
+    .article-list .article-title {
+      grid-column: 1 / 3;
+    }
+    .article-list :global(svg) {
+      grid-column: 3;
+      grid-row: 2;
+    }
+    .contact-section {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .contact-section {
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
   }
 </style>

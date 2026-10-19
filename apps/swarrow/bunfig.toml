@@ -1,0 +1,5 @@
+# 依存のバージョンは常に固定する (キャレット ^ を付けない)。
+# この設定により `bun add` / `bun install` は package.json へ
+# exact version を書き込む (Bun の既定は caret 範囲)。
+[install]
+exact = true
