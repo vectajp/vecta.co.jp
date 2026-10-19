@@ -30,14 +30,14 @@ Vectaの開発中の製品リンクは、既定で `http://127.0.0.1:4326` のSw
 
 |対象|既存Pagesプロジェクト|ビルドコマンド|出力|
 |---|---|---|---|
-|Vecta|`vecta-co-jp`|`bun run build`|`dist`|
+|Vecta|`vecta-co-jp`|`bun install --frozen-lockfile && bun run build`|`dist`|
 |Swarrow|`swarrow-com`|`bun run build:swarrow`|`apps/swarrow/build`|
 
 Swarrowの既存Pagesで旧リポジトリをDisconnectした後、同じプロジェクトのConnectから `vectajp/vecta.co.jp` に接続した。ビルドルートは空欄（リポジトリルート）、Production branchは `main`、Automatic deploymentsはEnabled。既存ドメイン・環境変数・暗号化済みシークレット・過去のデプロイは同じプロジェクトに維持している。新しいPagesプロジェクトの作成やDNSの変更は行っていない。
 
 今後の公開設定を変更するときは次の条件を維持する。
 
-1. Vectaの既存Pagesは、リポジトリルート・`bun run build`・出力`dist`を維持できる。既存環境変数を維持し、先にVectaと `/contact/chat/` `/contact/call/` を公開する。
+1. Vectaの既存Pagesは、リポジトリルート・`bun install --frozen-lockfile && bun run build`・出力`dist`を維持する。既存環境変数を維持し、先にVectaと `/contact/chat/` `/contact/call/` を公開する。
 2. SwarrowのPagesは統合リポジトリのルートを対象とし、ビルド`bun run build:swarrow`・出力`apps/swarrow/build`にする。インストール時にルートのworkspaceを解決するため、ビルドルートを`apps/swarrow`に限定しない。
 3. Git連携のリポジトリを既存Pagesプロジェクトで変更できない場合は、新しいPagesプロジェクトでプレビューを検証してから既存ドメインを移す。既存プロジェクトは新しい公開を確認するまで残す。
 4. Swarrow専用のGA、既存ダウンロードAPI、Turnstileなどの公開設定を移す。実値はGitに置かない。`PUBLIC_CONTACT_FORM_BASE_URL` は通常未設定でよい（Vecta本番を使用）。
