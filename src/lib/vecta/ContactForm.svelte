@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { env } from '$env/dynamic/public'
   import {
     buildContactPayload,
     type ContactFormValues,
@@ -7,6 +8,8 @@
   } from './contact'
 
   type FieldName = keyof ContactFormValues
+
+  let { sourceProduct }: { sourceProduct?: 'chat' | 'call' } = $props()
 
   const fields: FieldName[] = [
     'name',
@@ -33,7 +36,7 @@
   let generalError = $state('')
   let successTimer: ReturnType<typeof setTimeout> | undefined
 
-  const validation = $derived(validateContactForm(values))
+  const validation = $derived(validateContactForm(values, sourceProduct))
 
   const fieldId = (field: FieldName) => `contact-${field}`
 
@@ -69,12 +72,12 @@
     resetMessages()
     markAllTouched()
 
-    const result = validateContactForm(values)
+    const result = validateContactForm(values, sourceProduct)
     if (!result.valid) {
       return
     }
 
-    const apiBaseUrl = import.meta.env.PUBLIC_API_BASE_URL
+    const apiBaseUrl = env.PUBLIC_API_BASE_URL
     if (!apiBaseUrl) {
       generalError = '送信先 API が設定されていません。'
       return
@@ -89,7 +92,7 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(buildContactPayload(values)),
+          body: JSON.stringify(buildContactPayload(values, sourceProduct)),
         },
       )
 

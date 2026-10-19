@@ -150,6 +150,7 @@ export const buildSitemapXml = () => {
   const urls: SitemapUrl[] = [
     { loc: buildCanonicalUrl('/'), priority: '1.0' },
     { loc: buildCanonicalUrl('/article/'), priority: '0.8' },
+    { loc: buildCanonicalUrl('/company/'), priority: '0.8' },
     ...articles.map((article) => ({
       loc: buildCanonicalUrl(`/article/${article.slug}/`),
       lastmod: formatDateJst(article.updatedAt ?? article.publishedAt),

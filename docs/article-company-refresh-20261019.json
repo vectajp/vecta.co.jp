@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-19",
+  "articleLayout": {
+    "references": [
+      "https://solitlink.jp/news/20261016-management-dashboard",
+      "https://prtimes.jp/main/html/rd/p/000000319.000085339.html"
+    ],
+    "order": ["title and metadata", "lead image", "body"],
+    "contentWidth": 860,
+    "background": "white",
+    "subtitle": false
+  },
+  "illustration": {
+    "tool": "built-in image_gen",
+    "source": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-237286a4-b063-4b01-bdfb-1a9ce52303d3.png",
+    "output": "public/assets/municipal-ai-window-editorial.webp",
+    "dimensions": [1672, 941],
+    "reference": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-a7faf2e9-5a1c-4969-8c3c-d7d54ea6e08e.png",
+    "prompt": "Use case: illustration-story. Asset type: editorial lead image for a Japanese corporate news article about a municipal website's AI help desk. Input image is a STYLE REFERENCE ONLY, not an edit target. Create a new landscape 16:9 illustration, about 1600x900. Match the reference's friendly simple rounded adult character design, small expressive eyes, soft clean flat forms, muted navy, pale blue, sage green and cream, restrained shading. Scene: a single ordinary adult woman in casual clothing standing on a sunlit public plaza, using a smartphone in front of her to ask about a municipal procedure. Her phone screen faces her and is NOT visible to the viewer. Generic modest Japanese civic building and a few leafy trees in the distance on the right; no recognizable landmark or real city. Above the phone, two modest abstract white and pale-blue chat bubbles, one with a few simple horizontal line marks, one with a small document and link pictogram. These represent AI answering from official information, not a human operator. No person at a PC, no receptionist, no headset, no robot. A calm approachable editorial illustration, substantial well-composed scene with breathing room, sophisticated and consistent with the reference rather than shiny anime. Make the person approximately one third of the composition, the civic context and abstract conversation the other two thirds. No split panels, no collage, no giant phone mockup, no fabricated app interface. No readable text, labels, letters, numbers, logos, signage, insignia, watermarks, buttons or headings anywhere. Safe margins around all subjects so the complete image can be shown on desktop and mobile without cropping. Full scene edge to edge, wide 16:9.",
+    "article": "miyakonojo-digital-gyosei-2026",
+    "meaning": "Generic municipal AI consultation illustration, not a photograph of the actual municipality or a product screenshot"
+  },
+  "company": {
+    "route": "/company/",
+    "order": ["Vecta company facts", "representative photograph and profile"],
+    "profileSource": "https://solitlink.jp/company",
+    "photoSource": "https://solitlink.jp/assets/company/naoya-miyagawa.jpg",
+    "photoOutput": "public/assets/naoya-miyagawa.jpg",
+    "photoTransformation": "None; original photograph copied unchanged",
+    "profileTreatment": "Public biography condensed for Vecta; Vecta company details retained; product names normalized",
+    "originStory": false
+  }
+}

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { navItems } from './content'
+  import { siteHref } from './links'
 
   const year = new Date().getFullYear()
-  const hrefFor = (href: string) => (href.startsWith('#') ? `/${href}` : href)
 </script>
 
 <footer class="site-footer">
@@ -17,7 +17,6 @@
           loading="lazy"
           decoding="async"
         >
-        <p>まちの知識を、未来へつなぐ。</p>
       </div>
 
       <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -25,7 +24,7 @@
         <ul>
           {#each navItems as item (item.href)}
             <li>
-              <a href={hrefFor(item.href)}>{item.label}</a>
+              <a href={siteHref(item.href)}>{item.label}</a>
             </li>
           {/each}
           <li>
@@ -58,13 +57,6 @@
     width: 150px;
     height: auto;
     margin-bottom: 0.75rem;
-  }
-
-  .footer-brand p {
-    color: rgba(255, 255, 255, 0.72);
-    font-family: var(--font-monospace);
-    font-size: 0.95rem;
-    margin: 0;
   }
 
   .footer-nav h3 {

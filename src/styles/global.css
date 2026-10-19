@@ -11,8 +11,9 @@
 
   /* Additional color variables */
   --color-white: #fff;
-  --color-paper: #fbfaf7;
+  --color-paper: #fff;
   --color-mist: #eef3f7;
+  --color-service-sky: #e5f4fc;
   --color-border-medium: #ccc;
   --color-dark-text: #111827;
   --color-medium-text: #4b5563;
@@ -30,13 +31,9 @@
 
   /* Font family variables */
   --font-primary: "Noto Sans JP", sans-serif;
-  --font-secondary: "Montserrat", "Noto Sans JP", sans-serif;
-  --font-monospace:
-    "Share Tech Mono", "Roboto Mono", ui-monospace, "Cascadia Code",
-    "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  --font-ui:
-    Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-    sans-serif;
+  --font-secondary: var(--font-primary);
+  --font-monospace: var(--font-primary);
+  --font-ui: var(--font-primary);
 
   /* Spacing variables for consistent section padding */
   --section-padding-mobile: 2rem 0;
@@ -175,6 +172,19 @@ a:hover {
   box-shadow: var(--shadow-card);
 }
 
+.news-label {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 10px;
+  background: var(--color-mist);
+  color: var(--color-medium-text);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
 .container {
   width: 100%;
   max-width: 100%;
@@ -236,5 +246,18 @@ section {
 @media (min-width: 1024px) {
   section {
     padding: var(--section-padding-large);
+  }
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
   }
 }

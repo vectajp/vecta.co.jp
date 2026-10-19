@@ -9,7 +9,7 @@ import {
 
 describe('seo helpers', () => {
   test('builds Vecta titles', () => {
-    expect(buildTitle()).toBe('Vecta | まちの知識を、未来につなぐ')
+    expect(buildTitle()).toBe('Vecta | 地域の知識を誰もが使える社会へ')
     expect(buildTitle('記事')).toBe('記事 | Vecta')
   })
 
@@ -30,6 +30,7 @@ describe('seo helpers', () => {
   test('renders article structured-data dates in JST', () => {
     const jsonLd = buildArticleJsonLd({
       slug: 'timezone-test',
+      category: 'コラム',
       title: 'タイムゾーンテスト',
       description: '記事の日付を JST 基準で出力する',
       publishedAt: new Date('2026-07-13T00:00:00+09:00'),

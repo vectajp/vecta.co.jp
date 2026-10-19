@@ -1,0 +1,33 @@
+node_modules/
+.DS_Store
+
+# SvelteKit generated files / build output (bun run build)
+.svelte-kit/
+build/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# mise machine-local overrides
+mise.local.toml
+.mise.local.toml
+
+# Secrets / machine-specific values (keep *.template, commit those)
+*.local
+.env
+.env.*
+!*.template
+
+# Cloudflare Pages
+.dev.vars
+.wrangler/
+
+# Scratch / temporary working files
+tmp/
+
+# Agent worktrees (internal tooling artifacts, not for commit)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Browser-automation session cache
+.playwright-mcp/
+.playwright-cli/

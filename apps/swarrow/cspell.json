@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "app-words",
+      "path": "app-words.txt",
+      "description": "Words specific to this application",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  ],
+  "dictionaries": ["app-words"],
+  "files": ["**/*.{ts,md,svelte}"],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    ".svelte-kit",
+    "tmp",
+    ".claude"
+  ]
+}

@@ -47,8 +47,14 @@
   <meta property="og:description" content={seo.description}>
   <meta property="og:url" content={seo.canonical}>
   <meta property="og:image" content={seo.image}>
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta
+    property="og:image:width"
+    content={String(data.article.heroImageWidth ?? 1200)}
+  >
+  <meta
+    property="og:image:height"
+    content={String(data.article.heroImageHeight ?? 630)}
+  >
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={seo.title}>

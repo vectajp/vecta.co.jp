@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-19",
+  "scope": "Vecta service introduction; retained the existing hero landscape",
+  "style": "Accepted SwarrowChat character direction 3; simple expressive adults, muted blue, sage, cream and navy",
+  "call": {
+    "source": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-a7faf2e9-5a1c-4969-8c3c-d7d54ea6e08e.png",
+    "reference": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-7f11e714-d7ab-4cac-9c30-eca1debe13a9.png",
+    "output": "public/assets/swarrowcall-service.webp",
+    "brief": "One older adult making a telephone call; automated voice answering and information routing represented by handset, waveform, document and folder shapes. No human operator, text or fabricated product UI.",
+    "dimensions": [1586, 992]
+  },
+  "chat": {
+    "source": "apps/swarrow/static/swarrow-chat/sample-chat-wide.webp",
+    "output": "public/assets/swarrowchat-wide.webp",
+    "brief": "Real dedicated generic workflow capture with natural answers; full screenshot fitted into a pale blue landscape panel",
+    "dimensions": [980, 760]
+  },
+  "layout": "Equal 8:5 service panels on desktop and mobile; shared product icon and type scale",
+  "nhk": {
+    "url": "https://news.web.nhk/newsweb/na/nd-20261017de60863",
+    "published": "2026-10-17T18:55:00+09:00",
+    "duration": "2:04",
+    "provider": "NHK embedded player with HLS; no YouTube embed observed",
+    "referenceScreenshot": "/Users/naoya/.codex/visualizations/2026/10/18/01a14d7f-a147-7631-813b-84919718e96f/site-design/nhk-article-reference-20261019.png",
+    "publicImage": "Vecta product capture; broadcast screenshot retained only for local reference",
+    "videoSaved": false
+  }
+}

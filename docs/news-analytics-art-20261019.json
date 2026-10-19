@@ -1,0 +1,11 @@
+{
+  "createdAt": "2026-10-19",
+  "tool": "image_gen built-in",
+  "purpose": "利用状況・質問分類の記事用イラスト。実際の管理画面や実績データではない",
+  "prompt": "Create one polished wide editorial illustration (16:9) for a Japanese municipal AI chatbot news article about reviewing usage and grouping questions. Use the attached image ONLY as a palette and illustration-quality reference. NEW composition: no people, no buildings. A friendly, airy arrangement of a few large white speech bubbles and paper documents gently organized into three clusters, connected to a simple navy-and-pale-blue bar chart and a small clock. Show clearly the idea of many questions being organized into useful information; never depict an actual app or dashboard screenshot. Soft hand-painted two-dimensional illustration, simple rounded forms, subtle painted texture, restrained navy, sky blue, sage green and warm cream, very pale blue background. Main objects fill the middle two-thirds of the wide canvas with generous breathing room at edges. No text, no letters, no numerals, no logos, no badges, no human operators, no computer-monitor scene, no robots, no glossy 3D, no photographic realism, no busy icon soup, no fake statistics. Single finished image, not a grid or mockup.",
+  "reference": "/Users/naoya/dev/vecta.co.jp/public/assets/municipal-ai-window-editorial.webp",
+  "source": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-dff1f76b-2de3-4995-a618-90f6672f8e11.png",
+  "output": "public/assets/swarrowchat-analytics-editorial.webp",
+  "width": 1672,
+  "height": 941
+}

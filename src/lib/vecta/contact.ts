@@ -28,20 +28,31 @@ export const emptyContactFormValues = (): ContactFormValues => ({
 
 export const buildContactPayload = (
   values: ContactFormValues,
+  sourceProduct?: 'chat' | 'call',
 ): ContactFormValues => ({
   name: values.name.trim(),
   email: values.email.trim(),
   company: values.company.trim(),
   phone: values.phone.trim(),
-  subject: values.subject.trim(),
-  message: values.message.trim(),
+  subject: sourceProduct
+    ? `[${sourceProduct === 'chat' ? 'SwarrowChat' : 'SwarrowCall'}] ${values.subject.trim()}`
+    : values.subject.trim(),
+  message: sourceProduct
+    ? `送信元ページ: https://swarrow.com/${sourceProduct}\n\n${values.message.trim()}`
+    : values.message.trim(),
 })
 
 export const validateContactForm = (
   values: ContactFormValues,
+  sourceProduct?: 'chat' | 'call',
 ): ContactValidationResult => {
   const errors: ContactFormErrors = {}
   const payload = buildContactPayload(values)
+  const taggedPayload = buildContactPayload(values, sourceProduct)
+  const subjectLimit =
+    200 - (taggedPayload.subject.length - payload.subject.length)
+  const messageLimit =
+    1000 - (taggedPayload.message.length - payload.message.length)
 
   if (!payload.name) {
     errors.name = 'お名前を入力してください'
@@ -61,14 +72,14 @@ export const validateContactForm = (
 
   if (!payload.subject) {
     errors.subject = '件名を入力してください'
-  } else if (payload.subject.length > 200) {
-    errors.subject = '件名は200文字以内で入力してください'
+  } else if (payload.subject.length > subjectLimit) {
+    errors.subject = `件名は${subjectLimit}文字以内で入力してください`
   }
 
   if (!payload.message) {
     errors.message = 'メッセージを入力してください'
-  } else if (payload.message.length > 1000) {
-    errors.message = 'メッセージは1000文字以内で入力してください'
+  } else if (payload.message.length > messageLimit) {
+    errors.message = `メッセージは${messageLimit}文字以内で入力してください`
   }
 
   return {
