@@ -26,7 +26,16 @@ Vectaの開発中の製品リンクは、既定で `http://127.0.0.1:4326` のSw
 
 ## Cloudflare Pagesの公開元切替
 
-ローカルの統合実装だけでは本番の公開元は切り替わらない。この変更ではコミット・push・デプロイ・DNS変更は行っていない。
+2026-10-19に公開設定を統合リポジトリへ切り替えた。両サイトとも `vectajp/vecta.co.jp` の `main` へのpushで自動公開する。
+
+|対象|既存Pagesプロジェクト|ビルドコマンド|出力|
+|---|---|---|---|
+|Vecta|`vecta-co-jp`|`bun run build`|`dist`|
+|Swarrow|`swarrow-com`|`bun run build:swarrow`|`apps/swarrow/build`|
+
+Swarrowの既存Pagesで旧リポジトリをDisconnectした後、同じプロジェクトのConnectから `vectajp/vecta.co.jp` に接続した。ビルドルートは空欄（リポジトリルート）、Production branchは `main`、Automatic deploymentsはEnabled。既存ドメイン・環境変数・暗号化済みシークレット・過去のデプロイは同じプロジェクトに維持している。新しいPagesプロジェクトの作成やDNSの変更は行っていない。
+
+今後の公開設定を変更するときは次の条件を維持する。
 
 1. Vectaの既存Pagesは、リポジトリルート・`bun run build`・出力`dist`を維持できる。既存環境変数を維持し、先にVectaと `/contact/chat/` `/contact/call/` を公開する。
 2. SwarrowのPagesは統合リポジトリのルートを対象とし、ビルド`bun run build:swarrow`・出力`apps/swarrow/build`にする。インストール時にルートのworkspaceを解決するため、ビルドルートを`apps/swarrow`に限定しない。
