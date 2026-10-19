@@ -6,6 +6,17 @@
 
 Vecta の会社サイトと SwarrowChat / SwarrowCall の製品サイトを管理するBun workspace。
 
+**両サイトの開発・公開元はこのリポジトリです。** 2026年10月19日に旧 `vectajp/swarrow.com` から移管しました。旧リポジトリは履歴参照用で、更新しても本番には反映されません。
+
+|更新対象|変更先|公開URL|
+|---|---|---|
+|Vecta|`src/`・`public/`|https://www.vecta.co.jp/|
+|SwarrowChat|`apps/swarrow/src/routes/chat/`|https://swarrow.com/chat|
+|SwarrowCall|`apps/swarrow/src/routes/call/`|https://swarrow.com/call|
+|共通ニュース|`packages/site-content/news.ts`・`src/lib/articles/posts/`|両サイト|
+
+検証後に `main` へpushすると、Cloudflare PagesがVectaとSwarrowをそれぞれビルドして自動公開します。ドメイン別の設定は [サイトの統合と公開](docs/site-workspace.md) を参照してください。Axiswの製品本体と各バックエンドは引き続き別リポジトリです。
+
 - Vecta: ルートの `src/`・`public/` → `dist/`
 - Swarrow: `apps/swarrow/` → `apps/swarrow/build/`
 - 共通ニュース: `packages/site-content/news.ts`

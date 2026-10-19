@@ -329,10 +329,10 @@ describe("SwarrowChat page", () => {
 });
 
 describe("SwarrowCall page", () => {
-  test("renders the call feature band, capability cards, and call-specific customer success copy", () => {
+  test("renders the Call illustration, capabilities, and operational support", () => {
     expect(callHtml).toContain("SwarrowCall");
     expect(callHtml).toContain("自治体AIコールセンター");
-    expect(callHtml).toContain("/swarrow-call/operator-call.webm");
+    expect(callHtml).toContain("/swarrow-call/phone-service.webp");
     for (const capability of ["タイマー架電", "自動取次", "一括発信"]) {
       expect(callHtml).toContain(capability);
     }

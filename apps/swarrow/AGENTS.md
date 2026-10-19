@@ -59,4 +59,5 @@ the symlink with a regular file.
 ## 統合リポジトリ
 
 - このサイトは Vecta リポジトリの `apps/swarrow/`。依存導入はルートで `bun install --frozen-lockfile`。ロックファイル・mise・Git hooksはルートを使う。
+- Vecta・SwarrowChat・SwarrowCallの開発と公開はこのVectaリポジトリに統一済み。旧 `vectajp/swarrow.com` は履歴参照用で更新しない。`main`へのpushで両サイトを自動公開する。
 - 共通ニュースは `../../packages/site-content/news.ts`。記事本文はルートの `src/lib/articles/posts/`。

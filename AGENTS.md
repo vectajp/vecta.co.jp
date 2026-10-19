@@ -13,4 +13,5 @@
 - ルートの `src/` はVecta、`apps/swarrow/` はSwarrowChat/SwarrowCall。両者は同じGitリポジトリの別ビルド。
 - 共通ニュースは `packages/site-content/news.ts`。新しい記事には本文ローダーも追加する。
 - `bun run check` と `bun run test:seo` と `bun run build:all` で両サイトを確認する。
-- 開発・公開元切替は `docs/site-workspace.md`。旧Swarrowリポジトリは公開元切替まで保持する。
+- 開発・公開設定は `docs/site-workspace.md`。Vecta・SwarrowChat・SwarrowCallはすべてこのリポジトリで更新し、`main`へのpushで両サイトを自動公開する。
+- `vectajp/swarrow.com` は移管済みの履歴参照用。旧リポジトリでは開発・公開しない。Swarrowの変更先は必ず `apps/swarrow/` とする。

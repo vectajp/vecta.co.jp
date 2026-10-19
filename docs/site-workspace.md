@@ -21,7 +21,7 @@ Vectaの開発中の製品リンクは、既定で `http://127.0.0.1:4326` のSw
 
 - Swarrowの元リポジトリ: `vectajp/swarrow.com`、基準コミット `e6be984`。
 - 本チャットで作成した `codex/swarrow-site-refresh` の未コミット改修を含めて取り込んだ。
-- 旧リポジトリ・チェックアウトは保持。過去の履歴は旧リポジトリを参照する。統合後の改修は `apps/swarrow/` に行う。
+- 旧リポジトリは開発終了・移管済みとして保持する。過去の履歴だけを参照し、今後の実装・資料・画像・ニュースの更新はこのVectaリポジトリで行う。Swarrowの実装先は `apps/swarrow/`。旧リポジトリへのpushでは本番サイトは更新されない。
 - Axiswは製品本体の別リポジトリとして維持。機能の説明やニュースを作る際は同じチャットで参照する。
 
 ## Cloudflare Pagesの公開元切替
@@ -39,9 +39,16 @@ Swarrowの既存Pagesで旧リポジトリをDisconnectした後、同じプロ�
 
 1. Vectaの既存Pagesは、リポジトリルート・`bun install --frozen-lockfile && bun run build`・出力`dist`を維持する。既存環境変数を維持し、先にVectaと `/contact/chat/` `/contact/call/` を公開する。
 2. SwarrowのPagesは統合リポジトリのルートを対象とし、ビルド`bun run build:swarrow`・出力`apps/swarrow/build`にする。インストール時にルートのworkspaceを解決するため、ビルドルートを`apps/swarrow`に限定しない。
-3. Git連携のリポジトリを既存Pagesプロジェクトで変更できない場合は、新しいPagesプロジェクトでプレビューを検証してから既存ドメインを移す。既存プロジェクトは新しい公開を確認するまで残す。
-4. Swarrow専用のGA、既存ダウンロードAPI、Turnstileなどの公開設定を移す。実値はGitに置かない。`PUBLIC_CONTACT_FORM_BASE_URL` は通常未設定でよい（Vecta本番を使用）。
-5. 両ドメインのトップ・Chat・Call・ニュース・問い合わせ・sitemapを確認し、実際の受付経路を確認してから切替完了とする。
+3. VectaとSwarrowは同じリポジトリの別ビルド。各PagesプロジェクトのGit接続を旧リポジトリへ戻さない。
+4. Swarrow専用のGA、既存ダウンロードAPI、Turnstileなどの公開設定を維持する。実値はGitに置かない。`PUBLIC_CONTACT_FORM_BASE_URL` は通常未設定でよい（Vecta本番を使用）。
+5. 両ドメインのトップ・Chat・Call・ニュース・問い合わせ・sitemapを確認して公開結果を確認する。
+
+## 通常の更新手順
+
+1. このVectaリポジトリで対象のファイルを変更する。Swarrowの資料・画像も `apps/swarrow/` 側に置く。
+2. ルートで `bun --bun run check`、`bun --bun run test:seo`、`bun --bun run build:all` を実行する。
+3. 変更をレビューして `main` へ反映する。VectaとSwarrowの両方で自動デプロイが成功したことを確認する。
+4. Vectaの製品リンクからChat・Callを開き、本番の表示と製品別の問い合わせフォームを確認する。
 
 ## 問い合わせ
 

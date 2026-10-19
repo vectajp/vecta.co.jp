@@ -1,5 +1,15 @@
 # Swarrow
 
+このディレクトリはVectaリポジトリ内のSwarrow製品サイトです。Vecta・SwarrowChat・SwarrowCallの更新はすべてこのリポジトリで行います。旧 `vectajp/swarrow.com` は履歴参照用で、現在の公開元ではありません。
+
+- Chat: `src/routes/chat/+page.svelte`
+- Call: `src/routes/call/+page.svelte`
+- 共通ニュース: `../../packages/site-content/news.ts`
+- 共通のデザイン・文章ルール: [DESIGN.md](../../DESIGN.md)
+- 両サイトの開発・検証・公開手順: [サイトの統合と公開](../../docs/site-workspace.md)
+
+依存導入と両サイトの検証はリポジトリルートで行い、`main`へのpushで両サイトを自動公開します。
+
 自治体ホームページAI窓口「Swarrow Chat」と自治体AIコールセンター
 「Swarrow Call」の統合ランディングページ。SvelteKit + Bun で管理する。
 

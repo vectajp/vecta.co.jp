@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Site ownership
+
+This repository is the development and deployment source for both Vecta and Swarrow. Edit Vecta under `src/` and `public/`, and SwarrowChat / SwarrowCall under `apps/swarrow/`. Shared news lives in `packages/site-content/news.ts`; article bodies are under the root `src/lib/articles/posts/`. Both Cloudflare Pages projects deploy automatically from this repository's `main` branch. The former `vectajp/swarrow.com` repository is retained only for historical reference. Follow [AGENTS.md](AGENTS.md), [DESIGN.md](DESIGN.md), and [docs/site-workspace.md](docs/site-workspace.md).
+
 ## Development Commands
 
 ```bash
