@@ -57,9 +57,9 @@ export const products: readonly Product[] = [
     backgroundIcon: "/swarrow/icon.png",
     icon: "/swarrow/icon.png",
     ogImage: {
-      path: "/swarrow-call/operator-call-poster.webp",
-      width: 1280,
-      height: 720,
+      path: "/swarrow-call/phone-service.webp",
+      width: 1586,
+      height: 992,
     },
   },
 ];

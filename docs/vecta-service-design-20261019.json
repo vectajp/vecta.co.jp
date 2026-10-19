@@ -6,6 +6,7 @@
     "source": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-a7faf2e9-5a1c-4969-8c3c-d7d54ea6e08e.png",
     "reference": "/Users/naoya/.codex/generated_images/01a14d7f-a147-7631-813b-84919718e96f/exec-7f11e714-d7ab-4cac-9c30-eca1debe13a9.png",
     "output": "public/assets/swarrowcall-service.webp",
+    "reusedOnCallPage": "apps/swarrow/static/swarrow-call/phone-service.webp",
     "brief": "One older adult making a telephone call; automated voice answering and information routing represented by handset, waveform, document and folder shapes. No human operator, text or fabricated product UI.",
     "dimensions": [1586, 992]
   },
