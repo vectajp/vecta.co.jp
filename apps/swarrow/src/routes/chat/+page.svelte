@@ -4,10 +4,10 @@
   import ChartColumn from "@lucide/svelte/icons/chart-column";
   import FileCheck from "@lucide/svelte/icons/file-check";
   import FileText from "@lucide/svelte/icons/file-text";
+  import Globe from "@lucide/svelte/icons/globe";
   import Laptop from "@lucide/svelte/icons/laptop";
   import MessageSquare from "@lucide/svelte/icons/message-square";
   import Settings from "@lucide/svelte/icons/settings";
-  import ChatProcessIllustration from "$lib/swarrow/ChatProcessIllustration.svelte";
   import {
     chatCustomerSuccessSteps,
     chatNews,
@@ -29,19 +29,16 @@
   const highlightedNews = latestNews[0];
   const steps = [
     {
-      title: "自分の言葉で質問",
-      illustration: "question" as const,
-      body: "手続きや暮らしについて、知りたいことを普段の言葉で入力します。",
+      title: "ホームページ・PDFを取得",
+      body: "公式ホームページや電子申請ページ、PDFをまとめて取り込みます。対象にするURLや取得範囲を設定できます。",
     },
     {
-      title: "AIが公式情報を検索",
-      illustration: "search" as const,
-      body: "AIが自治体のホームページや資料から、質問に関係する情報を探します。",
+      title: "資料の内容を整理",
+      body: "見出し・本文・表のまとまりを読み取り、制度や手続きの情報を整理します。必要に応じて内容を確認・調整できます。",
     },
     {
-      title: "回答と参照元を確認",
-      illustration: "answer" as const,
-      body: "回答と参照元のリンクを確認し、必要な手続きのページへ進めます。",
+      title: "回答用データに登録",
+      body: "整理した情報を参照元URLとともに登録します。複数のページや資料をまとめて回答に使える状態にします。",
     },
   ];
 </script>
@@ -133,20 +130,88 @@
       >
     </div>
   {/if}
-  <section class="steps-section chat-container" aria-labelledby="steps-title">
-    <h2 id="steps-title">質問から回答まで</h2>
-    <ol class="journey">
-      {#each steps as step (step.title)}
-        <li>
-          <ChatProcessIllustration kind={step.illustration} />
-          <span class="journey-arrow" aria-hidden="true"
-            >{@render arrow()}</span
-          >
-          <h3>{step.title}</h3>
-          <p>{step.body}</p>
-        </li>
-      {/each}
-    </ol>
+  <section
+    id="data"
+    class="steps-section chat-container"
+    aria-labelledby="steps-title"
+  >
+    <h2 id="steps-title">公式情報の取り込み</h2>
+    <div class="ingestion-grid">
+      <ol class="journey">
+        {#each steps as step, index (step.title)}
+          <li>
+            <span class="data-step-number" aria-hidden="true"
+              >0{index + 1}</span
+            >
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        {/each}
+      </ol>
+      <figure class="ingestion-visual">
+        <img
+          src="/swarrow-chat/information-ingestion.webp"
+          alt="ホームページ・電子申請ページ・PDFなどの情報を回答用データベースへ集める仕組みの図"
+          width="1693"
+          height="929"
+          loading="lazy"
+        >
+      </figure>
+    </div>
+  </section>
+  <section
+    id="updates"
+    class="updates-section chat-container feature-grid"
+    aria-labelledby="updates-title"
+  >
+    <div class="feature-copy">
+      <h2 id="updates-title">
+        <span>ホームページの</span><span>最新情報を定期取得</span>
+      </h2>
+      <p>
+        公式ホームページを定期的に再取得し、SwarrowChatの回答用データに最新の内容を反映します。情報の更新頻度に合わせて、日次・週次・月次などの取得間隔を設定できます。
+      </p>
+      <table class="refresh-sources">
+        <caption>
+          取得間隔の設定例
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">対象情報</th>
+            <th scope="col">取得の間隔</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">お知らせ・募集</th>
+            <td>日次</td>
+          </tr>
+          <tr>
+            <th scope="row">制度・手続き</th>
+            <td>週次・月次</td>
+          </tr>
+          <tr>
+            <th scope="row">重点ページ</th>
+            <td>必要に応じて再取得</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="refresh-visual">
+      <img
+        src="/swarrow-chat/information-refresh.webp"
+        alt="公式ホームページの情報を設定した間隔で取得し、SwarrowChatの回答用データへ反映する仕組みの図"
+        width="1536"
+        height="1024"
+        loading="lazy"
+      >
+      <figcaption>
+        <span>公式ホームページ</span><span>定期取得</span
+        ><span>回答用データ</span>
+      </figcaption>
+    </figure>
   </section>
   <section
     class="answer-section chat-container feature-grid"
@@ -190,6 +255,40 @@
       </ul>
     </div>
   </section>
+  <section
+    id="languages"
+    class="languages-section chat-container feature-grid"
+    aria-labelledby="languages-title"
+  >
+    <figure
+      class="multilingual-visual"
+      aria-label="日本語の公式情報をもとに多言語で案内する仕組みの図"
+    >
+      <div class="language-source">
+        <Globe size={48} stroke-width={1.4} aria-hidden="true" />
+        <strong>日本語の公式情報</strong>
+        <span>ホームページ・資料</span>
+      </div>
+      <ArrowRight
+        class="language-arrow"
+        size={30}
+        stroke-width={1.5}
+        aria-hidden="true"
+      />
+      <ul class="language-options" aria-label="回答言語の例">
+        <li>日本語</li>
+        <li lang="en">English</li>
+        <li lang="zh">中文</li>
+        <li lang="ko">한국어</li>
+      </ul>
+    </figure>
+    <div class="feature-copy">
+      <h2 id="languages-title">多言語で案内</h2>
+      <p>
+        日本語の公式情報をもとに、質問に使われた言語に合わせて回答します。窓口の運用に合わせ、利用する言語や回答言語を設定できます。
+      </p>
+    </div>
+  </section>
   <section class="voice-section" aria-labelledby="voice-title">
     <div class="chat-container voice-grid">
       <div class="feature-copy">
@@ -222,7 +321,15 @@
     class="operations-section chat-container feature-grid"
     aria-labelledby="operations-title"
   >
-    <ChatProcessIllustration kind="review" />
+    <figure class="improvement-visual">
+      <img
+        src="/swarrow-chat/information-improvement.webp"
+        alt="問い合わせの記録と評価を確認し、参照情報と回答用データの改善につなげる流れの図"
+        width="1672"
+        height="941"
+        loading="lazy"
+      >
+    </figure>
     <div class="feature-copy">
       <h2 id="operations-title">回答を確認して改善</h2>
       <ol class="operations-list">
@@ -317,6 +424,18 @@
       <summary>どのような情報をもとに回答しますか？</summary>
       <p>
         自治体の公式ホームページ、FAQ、制度資料や手順書などをもとに案内します。対象とする情報や回答ルールは導入時に整理します。
+      </p>
+    </details>
+    <details>
+      <summary>ホームページの更新は反映できますか？</summary>
+      <p>
+        対象ページを設定した間隔で再取得し、回答用データを更新できます。情報の更新頻度に応じた取得間隔や、見直すページの範囲を設定します。
+      </p>
+    </details>
+    <details>
+      <summary>多言語で利用できますか？</summary>
+      <p>
+        日本語の公式情報をもとに、質問の言語に合わせた回答や、指定した言語での回答を設定できます。利用する言語と案内する内容は、窓口の運用に合わせて確認します。
       </p>
     </details>
     <details>
@@ -470,36 +589,44 @@
     flex-shrink: 0;
   }
   .steps-section {
-    padding-block: 26px 60px;
+    padding-block: 36px 64px;
+  }
+  .ingestion-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.65fr;
+    align-items: center;
+    gap: 4%;
+    margin-top: 36px;
   }
   .journey {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
     list-style: none;
     padding: 0;
-    margin: 16px 0 0;
+    margin: 0;
   }
-
   .journey h3 {
-    margin-top: 16px;
+    font-size: clamp(18px, 1.4vw, 24px);
   }
   .journey li {
-    position: relative;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 16px;
   }
-  .journey-arrow {
-    position: absolute;
-    top: 29%;
-    right: -25px;
+  .data-step-number {
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.9;
     color: var(--sc-blue);
   }
-  .journey li:last-child .journey-arrow {
-    display: none;
-  }
   .journey p {
-    font-size: clamp(14px, 1.05vw, 18px);
+    font-size: clamp(14px, 1vw, 17px);
     color: var(--sc-text-secondary);
     margin-top: 8px;
+  }
+  .ingestion-visual img,
+  .improvement-visual img {
+    width: 100%;
   }
   .feature-grid {
     display: grid;
@@ -509,6 +636,106 @@
   }
   .answer-section {
     padding-block: 4px 64px;
+  }
+  .updates-section {
+    padding-block: 8px 64px;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 5%;
+  }
+  #updates-title span {
+    display: inline-block;
+  }
+  .refresh-visual {
+    min-width: 0;
+  }
+  .refresh-visual img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+  }
+  .refresh-visual figcaption {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    text-align: center;
+    font-size: clamp(12px, 1vw, 17px);
+    font-weight: 650;
+    margin-top: 8px;
+  }
+  .refresh-sources {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+    font-size: clamp(13px, 1vw, 17px);
+  }
+  .refresh-sources caption {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .refresh-sources th,
+  .refresh-sources td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--sc-border);
+    line-height: 1.7;
+  }
+  .refresh-sources th {
+    font-weight: 600;
+  }
+  .refresh-sources thead {
+    background: var(--sc-bg-light);
+  }
+  .refresh-sources td {
+    color: var(--sc-blue);
+  }
+  .languages-section {
+    padding-block: 0 56px;
+  }
+  .multilingual-visual {
+    display: grid;
+    grid-template-columns: 1fr 30px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 42px 30px;
+    background: var(--sc-bg-light);
+    border-radius: 8px;
+  }
+  .language-source {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 12px;
+    color: var(--sc-blue);
+  }
+  .language-source strong {
+    color: var(--sc-navy);
+    font-size: clamp(15px, 1.1vw, 20px);
+    font-weight: 650;
+  }
+  .language-source span {
+    color: var(--sc-text-secondary);
+    font-size: 12px;
+  }
+  .multilingual-visual :global(.language-arrow) {
+    color: var(--sc-blue);
+  }
+  .language-options {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  .language-options li {
+    padding: 10px 12px;
+    background: var(--sc-bg-card);
+    border: 1px solid var(--sc-border);
+    border-radius: 4px;
+    text-align: center;
+    font-size: clamp(14px, 1.1vw, 19px);
+    font-weight: 600;
   }
   .answer-screen {
     min-width: 0;
@@ -749,9 +976,6 @@
     .news-strip-label {
       padding-right: 20px;
     }
-    .journey {
-      gap: 20px;
-    }
     .use-case-list li {
       padding-block: 10px;
     }
@@ -824,17 +1048,19 @@
     .steps-section {
       padding-block: 38px 44px;
     }
-    .journey {
+    .ingestion-grid {
       grid-template-columns: 1fr;
-      gap: 34px;
+      gap: 26px;
       margin-top: 22px;
     }
-    .journey h3 {
-      font-size: 21px;
-      margin-top: 14px;
+    .ingestion-visual {
+      order: -1;
     }
-    .journey-arrow {
-      display: none;
+    .journey {
+      gap: 26px;
+    }
+    .journey h3 {
+      font-size: 19px;
     }
     .journey p {
       font-size: 14px;
@@ -843,6 +1069,23 @@
     .voice-grid {
       grid-template-columns: 1fr;
       gap: 26px;
+    }
+    .updates-section {
+      padding-block: 0 44px;
+    }
+    .refresh-sources th,
+    .refresh-sources td {
+      padding: 12px 8px;
+    }
+    .languages-section {
+      padding-block: 0 44px;
+    }
+    .languages-section .feature-copy {
+      order: -1;
+    }
+    .multilingual-visual {
+      padding: 28px 20px;
+      gap: 12px;
     }
     .answer-section {
       padding-block: 0 44px;
@@ -925,16 +1168,6 @@
     .hero-grid {
       padding-top: 50px;
       padding-bottom: 110px;
-    }
-    .journey {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .journey h3 {
-      font-size: 17px;
-    }
-    .journey p {
-      font-size: 13px;
     }
     .voice-visual {
       max-width: 620px;
