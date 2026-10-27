@@ -54,10 +54,7 @@
     "native_tables": true,
     "original_broadcast_image_removed": true,
     "pricing_sheet_text_preserved": true,
-    "brochure_renderers": [
-      "Apple CoreGraphics",
-      "Poppler"
-    ],
+    "brochure_renderers": ["Apple CoreGraphics", "Poppler"],
     "smartphone_device": false,
     "powerpoint_manual": false
   }
