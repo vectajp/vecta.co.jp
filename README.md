@@ -21,6 +21,7 @@ Vecta の会社サイトと SwarrowChat / SwarrowCall の製品サイトを管�
 - Swarrow: `apps/swarrow/` → `apps/swarrow/build/`
 - 共通ニュース: `packages/site-content/news.ts`
 - デザイン・資料・コピーの共通方針: [DESIGN.md](DESIGN.md)
+- 最新の営業資料（PDF・PowerPoint）: [docs/sales/README.md](docs/sales/README.md)
 - 開発・公開元の切替: [docs/site-workspace.md](docs/site-workspace.md)
 
 `bun run dev:swarrow` で製品サイト、`bun run build:all` で両サイトをビルドする。

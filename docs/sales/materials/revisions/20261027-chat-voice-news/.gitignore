@@ -1,3 +1,11 @@
 node_modules
 .build/
-output/
+/output/*
+!/output/pdf/
+!/output/pptx/
+/output/pdf/*
+!/output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf
+!/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf
+!/output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf
+/output/pptx/*
+!/output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx

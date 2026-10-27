@@ -3,7 +3,7 @@
   "revision": "r4",
   "program": "NHK宮崎放送局「てげビビ！サタデー」",
   "broadcast_date": "2026-10-17",
-  "brochure_source_directory": "/Users/naoya/.codex/artifacts/swarrowchat-brochure-concept-20261022/selected/20261027-chat-voice-news",
+  "brochure_source_directory": "brochure",
   "illustration": {
     "path": "assets/news-illustration.png",
     "sha256": "756dcfb5fdc8a835859682c071c390a40228bba9775ddbbe1df66b8f0d6c1feb",
@@ -65,5 +65,6 @@
     "brochure_renderers": ["Apple CoreGraphics", "Poppler"],
     "smartphone_device": false,
     "powerpoint_manual": false
-  }
+  },
+  "distribution_files_tracked": true
 }

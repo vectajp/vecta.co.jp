@@ -1,0 +1,13 @@
+/tmp/
+/output/
+/node_modules/
+/__pycache__/
+/*.html
+/*.css
+/*.png
+/source-native.pdf
+/native-pdf-manifest.json
+/pdf-manifest.json
+/render-checks.json
+/background-render-checks.json
+/extracted-text.txt
