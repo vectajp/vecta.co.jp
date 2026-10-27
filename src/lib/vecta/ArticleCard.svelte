@@ -18,7 +18,6 @@
 <article class="article-card card">
   <a href={`/article/${article.slug}/`}>
     <img
-      class:preserve-frame={article.slug === 'miyakonojo-ai-window-nhk'}
       src={article.heroImage}
       alt=""
       width="360"
@@ -75,10 +74,6 @@
     flex: 1;
     flex-direction: column;
     padding: 1.2rem;
-  }
-
-  .article-card img.preserve-frame {
-    object-fit: contain;
   }
 
   .article-card h2 {

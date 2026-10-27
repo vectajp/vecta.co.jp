@@ -394,14 +394,6 @@
         >ニュース一覧</a
       >
     </div>
-    <p class="news-source">
-      <a
-        href="https://news.web.nhk/newsweb/na/nd-20261017de60863"
-        target="_blank"
-        rel="noopener noreferrer"
-        >NHKの掲載記事</a
-      >
-    </p>
     <ul class="news-list">
       {#each latestNews as item (item.href)}
         <li>
@@ -892,11 +884,6 @@
     text-decoration: underline;
     text-underline-offset: 4px;
     white-space: nowrap;
-  }
-  .news-source {
-    font-size: 13px;
-    margin-bottom: 10px;
-    color: var(--sc-blue);
   }
   .news-list {
     list-style: none;

@@ -27,14 +27,6 @@
         >都城市DXチャレンジプロジェクトの採択事例</a
       >
     </li>
-    <li>
-      <a
-        href="https://news.web.nhk/newsweb/na/nd-20261017de60863"
-        target="_blank"
-        rel="noopener noreferrer"
-        >NHKの掲載記事（2026年10月17日）</a
-      >
-    </li>
     <li><a href="/article/miyakonojo-dx-challenge-2026/">採択のお知らせ</a></li>
     <li>
       <a href="/article/miyakonojo-digital-gyosei-2026/"

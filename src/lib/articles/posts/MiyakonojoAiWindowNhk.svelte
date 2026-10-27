@@ -3,25 +3,19 @@
 </script>
 
 <div class="article-body">
-  <p class="image-credit">
-    <a
-      href="https://news.web.nhk/newsweb/na/nd-20261017de60863"
-      target="_blank"
-      rel="noopener noreferrer"
-      >出典：NHKニュース（2026年10月17日）</a
-    >
-  </p>
+  <p class="image-caption">画像：SwarrowChatの画面例</p>
   <aside class="coverage-source" aria-label="NHKの掲載記事">
     <a
       href="https://news.web.nhk/newsweb/na/nd-20261017de60863"
       target="_blank"
       rel="noopener noreferrer"
-      >NHKの記事と動画を見る <span aria-hidden="true">↗</span></a
+      >NHKの掲載記事 <span aria-hidden="true">↗</span></a
     >
     <p>
       都城市ホームページにAI相談窓口 音声でやりとりも<br>2026年10月17日
       18:55公開・動画2分4秒
     </p>
+    <p>2026年10月27日時点で、リンク先の記事は閲覧できない状態です。</p>
   </aside>
   <p>
     2026年10月17日、都城市のホームページに設置されたAI相談窓口の取り組みがNHKのニュースで紹介されました。手続きや必要書類について相談できるAI窓口と、音声でのやり取りが紹介されています。
@@ -61,7 +55,7 @@
 </div>
 
 <style>
-  .image-credit {
+  .image-caption {
     margin-top: -18px;
     color: var(--color-medium-text);
     font-size: 13px;
