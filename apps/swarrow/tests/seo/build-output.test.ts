@@ -254,7 +254,7 @@ describe("SwarrowChat page", () => {
     expect(chatHtml).toContain(
       "https://www.vecta.co.jp/article/miyakonojo-ai-window-nhk/",
     );
-    expect(chatHtml).toContain(
+    expect(chatHtml).not.toContain(
       "https://news.web.nhk/newsweb/na/nd-20261017de60863",
     );
     expect(chatHtml).toContain('id="support"');
