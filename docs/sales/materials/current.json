@@ -1,0 +1,35 @@
+{
+  "updated_date": "2026-10-27",
+  "revision": "revisions/20261027-nhk-illustration",
+  "manifest": "revisions/20261027-nhk-illustration/manifest.json",
+  "outputs": [
+    {
+      "kind": "brochure",
+      "path": "revisions/20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_20261027.pdf",
+      "pages": 2,
+      "bytes": 2373021,
+      "sha256": "b5b02fb230e6b107cf4097c18b65cb1af91a3c7a7f928150d2953560cefa75e5"
+    },
+    {
+      "kind": "priced_brochure",
+      "path": "revisions/20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r3.pdf",
+      "pages": 3,
+      "bytes": 2420530,
+      "sha256": "eaf3b15166f48477127970ef2f4718c452a1c6998c53a98a204d53f296ed00e4"
+    },
+    {
+      "kind": "sales_pdf",
+      "path": "revisions/20261027-nhk-illustration/output/pdf/Swarrow_商談用営業資料_20261027_r3.pdf",
+      "pages": 15,
+      "bytes": 1430757,
+      "sha256": "065ba7cbc58fa86ea72cd52980751848321697d105b17abf180b515abcfd4e22"
+    },
+    {
+      "kind": "sales_pptx",
+      "path": "revisions/20261027-nhk-illustration/output/pptx/Swarrow_商談用営業資料_20261027_r3.pptx",
+      "pages": 15,
+      "bytes": 10589447,
+      "sha256": "b2c0c54b1bf3c2e59130a4c999df5a2505a5c8d166994f4725d574427fc03f05"
+    }
+  ]
+}

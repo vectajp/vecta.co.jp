@@ -144,15 +144,15 @@ export const productNews = (
     },
     {
       slug: 'miyakonojo-ai-window-nhk',
-      image: '/assets/swarrowchat-wide.webp',
-      imageAlt: 'SwarrowChatのテキストチャットの画面例',
-      imageWidth: 980,
-      imageHeight: 760,
+      image: '/assets/municipal-ai-news-illustration.webp',
+      imageAlt: '自治体のAI窓口に関するニュースをイメージしたイラスト',
+      imageWidth: 1672,
+      imageHeight: 941,
       date: '2026-10-17',
       category: 'メディア掲載',
-      title: '都城市のAI相談窓口の取り組みがNHKで紹介されました',
+      title: '都城市のAI相談窓口がNHK「てげビビ！サタデー」で紹介されました',
       description:
-        'SwarrowChatを活用した都城市のAI相談窓口が2026年10月17日のNHKニュースで紹介されました。',
+        'SwarrowChatを活用した都城市のAI相談窓口が、2026年10月17日放送のNHK宮崎放送局「てげビビ！サタデー」で紹介されました。',
       products: ['chat'],
     },
     {

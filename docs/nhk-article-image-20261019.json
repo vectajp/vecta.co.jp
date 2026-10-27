@@ -8,7 +8,11 @@
   "height": 698,
   "sha256": "7fc27285a20e83c47e964530f348042502e8a249bdbd8d106c975d80f78cda4b",
   "processing": "Copied unchanged. No cropping, retouching, or generated content.",
-  "status": "Removed from public assets on 2026-10-27; the article now uses Vecta's own SwarrowChat capture.",
-  "replacement": "public/assets/swarrowchat-wide.webp",
-  "sourceUrlStatus": "HTTP 404 on 2026-10-27; original URL retained, no official archive confirmed."
+  "status": "Broadcast screenshot removed from public assets on 2026-10-27; the article uses an original news illustration.",
+  "replacement": "public/assets/municipal-ai-news-illustration.webp",
+  "sourceUrlStatus": "HTTP 404 on 2026-10-27; original URL retained, no official archive confirmed.",
+  "program": "NHK宮崎放送局「てげビビ！サタデー」",
+  "broadcastDate": "2026-10-17",
+  "programSource": "都城市秘書広報課からの2026年10月16日の放送案内と10月18日の掲載記事共有。番組名の表記は放送局提供の番組情報で照合。",
+  "programListing": "https://bangumi.org/tv_events/AmF-wAuhcAM?overwrite_area=59"
 }
