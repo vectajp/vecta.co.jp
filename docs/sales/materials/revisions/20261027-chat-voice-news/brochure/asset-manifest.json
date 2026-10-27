@@ -1,0 +1,45 @@
+{
+  "scenery": {
+    "path": "assets/scenery.png",
+    "sha256": "0f6ef9a12de91861a7764984b52c7ebffa148de15fb2c5d70655dd5ff0affa45",
+    "bytes": 1987540
+  },
+  "sato": {
+    "path": "assets/sato.webp",
+    "sha256": "caeda910f689fed77c1d40b712def521b1621fa02eb0c464328572628d582f86",
+    "bytes": 26970
+  },
+  "chat": {
+    "path": "assets/chat.png",
+    "sha256": "88eb7429bc64a8ef0929d8b4f3dc018a38106d431f1ed18075bb50a9a6524386",
+    "bytes": 240095
+  },
+  "avatar": {
+    "path": "assets/avatar.png",
+    "sha256": "c34ccfa411025c9377f6e846c1dc8111720fee25c493e226918d05664d8e4976",
+    "bytes": 259322
+  },
+  "brandIcon": {
+    "path": "assets/brandIcon.png",
+    "sha256": "1a85ac254e07fac11ed67c5d6944f90d342cd09a2d8ff586d2a3244fcc0888b0",
+    "bytes": 4985
+  },
+  "compactChat": {
+    "path": "assets/compactChat.png",
+    "sha256": "877e8f452bc58096c4c6cfc40f5de9a7d9f297eefbf05e43266937448efb1e53",
+    "bytes": 226062
+  },
+  "contactQr": {
+    "path": "assets/contactQr.png",
+    "sha256": "4d969a031b53ec36649224b98c77472077307c75c1c51cbc46bffa4b6fd7422f",
+    "bytes": 1471
+  },
+  "newsIllustration": {
+    "path": "../assets/news-illustration.png",
+    "sha256": "756dcfb5fdc8a835859682c071c390a40228bba9775ddbbe1df66b8f0d6c1feb",
+    "bytes": 1522234,
+    "width": 1860,
+    "height": 846,
+    "source": "Original generated illustration of text and voice chat, not a broadcast screenshot"
+  }
+}

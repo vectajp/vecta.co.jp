@@ -19,13 +19,13 @@
 |`output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf`|16:9横15ページ|
 |`output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx`|同内容の編集可能なPowerPoint|
 
-生成物と実行環境は従来どおりGit管理外。旧版は保持した。
+配布するPDF3本・PowerPoint1本と、[パンフレットの編集元](brochure/README.md)をGitで管理する。確認用画像、一時PDF、実行環境はGit管理外。旧版は保持した。
 
 ## 再生成
 
 `update-deck.mjs` は前版r3のPowerPointを入力とし、7枚目の画像と配置を更新する。`@oai/artifact-tool` と既存のプレゼンテーション用ランタイムを使用する。`normalize-table-borders.py` は既存の罫線正規化処理。出力がある場合は版番号を更新する。
 
-`update-priced-brochure.py` は選択済みの軽量パンフレット2ページに前版の料金別紙を連結する。入力とハッシュ、パンフレット本体の編集ソースの場所は `manifest.json` に記録した。
+`update-priced-brochure.py` は改訂時に選択済みの軽量パンフレット2ページへ前版の料金別紙を連結した記録。入力とハッシュは `manifest.json` に記録した。これらの改訂スクリプトは当時のローカル入力に依存する。現在の編集元は保存済みPowerPointと `brochure/` の組版ソース。
 
 ## 確認
 
