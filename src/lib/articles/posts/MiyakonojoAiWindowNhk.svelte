@@ -3,7 +3,7 @@
 </script>
 
 <div class="article-body">
-  <p class="image-caption">画像：自治体のAI窓口に関するニュースのイメージ</p>
+  <p class="image-caption">画像：報道内容をもとにしたイメージイラスト</p>
   <aside class="coverage-source" aria-label="NHKの掲載記事">
     <a
       href="https://news.web.nhk/newsweb/na/nd-20261017de60863"

@@ -1,0 +1,69 @@
+{
+  "updated_date": "2026-10-27",
+  "revision": "r4",
+  "program": "NHK宮崎放送局「てげビビ！サタデー」",
+  "broadcast_date": "2026-10-17",
+  "brochure_source_directory": "/Users/naoya/.codex/artifacts/swarrowchat-brochure-concept-20261022/selected/20261027-chat-voice-news",
+  "illustration": {
+    "path": "assets/news-illustration.png",
+    "sha256": "756dcfb5fdc8a835859682c071c390a40228bba9775ddbbe1df66b8f0d6c1feb",
+    "width": 1860,
+    "height": 846
+  },
+  "inputs": [
+    {
+      "path": "/Users/naoya/dev/vecta.co.jp/docs/sales/materials/revisions/20261027-nhk-illustration/output/pptx/Swarrow_商談用営業資料_20261027_r3.pptx",
+      "sha256": "b2c0c54b1bf3c2e59130a4c999df5a2505a5c8d166994f4725d574427fc03f05"
+    },
+    {
+      "path": "/Users/naoya/dev/vecta.co.jp/docs/sales/materials/revisions/20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r3.pdf",
+      "sha256": "eaf3b15166f48477127970ef2f4718c452a1c6998c53a98a204d53f296ed00e4"
+    },
+    {
+      "path": "/Users/naoya/.codex/artifacts/swarrowchat-brochure-concept-20261022/selected/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_軽量版.pdf",
+      "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4"
+    }
+  ],
+  "outputs": [
+    {
+      "kind": "brochure",
+      "path": "output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf",
+      "pages": 2,
+      "bytes": 2436084,
+      "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4"
+    },
+    {
+      "kind": "priced_brochure",
+      "path": "output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf",
+      "pages": 3,
+      "bytes": 2483593,
+      "sha256": "ec968c7b78240eb0e0665e4d5b64dd0bab5ba2d0eb4c103be0154833429b1ab7"
+    },
+    {
+      "kind": "sales_pdf",
+      "path": "output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf",
+      "pages": 15,
+      "bytes": 1424515,
+      "sha256": "ba2be8e1dd834a1b135b932c6ddcc0090725cb2f2a30eab737d6cd091b7b2659"
+    },
+    {
+      "kind": "sales_pptx",
+      "path": "output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx",
+      "pages": 15,
+      "bytes": 10509108,
+      "sha256": "fe38993d88f7b73e405d2f456e86630dc9c63865fdb8ef9e3b2ebc3161a0766d"
+    }
+  ],
+  "verified": {
+    "deck_pages": 15,
+    "unchanged_slide_text": true,
+    "other_14_slides_pixel_identical": true,
+    "native_tables": true,
+    "original_broadcast_image_removed": true,
+    "pricing_sheet_text_preserved": true,
+    "brochure_columns_equal": true,
+    "brochure_renderers": ["Apple CoreGraphics", "Poppler"],
+    "smartphone_device": false,
+    "powerpoint_manual": false
+  }
+}

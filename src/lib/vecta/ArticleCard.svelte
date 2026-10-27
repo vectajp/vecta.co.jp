@@ -65,7 +65,7 @@
     display: block;
     width: 100%;
     height: 190px;
-    object-fit: cover;
+    object-fit: contain;
     background: var(--color-mist);
   }
 

@@ -144,10 +144,11 @@ export const productNews = (
     },
     {
       slug: 'miyakonojo-ai-window-nhk',
-      image: '/assets/municipal-ai-news-illustration.webp',
-      imageAlt: '自治体のAI窓口に関するニュースをイメージしたイラスト',
-      imageWidth: 1672,
-      imageHeight: 941,
+      image: '/assets/municipal-ai-news-scene.webp',
+      imageAlt:
+        'キャスターがテキストチャットと音声会話のAI窓口を紹介するイラスト',
+      imageWidth: 1860,
+      imageHeight: 846,
       date: '2026-10-17',
       category: 'メディア掲載',
       title: '都城市のAI相談窓口がNHK「てげビビ！サタデー」で紹介されました',
