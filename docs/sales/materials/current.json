@@ -1,35 +1,35 @@
 {
   "updated_date": "2026-10-27",
-  "revision": "revisions/20261027-nhk-illustration",
-  "manifest": "revisions/20261027-nhk-illustration/manifest.json",
+  "revision": "revisions/20261027-chat-voice-news",
+  "manifest": "revisions/20261027-chat-voice-news/manifest.json",
   "outputs": [
     {
       "kind": "brochure",
-      "path": "revisions/20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_20261027.pdf",
+      "path": "revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf",
       "pages": 2,
-      "bytes": 2373021,
-      "sha256": "b5b02fb230e6b107cf4097c18b65cb1af91a3c7a7f928150d2953560cefa75e5"
+      "bytes": 2436084,
+      "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4"
     },
     {
       "kind": "priced_brochure",
-      "path": "revisions/20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r3.pdf",
+      "path": "revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf",
       "pages": 3,
-      "bytes": 2420530,
-      "sha256": "eaf3b15166f48477127970ef2f4718c452a1c6998c53a98a204d53f296ed00e4"
+      "bytes": 2483593,
+      "sha256": "ec968c7b78240eb0e0665e4d5b64dd0bab5ba2d0eb4c103be0154833429b1ab7"
     },
     {
       "kind": "sales_pdf",
-      "path": "revisions/20261027-nhk-illustration/output/pdf/Swarrow_商談用営業資料_20261027_r3.pdf",
+      "path": "revisions/20261027-chat-voice-news/output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf",
       "pages": 15,
-      "bytes": 1430757,
-      "sha256": "065ba7cbc58fa86ea72cd52980751848321697d105b17abf180b515abcfd4e22"
+      "bytes": 1424515,
+      "sha256": "ba2be8e1dd834a1b135b932c6ddcc0090725cb2f2a30eab737d6cd091b7b2659"
     },
     {
       "kind": "sales_pptx",
-      "path": "revisions/20261027-nhk-illustration/output/pptx/Swarrow_商談用営業資料_20261027_r3.pptx",
+      "path": "revisions/20261027-chat-voice-news/output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx",
       "pages": 15,
-      "bytes": 10589447,
-      "sha256": "b2c0c54b1bf3c2e59130a4c999df5a2505a5c8d166994f4725d574427fc03f05"
+      "bytes": 10509108,
+      "sha256": "fe38993d88f7b73e405d2f456e86630dc9c63865fdb8ef9e3b2ebc3161a0766d"
     }
   ]
 }
