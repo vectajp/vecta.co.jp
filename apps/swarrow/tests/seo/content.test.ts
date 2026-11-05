@@ -69,7 +69,7 @@ describe("Swarrow product content", () => {
   });
 
   test("uses a concrete homepage heading without supporting slogans", () => {
-    expect(heroCopy.title).toBe("自治体のAIチャットボットとAIコールセンター");
+    expect(heroCopy.title).toBe("自治体向けAIサービス");
   });
 
   test("avoids unsupported guarantees and case-specific conditions", () => {

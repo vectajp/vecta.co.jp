@@ -18,7 +18,6 @@ let privacyHtml = "";
 let robots = "";
 let sitemap = "";
 let modalSource = "";
-let pageSource = "";
 let layoutSource = "";
 
 const countMatches = (value: string, pattern: RegExp) =>
@@ -54,7 +53,6 @@ beforeAll(async () => {
     robots,
     sitemap,
     modalSource,
-    pageSource,
     layoutSource,
   ] = await Promise.all([
     Bun.file("build/index.html").text(),
@@ -64,7 +62,6 @@ beforeAll(async () => {
     Bun.file("build/robots.txt").text(),
     Bun.file("build/sitemap.xml").text(),
     Bun.file("src/lib/swarrow/ContactModal.svelte").text(),
-    Bun.file("src/routes/+page.svelte").text(),
     Bun.file("src/routes/+layout.svelte").text(),
   ]);
 });
@@ -137,111 +134,24 @@ describe("Swarrow and Vecta brand roles", () => {
   });
 });
 
-describe("answer-quality Hero", () => {
-  test("renders one concrete H1 without unsolicited subtitles or hero buttons", () => {
-    expect(countMatches(html, /<h1\b/g)).toBe(1);
-    const hero = html.match(
-      /<section class="hero[^>]*>([\s\S]*?)<\/section>/,
-    )?.[1];
-    expect(hero).toContain("自治体のAIチャットボットとAIコールセンター");
-    expect(hero).not.toMatch(/hero-sub|hero-eyebrow|<button|hero-primary/);
-    expect(hero).not.toContain("フルチューニング。");
-  });
+describe("Swarrow series homepage", () => {
+  test("puts both product links in the first section without a separate video hero", () => {
+    const main =
+      html.match(/<main id="top"[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+    const firstSection =
+      main.match(/^\s*<section id="products"[\s\S]*?<\/section>/)?.[0] ?? "";
+    expect(firstSection).toContain("自治体向けAIサービス");
+    expect(hasNoHeadingLevelSkips(headingLevels(main))).toBe(true);
 
-  test("never skips a heading level", () => {
-    expect(hasNoHeadingLevelSkips(headingLevels(html))).toBe(true);
-  });
-
-  test("omits the removed quality and municipal challenges sections", () => {
-    expect(html).not.toContain('id="quality"');
-    expect(html).not.toContain('id="problems"');
-    expect(html).not.toContain("Answer Quality");
-    expect(html).not.toContain("Municipal Inquiry Challenges");
-  });
-
-  test("omits the chat, call, and support sections from the top page", () => {
-    expect(html).not.toContain('id="chat"');
-    expect(html).not.toContain('id="call"');
-    expect(html).not.toContain('id="support"');
-  });
-
-  test("links product cards to the dedicated pages", () => {
-    expect(html).toContain('href="/chat"');
-    expect(html).toContain('href="/call"');
-  });
-});
-
-describe("shared knowledge", () => {
-  test("presents one shared knowledge base before common operations", () => {
-    expect(html).toContain('id="knowledge"');
-    const knowledge = html.match(
-      /<section id="knowledge"[\s\S]*?<\/section>/,
-    )?.[0];
-    expect(knowledge).toContain("ホームページと電話で知識を共有");
-    expect(html).toContain("SwarrowChat");
-    expect(html).toContain("SwarrowCall");
-    expect(html).toContain("/swarrow-call/knowledge-flow-alpha.webm");
-    expect(html).toContain("/swarrow-call/knowledge-flow-alpha.mp4");
-    expect(html).toContain("/swarrow-call/knowledge-flow-alpha.png");
-    expect(html).not.toContain("SwarrowCall 基盤");
-  });
-
-  test("uses the Call mist wave above Shared Knowledge", () => {
-    const knowledge =
-      html.match(/<section id="knowledge"[\s\S]*?<\/section>/)?.[0] ?? "";
-
-    expect(knowledge).toContain("knowledge-top-curve");
-    expect(knowledge).toContain("section-curve-bg--mist");
-    expect(knowledge).toContain("section-curve-bg--flip");
-    expect(knowledge).toContain(
-      'd="M-80 330C80 128 266 88 498 136C726 184 812 188 1008 76C1214 -42 1378 24 1508 214V1600H-80Z"',
-    );
-    expect(knowledge.indexOf("knowledge-top-curve")).toBeLessThan(
-      knowledge.indexOf("knowledge-inner"),
-    );
-  });
-});
-
-describe("product overview", () => {
-  test("shows two equally structured product choices", () => {
-    expect(html).toContain('id="products"');
-    expect(countMatches(html, /class="product-card(?:\s|")/g)).toBe(2);
-    expect(html).toContain("自治体ホームページ AIチャットボット");
-    expect(html).toContain("自治体AIコールセンター");
-    expect(html).toContain('href="/chat"');
-    expect(html).toContain('href="/call"');
-    expect(html).toContain("単独でも、組み合わせても導入可能");
-    expect(countMatches(html, /class="product-card-watermark\b/g)).toBe(2);
-    expect(countMatches(html, /class="product-name-icon\b/g)).toBe(2);
-    for (const asset of ["/swarrow/icon.png", "/swarrow/icon.png"]) {
-      expect(html).toContain(asset);
+    for (const { href, name } of products) {
+      const card = Array.from(
+        firstSection.matchAll(/<a class="product-card\b[^>]*>[\s\S]*?<\/a>/g),
+        ([link]) => link,
+      ).find((link) => link.includes(`href="${href}"`));
+      expect(card).toContain(name);
     }
-  });
-
-  test("places products after Hero and before Shared Knowledge", () => {
-    const hero = html.indexOf('class="hero');
-    const overview = html.indexOf('id="products"');
-    const knowledge = html.indexOf('id="knowledge"');
-    const operations = html.indexOf('id="operations"');
-
-    expect(pageSource).toMatch(
-      /<section class="hero">[\s\S]*?<\/section>\s*<section id="products"/,
-    );
-    expect(hero).toBeLessThan(overview);
-    expect(overview).toBeLessThan(knowledge);
-    expect(knowledge).toBeLessThan(operations);
-  });
-
-  test("reuses the Call background wave between Hero and Products", () => {
-    const overview =
-      html.match(/<section id="products"[\s\S]*?<\/section>/)?.[0] ?? "";
-
-    expect(overview).toContain("hero-products-curve");
-    expect(overview).toContain(
-      'd="M-80 330C80 128 266 88 498 136C726 184 812 188 1008 76C1214 -42 1378 24 1508 214V1600H-80Z"',
-    );
-    expect(overview.indexOf("hero-products-curve")).toBeLessThan(
-      overview.indexOf("products-inner"),
+    expect(main).not.toMatch(
+      /<video\b|<button\b|id="(?:knowledge|operations|case)"/,
     );
   });
 });
@@ -405,18 +315,6 @@ describe("SwarrowCall page", () => {
   });
 });
 
-describe("common operations", () => {
-  test("describes one update workflow for both products", () => {
-    const operations = html.match(
-      /<section id="operations"[\s\S]*?<\/section>/,
-    )?.[0];
-    expect(operations).toContain("両製品の案内を職員が改善");
-    expect(operations).toContain("SwarrowChatとSwarrowCall");
-    expect(operations).toContain("一度の更新");
-    expect(operations).toContain("/swarrow-call/workflow-editor-alpha.webm");
-  });
-});
-
 describe("navigation and conversion", () => {
   test("all in-page links point to rendered targets", () => {
     const ids = new Set(
@@ -432,11 +330,12 @@ describe("navigation and conversion", () => {
     }
   });
 
-  test("keeps the final page sequence without an unsolicited download CTA", () => {
-    const ids = ["products", "knowledge", "operations", "news"];
+  test("shows the products, news and existing Vecta contact route in order", () => {
+    const ids = ["products", "news", "contact"];
     const positions = ids.map((id) => html.indexOf(`id="${id}"`));
     expect(positions.every((position) => position >= 0)).toBe(true);
     expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+    expect(html).toContain('href="https://www.vecta.co.jp/#contact"');
     expect(html).not.toContain("まずは資料でご確認ください。");
   });
 });
@@ -563,7 +462,7 @@ describe("final search contract", () => {
   test("keeps every referenced Swarrow media file present", () => {
     const media = new Set(
       Array.from(
-        html.matchAll(/(?:src|poster)="(\/swarrow-call\/[^"]+)"/g),
+        html.matchAll(/(?:src|poster)="(\/swarrow-(?:call|chat)\/[^"]+)"/g),
         (match) => match[1],
       ),
     );

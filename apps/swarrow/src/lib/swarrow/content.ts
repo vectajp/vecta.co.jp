@@ -65,7 +65,7 @@ export const products: readonly Product[] = [
 ];
 
 export const heroCopy = {
-  title: "自治体のAIチャットボットとAIコールセンター",
+  title: "自治体向けAIサービス",
 } as const;
 
 export const downloadCtaLabel = "資料ダウンロードを依頼する";

@@ -17,7 +17,7 @@ Read the applicable rule file before editing matching files.
   and `src/routes/call/+page.svelte`. Keep the shared header, footer, and
   download-request modal in `src/routes/+layout.svelte`.
 - Present SwarrowChat and SwarrowCall as equal, independently adoptable products.
-- Explain the shared knowledge base before either product's detailed section.
+- Keep the series homepage focused on the two product links, recent news, and the Vecta contact link.
 - Keep shared components and utilities under `src/lib/swarrow/` and import them
   through the `$lib` alias.
 - Reuse the existing media under `static/swarrow-call/`; do not rename those
