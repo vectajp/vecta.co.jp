@@ -1,7 +1,56 @@
 {
   "date": "2026-11-18",
+  "revision": "r2",
   "audience": "導入先向け営業資料",
   "files": [
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r2.pdf",
+      "bytes": 5844284,
+      "sha256": "99f1aa9d6d5271253a8b1bccdefdb6a25da96f6ae6992d5cff96829defed3270",
+      "pages": 2,
+      "format": "A4 portrait"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r2.pdf",
+      "bytes": 6110662,
+      "sha256": "20236110ec7df8ff3a8ce7447251eb55eab693fa4c82283b1b622cd92dc86d4b",
+      "pages": 2,
+      "format": "A4 portrait"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/donation-gifts-r2.png",
+      "bytes": 182471,
+      "sha256": "7fcaf54b2b16504c37855a99f182de8fd14a0940c5a54ef2bdeb76d7b1bcba33"
+    },
+    {
+      "path": "assets/donation-onestop-r2.png",
+      "bytes": 207078,
+      "sha256": "1e2d2e6228e87fcd49673f680a34b0dd4112eb013e26e996f9d18a1ea7d8552c"
+    },
+    {
+      "path": "assets/donation-scenery-r2.png",
+      "bytes": 2248674,
+      "sha256": "11bb45ab845cfb4aec9e2899288b605b025077d73881dea11eaec1a920620e86"
+    },
+    {
+      "path": "assets/tourism-en-r2.png",
+      "bytes": 181491,
+      "sha256": "299ce9fcae9ffa646064ee2081b66b94c040251a5ed1a71bb63be701a1edbcca"
+    },
+    {
+      "path": "assets/tourism-ja-r2.png",
+      "bytes": 194491,
+      "sha256": "c6ae8c65b7ad6c3db66978521b242406387d5290388f7abd725659885dd156f7"
+    },
+    {
+      "path": "assets/tourism-scenery-r2.png",
+      "bytes": 2566596,
+      "sha256": "e4a3a2bc06023729d5b478d77c2a2ecba8d2f308f2e4c4e4e6dfe4770f1780e1"
+    }
+  ],
+  "previousFiles": [
     {
       "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118.pdf",
       "bytes": 399319,

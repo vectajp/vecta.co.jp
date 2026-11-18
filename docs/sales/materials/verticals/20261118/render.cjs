@@ -43,11 +43,12 @@ const assert = require('node:assert/strict')
       assert.deepEqual(report.overflow, [], JSON.stringify(report.overflow))
       assert.deepEqual(report.outside, [])
       assert.ok(report.text.includes('個別連携'))
+      for (const phrase of ['佐藤 泰格 氏', '2026年10月17日放送', '総合政策部 デジタル統括課 副課長']) assert.ok(report.text.includes(phrase), phrase)
       assert.ok(!report.text.includes('Swarrow Chat'))
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(build, `${slug}-${n + 1}.png`) })
       }
-      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118.pdf`)
+      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r2.pdf`)
       await page.pdf({ path: file, printBackground: true, preferCSSPageSize: true, scale: (210 / 25.4 * 96) / 1055, margin: { top: 0, bottom: 0, left: 0, right: 0 } })
       reports.push({ slug, file, ...report })
       await page.close()

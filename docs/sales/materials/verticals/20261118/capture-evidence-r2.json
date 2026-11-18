@@ -1,0 +1,220 @@
+{
+  "capturedAt": "2026-11-18",
+  "modelInformation": true,
+  "previewRequired": true,
+  "withoutPreviewStatus": 403,
+  "cases": [
+    {
+      "topic": "tourism",
+      "slug": "tourism-ja",
+      "question": "雨の日に子どもと楽しめる場所は？",
+      "language": "ja",
+      "title": "観光案内AI",
+      "answer": "屋内なら「海辺のミュージアム」と「まちなか体験工房」があり、親子で雨の日に利用できます。雨の日の親子向け観光ガイド\n海辺のミュージアムは子ども向け体験コーナー、休憩スペース、授乳室があります。体験工房では貝がらや木の実のクラフト体験ができます。雨の日の親子向け観光ガイド\n情報源\n1\n雨の日の親子向け観光ガイド\naxiswprod.blob.core.windows.net\n↗",
+      "sources": [
+        {
+          "assetId": "ee6e8a91-dfdd-5db8-927c-2d6f5e677fd3",
+          "assetTitle": "雨の日の親子向け観光ガイド",
+          "organizationId": "18a35520-1964-5429-bd17-ab297e0fbd97"
+        }
+      ],
+      "box": {
+        "x": 580,
+        "y": 100,
+        "width": 600,
+        "height": 700
+      },
+      "visibility": {
+        "questionVisible": true,
+        "sourcesVisible": true,
+        "area": {
+          "x": 580,
+          "y": 239,
+          "width": 600,
+          "height": 466,
+          "top": 239,
+          "right": 1180,
+          "bottom": 705,
+          "left": 580
+        },
+        "sources": [
+          {
+            "x": 672,
+            "y": 580.625,
+            "width": 458,
+            "height": 62.890625,
+            "top": 580.625,
+            "right": 1130,
+            "bottom": 643.515625,
+            "left": 672
+          }
+        ]
+      },
+      "errors": [],
+      "apiStatus": 200,
+      "deployedWidget": "https://axisw-prod-web-widget.web.app/web-widget.js",
+      "captureHost": "local embedding fixture at production origin; not published",
+      "browser": "Chrome via Playwright; Browser plugin not available",
+      "image": "assets/tourism-ja-r2.png"
+    },
+    {
+      "topic": "tourism",
+      "slug": "tourism-en",
+      "question": "Any indoor spots for kids?",
+      "language": "en",
+      "title": "観光案内AI",
+      "answer": "Yes—both 海辺のミュージアム and まちなか体験工房 are indoor spots for kids. 雨の日の親子向け観光ガイド\n海辺のミュージアム has indoor exhibits and a kids’ activity corner; まちなか体験工房 offers indoor craft activities for families. 雨の日の親子向け観光ガイド\n情報源\n1\n雨の日の親子向け観光ガイド\naxiswprod.blob.core.windows.net\n↗",
+      "sources": [
+        {
+          "assetId": "ee6e8a91-dfdd-5db8-927c-2d6f5e677fd3",
+          "assetTitle": "雨の日の親子向け観光ガイド",
+          "organizationId": "18a35520-1964-5429-bd17-ab297e0fbd97"
+        }
+      ],
+      "box": {
+        "x": 580,
+        "y": 100,
+        "width": 600,
+        "height": 700
+      },
+      "visibility": {
+        "questionVisible": true,
+        "sourcesVisible": true,
+        "area": {
+          "x": 580,
+          "y": 239,
+          "width": 600,
+          "height": 466,
+          "top": 239,
+          "right": 1180,
+          "bottom": 705,
+          "left": 580
+        },
+        "sources": [
+          {
+            "x": 672,
+            "y": 580.625,
+            "width": 458,
+            "height": 62.890625,
+            "top": 580.625,
+            "right": 1130,
+            "bottom": 643.515625,
+            "left": 672
+          }
+        ]
+      },
+      "errors": [],
+      "apiStatus": 200,
+      "deployedWidget": "https://axisw-prod-web-widget.web.app/web-widget.js",
+      "captureHost": "local embedding fixture at production origin; not published",
+      "browser": "Chrome via Playwright; Browser plugin not available",
+      "image": "assets/tourism-en-r2.png"
+    },
+    {
+      "topic": "donation",
+      "slug": "donation-gifts",
+      "question": "お米と果物の返礼品を探しています",
+      "language": "ja",
+      "title": "ふるさと納税AI",
+      "answer": "お米は「お米食べ比べセット」、複数品種を楽しめます。返礼品の選び方と品目\n果物は「季節のフルーツセット」、旬の果物を楽しめます。内容やお届け時期は季節で異なります。返礼品の選び方と品目\n情報源\n1\n返礼品の選び方と品目\naxiswprod.blob.core.windows.net\n↗",
+      "sources": [
+        {
+          "assetId": "1e4073d0-5b43-5e2e-91a8-d56128964ca8",
+          "assetTitle": "返礼品の選び方と品目",
+          "organizationId": "18a35520-1964-5429-bd17-ab297e0fbd97"
+        }
+      ],
+      "box": {
+        "x": 580,
+        "y": 100,
+        "width": 600,
+        "height": 700
+      },
+      "visibility": {
+        "questionVisible": true,
+        "sourcesVisible": true,
+        "area": {
+          "x": 580,
+          "y": 239,
+          "width": 600,
+          "height": 466,
+          "top": 239,
+          "right": 1180,
+          "bottom": 705,
+          "left": 580
+        },
+        "sources": [
+          {
+            "x": 672,
+            "y": 557.53125,
+            "width": 458,
+            "height": 62.890625,
+            "top": 557.53125,
+            "right": 1130,
+            "bottom": 620.421875,
+            "left": 672
+          }
+        ]
+      },
+      "errors": [],
+      "apiStatus": 200,
+      "deployedWidget": "https://axisw-prod-web-widget.web.app/web-widget.js",
+      "captureHost": "local embedding fixture at production origin; not published",
+      "browser": "Chrome via Playwright; Browser plugin not available",
+      "image": "assets/donation-gifts-r2.png"
+    },
+    {
+      "topic": "donation",
+      "slug": "donation-onestop",
+      "question": "ワンストップ特例の申請方法を教えてください",
+      "language": "ja",
+      "title": "ふるさと納税AI",
+      "answer": "オンライン申請と書面申請があります。オンラインは寄附先の案内するサービスで、寄附情報と本人確認の手順を確認して申請します。ワンストップ特例の申請手順\n書面は申請書に記入し、本人確認書類等を添えて指定の提出先へ送付します。期限・添付書類・提出先は寄附先の案内で確認してください。ワンストップ特例の申請手順\n情報源\n1\nワンストップ特例の申請手順\naxiswprod.blob.core.windows.net\n↗",
+      "sources": [
+        {
+          "assetId": "6ff3fdbf-5a09-5184-9341-67c9cb416d3c",
+          "assetTitle": "ワンストップ特例の申請手順",
+          "organizationId": "18a35520-1964-5429-bd17-ab297e0fbd97"
+        }
+      ],
+      "box": {
+        "x": 580,
+        "y": 100,
+        "width": 600,
+        "height": 700
+      },
+      "visibility": {
+        "questionVisible": true,
+        "sourcesVisible": true,
+        "area": {
+          "x": 580,
+          "y": 239,
+          "width": 600,
+          "height": 466,
+          "top": 239,
+          "right": 1180,
+          "bottom": 705,
+          "left": 580
+        },
+        "sources": [
+          {
+            "x": 672,
+            "y": 603.71875,
+            "width": 458,
+            "height": 62.890625,
+            "top": 603.71875,
+            "right": 1130,
+            "bottom": 666.609375,
+            "left": 672
+          }
+        ]
+      },
+      "errors": [],
+      "apiStatus": 200,
+      "deployedWidget": "https://axisw-prod-web-widget.web.app/web-widget.js",
+      "captureHost": "local embedding fixture at production origin; not published",
+      "browser": "Chrome via Playwright; Browser plugin not available",
+      "image": "assets/donation-onestop-r2.png"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 # 観光協会・ふるさと納税向け営業パンフレット
 
-2026年11月18日。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
+2026年11月18日改訂（r2）。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
 
 ## 配布ファイル
 
-- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118.pdf)
-- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118.pdf)
+- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r2.pdf)
+- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r2.pdf)
 
 ## 内容と根拠
 
@@ -15,9 +15,22 @@
 - 都城市の実績は自治体ホームページへのSwarrowChat導入として扱う。観光・ふるさと納税の専用構成の導入実績、佐藤氏による本構成の推薦、未測定の効果を掲載しない。
 - 料金は対象業務・連携内容ごとの見積もり。自治体全体向け人口別料金や無料評価期間を各業務に流用しない。
 
-製品・CMSの確認元はAXISWリポジトリの `frontend/swarrow-ai/src/types/workflow.ts`、`frontend/web-widget/src/web-widget.js`、`frontend/site-cms/src/PageEditor.tsx`、`backend/cloud_run/src/services/cms/publication.py`、`security.py`。2026年11月18日のmain差分も確認した。特定顧客の資料を使った回答検証は未実施。
+製品・CMSの確認元はAXISWリポジトリの `frontend/swarrow-ai/src/types/workflow.ts`、`frontend/web-widget/src/web-widget.js`、`frontend/site-cms/src/PageEditor.tsx`、`backend/cloud_run/src/services/cms/publication.py`、`security.py`。2026年11月18日のmain差分も確認した。撮影は下記のモデル情報で実施し、特定顧客の実データによる品質評価は含めない。
 
-既存の製品実画面・正式アイコン・図版・QRは [20261027共通版](../../revisions/20261027-chat-voice-news/brochure/README.md) を再利用。実画面のピクセルは変更せず「一般的な手続き案内の例」と明記する。質問例と構成図は説明用。Noto Sans JPで組版する。
+既存の正式アイコン・QRと都城市の事例欄（放送紹介図、佐藤氏の写真・役職・説明文）は [20261027共通版](../../revisions/20261027-chat-voice-news/brochure/README.md) を再利用。表紙に明るい立体感のある新規図版を追加。図版の生成条件は [image-prompts-r2.md](image-prompts-r2.md) に記録する。Noto Sans JPで組版する。
+
+## 専用AIと実画面の撮影
+
+既存顧客から独立した内部撮影用組織 `18a35520-1964-5429-bd17-ab297e0fbd97` をprodに作成。観光とふるさと納税のAI定義を分け、各3件のモデル資料をSQLと検索基盤に保存した。資料本文と識別子は [capture-fixtures.json](capture-fixtures.json) に記録する。架空の施設・返礼品を使い、実際の在庫、料金、個人情報を含めない。PDFの取得・解析・サイトクロールは行っていない。
+
+- 観光AI: `swarrow-sales-tourism-20261118`
+- ふるさと納税AI: `swarrow-sales-donation-20261118`
+- 日本語の雨の日の観光相談、英語の屋内施設案内、返礼品選び、ワンストップ特例の4場面を撮影。
+- 本番配信済みウィジェットと本番APIを使用。埋め込み用の空ページだけをPlaywrightでローカル提供し、会話・回答・参照元は実際のUI操作と検索結果。文面の差し込み、APIのモック、スクリーンショットのピクセル加工は行わない。
+- 幅600×高さ700、DPR 2のウィジェットを撮影し、PNGをそのまま組版。質問・回答・参照元カードが画面内に収まること、参照元が各AIの資料だけであることを確認。実行記録は [capture-evidence-r2.json](capture-evidence-r2.json)。
+- 通常の公開要求を許可しないドメイン設定とし、有効期限付きpreview認証で撮影を許可。previewなしの同一オリジン要求は403。一般公開ページ・顧客ユーザーの発行や通知は行っていない。撮影後に一時トークンファイルを削除。
+
+紙面に「専用AI定義と説明用のモデル情報を使用した実際の会話画面」と明記する。都城市の事例欄にある従来の手続き案内画像は、同市の事例説明として保持する。
 
 ## 再生成
 
@@ -37,7 +50,7 @@ HTML、確認用PNG、検証記録は `.build/` に保存しGit対象外。PDF�
 - `python3 build.py` と `node render.cjs` が成功。2ファイル各2ページ、画像読み込み、Noto Sans JPの2ウェイト、文字のはみ出し・ページ外要素の検査を通過。
 - `pdfinfo` で両方ともA4・2ページを確認。`pdftotext` で本文とメールアドレスの抽出を確認。`pdfinfo -url` でリンクを確認。
 - `pdffonts` でNoto Sans JPの埋め込みCID TrueTypeとUnicode対応を確認。Type 3フォントは使用しない。
-- Popplerで最終PDFの全4ページを画像化し、見出し・本文・図版・フッター・ページ番号を目視確認。PDFは各約400KB。
-- Webの実装・設定を変更していないため、サイト全体のビルド・テストは実施していない。専用AI定義の作成・公開、個別業務データでの回答試験、外部送信は行っていない。
+- Popplerで最終PDFの全4ページを画像化し、見出し・本文・図版・フッター・ページ番号を目視確認。PDFは各約6MB。旧版PDFも履歴として保持する。
+- Webのソースコードを変更していないため、サイト全体のビルド・テストは実施していない。専用AIの上記4場面は全てAPI 200、ブラウザーエラーなし。既存顧客のAI定義やデータは変更せず、メール等の外部送信や公開サイトのデプロイは行っていない。
 
 配布ファイルの容量・SHA-256は `manifest.json` に記録する。
