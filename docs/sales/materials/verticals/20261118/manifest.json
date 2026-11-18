@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-18",
+  "audience": "導入先向け営業資料",
+  "files": [
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118.pdf",
+      "bytes": 399319,
+      "sha256": "304fd23caa5b192f054a9e5e58c661b03c007d9c1bca35173ac725e7241038b4",
+      "pages": 2,
+      "format": "A4 portrait"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118.pdf",
+      "bytes": 399204,
+      "sha256": "4637ec685393376b9566fb2273257568639b961bb1193f95cfb2a3aa914ef384",
+      "pages": 2,
+      "format": "A4 portrait"
+    }
+  ]
+}

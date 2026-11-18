@@ -1,6 +1,6 @@
 # 営業資料
 
-SwarrowChat・SwarrowCallの現在の配布版は以下の4ファイルです。2026年10月27日版r4に統一し、PDF・PowerPoint本体もGitで管理しています。
+SwarrowChat・SwarrowCallの共通配布版は以下の4ファイルです。2026年10月27日版r4に統一し、PDF・PowerPoint本体もGitで管理しています。
 
 |資料|用途|最新版|
 |---|---|---|
@@ -9,6 +9,13 @@ SwarrowChat・SwarrowCallの現在の配布版は以下の4ファイルです。
 |Swarrow 商談用営業資料|Chat・AI受電・AI架電の説明|[PDF・15ページ](materials/revisions/20261027-chat-voice-news/output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf) / [PowerPoint・15枚](materials/revisions/20261027-chat-voice-news/output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx)|
 
 各ファイルのパス・容量・SHA-256は [materials/current.json](materials/current.json)、変更点と検証内容は [改訂記録](materials/revisions/20261027-chat-voice-news/README.md) に記録しています。PDFの文字・リンク、PowerPointの編集可能な文字・表を保持しています。
+
+## 用途別の営業パンフレット
+
+2026年11月18日作成。導入先に渡すA4両面の資料です。対象範囲と個別連携を区別し、費用は個別見積もりとしています。[内容・編集元・検証](materials/verticals/20261118/README.md)
+
+- [観光協会向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118.pdf)
+- [ふるさと納税担当課・運営事業者向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118.pdf)
 
 ## 共通の掲載内容
 
