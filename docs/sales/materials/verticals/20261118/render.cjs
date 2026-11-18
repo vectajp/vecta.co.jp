@@ -46,6 +46,7 @@ const { spawnSync } = require('node:child_process')
       assert.ok(report.text.includes('個別連携'))
       for (const phrase of ['佐藤 泰格 氏', '2026年10月17日放送', '総合政策部 デジタル統括課 副課長']) assert.ok(report.text.includes(phrase), phrase)
       assert.ok(!report.text.includes('Swarrow Chat'))
+      assert.ok(!report.text.includes('SwarrowSite'), 'Site must not appear in Chat brochures')
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(build, `${slug}-${n + 1}.png`) })
       }
@@ -61,7 +62,7 @@ const { spawnSync } = require('node:child_process')
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(backgrounds, `background-${n + 1}.jpg`), type: 'jpeg', quality: 95, omitBackground: false })
       }
-      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r4.pdf`)
+      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r5.pdf`)
       const exported = spawnSync(process.env.PDF_PYTHON || 'python3', [path.resolve(__dirname, '../..', 'export-compatible-pdf.py'), native, backgrounds, file], { encoding: 'utf8' })
       assert.equal(exported.status, 0, exported.stderr || exported.error?.message)
       reports.push({ slug, file, ...report, compatibleExport: JSON.parse(exported.stdout), backgroundTextBoxesUnchanged: true })
