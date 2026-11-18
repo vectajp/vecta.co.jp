@@ -61,7 +61,7 @@ const { spawnSync } = require('node:child_process')
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(backgrounds, `background-${n + 1}.jpg`), type: 'jpeg', quality: 95, omitBackground: false })
       }
-      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r3.pdf`)
+      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r4.pdf`)
       const exported = spawnSync(process.env.PDF_PYTHON || 'python3', [path.resolve(__dirname, '../..', 'export-compatible-pdf.py'), native, backgrounds, file], { encoding: 'utf8' })
       assert.equal(exported.status, 0, exported.stderr || exported.error?.message)
       reports.push({ slug, file, ...report, compatibleExport: JSON.parse(exported.stdout), backgroundTextBoxesUnchanged: true })

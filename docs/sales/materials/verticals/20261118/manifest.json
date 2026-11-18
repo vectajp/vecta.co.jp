@@ -1,20 +1,20 @@
 {
   "date": "2026-11-18",
-  "revision": "r3",
+  "revision": "r4",
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r3.pdf",
-      "bytes": 1662943,
-      "sha256": "039b0490a89ce2c84d50143005cfdf2ae0a3c31d00345bcf4c7630d032041902",
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r4.pdf",
+      "bytes": 2102326,
+      "sha256": "2565f3b40d460638d13bbb1b01fb333d7fa8c2054bb989b13609f51ba18d834b",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r3.pdf",
-      "bytes": 1699035,
-      "sha256": "293f1ca0dca43411baa4512ffcf894757e3445eb28a3e5b4a582058e0287a4c5",
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r4.pdf",
+      "bytes": 2206588,
+      "sha256": "95ae87b82bb1b8da6e2efc9870a8a2e6bfe124a5cbebb861291749ec52f87784",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
@@ -80,6 +80,22 @@
       "sha256": "20236110ec7df8ff3a8ce7447251eb55eab693fa4c82283b1b622cd92dc86d4b",
       "pages": 2,
       "format": "A4 portrait"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r3.pdf",
+      "bytes": 1662943,
+      "sha256": "039b0490a89ce2c84d50143005cfdf2ae0a3c31d00345bcf4c7630d032041902",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r3.pdf",
+      "bytes": 1699035,
+      "sha256": "293f1ca0dca43411baa4512ffcf894757e3445eb28a3e5b4a582058e0287a4c5",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
     }
   ]
 }
