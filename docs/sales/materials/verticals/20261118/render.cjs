@@ -3,6 +3,7 @@ const { pathToFileURL } = require('node:url')
 const path = require('node:path')
 const fs = require('node:fs')
 const assert = require('node:assert/strict')
+const { spawnSync } = require('node:child_process')
 
 ;(async () => {
   const browser = await chromium.launch({ channel: 'chrome', headless: true })
@@ -15,7 +16,7 @@ const assert = require('node:assert/strict')
       ['tourism', '観光協会向け'],
       ['donation', 'ふるさと納税向け'],
     ]) {
-      const page = await browser.newPage({ viewport: { width: 1055, height: 1491 }, deviceScaleFactor: 1.5 })
+      const page = await browser.newPage({ viewport: { width: 1055, height: 1491 }, deviceScaleFactor: 3 })
       await page.goto(pathToFileURL(path.join(build, `${slug}.html`)).href)
       await page.evaluate(async () => {
         await document.fonts.ready
@@ -48,9 +49,22 @@ const assert = require('node:assert/strict')
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(build, `${slug}-${n + 1}.png`) })
       }
-      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r2.pdf`)
-      await page.pdf({ path: file, printBackground: true, preferCSSPageSize: true, scale: (210 / 25.4 * 96) / 1055, margin: { top: 0, bottom: 0, left: 0, right: 0 } })
-      reports.push({ slug, file, ...report })
+      const native = path.join(build, `${slug}-native.pdf`)
+      await page.pdf({ path: native, printBackground: true, preferCSSPageSize: true, scale: (210 / 25.4 * 96) / 1055, margin: { top: 0, bottom: 0, left: 0, right: 0 } })
+      // Bake shadows and SVG filters into opaque artwork; keep native PDF text.
+      const boxes = () => [...document.querySelectorAll('h1,h2,h3,p,strong,span,a')].map(element => element.getBoundingClientRect().toJSON())
+      const before = await page.evaluate(boxes)
+      await page.addStyleTag({ content: '*{-webkit-text-fill-color:transparent!important}svg,svg *{-webkit-text-fill-color:initial!important}' })
+      assert.deepEqual(await page.evaluate(boxes), before, 'Hiding glyphs changed layout')
+      const backgrounds = path.join(build, slug)
+      fs.mkdirSync(backgrounds, { recursive: true })
+      for (let n = 0; n < 2; n++) {
+        await page.locator('.page').nth(n).screenshot({ path: path.join(backgrounds, `background-${n + 1}.jpg`), type: 'jpeg', quality: 95, omitBackground: false })
+      }
+      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261118_r3.pdf`)
+      const exported = spawnSync(process.env.PDF_PYTHON || 'python3', [path.resolve(__dirname, '../..', 'export-compatible-pdf.py'), native, backgrounds, file], { encoding: 'utf8' })
+      assert.equal(exported.status, 0, exported.stderr || exported.error?.message)
+      reports.push({ slug, file, ...report, compatibleExport: JSON.parse(exported.stdout), backgroundTextBoxesUnchanged: true })
       await page.close()
     }
   } finally {

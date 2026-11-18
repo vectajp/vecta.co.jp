@@ -1,11 +1,11 @@
 # 観光協会・ふるさと納税向け営業パンフレット
 
-2026年11月18日改訂（r2）。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
+2026年11月18日改訂（r3）。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
 
 ## 配布ファイル
 
-- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r2.pdf)
-- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r2.pdf)
+- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r3.pdf)
+- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r3.pdf)
 
 ## 内容と根拠
 
@@ -34,7 +34,7 @@
 
 ## 再生成
 
-Python 3、Node.js、Playwright、Google Chrome、Noto Sans JP Regular/Boldが必要。フォントの入力は `~/Library/Fonts/CodexNotoCJK/NotoSansJP-Regular.ttf` と `NotoSansJP-Bold.ttf`。このディレクトリで実行する。
+Python 3（pymupdf・pypdf）、Node.js、Playwright、Google Chrome、Noto Sans JP Regular/Boldが必要。フォントの入力は `~/Library/Fonts/CodexNotoCJK/NotoSansJP-Regular.ttf` と `NotoSansJP-Bold.ttf`。このディレクトリで実行する。
 
 ```sh
 python3 build.py
@@ -43,14 +43,26 @@ node render.cjs
 
 Playwrightが通常のモジュール解決にない場合は `NODE_PATH` に既存のランタイムのnode_modulesを指定する。新しい依存はインストールしない。
 
-HTML、確認用PNG、検証記録は `.build/` に保存しGit対象外。PDFは選択可能な文字とリンクを保持する。保存済みPDFを配布前に見直す。印刷機での色校正・スマートフォン実機での確認は別途。
+Python環境を別途指定する場合は `PDF_PYTHON=/path/to/python node render.cjs` を使用する。検証時はPyMuPDF 2.1・pypdf 6.21.4を使用した。
+
+HTML、確認用PNG、元PDF、背景JPEGは `.build/` に保存しGit対象外。配布PDFは [共通の互換書き出し処理](../../export-compatible-pdf.py) を必ず通し、装飾を約383dpiの非透過画像にまとめる。本文の文字・座標・色と5つのリンクは元のPDFのまま保持する。透明マスク・透明グループが残る出力は保存しない。保存済みPDFを配布前に見直す。印刷機での色校正・スマートフォン実機での確認は別途。
 
 ## 検証結果
 
 - `python3 build.py` と `node render.cjs` が成功。2ファイル各2ページ、画像読み込み、Noto Sans JPの2ウェイト、文字のはみ出し・ページ外要素の検査を通過。
 - `pdfinfo` で両方ともA4・2ページを確認。`pdftotext` で本文とメールアドレスの抽出を確認。`pdfinfo -url` でリンクを確認。
 - `pdffonts` でNoto Sans JPの埋め込みCID TrueTypeとUnicode対応を確認。Type 3フォントは使用しない。
-- Popplerで最終PDFの全4ページを画像化し、見出し・本文・図版・フッター・ページ番号を目視確認。PDFは各約6MB。旧版PDFも履歴として保持する。
+- CoreGraphicsとPopplerで最終PDFの全4ページをそれぞれ画像化し、見出し・本文・図版・フッター・ページ番号を目視確認。PDFは各約1.6MB。旧版PDFも履歴として保持する。
 - Webのソースコードを変更していないため、サイト全体のビルド・テストは実施していない。専用AIの上記4場面は全てAPI 200、ブラウザーエラーなし。既存顧客のAI定義やデータは変更せず、メール等の外部送信や公開サイトのデプロイは行っていない。
+
+## r3の表示互換性修正
+
+r2はmacOS CoreGraphicsで、画像やアイコンの周囲に半透明の描画範囲が四角く現れた。Popplerだけの確認では発見できなかったため、共通パンフレットで使っていた非透過背景方式を共通スクリプトにし、この生成処理にも適用した。半透明の影やSVGフィルターはブラウザー側で見た目を確定して背景JPEGに含める。SVG内の文字も図版として保持する。
+
+- r2の透明マスクは各PDF30件。r3はマスク・透明グループ・オプショナルレイヤーを全てゼロにした。
+- r2とr3の全文、字形の座標・サイズ・色、リンクと座標が一致。Noto Sans JPの埋め込みCID TrueTypeとUnicode対応を保持。
+- 添付で問題になったアイコン4か所と右スクリーンショット脇の余白をCoreGraphicsで比較し、平坦な青い矩形が消えたことを検証。
+- [pdf-compatibility-r3.json](pdf-compatibility-r3.json) に検証結果を保存。再描画は共通の `render-coregraphics.swift` とPopplerを使用する。
+- 本文の選択・検索とリンクは維持する。図版の拡大限界は約383dpi。実機スマートフォン・印刷機での確認は未実施。
 
 配布ファイルの容量・SHA-256は `manifest.json` に記録する。
