@@ -1,10 +1,7 @@
 {
   "date": "2026-11-18",
   "revision": "r4",
-  "renderers": [
-    "Apple CoreGraphics",
-    "Poppler"
-  ],
+  "renderers": ["Apple CoreGraphics", "Poppler"],
   "pagesCheckedEach": 4,
   "r3VsR4": {
     "frontTextPreserved": true,
@@ -20,10 +17,7 @@
     {
       "slug": "tourism",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
+      "fonts": [true, true],
       "badImages": [],
       "overflow": [],
       "outside": [],
@@ -32,10 +26,7 @@
     {
       "slug": "donation",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
+      "fonts": [true, true],
       "badImages": [],
       "overflow": [],
       "outside": [],
@@ -44,84 +35,29 @@
   ],
   "rectangleProbes": [
     {
-      "layoutPoint": [
-        43,
-        865
-      ],
-      "old": [
-        237,
-        243,
-        248
-      ],
-      "fixed": [
-        254,
-        254,
-        254
-      ]
+      "layoutPoint": [43, 865],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
     },
     {
-      "layoutPoint": [
-        536,
-        865
-      ],
-      "old": [
-        237,
-        243,
-        248
-      ],
-      "fixed": [
-        255,
-        255,
-        255
-      ]
+      "layoutPoint": [536, 865],
+      "old": [237, 243, 248],
+      "fixed": [255, 255, 255]
     },
     {
-      "layoutPoint": [
-        43,
-        986
-      ],
-      "old": [
-        237,
-        243,
-        248
-      ],
-      "fixed": [
-        254,
-        254,
-        254
-      ]
+      "layoutPoint": [43, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
     },
     {
-      "layoutPoint": [
-        536,
-        986
-      ],
-      "old": [
-        237,
-        243,
-        248
-      ],
-      "fixed": [
-        254,
-        254,
-        254
-      ]
+      "layoutPoint": [536, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
     },
     {
-      "layoutPoint": [
-        520,
-        360
-      ],
-      "old": [
-        223,
-        234,
-        240
-      ],
-      "fixed": [
-        251,
-        254,
-        253
-      ]
+      "layoutPoint": [520, 360],
+      "old": [223, 234, 240],
+      "fixed": [251, 254, 253]
     }
   ],
   "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",

@@ -1,10 +1,7 @@
 {
   "date": "2026-11-19",
   "revision": "r6",
-  "renderers": [
-    "Apple CoreGraphics",
-    "Poppler"
-  ],
+  "renderers": ["Apple CoreGraphics", "Poppler"],
   "pagesCheckedEach": 4,
   "r5VsR6": [
     {
@@ -25,10 +22,7 @@
     {
       "slug": "tourism",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
+      "fonts": [true, true],
       "badImages": [],
       "overflow": [],
       "outside": [],
@@ -37,10 +31,7 @@
     {
       "slug": "donation",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
+      "fonts": [true, true],
       "badImages": [],
       "overflow": [],
       "outside": [],

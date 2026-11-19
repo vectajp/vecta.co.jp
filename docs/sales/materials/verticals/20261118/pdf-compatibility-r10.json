@@ -1,10 +1,7 @@
 {
   "date": "2026-11-19",
   "revision": "r10",
-  "renderers": [
-    "Apple CoreGraphics",
-    "Poppler"
-  ],
+  "renderers": ["Apple CoreGraphics", "Poppler"],
   "pagesCheckedEach": 4,
   "siteProductMentionInPdf": false,
   "transparencyMasks": 0,
@@ -15,15 +12,8 @@
     {
       "slug": "tourism",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
-      "guideFonts": [
-        true,
-        true,
-        true
-      ],
+      "fonts": [true, true],
+      "guideFonts": [true, true, true],
       "cardInsets": [
         {
           "text": "初期設定は弊社が対応",
@@ -153,15 +143,8 @@
     {
       "slug": "donation",
       "pages": 2,
-      "fonts": [
-        true,
-        true
-      ],
-      "guideFonts": [
-        true,
-        true,
-        true
-      ],
+      "fonts": [true, true],
+      "guideFonts": [true, true, true],
       "cardInsets": [
         {
           "text": "初期設定は弊社が対応",
@@ -295,11 +278,7 @@
     "monthly": "5万円〜（税別）",
     "initial": "10万円〜（税別）",
     "populationCondition": false,
-    "quoteBasedOn": [
-      "想定問い合わせ量",
-      "対象情報",
-      "連携内容"
-    ],
+    "quoteBasedOn": ["想定問い合わせ量", "対象情報", "連携内容"],
     "voiceSeparatelyPriced": true,
     "includedUsageAndOverageNotDefined": true
   },
@@ -325,7 +304,7 @@
         },
         {
           "text": "無料評価から導入まで",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "対象確認",
@@ -333,15 +312,15 @@
         },
         {
           "text": "初期設定",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "無料評価",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "ご契約・公開",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "メールでのお問い合わせ",
@@ -370,7 +349,7 @@
         },
         {
           "text": "無料評価から導入まで",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "対象確認",
@@ -378,15 +357,15 @@
         },
         {
           "text": "初期設定",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "無料評価",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "ご契約・公開",
-          "maxBBoxDifferencePt": 6e-05
+          "maxBBoxDifferencePt": 6e-5
         },
         {
           "text": "メールでのお問い合わせ",
@@ -404,10 +383,7 @@
   ],
   "originalReferenceLayout": {
     "comparedSelectors": 37,
-    "topics": [
-      "tourism",
-      "donation"
-    ],
+    "topics": ["tourism", "donation"],
     "matchingGeometryFontsAndColors": true,
     "fontComparisonExcludesEmptyBackground": true
   },
