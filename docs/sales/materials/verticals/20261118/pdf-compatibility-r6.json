@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-19",
+  "revision": "r6",
+  "renderers": ["Apple CoreGraphics", "Poppler"],
+  "pagesCheckedEach": 4,
+  "r5VsR6": [
+    {
+      "topic": "tourism",
+      "backTextAndRenderedPixelsUnchanged": true
+    },
+    {
+      "topic": "donation",
+      "backTextAndRenderedPixelsUnchanged": true
+    }
+  ],
+  "siteProductMentionInPdf": false,
+  "transparencyMasks": 0,
+  "transparencyGroups": 0,
+  "optionalContentLayers": 0,
+  "nativeTextAndLinkGeometryPreserved": true,
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "avatarSource": "../../revisions/20261027-chat-voice-news/brochure/assets/avatar.png",
+  "avatarImagePixelsUnchanged": true,
+  "frontPresentation": "Dedicated text chat capture and existing avatar voice UI with illustrative question; voice clearly marked optional",
+  "limits": [
+    "Avatar question is a usage illustration, not a newly recorded voice conversation",
+    "Web pages on back are illustrative concepts; chat UI is captured from the real service",
+    "Smartphone devices and physical print not tested"
+  ],
+  "caseStudyFrontRenderedPixelsUnchanged": true
+}

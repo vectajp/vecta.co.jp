@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-18",
+  "revision": "r5",
+  "renderers": ["Apple CoreGraphics", "Poppler"],
+  "pagesCheckedEach": 4,
+  "r4VsR5": {
+    "tourismRenderedPixelsIdentical": true,
+    "donationFrontRenderedPixelsIdentical": true,
+    "donationBackUpdated": true
+  },
+  "siteProductMentionInPdf": false,
+  "transparencyMasks": 0,
+  "transparencyGroups": 0,
+  "optionalContentLayers": 0,
+  "nativeTextAndLinkGeometryPreserved": true,
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "rectangleProbes": [
+    {
+      "layoutPoint": [43, 865],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [536, 865],
+      "old": [237, 243, 248],
+      "fixed": [255, 255, 255]
+    },
+    {
+      "layoutPoint": [43, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [536, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [520, 360],
+      "old": [223, 234, 240],
+      "fixed": [251, 254, 253]
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "limits": [
+    "Web pages are illustrative concepts; chat UI is captured from the real service",
+    "Smartphone devices and physical print not tested"
+  ]
+}

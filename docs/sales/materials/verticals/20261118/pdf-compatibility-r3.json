@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-18",
+  "revision": "r3",
+  "renderers": ["Apple CoreGraphics", "Poppler"],
+  "pagesReviewedEach": 4,
+  "r2MasksPerPdf": 30,
+  "r3Masks": 0,
+  "r3TransparencyGroups": 0,
+  "r3OptionalContentLayers": 0,
+  "r2VsR3": {
+    "textPreserved": true,
+    "glyphPositionSizeColorPreserved": true,
+    "linkGeometryPreserved": true
+  },
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [true, true],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "rectangleProbes": [
+    {
+      "layoutPoint": [43, 865],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [536, 865],
+      "old": [237, 243, 248],
+      "fixed": [255, 255, 255]
+    },
+    {
+      "layoutPoint": [43, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [536, 986],
+      "old": [237, 243, 248],
+      "fixed": [254, 254, 254]
+    },
+    {
+      "layoutPoint": [520, 360],
+      "old": [223, 234, 240],
+      "fixed": [251, 254, 253]
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "limitations": [
+    "Smartphone devices and physical print not tested",
+    "Artwork rasterized at approximately 383dpi; native text retained"
+  ]
+}
