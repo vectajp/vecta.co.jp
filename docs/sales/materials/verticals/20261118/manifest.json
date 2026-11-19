@@ -1,20 +1,20 @@
 {
   "date": "2026-11-19",
-  "revision": "r8",
+  "revision": "r9",
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r8.pdf",
-      "bytes": 1952379,
-      "sha256": "bd3b491963acc41ecfbbb0a3d4491aa433e7e215378380966f46444e7d7a07c0",
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r9.pdf",
+      "bytes": 1951323,
+      "sha256": "6e9a235138bbb392aa6bb7264401542923c8653449ec79db10534a452e8bf4cd",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r8.pdf",
-      "bytes": 2089346,
-      "sha256": "1f0488dc804a9866c7933c8a9bb4c983363f8f2082ba247233fddd24bb3003cc",
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r9.pdf",
+      "bytes": 2087404,
+      "sha256": "76442a3a1d7be26627f581b80a73c71b1456148efc4fd52934a64db20d11405d",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
@@ -211,6 +211,22 @@
       "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf",
       "bytes": 2067011,
       "sha256": "09b46ac77ba0df4dc3fc7fdffbbb57b845d97151d2d81ccd3868319d3b32c8df",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r8.pdf",
+      "bytes": 1952379,
+      "sha256": "bd3b491963acc41ecfbbb0a3d4491aa433e7e215378380966f46444e7d7a07c0",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r8.pdf",
+      "bytes": 2089346,
+      "sha256": "1f0488dc804a9866c7933c8a9bb4c983363f8f2082ba247233fddd24bb3003cc",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
