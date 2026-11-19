@@ -14,8 +14,8 @@ SwarrowChat・SwarrowCallの共通配布版は以下の4ファイルです。202
 
 2026年11月18日作成・19日改訂。導入先に渡すA4両面の資料です。対象範囲と個別連携を区別し、費用は個別見積もりとしています。[内容・編集元・検証](materials/verticals/20261118/README.md)
 
-- [観光協会向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r6.pdf)
-- [ふるさと納税担当課・運営事業者向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r6.pdf)
+- [観光協会向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf)
+- [ふるさと納税担当課・運営事業者向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r7.pdf)
 
 ## 共通の掲載内容
 

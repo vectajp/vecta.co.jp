@@ -1,20 +1,20 @@
 {
   "date": "2026-11-19",
-  "revision": "r6",
+  "revision": "r7",
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r6.pdf",
-      "bytes": 2013653,
-      "sha256": "e65d8a30aaab557d1a9e7b40db9821d2e4d34c7984dc861c58bfa5e83d4aa298",
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r7.pdf",
+      "bytes": 1927554,
+      "sha256": "ba3a07882198b4ede850facc4583f1bc0c58f9d37e7eed8c03e011024db5bdd0",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r6.pdf",
-      "bytes": 2152020,
-      "sha256": "dcd373e2c0b967ba446e3c025d0a8b4647fed6131c7a892df63acd3fbccb21aa",
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf",
+      "bytes": 2067011,
+      "sha256": "09b46ac77ba0df4dc3fc7fdffbbb57b845d97151d2d81ccd3868319d3b32c8df",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
@@ -55,7 +55,7 @@
       "path": "../../revisions/20261027-chat-voice-news/brochure/assets/avatar.png",
       "bytes": 259322,
       "sha256": "c34ccfa411025c9377f6e846c1dc8111720fee25c493e226918d05664d8e4976",
-      "source": "共通パンフレットの既存の音声会話画面。画像自体は変更せず質問例を別要素として配置"
+      "source": "共通パンフレットの既存の音声会話画面。画像自体は変更せず、r7は質問例の追加表示なし"
     }
   ],
   "previousFiles": [
@@ -131,6 +131,22 @@
       "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r5.pdf",
       "bytes": 2206588,
       "sha256": "b8f617ca99a916a985afd158b0d12ceec0bfdd906f88dc52f8c180ee529963aa",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r6.pdf",
+      "bytes": 2013653,
+      "sha256": "e65d8a30aaab557d1a9e7b40db9821d2e4d34c7984dc861c58bfa5e83d4aa298",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r6.pdf",
+      "bytes": 2152020,
+      "sha256": "dcd373e2c0b967ba446e3c025d0a8b4647fed6131c7a892df63acd3fbccb21aa",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"

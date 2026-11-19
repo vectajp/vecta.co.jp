@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-19",
+  "revision": "r7",
+  "renderers": [
+    "Apple CoreGraphics",
+    "Poppler"
+  ],
+  "pagesCheckedEach": 4,
+  "siteProductMentionInPdf": false,
+  "transparencyMasks": 0,
+  "transparencyGroups": 0,
+  "optionalContentLayers": 0,
+  "nativeTextAndLinkGeometryPreserved": true,
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "avatarSource": "../../revisions/20261027-chat-voice-news/brochure/assets/avatar.png",
+  "avatarImagePixelsUnchanged": true,
+  "frontPresentation": "Text and voice conversation with no outer browser frame, no option label beside the heading, and no added avatar question",
+  "limits": [
+    "Voice UI is the existing product capture, not a newly recorded conversation",
+    "Web pages on back are illustrative concepts; chat UI is captured from the real service",
+    "Smartphone devices and physical print not tested"
+  ],
+  "caseStudyFrontRenderedPixelsUnchanged": true,
+  "r6VsR7": [
+    {
+      "topic": "tourism",
+      "backTextAndRenderedPixelsUnchanged": true
+    },
+    {
+      "topic": "donation",
+      "backTextAndRenderedPixelsUnchanged": true
+    }
+  ],
+  "frontHeadings": [
+    "テキスト",
+    "音声会話"
+  ]
+}
