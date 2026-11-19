@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-19",
+  "revision": "r8",
+  "renderers": [
+    "Apple CoreGraphics",
+    "Poppler"
+  ],
+  "pagesCheckedEach": 4,
+  "r7VsR8": [
+    {
+      "topic": "tourism",
+      "frontTextAndPixelsUnchanged": true,
+      "backUpperPixelsUnchanged": true,
+      "fourStepGuideAndPriceFootnotesChecked": true,
+      "pages": 2,
+      "links": 5
+    },
+    {
+      "topic": "donation",
+      "frontTextAndPixelsUnchanged": true,
+      "backUpperPixelsUnchanged": true,
+      "fourStepGuideAndPriceFootnotesChecked": true,
+      "pages": 2,
+      "links": 5
+    }
+  ],
+  "siteProductMentionInPdf": false,
+  "transparencyMasks": 0,
+  "transparencyGroups": 0,
+  "optionalContentLayers": 0,
+  "nativeTextAndLinkGeometryPreserved": true,
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "backGuideMatchesReferenceStructure": true,
+  "priceGuide": {
+    "monthly": "5万円〜（税別）",
+    "initial": "10万円〜（税別）",
+    "populationCondition": false,
+    "quoteBasedOn": [
+      "想定問い合わせ量",
+      "対象情報",
+      "連携内容"
+    ],
+    "voiceSeparatelyPriced": true,
+    "includedUsageAndOverageNotDefined": true
+  },
+  "limits": [
+    "Usage included in the base price and overage rates are not defined",
+    "Voice UI is an existing product capture, not a newly recorded conversation",
+    "Web pages on back are illustrative concepts; chat UI is captured from the real service",
+    "Smartphone devices and physical print not tested"
+  ]
+}

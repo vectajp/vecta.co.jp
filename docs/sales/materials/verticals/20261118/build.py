@@ -45,10 +45,13 @@ body{width:1055px}h1,h2,h3,p,figure{margin:0}a{color:inherit;text-decoration:non
 .footer{position:absolute;left:0;right:0;bottom:0;height:55px;padding:0 42px;display:flex;align-items:center;background:#092b50;color:white;font-size:16px}.footer .url{margin-left:22px}.footer .provider{margin-left:auto}.footer .number{margin-left:24px}
 .back .headline{top:115px;font-size:35px}.back .lead{top:176px;font-size:21px}
 .usage-scene{position:absolute;left:40px;right:40px;top:253px;border:1px solid #cde3f1;border-radius:16px;overflow:hidden;background:#f2f9ff;box-shadow:0 10px 24px #2674ad18}.browser-chrome{height:28px;background:linear-gradient(100deg,#c7e2f5,#e4f2fb);display:flex;align-items:center;gap:6px;padding:0 14px}.browser-chrome i{width:7px;height:7px;border-radius:50%;background:white}.site-bar{height:52px;padding:0 20px;background:white;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dfebf2}.site-name{display:flex;align-items:center;gap:10px;font-size:20px}.site-name svg{width:25px;height:25px;fill:none;stroke:#1686bc;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.site-nav{display:flex;gap:22px;font-size:14px;color:#49667a}.usage-content{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:24px;padding:16px}.site-hero{position:relative;height:205px;border-radius:10px;overflow:hidden;background:#fff}.site-hero>img{position:absolute;right:0;top:0;width:78%;height:100%;object-fit:cover}.site-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 3%,#ffffffed 30%,#ffffff00 75%)}.site-copy{position:relative;z-index:1;padding:26px 19px}.site-copy .site-kicker{font-size:14px;line-height:22px;color:#187fad;font-weight:700;margin-bottom:8px}.site-copy h2{font-size:29px;line-height:41px;letter-spacing:-.7px}.site-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.site-card{height:126px;padding:12px 10px;background:white;border:1px solid #dceaf2;border-radius:9px}.site-card svg{height:29px;width:29px;fill:none;stroke:#258bbf;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;margin-bottom:7px}.site-card h3{font-size:16px;line-height:24px}.site-card p{font-size:13.5px;line-height:21px;color:#49667a;margin-top:3px}.site-path{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:15px;min-height:47px;border-radius:8px;background:#e0f1fc;font-size:15px;font-weight:700;color:#1b709f}.site-path b{color:#64a9d2;font-size:23px}.embedded-chat{width:350px;height:410px;overflow:hidden;border-radius:12px;border:1px solid #d0e3ef;box-shadow:0 7px 17px #2674ad24;background:white}.embedded-chat img{width:100%;height:auto}.usage-caption{position:absolute;left:50px;right:50px;top:789px;font-size:15.5px;line-height:22px;color:#4e687c}
-.split-note{position:absolute;left:40px;right:40px;top:852px;display:grid;grid-template-columns:1fr 1fr;gap:22px}.support-card{position:relative;min-height:119px;border:1px solid #dce9f1;border-radius:14px;background:linear-gradient(120deg,#f7fcff,#fff);padding:16px 15px 16px 94px}.support-art{position:absolute;top:23px;left:17px;width:60px;height:60px}.support-art svg{width:60px;height:60px}.split-note h2{font-size:22px;line-height:31px;margin-bottom:7px}.split-note p{font-size:17px;line-height:25px;color:#3a526a}
-.steps{position:absolute;left:40px;right:40px;top:991px}.steps>h2{font-size:26px;line-height:37px}.step-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;margin-top:15px}.step{position:relative;border:1px solid #cfe4f2;border-radius:12px;background:linear-gradient(140deg,#f0f9ff,#fff);padding:17px 14px;min-height:131px}.step-label{display:flex;gap:10px;align-items:center;font-size:21px;font-weight:700;line-height:32px}.step-label span{display:grid;place-items:center;background:#dceffc;color:#147eb5;font-size:23px;border-radius:50%;height:34px;min-width:34px}.step p{font-size:17.5px;line-height:26px;margin-top:10px;color:#3a526a}.step-mark{position:absolute;right:13px;top:17px;color:#308bc0}.step-mark svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
-.scope{position:absolute;left:40px;right:40px;top:1195px;min-height:109px;border:1px solid #dce6ec;background:#f6f9fc;border-radius:14px;padding:13px 20px}.scope h2{font-size:20px;line-height:29px}.scope p{font-size:17px;line-height:25px;margin-top:5px;color:#3a526a}.scope strong{color:var(--accent)}
-.contact{position:absolute;left:40px;right:40px;top:1320px;height:96px;border-radius:14px;background:#0b335c;color:white;display:flex;align-items:center;padding:13px 24px;gap:25px}.contact-copy{flex:1}.contact p{font-size:17px;line-height:1.5}.contact .mail{display:inline-block;font-size:28px;font-weight:700;line-height:1.5;font-feature-settings:normal}.contact .web{display:block;font-size:15px}.contact .qr{height:70px;width:70px;background:white;border:4px solid white;border-radius:4px}.back .footer{background:white;color:#486078;border-top:1px solid #e0e8ef}.back .footer .provider{margin-left:0}.back .footer .url{margin-left:auto}.back .footer .number{margin-left:24px}
+.split-note{position:absolute;left:40px;right:40px;top:850px;display:grid;grid-template-columns:1fr 1fr;gap:22px}.support-card{position:relative;height:112px;border:1px solid #e0eaf2;border-radius:14px;background:white;box-shadow:0 3px 13px #4073a008;padding:14px 13px 14px 100px}.support-art{position:absolute;top:20px;left:17px;width:70px;height:70px;border-radius:50%;background:linear-gradient(130deg,#e6f7eb,#d2ecd9);padding:8px}.support-art img{width:54px;height:54px}.split-note h2{font-size:22px;line-height:31px;letter-spacing:-.5px;margin-bottom:6px;white-space:nowrap}.split-note p{font-size:18px;line-height:26px;color:#3a526a}
+.steps{position:absolute;left:40px;right:40px;top:976px}.steps>h2{border-left:7px solid #0873db;padding-left:18px;font-size:28px;line-height:37px}.step-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:29px;margin-top:14px}.step{position:relative;height:143px;border:1px solid #dce8f3;border-radius:13px;background:white;padding:64px 15px 10px}.step-label{font-size:21px;line-height:29px;font-weight:700}.step-number{position:absolute;left:13px;top:12px;height:38px;width:38px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#d0e8ff,#b7d9f7);font-size:23px;font-weight:700;font-feature-settings:normal}.step p{font-size:17px;line-height:23px;margin-top:5px;color:#3a526a}.step-mark{position:absolute;right:24px;top:9px;width:49px;height:49px}.step-mark img{width:49px;height:49px}.step-arrow{position:absolute;right:-29px;top:61px;width:29px;height:33px;fill:#5aadeb}
+.offers{position:absolute;left:40px;right:40px;top:1180px;display:grid;grid-template-columns:1fr 1fr;gap:20px}.offer-card{position:relative;height:116px;border-radius:15px;padding:8px 12px 8px 93px}.trial-card{background:linear-gradient(120deg,#e9f6ff,#e6f3fd)}.pricing-card{background:linear-gradient(120deg,#edf9f0,#e9f5ed)}.offer-icon{position:absolute;left:15px;top:22px;height:64px;width:64px;border-radius:50%;padding:10px;background:linear-gradient(135deg,#cfe7fe,#bcdafa)}.pricing-card .offer-icon{background:linear-gradient(135deg,#ddf2e1,#cde8d5)}.offer-icon img{width:44px;height:44px}.offer-head{display:flex;align-items:baseline;gap:3px;font-size:23px;line-height:1;height:50px;font-weight:700;white-space:nowrap}.offer-head b{font-size:40px;line-height:1;color:#1468b9;letter-spacing:-1px;font-feature-settings:normal}.offer-head small{font-size:14px;font-weight:400}.offer-detail{font-size:16px;line-height:24px;color:#36556a}.initial-fee{font-size:20px;font-weight:700;line-height:25px}.initial-fee small{font-size:13px;font-weight:400}.offer-note{font-size:13px;line-height:18px;color:#36556a}
+.scope{position:absolute;left:40px;right:40px;top:1299px;font-size:14px;line-height:19px;color:#52677d}.scope p{margin:0}.scope strong{color:#3a526a}
+
+.contact{position:absolute;left:0;right:0;top:1340px;height:96px;background:#12385f;color:white;display:flex;align-items:center;padding:11px 40px;gap:24px}.contact-copy{flex:1;border-right:1px solid #7290af}.contact p{font-size:20px;line-height:28px}.contact .mail{display:block;font-size:28px;font-weight:700;line-height:37px;font-feature-settings:normal}.contact-form{width:300px}.contact .web{display:block;font-size:18px;line-height:29px;text-decoration:underline;font-feature-settings:normal}.contact .qr{height:78px;width:78px;background:white;border:3px solid white;border-radius:4px}.back .footer{background:white;color:#486078;border-top:1px solid #e0e8ef}.back .footer .provider{margin-left:0}.back .footer .url{margin-left:auto}.back .footer .number{margin-left:24px}
+
 '''
 
 CSS += '''
@@ -95,16 +98,27 @@ def usage(topic, title, heading, cards, capture, path):
     return '<section class="usage-scene" aria-label="WebページとAIの利用イメージ"><div class="browser-chrome"><i></i><i></i><i></i></div><div class="site-bar"><div class="site-name">' + icon('map' if topic == 'tourism' else 'gift') + f'<strong>{title}</strong></div><div class="site-nav">' + ''.join(f'<span>{label}</span>' for _, label, _ in cards) + '</div></div><div class="usage-content"><div><div class="site-hero">' + image(ROOT / 'assets' / f'{topic}-scenery-r2.png') + f'<div class="site-copy"><p class="site-kicker">{title}</p><h2>{heading}</h2></div></div><div class="site-cards">{card_html}</div><div class="site-path">' + '<b>›</b>'.join(f'<span>{label}</span>' for label in path) + '</div></div><figure class="embedded-chat">' + image(ROOT / 'assets' / f'{capture}-r2.png', alt='専用AIの実際の会話画面') + '</figure></div></section>'
 
 
-def support(n, title, body):
-    return '<div class="support-card"><div class="support-art">' + (REFERENCE / f'feature-{n}.svg').read_text() + f'</div><h2>{title}</h2><p>{body}</p></div>'
+def guide_icon(kind, tone='blue'):
+    return image(ROOT / 'assets' / f'guide-{kind}-{tone}.svg')
 
 
-def steps(items):
-    return '<section class="steps"><h2>対象の情報と質問を確認して導入</h2><div class="step-grid">' + ''.join(f'<div class="step"><div class="step-mark">{icon(kind)}</div><h3 class="step-label"><span>0{i}</span>{heading}</h3><p>{body}</p></div>' for i, ((heading, body), kind) in enumerate(zip(items, ['page', 'search', 'check']), 1)) + '</div></section>'
+def support(kind, title, body):
+    return '<div class="support-card"><div class="support-art">' + guide_icon(kind, 'green') + f'</div><h2>{title}</h2><p>{body}</p></div>'
+
+
+def steps():
+    items = [('対象確認', '対象サイトと<br>設置環境を確認', 'search'), ('初期設定', '弊社がデータ<br>取得・設定', 'gear'), ('無料評価', '対象の情報で<br>回答を確認', 'check'), ('ご契約・公開', '導入範囲を決めて<br>運用開始', 'megaphone')]
+    arrow = '<svg class="step-arrow" viewBox="0 0 40 48" aria-hidden="true"><path d="M0 12h18V0l22 24-22 24V36H0Z"/></svg>'
+    cards = ''.join(f'<div class="step"><span class="step-number">0{i}</span><div class="step-mark">' + guide_icon(kind) + f'</div><h3 class="step-label">{heading}</h3><p>{body}</p>' + (arrow if i < 4 else '') + '</div>' for i, (heading, body, kind) in enumerate(items, 1))
+    return '<section class="steps"><h2>無料評価から導入まで</h2><div class="step-grid">' + cards + '</div></section>'
 
 
 def contact():
-    return '<section class="contact"><div class="contact-copy"><p>提供範囲と費用は対象業務・連携内容に応じてお見積もり</p><a class="mail" href="mailto:sales@vecta.co.jp">sales@vecta.co.jp</a><a class="web" href="https://swarrow.com/chat#contact">swarrow.com/chat#contact</a></div><a href="https://swarrow.com/chat#contact">' + image('contactQr.png', 'qr', 'お問い合わせフォームのQRコード') + '</a></section>'
+    return '<section class="contact"><div class="contact-copy"><p>メールでのお問い合わせ</p><a class="mail" href="mailto:sales@vecta.co.jp">sales@vecta.co.jp</a></div><div class="contact-form"><p>お問い合わせフォーム</p><a class="web" href="https://swarrow.com/chat#contact">swarrow.com/chat#contact</a></div><a href="https://swarrow.com/chat#contact">' + image('contactQr.png', 'qr', 'お問い合わせフォームのQRコード') + '</a></section>'
+
+
+def sales_guide(scope):
+    return '<section class="split-note">' + support('gear', '初期設定は弊社が対応', '対象のホームページ・資料を確認し、<br>データ取得と回答設定を行います。') + support('swap', '既存チャットボットからも切り替え', '設置方法と現在の契約条件を確認し、<br>切り替えまで支援します。') + '</section>' + steps() + '<section class="offers"><div class="offer-card trial-card"><div class="offer-icon">' + guide_icon('calendar') + '</div><h2 class="offer-head">無料評価は<b>1か月</b>程度</h2><p class="offer-detail">期間の延長もご相談いただけます。</p></div><div class="offer-card pricing-card"><div class="offer-icon">' + guide_icon('document', 'green') + '</div><h2 class="offer-head">月額<b>5万円〜</b><small>（税別）</small></h2><p class="initial-fee">初期費用10万円〜<small>（税別）</small></p><p class="offer-note">料金目安・音声会話は別途料金</p></div></section><section class="scope"><p>※ 想定問い合わせ量・対象情報・連携内容に応じてお見積もりします。</p><p>' + scope + '</p></section>' + contact() + footer(2, True)
 
 
 TOURISM_FRONT = front(
@@ -123,12 +137,8 @@ TOURISM_BACK = brand('観光協会向け', True) + '''
 <p class="lead">サイト全体を作り直さず、対象の公開情報と回答方針を整えて設置できます。<br>季節イベントや営業情報は、更新元と確認担当者を決めて運用します。</p>
 ''' + usage('tourism', '観光案内サイト', '雨の日も楽しめる<br>家族の観光案内', [('map', '観光スポット', '屋内施設や体験を<br>希望に合わせて探す'), ('page', 'アクセス', '駅からの行き方や<br>交通案内を確認'), ('chat', '観光案内所', '詳しい相談は<br>担当窓口へ')], 'tourism-ja', ['観光情報を見る', 'AIに相談', '詳細を確認']) + '''
 <p class="usage-caption">背景のWebページは導入イメージ、チャット部分は専用AIの実画面です。<br>情報の取得範囲・更新方法・対応言語は導入時に確認します。</p>
-<section class="split-note">
-''' + support(1, '公開情報の案内から開始', '施設・交通・イベントなどを対象に設定。<br>分からない内容は確認先へ案内します。') + support(2, '更新と問い合わせ対応を分担', '更新担当者と案内先を整理。<br>予約や詳細な相談は既存窓口へつなぎます。') + '''
-</section>
-''' + steps([('対象情報を整理', '観光サイト・FAQと、<br>案内する範囲を確認。'), ('質問で品質を確認', '旅行者の質問例と外国語で、<br>回答・参照元を確認。'), ('公開後も見直す', '質問ログと情報の更新を確認。<br>不足する案内を追加。')]) + '''
-<section class="scope"><h2>空き状況の照会・予約確定は個別連携</h2><p>宿泊・体験の在庫、リアルタイムの運行情報、地図上の周遊ルートなどは、<br>連携先のデータ・API・運用条件を確認して別途設計します。<strong>音声会話はオプションです。</strong></p></section>
-''' + contact() + footer(2, True)
+''' + sales_guide('※ 空き状況・予約確定・運行情報などは個別連携です。')
+
 
 DONATION_FRONT = front(
     'ふるさと納税担当課・運営事業者向け', 'donation',
@@ -146,12 +156,7 @@ DONATION_BACK = brand('ふるさと納税向け', True) + '''
 <p class="lead">返礼品の特集ページやFAQをもとに、寄附前後の質問に回答。<br>既存の寄附申込先や手続きページへ案内します。</p>
 ''' + usage('donation', 'ふるさと納税特集', '地域の魅力を<br>返礼品から見つける', [('gift', '返礼品', 'お米や果物など<br>気になる品目を探す'), ('page', '手続き・FAQ', '寄附前後の疑問や<br>申請方法を確認'), ('check', '寄附金の使い道', '地域の取り組みや<br>寄附の活用を紹介')], 'donation-gifts', ['特集ページを見る', 'AIに相談', '既存の申込先へ']) + '''
 <p class="usage-caption">背景のWebページは導入イメージ、チャット部分は専用AIの実画面です。<br>対象の公開情報と回答方針を確認して、既存サイトへAI窓口を設置します。</p>
-<section class="split-note">
-''' + support(1, '既存の公開情報を活用', '返礼品の説明や手続き・FAQを回答に活用。<br>情報の更新は既存の運用体制で行います。') + support(3, '既存の寄附申込先へつなぐ', '特設ページとAI窓口から案内。<br>既存の決済・申請の基盤を活かします。') + '''
-</section>
-''' + steps([('対象業務を選ぶ', '寄附前・寄附後のFAQと、<br>案内する窓口を確認。'), ('情報と回答を確認', '公開情報と質問例を使い、<br>回答・参照元を確認。'), ('更新体制を整える', '担当者と確認手順を決め、<br>年末などの更新に対応。')]) + '''
-<section class="scope"><h2>本人の配送・申請状況の照会は個別連携</h2><p>住所変更、在庫・配送状況、寄附の決済、本人の申請受付状況の確認には、<br>外部システムと本人確認の連携が必要です。<strong>個人別の控除額の判定は対象外です。</strong></p></section>
-''' + contact() + footer(2, True)
+''' + sales_guide('※ 配送・申請状況の照会や住所変更・決済は個別連携。個人別の控除額判定は対象外です。')
 
 
 def build():

@@ -1,20 +1,20 @@
 {
   "date": "2026-11-19",
-  "revision": "r7",
+  "revision": "r8",
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r7.pdf",
-      "bytes": 1927554,
-      "sha256": "ba3a07882198b4ede850facc4583f1bc0c58f9d37e7eed8c03e011024db5bdd0",
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r8.pdf",
+      "bytes": 1952379,
+      "sha256": "bd3b491963acc41ecfbbb0a3d4491aa433e7e215378380966f46444e7d7a07c0",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf",
-      "bytes": 2067011,
-      "sha256": "09b46ac77ba0df4dc3fc7fdffbbb57b845d97151d2d81ccd3868319d3b32c8df",
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r8.pdf",
+      "bytes": 2089346,
+      "sha256": "1f0488dc804a9866c7933c8a9bb4c983363f8f2082ba247233fddd24bb3003cc",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
@@ -56,6 +56,54 @@
       "bytes": 259322,
       "sha256": "c34ccfa411025c9377f6e846c1dc8111720fee25c493e226918d05664d8e4976",
       "source": "共通パンフレットの既存の音声会話画面。画像自体は変更せず、r7は質問例の追加表示なし"
+    },
+    {
+      "path": "assets/guide-calendar-blue.svg",
+      "bytes": 892,
+      "sha256": "0870993afb5f77a7fc227890a99ebc3274bcd0ad9ac67940977c0280c278f9d3",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-check-blue.svg",
+      "bytes": 768,
+      "sha256": "c3daa35f87d41c263b6d779dc15a7b214d25332f38a5ec697baf84ad9cb83ed9",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-document-green.svg",
+      "bytes": 563,
+      "sha256": "b22fbad45849e88cb68f1cfe3595009b9ef0fb98b9a75f871a8ac87f8fc33b01",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-gear-blue.svg",
+      "bytes": 1003,
+      "sha256": "b49e7e95207bb421bb8ad4a9b1d3d8de2800af6628375f16929c90e2134b3081",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-gear-green.svg",
+      "bytes": 1006,
+      "sha256": "dfb9f38cf2cf0e44d350a9bc79f8519e300e73718d11eacd8b72942d14ce6550",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-megaphone-blue.svg",
+      "bytes": 618,
+      "sha256": "7f343529d685af7bb4360709b2b1903be006350f2898754aa59536cddf7a3826",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-search-blue.svg",
+      "bytes": 734,
+      "sha256": "5f56707d47098a918e81c0979e4ae005dbf0cb2626cc15930408698adf8a6e14",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
+    },
+    {
+      "path": "assets/guide-swap-green.svg",
+      "bytes": 537,
+      "sha256": "ee691aed8b46e9843f4910d4443ae718d6a5dbbb280b6c03277213261d54c8f8",
+      "source": "共通パンフレットのbuild-brochure.py icon()から書き出し、外部SVG画像用のxmlnsを付与"
     }
   ],
   "previousFiles": [
@@ -147,6 +195,22 @@
       "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r6.pdf",
       "bytes": 2152020,
       "sha256": "dcd373e2c0b967ba446e3c025d0a8b4647fed6131c7a892df63acd3fbccb21aa",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r7.pdf",
+      "bytes": 1927554,
+      "sha256": "ba3a07882198b4ede850facc4583f1bc0c58f9d37e7eed8c03e011024db5bdd0",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf",
+      "bytes": 2067011,
+      "sha256": "09b46ac77ba0df4dc3fc7fdffbbb57b845d97151d2d81ccd3868319d3b32c8df",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
