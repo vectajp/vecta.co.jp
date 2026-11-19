@@ -1,20 +1,20 @@
 {
   "date": "2026-11-19",
-  "revision": "r9",
+  "revision": "r10",
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r9.pdf",
-      "bytes": 1951323,
-      "sha256": "6e9a235138bbb392aa6bb7264401542923c8653449ec79db10534a452e8bf4cd",
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r10.pdf",
+      "bytes": 2214095,
+      "sha256": "caa714fa829202279c859a51e4f840ae84031793647126e396bfa0f2434439e1",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r9.pdf",
-      "bytes": 2087404,
-      "sha256": "76442a3a1d7be26627f581b80a73c71b1456148efc4fd52934a64db20d11405d",
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r10.pdf",
+      "bytes": 2323427,
+      "sha256": "441371c3829a0ba828a5dda52bb58648b97fdf7496af58d3289989c115404312",
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
@@ -230,6 +230,27 @@
       "pages": 2,
       "format": "A4 portrait",
       "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r9.pdf",
+      "bytes": 1951323,
+      "sha256": "6e9a235138bbb392aa6bb7264401542923c8653449ec79db10534a452e8bf4cd",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
+    },
+    {
+      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r9.pdf",
+      "bytes": 2087404,
+      "sha256": "76442a3a1d7be26627f581b80a73c71b1456148efc4fd52934a64db20d11405d",
+      "pages": 2,
+      "format": "A4 portrait",
+      "method": "Opaque ~383dpi artwork with original native text and URI links"
     }
-  ]
+  ],
+  "layoutReference": {
+    "path": "../../revisions/20261027-chat-voice-news/brochure/build-brochure.py",
+    "sha256": "63dfd4ee0ac738ca9f3d31a3ac2b5c0968365c424c1ffea4eafb808ff6d1df2d",
+    "reuse": "Original lower-page CSS and font faces reused directly"
+  }
 }

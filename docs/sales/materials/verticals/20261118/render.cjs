@@ -25,9 +25,11 @@ const { spawnSync } = require('node:child_process')
       const report = await page.evaluate(() => ({
         pages: document.querySelectorAll('.page').length,
         fonts: [400, 700].map(weight => document.fonts.check(`${weight} 24px Noto`)),
+        guideFonts: [400, 600, 800].map(weight => document.fonts.check(`${weight} 24px BrochureSans`)),
+        cardInsets: [...document.querySelectorAll('.support-card,.flow-card,.offer-card')].flatMap(card => [...card.querySelectorAll('h2,h3,p')].map(element => ({text:element.innerText, minimum:card.matches('.flow-card')?9:0, bottom:card.getBoundingClientRect().bottom-element.getBoundingClientRect().bottom, left:element.getBoundingClientRect().left-card.getBoundingClientRect().left, right:card.getBoundingClientRect().right-element.getBoundingClientRect().right}))),
         badImages: [...document.images].filter(image => !image.complete || !image.naturalWidth).map(image => image.src),
         overflow: [...document.querySelectorAll('h1,h2,h3,p,.question,.source-row,.step-label,.mail,.edition')]
-          .filter(element => element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1)
+          .filter(element => element.scrollWidth > element.clientWidth + 1 || (element.scrollHeight > element.clientHeight + 1 && !(element.matches('.offer-head') && element.getBoundingClientRect().top + element.scrollHeight <= element.closest('.offer-card').getBoundingClientRect().bottom)))
           .map(element => ({ text: element.innerText, width: element.clientWidth, scrollWidth: element.scrollWidth })),
         outside: [...document.querySelectorAll('h1,h2,h3,p,figure,.question,.source-row,.contact,.features')]
           .filter(element => {
@@ -40,11 +42,13 @@ const { spawnSync } = require('node:child_process')
       }))
       assert.equal(report.pages, 2)
       assert.ok(report.fonts.every(Boolean), 'Noto Sans JP failed to load')
+      assert.ok(report.guideFonts.every(Boolean), 'Original brochure fonts failed to load')
+      assert.ok(report.cardInsets.every(item => item.bottom >= item.minimum && item.left >= 0 && item.right >= 0), JSON.stringify(report.cardInsets))
       assert.deepEqual(report.badImages, [])
       assert.deepEqual(report.overflow, [], JSON.stringify(report.overflow))
       assert.deepEqual(report.outside, [])
       assert.ok(report.text.includes('個別連携'))
-      assert.equal(await page.locator('.back .step').count(), 4)
+      assert.equal(await page.locator('.back .flow-card').count(), 4)
       for (const phrase of ['初期設定は弊社が対応', '既存チャットボットからも切り替え', '無料評価から導入まで', '初期費用10万円〜']) assert.ok(report.text.includes(phrase), phrase)
       assert.ok(report.text.includes('想定問い合わせ量・対象情報・連携内容'))
       assert.ok(!report.text.includes('人口'))
@@ -72,7 +76,7 @@ const { spawnSync } = require('node:child_process')
       for (let n = 0; n < 2; n++) {
         await page.locator('.page').nth(n).screenshot({ path: path.join(backgrounds, `background-${n + 1}.jpg`), type: 'jpeg', quality: 95, omitBackground: false })
       }
-      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261119_r9.pdf`)
+      const file = path.join(output, `SwarrowChat_${name}_パンフレット_20261119_r10.pdf`)
       const exported = spawnSync(process.env.PDF_PYTHON || 'python3', [path.resolve(__dirname, '../..', 'export-compatible-pdf.py'), native, backgrounds, file], { encoding: 'utf8' })
       assert.equal(exported.status, 0, exported.stderr || exported.error?.message)
       reports.push({ slug, file, ...report, compatibleExport: JSON.parse(exported.stdout), backgroundTextBoxesUnchanged: true })

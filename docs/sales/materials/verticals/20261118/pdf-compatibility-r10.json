@@ -1,0 +1,418 @@
+{
+  "date": "2026-11-19",
+  "revision": "r10",
+  "renderers": [
+    "Apple CoreGraphics",
+    "Poppler"
+  ],
+  "pagesCheckedEach": 4,
+  "siteProductMentionInPdf": false,
+  "transparencyMasks": 0,
+  "transparencyGroups": 0,
+  "optionalContentLayers": 0,
+  "nativeTextAndLinkGeometryPreserved": true,
+  "exports": [
+    {
+      "slug": "tourism",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "guideFonts": [
+        true,
+        true,
+        true
+      ],
+      "cardInsets": [
+        {
+          "text": "初期設定は弊社が対応",
+          "minimum": 0,
+          "bottom": 92,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "対象のホームページ・資料を確認し、\nデータ取得と回答設定を行います。",
+          "minimum": 0,
+          "bottom": 27,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "既存チャットボットからも切り替え",
+          "minimum": 0,
+          "bottom": 92,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "設置方法と現在の契約条件を確認し、\n切り替えまで支援します。",
+          "minimum": 0,
+          "bottom": 27,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "対象確認",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "対象サイトと\n設置環境を確認",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "初期設定",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "弊社がデータ\n取得・設定",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "無料評価",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "対象の情報で\n回答を確認",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "ご契約・公開",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "導入範囲を決めて\n運用開始",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "無料評価は\n1\nか月\n程度",
+          "minimum": 0,
+          "bottom": 81,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "期間の延長もご相談いただけます。",
+          "minimum": 0,
+          "bottom": 53,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "月額\n5\n万円\n〜\n（税別）",
+          "minimum": 0,
+          "bottom": 81,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "初期費用10万円〜（税別）",
+          "minimum": 0,
+          "bottom": 49,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "※ 料金目安です\n※ 音声会話は別途料金です",
+          "minimum": 0,
+          "bottom": 5,
+          "left": 125,
+          "right": 17
+        }
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    },
+    {
+      "slug": "donation",
+      "pages": 2,
+      "fonts": [
+        true,
+        true
+      ],
+      "guideFonts": [
+        true,
+        true,
+        true
+      ],
+      "cardInsets": [
+        {
+          "text": "初期設定は弊社が対応",
+          "minimum": 0,
+          "bottom": 92,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "対象のホームページ・資料を確認し、\nデータ取得と回答設定を行います。",
+          "minimum": 0,
+          "bottom": 27,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "既存チャットボットからも切り替え",
+          "minimum": 0,
+          "bottom": 92,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "設置方法と現在の契約条件を確認し、\n切り替えまで支援します。",
+          "minimum": 0,
+          "bottom": 27,
+          "left": 112,
+          "right": 18
+        },
+        {
+          "text": "対象確認",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "対象サイトと\n設置環境を確認",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "初期設定",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "弊社がデータ\n取得・設定",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "無料評価",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "対象の情報で\n回答を確認",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "ご契約・公開",
+          "minimum": 9,
+          "bottom": 71,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "導入範囲を決めて\n運用開始",
+          "minimum": 9,
+          "bottom": 9,
+          "left": 28,
+          "right": 28
+        },
+        {
+          "text": "無料評価は\n1\nか月\n程度",
+          "minimum": 0,
+          "bottom": 81,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "期間の延長もご相談いただけます。",
+          "minimum": 0,
+          "bottom": 53,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "月額\n5\n万円\n〜\n（税別）",
+          "minimum": 0,
+          "bottom": 81,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "初期費用10万円〜（税別）",
+          "minimum": 0,
+          "bottom": 49,
+          "left": 125,
+          "right": 17
+        },
+        {
+          "text": "※ 料金目安です\n※ 音声会話は別途料金です",
+          "minimum": 0,
+          "bottom": 5,
+          "left": 125,
+          "right": 17
+        }
+      ],
+      "badImages": [],
+      "overflow": [],
+      "outside": [],
+      "backgroundTextBoxesUnchanged": true
+    }
+  ],
+  "pdfChecks": "A4 / 2 pages / embedded Noto / text / 5 links passed",
+  "backGuideMatchesReferenceStructure": true,
+  "priceGuide": {
+    "monthly": "5万円〜（税別）",
+    "initial": "10万円〜（税別）",
+    "populationCondition": false,
+    "quoteBasedOn": [
+      "想定問い合わせ量",
+      "対象情報",
+      "連携内容"
+    ],
+    "voiceSeparatelyPriced": true,
+    "includedUsageAndOverageNotDefined": true
+  },
+  "limits": [
+    "Usage included in the base price and overage rates are not defined",
+    "Voice UI is an existing product capture, not a newly recorded conversation",
+    "Web pages on back are illustrative concepts; chat UI is captured from the real service",
+    "Smartphone devices and physical print not tested"
+  ],
+  "frontCaptureCaptionPresent": false,
+  "r9VsR10": [
+    {
+      "topic": "tourism",
+      "frontTextAndGlyphGeometryUnchanged": true,
+      "originalPdfTextPositions": [
+        {
+          "text": "初期設定は弊社が対応",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "既存チャットボットからも切り替え",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "無料評価から導入まで",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "対象確認",
+          "maxBBoxDifferencePt": 0.00299
+        },
+        {
+          "text": "初期設定",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "無料評価",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "ご契約・公開",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "メールでのお問い合わせ",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "お問い合わせフォーム",
+          "maxBBoxDifferencePt": 0.0
+        }
+      ],
+      "hiraginoVectorGlyphsChecked": 438,
+      "pages": 2,
+      "links": 5
+    },
+    {
+      "topic": "donation",
+      "frontTextAndGlyphGeometryUnchanged": true,
+      "originalPdfTextPositions": [
+        {
+          "text": "初期設定は弊社が対応",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "既存チャットボットからも切り替え",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "無料評価から導入まで",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "対象確認",
+          "maxBBoxDifferencePt": 0.00299
+        },
+        {
+          "text": "初期設定",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "無料評価",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "ご契約・公開",
+          "maxBBoxDifferencePt": 6e-05
+        },
+        {
+          "text": "メールでのお問い合わせ",
+          "maxBBoxDifferencePt": 0.0
+        },
+        {
+          "text": "お問い合わせフォーム",
+          "maxBBoxDifferencePt": 0.0
+        }
+      ],
+      "hiraginoVectorGlyphsChecked": 449,
+      "pages": 2,
+      "links": 5
+    }
+  ],
+  "originalReferenceLayout": {
+    "comparedSelectors": 37,
+    "topics": [
+      "tourism",
+      "donation"
+    ],
+    "matchingGeometryFontsAndColors": true,
+    "fontComparisonExcludesEmptyBackground": true
+  },
+  "fontEmbedding": {
+    "NotoSansJP": "Embedded CID TrueType",
+    "HiraginoSans": "Embedded Unicode vector Type3, same as original; glyph streams checked for no bitmap operations"
+  }
+}

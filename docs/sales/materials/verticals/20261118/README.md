@@ -1,11 +1,11 @@
 # 観光協会・ふるさと納税向け営業パンフレット
 
-2026年11月19日改訂（r9）。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
+2026年11月19日改訂（r10）。導入先に渡す営業用として、観光協会向けと自治体のふるさと納税担当課・運営事業者向けを別々に作成。各A4縦2ページ。共通配布版は更新しない。
 
 ## 配布ファイル
 
-- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r9.pdf)
-- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r9.pdf)
+- [観光協会向け](output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r10.pdf)
+- [ふるさと納税向け](output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r10.pdf)
 
 ## 内容と根拠
 
@@ -17,7 +17,7 @@
 
 製品・CMSの確認元はAXISWリポジトリの `frontend/swarrow-ai/src/types/workflow.ts`、`frontend/web-widget/src/web-widget.js`、`frontend/site-cms/src/PageEditor.tsx`、`backend/cloud_run/src/services/cms/publication.py`、`security.py`。2026年11月18日のmain差分も確認した。撮影は下記のモデル情報で実施し、特定顧客の実データによる品質評価は含めない。
 
-既存の正式アイコン・QRと都城市の事例欄（放送紹介図、佐藤氏の写真・役職・説明文）は [20261027共通版](../../revisions/20261027-chat-voice-news/brochure/README.md) を再利用。表紙に明るい立体感のある新規図版を追加。図版の生成条件は [image-prompts-r2.md](image-prompts-r2.md) に記録する。Noto Sans JPで組版する。
+既存の正式アイコン・QRと都城市の事例欄（放送紹介図、佐藤氏の写真・役職・説明文）は [20261027共通版](../../revisions/20261027-chat-voice-news/brochure/README.md) を再利用。表紙に明るい立体感のある新規図版を追加。図版の生成条件は [image-prompts-r2.md](image-prompts-r2.md) に記録する。1枚目と2枚目上部はNoto Sans JPで組版する。r10の2枚目下部は、元版と同じ見た目にするユーザー指示に合わせ、元のHiragino SansとCSSをその範囲だけ直接再利用する。
 
 ## 専用AIと実画面の撮影
 
@@ -34,7 +34,7 @@
 
 ## 再生成
 
-Python 3（pymupdf・pypdf）、Node.js、Playwright、Google Chrome、Noto Sans JP Regular/Boldが必要。フォントの入力は `~/Library/Fonts/CodexNotoCJK/NotoSansJP-Regular.ttf` と `NotoSansJP-Bold.ttf`。このディレクトリで実行する。
+Python 3（pymupdf・pypdf）、Node.js、Playwright、Google Chrome、Noto Sans JP Regular/Bold、macOSのHiragino Sans W4/W6/W8が必要。フォントの入力は `~/Library/Fonts/CodexNotoCJK/NotoSansJP-Regular.ttf` と `NotoSansJP-Bold.ttf`。このディレクトリで実行する。
 
 ```sh
 python3 build.py
@@ -51,7 +51,7 @@ HTML、確認用PNG、元PDF、背景JPEGは `.build/` に保存しGit対象外�
 
 - `python3 build.py` と `node render.cjs` が成功。2ファイル各2ページ、画像読み込み、Noto Sans JPの2ウェイト、文字のはみ出し・ページ外要素の検査を通過。
 - `pdfinfo` で両方ともA4・2ページを確認。`pdftotext` で本文とメールアドレスの抽出を確認。`pdfinfo -url` でリンクを確認。
-- `pdffonts` でNoto Sans JPの埋め込みCID TrueTypeとUnicode対応を確認。Type 3フォントは使用しない。
+- `pdffonts` でNoto Sans JPの埋め込みCID TrueTypeとUnicode対応を確認。r10下部は元版と同じHiragino SansをUnicode付きのベクターType3として保持し、字形ストリームが画像を描画しないことを検査する。
 - CoreGraphicsとPopplerで最終PDFの全4ページをそれぞれ画像化し、見出し・本文・図版・フッター・ページ番号を目視確認。PDFは各約2MB。旧版PDFも履歴として保持する。
 - Webのソースコードを変更していないため、サイト全体のビルド・テストは実施していない。専用AIの上記4場面は全てAPI 200、ブラウザーエラーなし。既存顧客のAI定義やデータは変更せず、メール等の外部送信や公開サイトのデプロイは行っていない。
 
@@ -115,3 +115,12 @@ r2はmacOS CoreGraphicsで、画像やアイコンの周囲に半透明の描画
 ユーザーの指示に合わせ、両方の1枚目から「テキストは専用AIと説明用のモデル情報による実画面、音声会話は既存の製品画面です。」という注記だけを削除。不要になったCSSも削除した。2枚目のWebイメージに関する注記は今回の対象外。撮影記録と画像の出所はこのREADMEと既存の記録で保持する。
 
 1枚目の注記以外の全文・配置・描画、2枚目全体の本文・描画はr8と一致することを検査。A4・2ページ、埋め込みフォント・5リンク、文字・リンク座標保持、透明マスク等ゼロ、CoreGraphics・Popplerでの最終PDF全ページ確認を継続。[検証結果](pdf-compatibility-r9.json)。実機印刷は未確認。
+
+
+## r10の元版レイアウトとの一致
+
+r8・r9は元版の構成を別の寸法とNoto Sans JPで組み直していたため、カード・アイコンの大きさ、書体、文字位置、本文下の余白が元版と異なっていた。r10は元版の `build-brochure.py` にあるCSS定義をASTで読み取り、下部のカード・導入フロー・無料評価・料金・お問い合わせ・フッターとHiragino Sansの定義を直接再利用する。元版のCSS本体を再実装しないことで、寸法のずれを防ぐ。
+
+2枚目上部の利用イメージを高さ369pxに整え、元版と同じ683pxから下部を配置。下部の主要37セレクターについて、元のHTMLと位置・寸法・文字の書体/サイズ/ウェイト・色を照合し、両資料とも一致を確認。元版PDFの見出し・導入フロー・お問い合わせの9種類の文字位置も照合し、最大差は0.003pt未満。料金の「〜」、人口条件の除外、想定問い合わせ量等による見積もり、用途別の個別連携条件は保持する。
+
+元版のHiragino SansもPDFではUnicode付きベクターType3だった。r10ではそれを元版と同じ方式で保持し、字形ストリームに画像描画が含まれないことを検査した。書体の変更で1枚目を作り替えず、1枚目の全文・字形の座標/サイズ/色と元画像を維持する。最終の全4ページをCoreGraphics・Poppler双方で確認。本文・リンク保持、透明マスク等ゼロも継続。[検証結果](pdf-compatibility-r10.json)。実機印刷は未確認。
