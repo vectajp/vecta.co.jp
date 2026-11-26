@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IsmsCertification from '@vecta/site-content/IsmsCertification.svelte'
   import { navItems } from './content'
   import { siteHref } from './links'
 
@@ -17,6 +18,7 @@
           loading="lazy"
           decoding="async"
         >
+        <IsmsCertification variant="compact" detailsHref="/company/#isms" />
       </div>
 
       <nav class="footer-nav" aria-label="フッターナビゲーション">

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./news": "./news.ts"
+    "./news": "./news.ts",
+    "./IsmsCertification.svelte": "./IsmsCertification.svelte"
   }
 }
