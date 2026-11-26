@@ -14,6 +14,8 @@ import {
 let html = "";
 let chatHtml = "";
 let callHtml = "";
+let lineHtml = "";
+let cmsHtml = "";
 let privacyHtml = "";
 let robots = "";
 let sitemap = "";
@@ -49,6 +51,8 @@ beforeAll(async () => {
     html,
     chatHtml,
     callHtml,
+    lineHtml,
+    cmsHtml,
     privacyHtml,
     robots,
     sitemap,
@@ -58,6 +62,8 @@ beforeAll(async () => {
     Bun.file("build/index.html").text(),
     Bun.file("build/chat.html").text(),
     Bun.file("build/call.html").text(),
+    Bun.file("build/line.html").text(),
+    Bun.file("build/cms.html").text(),
     Bun.file("build/privacy/index.html").text(),
     Bun.file("build/robots.txt").text(),
     Bun.file("build/sitemap.xml").text(),
@@ -368,6 +374,8 @@ describe("crawlability baseline", () => {
       "https://swarrow.com/",
       "https://swarrow.com/chat",
       "https://swarrow.com/call",
+      "https://swarrow.com/line",
+      "https://swarrow.com/cms",
     ]);
   });
 });
@@ -493,6 +501,66 @@ describe("news", () => {
       expect(countMatches(section, /<li\b/g)).toBe(3);
       expect(section).toContain('href="https://www.vecta.co.jp/article/"');
       expect(section).not.toContain("2026.08.03");
+    }
+  });
+});
+
+describe("LINE and CMS landing pages", () => {
+  test("uses current SwarrowPost features and the rich menu screen", () => {
+    expect(lineHtml).toContain("リッチメニューを職員が編集");
+    expect(lineHtml).toContain('src="/line/rich-menu.jpg"');
+    expect(lineHtml).not.toContain("/line/hero.webp");
+    expect(lineHtml).not.toContain("LINEで相談と案内");
+    expect(lineHtml).toContain("承認と配信権限を管理");
+  });
+  test("renders separate service pages with usable inquiry sources and media", () => {
+    for (const [id, page, name, heading, image] of [
+      [
+        "line",
+        lineHtml,
+        "SwarrowPost",
+        "自治体LINE運用システム",
+        "/line/delivery.jpg",
+      ],
+      [
+        "cms",
+        cmsHtml,
+        "SwarrowSite",
+        "自治体ホームページCMS",
+        "/cms/management.jpg",
+      ],
+    ] as const) {
+      expect(countMatches(page, /<h1\b/g)).toBe(1);
+      expect(hasNoHeadingLevelSkips(headingLevels(page))).toBe(true);
+      expect(page).toContain(heading);
+      expect(page).toContain(`href="https://swarrow.com/${id}"`);
+      expect(page).toContain(`https://www.vecta.co.jp/contact/${id}/`);
+      expect(metaContentOf(page, "property", "og:image")).toBe(
+        `${site}${image}`,
+      );
+      expect(page).toContain('src="/swarrow-chat/hero-civic-desktop.webp"');
+      expect(page).toContain('srcset="/swarrow-chat/hero-civic-mobile.webp"');
+      const device =
+        id === "line"
+          ? "/devices/post-desktop-phone-v4.webp"
+          : "/devices/site-desktop-v4.webp";
+      expect(page).toContain(`src="${device}"`);
+      expect(existsSync(`static${device}`)).toBe(true);
+      expect(existsSync(`static${image}`)).toBe(true);
+      expect(metaContentOf(page, "property", "og:url")).toBe(`${site}/${id}`);
+      expect(metaContentOf(page, "name", "robots")).toBe("index,follow");
+      const data = JSON.parse(
+        page.match(
+          /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+        )?.[1] ?? "{}",
+      );
+      expect(data.name).toBe(name);
+      expect(data.url).toBe(`${site}/${id}`);
+      const inquiry =
+        page.match(/<section id="contact"[\s\S]*?<\/section>/)?.[0] ?? "";
+      expect(inquiry).not.toContain("JQA-IM2262");
+      expect(page).toContain("JQA-IM2262");
+      expect(page).not.toMatch(/SMS|Swarrow Chat|Swarrow Site/);
     }
   });
 });

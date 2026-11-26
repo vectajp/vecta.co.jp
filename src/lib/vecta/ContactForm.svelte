@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { InquiryProduct } from '@vecta/site-content/inquiries'
   import { env } from '$env/dynamic/public'
   import {
     buildContactPayload,
@@ -9,7 +10,7 @@
 
   type FieldName = keyof ContactFormValues
 
-  let { sourceProduct }: { sourceProduct?: 'chat' | 'call' } = $props()
+  let { sourceProduct }: { sourceProduct?: InquiryProduct } = $props()
 
   const fields: FieldName[] = [
     'name',
@@ -149,7 +150,11 @@
   </div>
 
   <div class="form-group">
-    <label for={fieldId('company')}>会社名</label>
+    {#if sourceProduct}
+      <label for={fieldId('company')}>自治体・団体名</label>
+    {:else}
+      <label for={fieldId('company')}>会社名</label>
+    {/if}
     <input
       type="text"
       id={fieldId('company')}

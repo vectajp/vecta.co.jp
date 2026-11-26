@@ -176,6 +176,8 @@ describe("two-product search model", () => {
     expect(navItems.map(({ href }) => href)).toEqual([
       "/chat",
       "/call",
+      "/line",
+      "/cms",
       "/#news",
       "https://www.vecta.co.jp/company/",
     ]);

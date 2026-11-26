@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test'
+import { inquiryProducts } from '@vecta/site-content/inquiries'
 import { buildContactPayload, validateContactForm } from './contact'
 
 describe('contact form validation', () => {
@@ -11,11 +12,9 @@ describe('contact form validation', () => {
       subject: ' 導入相談 ',
       message: ' 質問本文 ',
     }
-    for (const product of ['chat', 'call'] as const) {
+    for (const product of ['chat', 'call', 'line', 'cms'] as const) {
       const payload = buildContactPayload(values, product)
-      expect(payload.subject).toBe(
-        `[${product === 'chat' ? 'SwarrowChat' : 'SwarrowCall'}] 導入相談`,
-      )
+      expect(payload.subject).toBe(`[${inquiryProducts[product]}] 導入相談`)
       expect(payload.message).toBe(
         `送信元ページ: https://swarrow.com/${product}\n\n質問本文`,
       )
@@ -32,7 +31,7 @@ describe('contact form validation', () => {
       message: '文'.repeat(1000),
     }
     expect(validateContactForm(values).valid).toBe(true)
-    for (const product of ['chat', 'call'] as const) {
+    for (const product of ['chat', 'call', 'line', 'cms'] as const) {
       expect(validateContactForm(values, product).valid).toBe(false)
       expect(
         validateContactForm({ ...values, subject: '', message: '' }, product)

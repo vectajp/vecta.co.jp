@@ -41,3 +41,5 @@ wght
 worktrees
 yuki
 zuledu
+SwarrowSite
+SwarrowPost
