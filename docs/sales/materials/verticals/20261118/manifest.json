@@ -4,7 +4,7 @@
   "audience": "導入先向け営業資料",
   "files": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r10.pdf",
+      "path": "../../files/20261119_SwarrowChatふるさと納税向けパンフレット_v10.pdf",
       "bytes": 2214095,
       "sha256": "caa714fa829202279c859a51e4f840ae84031793647126e396bfa0f2434439e1",
       "pages": 2,
@@ -12,7 +12,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r10.pdf",
+      "path": "../../files/20261119_SwarrowChat観光協会向けパンフレット_v10.pdf",
       "bytes": 2323427,
       "sha256": "441371c3829a0ba828a5dda52bb58648b97fdf7496af58d3289989c115404312",
       "pages": 2,
@@ -108,35 +108,35 @@
   ],
   "previousFiles": [
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118.pdf",
+      "path": "../../files/20261118_SwarrowChatふるさと納税向けパンフレット_v1.pdf",
       "bytes": 399319,
       "sha256": "304fd23caa5b192f054a9e5e58c661b03c007d9c1bca35173ac725e7241038b4",
       "pages": 2,
       "format": "A4 portrait"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118.pdf",
+      "path": "../../files/20261118_SwarrowChat観光協会向けパンフレット_v1.pdf",
       "bytes": 399204,
       "sha256": "4637ec685393376b9566fb2273257568639b961bb1193f95cfb2a3aa914ef384",
       "pages": 2,
       "format": "A4 portrait"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r2.pdf",
+      "path": "../../files/20261118_SwarrowChatふるさと納税向けパンフレット_v2.pdf",
       "bytes": 5844284,
       "sha256": "99f1aa9d6d5271253a8b1bccdefdb6a25da96f6ae6992d5cff96829defed3270",
       "pages": 2,
       "format": "A4 portrait"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r2.pdf",
+      "path": "../../files/20261118_SwarrowChat観光協会向けパンフレット_v2.pdf",
       "bytes": 6110662,
       "sha256": "20236110ec7df8ff3a8ce7447251eb55eab693fa4c82283b1b622cd92dc86d4b",
       "pages": 2,
       "format": "A4 portrait"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r3.pdf",
+      "path": "../../files/20261118_SwarrowChatふるさと納税向けパンフレット_v3.pdf",
       "bytes": 1662943,
       "sha256": "039b0490a89ce2c84d50143005cfdf2ae0a3c31d00345bcf4c7630d032041902",
       "pages": 2,
@@ -144,7 +144,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r3.pdf",
+      "path": "../../files/20261118_SwarrowChat観光協会向けパンフレット_v3.pdf",
       "bytes": 1699035,
       "sha256": "293f1ca0dca43411baa4512ffcf894757e3445eb28a3e5b4a582058e0287a4c5",
       "pages": 2,
@@ -152,7 +152,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r4.pdf",
+      "path": "../../files/20261118_SwarrowChatふるさと納税向けパンフレット_v4.pdf",
       "bytes": 2102326,
       "sha256": "2565f3b40d460638d13bbb1b01fb333d7fa8c2054bb989b13609f51ba18d834b",
       "pages": 2,
@@ -160,7 +160,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r4.pdf",
+      "path": "../../files/20261118_SwarrowChat観光協会向けパンフレット_v4.pdf",
       "bytes": 2206588,
       "sha256": "95ae87b82bb1b8da6e2efc9870a8a2e6bfe124a5cbebb861291749ec52f87784",
       "pages": 2,
@@ -168,7 +168,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261118_r5.pdf",
+      "path": "../../files/20261118_SwarrowChatふるさと納税向けパンフレット_v5.pdf",
       "bytes": 2099771,
       "sha256": "a1a9b1afb496748dc85beb458213b93db45fa27160c587a9c065f503ca73c7ee",
       "pages": 2,
@@ -176,7 +176,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261118_r5.pdf",
+      "path": "../../files/20261118_SwarrowChat観光協会向けパンフレット_v5.pdf",
       "bytes": 2206588,
       "sha256": "b8f617ca99a916a985afd158b0d12ceec0bfdd906f88dc52f8c180ee529963aa",
       "pages": 2,
@@ -184,7 +184,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r6.pdf",
+      "path": "../../files/20261119_SwarrowChatふるさと納税向けパンフレット_v6.pdf",
       "bytes": 2013653,
       "sha256": "e65d8a30aaab557d1a9e7b40db9821d2e4d34c7984dc861c58bfa5e83d4aa298",
       "pages": 2,
@@ -192,7 +192,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r6.pdf",
+      "path": "../../files/20261119_SwarrowChat観光協会向けパンフレット_v6.pdf",
       "bytes": 2152020,
       "sha256": "dcd373e2c0b967ba446e3c025d0a8b4647fed6131c7a892df63acd3fbccb21aa",
       "pages": 2,
@@ -200,7 +200,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r7.pdf",
+      "path": "../../files/20261119_SwarrowChatふるさと納税向けパンフレット_v7.pdf",
       "bytes": 1927554,
       "sha256": "ba3a07882198b4ede850facc4583f1bc0c58f9d37e7eed8c03e011024db5bdd0",
       "pages": 2,
@@ -208,7 +208,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r7.pdf",
+      "path": "../../files/20261119_SwarrowChat観光協会向けパンフレット_v7.pdf",
       "bytes": 2067011,
       "sha256": "09b46ac77ba0df4dc3fc7fdffbbb57b845d97151d2d81ccd3868319d3b32c8df",
       "pages": 2,
@@ -216,7 +216,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r8.pdf",
+      "path": "../../files/20261119_SwarrowChatふるさと納税向けパンフレット_v8.pdf",
       "bytes": 1952379,
       "sha256": "bd3b491963acc41ecfbbb0a3d4491aa433e7e215378380966f46444e7d7a07c0",
       "pages": 2,
@@ -224,7 +224,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r8.pdf",
+      "path": "../../files/20261119_SwarrowChat観光協会向けパンフレット_v8.pdf",
       "bytes": 2089346,
       "sha256": "1f0488dc804a9866c7933c8a9bb4c983363f8f2082ba247233fddd24bb3003cc",
       "pages": 2,
@@ -232,7 +232,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r9.pdf",
+      "path": "../../files/20261119_SwarrowChatふるさと納税向けパンフレット_v9.pdf",
       "bytes": 1951323,
       "sha256": "6e9a235138bbb392aa6bb7264401542923c8653449ec79db10534a452e8bf4cd",
       "pages": 2,
@@ -240,7 +240,7 @@
       "method": "Opaque ~383dpi artwork with original native text and URI links"
     },
     {
-      "path": "output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r9.pdf",
+      "path": "../../files/20261119_SwarrowChat観光協会向けパンフレット_v9.pdf",
       "bytes": 2087404,
       "sha256": "76442a3a1d7be26627f581b80a73c71b1456148efc4fd52934a64db20d11405d",
       "pages": 2,

@@ -1,35 +1,90 @@
 {
-  "updated_date": "2026-10-27",
-  "revision": "revisions/20261027-chat-voice-news",
-  "manifest": "revisions/20261027-chat-voice-news/manifest.json",
+  "updated_date": "2026-11-25",
+  "revision": "revisions/20261125-service-overview",
+  "manifest": "revisions/20261125-service-overview/manifest.json",
+  "naming": "YYYYMMDD_内容_v番号.拡張子",
   "outputs": [
     {
-      "kind": "brochure",
-      "path": "revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf",
-      "pages": 2,
-      "bytes": 2436084,
-      "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4"
+      "kind": "sales_pdf",
+      "version": "v5",
+      "path": "files/20261125_Swarrowサービス紹介_v5.pdf",
+      "bytes": 3282158,
+      "sha256": "a2722fbd81350ba12a5822c94e5a8a035e8524c3846241e1084973eeea7050b8",
+      "pages": 24
     },
     {
-      "kind": "priced_brochure",
-      "path": "revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf",
-      "pages": 3,
-      "bytes": 2483593,
-      "sha256": "ec968c7b78240eb0e0665e4d5b64dd0bab5ba2d0eb4c103be0154833429b1ab7"
+      "kind": "estimate_template",
+      "version": "v13",
+      "path": "files/20261125_Swarrow概算見積書ひな形_v13.xlsx",
+      "bytes": 35511,
+      "sha256": "b13024269ad94993a3ab184f53e308b7d6d3c581fcba7d5671f4dc1d7324dea9",
+      "sheets": ["Chat単体", "CMS単体", "LINE単体", "セット版"]
     },
+    {
+      "kind": "tourism_brochure",
+      "version": "v10",
+      "path": "files/20261119_SwarrowChat観光協会向けパンフレット_v10.pdf",
+      "bytes": 2323427,
+      "sha256": "441371c3829a0ba828a5dda52bb58648b97fdf7496af58d3289989c115404312",
+      "pages": 2
+    },
+    {
+      "kind": "donation_brochure",
+      "version": "v10",
+      "path": "files/20261119_SwarrowChatふるさと納税向けパンフレット_v10.pdf",
+      "bytes": 2214095,
+      "sha256": "caa714fa829202279c859a51e4f840ae84031793647126e396bfa0f2434439e1",
+      "pages": 2
+    }
+  ],
+  "previous_outputs": [
     {
       "kind": "sales_pdf",
-      "path": "revisions/20261027-chat-voice-news/output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf",
-      "pages": 15,
+      "version": "v4",
+      "path": "files/20261027_Swarrowサービス紹介_v4.pdf",
       "bytes": 1424515,
-      "sha256": "ba2be8e1dd834a1b135b932c6ddcc0090725cb2f2a30eab737d6cd091b7b2659"
+      "sha256": "ba2be8e1dd834a1b135b932c6ddcc0090725cb2f2a30eab737d6cd091b7b2659",
+      "pages": 15
     },
     {
       "kind": "sales_pptx",
-      "path": "revisions/20261027-chat-voice-news/output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx",
-      "pages": 15,
+      "version": "v4",
+      "path": "files/20261027_Swarrowサービス紹介_v4.pptx",
       "bytes": 10509108,
-      "sha256": "fe38993d88f7b73e405d2f456e86630dc9c63865fdb8ef9e3b2ebc3161a0766d"
+      "sha256": "fe38993d88f7b73e405d2f456e86630dc9c63865fdb8ef9e3b2ebc3161a0766d",
+      "pages": 15
+    },
+    {
+      "kind": "brochure",
+      "version": "v4",
+      "path": "files/20261027_SwarrowChatパンフレット_v4.pdf",
+      "bytes": 2436084,
+      "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4",
+      "pages": 2
+    },
+    {
+      "kind": "priced_brochure",
+      "version": "v4",
+      "path": "files/20261027_SwarrowChatパンフレット料金別紙付き_v4.pdf",
+      "bytes": 2483593,
+      "sha256": "ec968c7b78240eb0e0665e4d5b64dd0bab5ba2d0eb4c103be0154833429b1ab7",
+      "pages": 3
+    },
+    {
+      "kind": "estimate_template",
+      "version": "v12",
+      "path": "files/20261124_Swarrow概算見積書ひな形_v12.xlsx",
+      "bytes": 63975,
+      "sha256": "0c9179fd7e1589ed84d23b491da58f6c601dcab2f55b6f1d46253eae2c79d166",
+      "sheets": ["Chat単体", "CMS単体", "LINE単体", "セット版"]
+    },
+    {
+      "kind": "estimate_template_pdf",
+      "version": "v12",
+      "path": "files/20261124_Swarrow概算見積書ひな形_v12.pdf",
+      "bytes": 152344,
+      "sha256": "b62f61ad24912d0187e379805e3363677032da54c43b89bf8edd59be1e0d537e",
+      "pages": 4
     }
   ]
 }

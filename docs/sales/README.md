@@ -1,35 +1,45 @@
 # 営業資料
 
-SwarrowChat・SwarrowCallの共通配布版は以下の4ファイルです。2026年10月27日版r4に統一し、PDF・PowerPoint本体もGitで管理しています。
+営業資料と概算見積書ひな形は [materials/files](materials/files/) にまとめています。ファイル名は `YYYYMMDD_内容_v番号.拡張子` に統一し、同じ資料の更新では日付が変わっても版番号を引き継ぎます。
 
-|資料|用途|最新版|
-|---|---|---|
-|SwarrowChat パンフレット|紹介・メール添付・印刷配布|[PDF・2ページ](materials/revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf)|
-|SwarrowChat パンフレット 料金別紙付き|庁内の導入・費用検討|[PDF・3ページ](materials/revisions/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf)|
-|Swarrow 商談用営業資料|Chat・AI受電・AI架電の説明|[PDF・15ページ](materials/revisions/20261027-chat-voice-news/output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf) / [PowerPoint・15枚](materials/revisions/20261027-chat-voice-news/output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx)|
+## 最新の共通資料
 
-各ファイルのパス・容量・SHA-256は [materials/current.json](materials/current.json)、変更点と検証内容は [改訂記録](materials/revisions/20261027-chat-voice-news/README.md) に記録しています。PDFの文字・リンク、PowerPointの編集可能な文字・表を保持しています。
+| 資料 | 更新日・版 | ファイル |
+| --- | --- | --- |
+| Swarrowサービス紹介 | 2026年11月25日 v5 | [PDF・24ページ](materials/files/20261125_Swarrowサービス紹介_v5.pdf) |
+| Swarrow概算見積書ひな形 | 2026年11月25日 v13 | [Excel・4シート](materials/files/20261125_Swarrow概算見積書ひな形_v13.xlsx) |
+
+サービス紹介v5は、これまでGitで管理していた商談用営業資料v4の後継です。制作時のファイル名に付いていた「メール添付用」は保存名に付けていません。見積ひな形はChat単体・CMS単体・LINE単体・セット版を収録し、v12からv13への連番を維持しています。
+
+ファイルの容量・ページ数・SHA-256は [materials/current.json](materials/current.json)、新しい資料の元ファイルと引継ぎ関係は [11月25日版の記録](materials/revisions/20261125-service-overview/README.md) に記録しています。
 
 ## 用途別の営業パンフレット
 
-2026年11月18日作成・19日改訂。導入先に渡すA4両面の資料です。対象範囲と個別連携を区別し、人口条件を付けない料金目安（月額5万円〜・初期費用10万円〜、税別）と、想定問い合わせ量等に応じた個別見積もりを記載しています。[内容・編集元・検証](materials/verticals/20261118/README.md)
+2026年11月18日作成・19日改訂のv10です。共通のサービス紹介とは別の資料として版を管理します。
 
-- [観光協会向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_観光協会向け_パンフレット_20261119_r10.pdf)
-- [ふるさと納税担当課・運営事業者向け・2ページ](materials/verticals/20261118/output/pdf/SwarrowChat_ふるさと納税向け_パンフレット_20261119_r10.pdf)
+- [観光協会向け・2ページ](materials/files/20261119_SwarrowChat観光協会向けパンフレット_v10.pdf)
+- [ふるさと納税担当課・運営事業者向け・2ページ](materials/files/20261119_SwarrowChatふるさと納税向けパンフレット_v10.pdf)
+- [内容・編集元・検証](materials/verticals/20261118/README.md)
 
-## 共通の掲載内容
+## 旧版
 
-- 都城市の導入事例とNHK宮崎放送局「てげビビ！サタデー」での紹介を掲載。放送画面は、テキストチャットと音声会話の両方を示すイメージイラストに差し替えています。
-- 事例画像と佐藤氏のプロフィールは左右同じ幅に配置。国のアドバイザー名称は使わず、都城市の所属・役職を掲載しています。
-- 人口10万人以下の自治体はChat月額5万円・初期費用10万円（税別）。音声会話は別途料金。料金別紙と営業資料は月額2.5万円の音声オプションと初年度・次年度の費用例を掲載しています。
-- Web上の音声会話とSwarrowCallの電話機能を区別し、都城市の実績はSwarrowChatの導入事例として扱います。
+配布済みの内容を保持し、保存場所とファイル名を整理しています。PDFとPowerPointで同じ内容のものは同じ版番号です。
+
+| 資料 | 更新日・版 | ファイル |
+| --- | --- | --- |
+| Swarrowサービス紹介 | 2026年10月27日 v4 | [PDF・15ページ](materials/files/20261027_Swarrowサービス紹介_v4.pdf) / [PowerPoint・15枚](materials/files/20261027_Swarrowサービス紹介_v4.pptx) |
+| SwarrowChatパンフレット | 2026年10月27日 v4 | [PDF・2ページ](materials/files/20261027_SwarrowChatパンフレット_v4.pdf) |
+| SwarrowChatパンフレット料金別紙付き | 2026年10月27日 v4 | [PDF・3ページ](materials/files/20261027_SwarrowChatパンフレット料金別紙付き_v4.pdf) |
+| Swarrow概算見積書ひな形 | 2026年11月24日 v12 | [Excel](materials/files/20261124_Swarrow概算見積書ひな形_v12.xlsx) / [PDF・4ページ](materials/files/20261124_Swarrow概算見積書ひな形_v12.pdf) |
+
+新しいサービス紹介v5はPDFです。PowerPointは旧版v4の編集元として保持しています。用途別パンフレットのv1〜v9も [同じ配布フォルダ](materials/files/) に保存しています。
+
+個別自治体向けの提案書・見積書は固有条件を含むため、共通ひな形で上書きしません。
 
 ## 更新先
 
-- 配布資料・編集元: [materials](materials/README.md)
+- 配布ファイル・編集元: [materials](materials/README.md)
 - SwarrowChat LP: [apps/swarrow/src/routes/chat/+page.svelte](../../apps/swarrow/src/routes/chat/+page.svelte)
 - SwarrowCall LP: [apps/swarrow/src/routes/call/+page.svelte](../../apps/swarrow/src/routes/call/+page.svelte)
 - 共通ニュース: [packages/site-content/news.ts](../../packages/site-content/news.ts)
 - NHK紹介記事: [MiyakonojoAiWindowNhk.svelte](../../src/lib/articles/posts/MiyakonojoAiWindowNhk.svelte)
-
-旧HTML版、2026年9月28日の13枚版、10月19日の専用4ページ版・商談用14枚版、10月20〜22日のパンフレットは検討・送付履歴です。最新版として再配布する場合は上記を使用してください。個別自治体向けの提案書・見積書は固有条件を含むため、この共通版で上書きしません。

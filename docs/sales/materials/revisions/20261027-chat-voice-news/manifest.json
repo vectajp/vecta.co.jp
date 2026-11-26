@@ -27,28 +27,28 @@
   "outputs": [
     {
       "kind": "brochure",
-      "path": "output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf",
+      "path": "../../files/20261027_SwarrowChatパンフレット_v4.pdf",
       "pages": 2,
       "bytes": 2436084,
       "sha256": "cd5ca8fbc7ddb165366dc57168c96a93dde82930ccada92c548bcfdea7dfffd4"
     },
     {
       "kind": "priced_brochure",
-      "path": "output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf",
+      "path": "../../files/20261027_SwarrowChatパンフレット料金別紙付き_v4.pdf",
       "pages": 3,
       "bytes": 2483593,
       "sha256": "ec968c7b78240eb0e0665e4d5b64dd0bab5ba2d0eb4c103be0154833429b1ab7"
     },
     {
       "kind": "sales_pdf",
-      "path": "output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf",
+      "path": "../../files/20261027_Swarrowサービス紹介_v4.pdf",
       "pages": 15,
       "bytes": 1424515,
       "sha256": "ba2be8e1dd834a1b135b932c6ddcc0090725cb2f2a30eab737d6cd091b7b2659"
     },
     {
       "kind": "sales_pptx",
-      "path": "output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx",
+      "path": "../../files/20261027_Swarrowサービス紹介_v4.pptx",
       "pages": 15,
       "bytes": 10509108,
       "sha256": "fe38993d88f7b73e405d2f456e86630dc9c63865fdb8ef9e3b2ebc3161a0766d"

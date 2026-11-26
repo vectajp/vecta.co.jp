@@ -14,10 +14,10 @@
 
 |ファイル|構成|
 |---|---|
-|`output/pdf/SwarrowChat_パンフレット_20261027_r4.pdf`|A4縦2ページ、軽量・表示互換版|
-|`output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf`|上記2ページと既存料金別紙1ページ|
-|`output/pdf/Swarrow_商談用営業資料_20261027_r4.pdf`|16:9横15ページ|
-|`output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx`|同内容の編集可能なPowerPoint|
+|`../../files/20261027_SwarrowChatパンフレット_v4.pdf`|A4縦2ページ、軽量・表示互換版|
+|`../../files/20261027_SwarrowChatパンフレット料金別紙付き_v4.pdf`|上記2ページと既存料金別紙1ページ|
+|`../../files/20261027_Swarrowサービス紹介_v4.pdf`|16:9横15ページ|
+|`../../files/20261027_Swarrowサービス紹介_v4.pptx`|同内容の編集可能なPowerPoint|
 
 配布するPDF3本・PowerPoint1本と、[パンフレットの編集元](brochure/README.md)をGitで管理する。確認用画像、一時PDF、実行環境はGit管理外。旧版は保持した。
 
