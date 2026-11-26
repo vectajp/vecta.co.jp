@@ -245,10 +245,11 @@ describe("SwarrowChat page", () => {
 });
 
 describe("SwarrowCall page", () => {
-  test("renders the Call illustration, capabilities, and operational support", () => {
+  test("renders the Call waveform, capabilities, and operational support", () => {
     expect(callHtml).toContain("SwarrowCall");
     expect(callHtml).toContain("自治体AIコールセンター");
-    expect(callHtml).toContain("/swarrow-call/phone-service.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-wave-desktop-v1.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-wave-mobile-v1.webp");
     for (const capability of ["タイマー架電", "自動取次", "一括発信"]) {
       expect(callHtml).toContain(capability);
     }
@@ -538,8 +539,11 @@ describe("LINE and CMS landing pages", () => {
       expect(metaContentOf(page, "property", "og:image")).toBe(
         `${site}${image}`,
       );
-      expect(page).toContain('src="/swarrow-chat/hero-civic-desktop.webp"');
-      expect(page).toContain('srcset="/swarrow-chat/hero-civic-mobile.webp"');
+      expect(page).toContain(
+        id === "line"
+          ? "/line/hero-messages-v1.webp"
+          : "/cms/hero-structure-v1.webp",
+      );
       const device =
         id === "line"
           ? "/devices/post-desktop-phone-v4.webp"

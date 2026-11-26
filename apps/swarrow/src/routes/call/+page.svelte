@@ -80,6 +80,19 @@
 
 <main id="top" class="call-page">
   <section class="call-hero" aria-labelledby="call-title">
+    <picture class="hero-wave">
+      <source
+        media="(max-width: 860px)"
+        srcset="/swarrow-call/hero-wave-mobile-v1.webp"
+      >
+      <img
+        src="/swarrow-call/hero-wave-desktop-v1.webp"
+        alt=""
+        width="1942"
+        height="809"
+        fetchpriority="high"
+      >
+    </picture>
     <div class="call-container hero-grid">
       <div class="hero-copy">
         <h1 id="call-title">自治体AIコールセンター</h1>
@@ -92,15 +105,6 @@
           >SwarrowCall
         </p>
       </div>
-      <figure class="hero-illustration">
-        <img
-          src="/swarrow-call/phone-service.webp"
-          alt="電話で相談する住民と、公式情報をもとに案内するAIのイメージ"
-          width="1586"
-          height="992"
-          fetchpriority="high"
-        >
-      </figure>
     </div>
   </section>
 
@@ -184,8 +188,7 @@
   h1,
   h2,
   h3,
-  p,
-  figure {
+  p {
     margin: 0;
   }
   p {
@@ -207,16 +210,29 @@
     scroll-margin-top: 110px;
   }
   .call-hero {
-    background: var(--sc-bg-light);
+    position: relative;
+    background: #071e43;
+    color: #fff;
     overflow: hidden;
   }
+  .hero-wave,
+  .hero-wave img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-wave img {
+    object-fit: cover;
+    object-position: center;
+  }
   .hero-grid {
-    display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
     align-items: center;
-    min-height: clamp(420px, 36vw, 650px);
-    gap: 3%;
-    padding-block: 48px;
+    min-height: clamp(500px, 39.88vw, 766px);
+    padding-block: 64px 140px;
   }
   .hero-copy {
     position: relative;
@@ -232,7 +248,7 @@
     display: flex;
     align-items: center;
     gap: 1vw;
-    color: var(--sc-navy);
+    color: #fff;
     font-size: clamp(37px, 4.1vw, 81px);
     font-weight: 800;
     line-height: 1.2;
@@ -243,15 +259,9 @@
   .product-name img {
     width: clamp(64px, 5.74vw, 114px);
     height: auto;
-  }
-  .hero-illustration {
-    width: 116%;
-  }
-  .hero-illustration img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 12px;
+    background: #fff;
   }
   .introduction {
     padding-block: 72px;
@@ -367,11 +377,9 @@
       width: calc(100% - 40px);
     }
     .hero-grid {
-      display: flex;
       flex-direction: column;
-      padding-block: 40px 0;
-      gap: 34px;
-      min-height: auto;
+      padding-block: 48px 320px;
+      min-height: 580px;
     }
     .hero-copy {
       align-self: center;
@@ -388,12 +396,6 @@
     }
     .product-name img {
       width: 54px;
-    }
-    .hero-illustration {
-      width: calc(100% + 40px);
-    }
-    .hero-illustration img {
-      border-radius: 0;
     }
     .introduction {
       padding-block: 42px;

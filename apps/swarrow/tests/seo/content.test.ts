@@ -175,9 +175,9 @@ describe("two-product search model", () => {
   test("links global nav directly to product pages without a support anchor", () => {
     expect(navItems.map(({ href }) => href)).toEqual([
       "/chat",
-      "/call",
-      "/line",
       "/cms",
+      "/line",
+      "/call",
       "/#news",
       "https://www.vecta.co.jp/company/",
     ]);

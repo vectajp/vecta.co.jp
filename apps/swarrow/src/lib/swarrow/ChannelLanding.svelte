@@ -1,5 +1,7 @@
 <script lang="ts">
   import { inquiryProducts } from "@vecta/site-content/inquiries";
+  import CmsDetails from "./CmsDetails.svelte";
+  import CmsFaq from "./CmsFaq.svelte";
   import { site, siteName } from "./content";
   import FeatureIllustration from "./FeatureIllustration.svelte";
   import InquiryForm from "./InquiryForm.svelte";
@@ -48,19 +50,15 @@
 
 <main class="channel-page" class:cms={product === "cms"}>
   <section class="hero" aria-labelledby="page-title">
-    <picture class="hero-landscape">
-      <source
-        media="(max-width: 860px)"
-        srcset="/swarrow-chat/hero-civic-mobile.webp"
-      >
+    <div class="hero-background">
       <img
-        src="/swarrow-chat/hero-civic-desktop.webp"
+        src={content.heroBackground}
         alt=""
-        width="1986"
-        height="792"
+        width="1942"
+        height="809"
         fetchpriority="high"
       >
-    </picture>
+    </div>
     <div class="container hero-grid">
       <div class="hero-copy">
         <h1 id="page-title">{content.title}</h1>
@@ -119,7 +117,9 @@
     </div>
   </section>
 
-  {#if product === "line"}
+  {#if product === "cms"}
+    <CmsDetails />
+  {:else}
     <section class="menu-section container" aria-labelledby="menu-title">
       <h2 id="menu-title">リッチメニューを職員が編集</h2>
       <p class="workflow-lead">
@@ -155,6 +155,9 @@
     </ol>
     <p class="related"><a href="/chat">SwarrowChatの機能を見る</a></p>
   </section>
+  {#if product === "cms"}
+    <CmsFaq />
+  {/if}
   <InquiryForm {product} />
 </main>
 
@@ -171,27 +174,16 @@
     position: relative;
     overflow: hidden;
   }
-  .hero-landscape,
-  .hero-landscape img {
+  .hero-background,
+  .hero-background img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
   }
-  .hero-landscape img {
+  .hero-background img {
     object-fit: cover;
-    object-position: center bottom;
-  }
-  .hero-landscape::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at 17% 30%,
-      rgba(255, 255, 255, 0.88),
-      rgba(255, 255, 255, 0.6) 25%,
-      transparent 60%
-    );
+    object-position: center;
   }
   .hero-grid {
     position: relative;
@@ -204,8 +196,8 @@
   .hero-copy {
     position: relative;
     z-index: 1;
-    align-self: start;
-    padding-top: 14%;
+    align-self: center;
+    padding-bottom: 24px;
   }
   h1,
   h2,
@@ -271,6 +263,9 @@
   .features {
     background: var(--sc-bg-light);
     padding-block: 48px 56px;
+  }
+  .channel-page:not(.cms) .features {
+    background: #f0faf4;
   }
   h2 {
     border-left: 7px solid var(--sc-blue);
@@ -413,13 +408,8 @@
     }
   }
   @media (max-width: 860px) {
-    .hero-landscape::after {
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.15),
-        rgba(255, 255, 255, 0.7) 37%,
-        transparent 66%
-      );
+    .hero-background img {
+      object-position: 60% center;
     }
     .container {
       width: calc(100% - 40px);
@@ -433,7 +423,7 @@
       padding-block: 30px 24px;
     }
     .hero-copy {
-      padding-top: 0;
+      padding-bottom: 0;
       text-align: center;
       align-self: stretch;
     }
