@@ -63,6 +63,22 @@
       stroke-width="6"
       stroke-linecap="round"
     />
+  {:else if kind === "layout"}
+    <rect
+      x="19"
+      y="24"
+      width="102"
+      height="91"
+      rx="8"
+      fill={`url(#blue-${uid})`}
+    />
+    <rect x="26" y="39" width="88" height="69" rx="3" fill="white" />
+    <circle cx="30" cy="32" r="2" fill="white" />
+    <circle cx="38" cy="32" r="2" fill="white" />
+    <rect x="33" y="47" width="74" height="17" rx="3" fill="#98cfea" />
+    <rect x="33" y="71" width="43" height="29" rx="3" fill="#368fc2" />
+    <rect x="83" y="71" width="24" height="11" rx="2" fill="#aed3e6" />
+    <rect x="83" y="89" width="24" height="11" rx="2" fill="#77aa78" />
   {:else if kind === "publish"}
     <rect
       x="18"
