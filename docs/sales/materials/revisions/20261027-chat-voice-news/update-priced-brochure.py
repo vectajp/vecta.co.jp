@@ -7,7 +7,7 @@ from pypdf import PdfReader, PdfWriter
 ROOT=Path(__file__).resolve().parent
 BROCHURE=Path('/Users/naoya/.codex/artifacts/swarrowchat-brochure-concept-20261022/selected/20261027-chat-voice-news/output/pdf/SwarrowChat_パンフレット_軽量版.pdf')
 PREVIOUS=ROOT.parent/'20261027-nhk-illustration/output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r3.pdf'
-TARGET=ROOT/'output/pdf/SwarrowChat_パンフレット_料金別紙付き_20261027_r4.pdf'
+TARGET=ROOT/'.build/20261027_SwarrowChatパンフレット料金別紙付き_v4.pdf'
 TARGET.parent.mkdir(parents=True,exist_ok=True)
 (ROOT/'.build').mkdir(exist_ok=True)
 base=PdfReader(BROCHURE)

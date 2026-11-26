@@ -13,7 +13,6 @@ const source = path.resolve(
 )
 const build = path.join(root, '.build')
 await fs.mkdir(build, { recursive: true })
-await fs.mkdir(path.join(root, 'output/pptx'), { recursive: true })
 const skill =
   '/Users/naoya/Library/Application Support/orca/codex-accounts/74564959-be7e-4c3d-82ad-1b33f02afbb6/home/plugins/cache/openai-primary-runtime/presentations/26.1020.11618/skills/presentations'
 const python =
@@ -129,10 +128,7 @@ execFileSync(python, [path.join(root, 'normalize-table-borders.py'), candidate])
 const { finalizePresentation } = await import(
   pathToFileURL(path.join(skill, 'container_tools/artifact_tool_utils.mjs'))
 )
-const final = path.join(
-  root,
-  'output/pptx/Swarrow_商談用営業資料_20261027_r4.pptx',
-)
+const final = path.join(build, '20261027_Swarrowサービス紹介_v4.pptx')
 await finalizePresentation({
   workspaceDir: root,
   candidatePath: candidate,
