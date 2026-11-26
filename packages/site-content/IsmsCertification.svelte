@@ -22,8 +22,6 @@
   </figure>
   <div class="certification-copy">
     {#if variant === 'compact'}
-      <p class="certification-title">株式会社VectaのISMS認証</p>
-      <p>ISO/IEC 27001:2022</p>
       <a href={detailsHref}>認証情報を確認</a>
     {:else}
       <h3>ISMS認証取得</h3>
@@ -99,8 +97,7 @@
   .certification-copy {
     min-width: 0;
   }
-  h3,
-  .certification-title {
+  h3 {
     margin: 0 0 0.5rem;
     font-size: 1.125rem;
     font-weight: 700;
@@ -135,16 +132,13 @@
     margin: 0;
   }
   .compact {
-    align-items: center;
-    gap: 1.25rem;
+    display: block;
+    width: fit-content;
     margin-top: 1.5rem;
+    text-align: center;
   }
-  .compact .certification-title {
-    font-size: 1rem;
-  }
-  .compact p {
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+  .compact .certification-copy {
+    margin-top: 0.5rem;
   }
   @media (max-width: 600px) {
     .certification:not(.compact) {
