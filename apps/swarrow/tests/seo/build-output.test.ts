@@ -541,8 +541,13 @@ describe("LINE and CMS landing pages", () => {
       );
       expect(page).toContain(
         id === "line"
-          ? "/line/hero-messages-v1.webp"
-          : "/cms/hero-structure-v1.webp",
+          ? "/line/hero-neighborhood-desktop-v2.webp"
+          : "/cms/hero-riverside-desktop-v2.webp",
+      );
+      expect(page).toContain(
+        id === "line"
+          ? "/line/hero-neighborhood-mobile-v2.webp"
+          : "/cms/hero-riverside-mobile-v2.webp",
       );
       const device =
         id === "line"

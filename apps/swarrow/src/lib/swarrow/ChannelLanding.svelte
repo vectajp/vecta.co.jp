@@ -50,7 +50,8 @@
 
 <main class="channel-page" class:cms={product === "cms"}>
   <section class="hero" aria-labelledby="page-title">
-    <div class="hero-background">
+    <picture class="hero-background">
+      <source media="(max-width: 860px)" srcset={content.heroBackgroundMobile}>
       <img
         src={content.heroBackground}
         alt=""
@@ -58,7 +59,7 @@
         height="809"
         fetchpriority="high"
       >
-    </div>
+    </picture>
     <div class="container hero-grid">
       <div class="hero-copy">
         <h1 id="page-title">{content.title}</h1>
@@ -184,6 +185,17 @@
   .hero-background img {
     object-fit: cover;
     object-position: center;
+  }
+  .hero-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 18% 45%,
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 255, 255, 0.65) 28%,
+      transparent 65%
+    );
   }
   .hero-grid {
     position: relative;
@@ -408,8 +420,16 @@
     }
   }
   @media (max-width: 860px) {
+    .hero-background::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.7) 37%,
+        transparent 66%
+      );
+    }
     .hero-background img {
-      object-position: 60% center;
+      object-position: center bottom;
     }
     .container {
       width: calc(100% - 40px);

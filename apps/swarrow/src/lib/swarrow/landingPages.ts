@@ -7,7 +7,8 @@ export const landingPages = {
     imageWidth: 1248,
     imageHeight: 720,
     heroImage: "/devices/post-desktop-phone-v4.webp",
-    heroBackground: "/line/hero-messages-v1.webp",
+    heroBackground: "/line/hero-neighborhood-desktop-v2.webp",
+    heroBackgroundMobile: "/line/hero-neighborhood-mobile-v2.webp",
     heroImageAlt:
       "PCでお知らせを編集して配信内容を確認し、スマートフォンのLINEに表示するSwarrowPostのイメージ",
     caption: "配信管理とLINE受信のイメージ",
@@ -37,21 +38,22 @@ export const landingPages = {
   cms: {
     title: "自治体ホームページCMS",
     pageTitle: "SwarrowSite｜自治体ホームページCMS | Swarrow",
-    lead: "原稿の作成・承認・公開をひとつの画面で管理し、ホームページとAI窓口へ反映します。",
+    lead: "部品の配置やサイズを調整し、ホームページを柔軟に構成できます。原稿の承認・公開とAI窓口への反映も管理します。",
     image: "/cms/management.jpg",
     imageWidth: 1440,
     imageHeight: 900,
     heroImage: "/devices/site-desktop-v4.webp",
-    heroBackground: "/cms/hero-structure-v1.webp",
+    heroBackground: "/cms/hero-riverside-desktop-v2.webp",
+    heroBackgroundMobile: "/cms/hero-riverside-mobile-v2.webp",
     heroImageAlt:
       "中央のホームページを確認しながらページ構成と表示設定を編集するSwarrowSiteのイメージ",
     caption: "SwarrowSiteのホームページ編集イメージ",
     featureTitle: "ホームページの更新をまとめて管理",
     features: [
       {
-        icon: "document",
-        title: "原稿・画像・PDFを編集",
-        body: "見出し、表、リンク、画像やPDFを使って、職員が原稿を作成・更新します。",
+        icon: "layout",
+        title: "部品の配置とサイズを設定",
+        body: "部品を組み合わせ、列数・間隔・余白を調整します。PC・スマホそれぞれの表示も設定できます。",
       },
       {
         icon: "approval",
@@ -77,5 +79,6 @@ export type FeatureIcon =
   | "announce"
   | "review"
   | "document"
+  | "layout"
   | "approval"
   | "publish";
