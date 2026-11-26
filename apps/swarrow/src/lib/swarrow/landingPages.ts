@@ -8,7 +8,7 @@ export const landingPages = {
     imageHeight: 720,
     imageAlt:
       "配信本文を編集し、住民に届くカードの表示を確認するSwarrowPostの管理画面",
-    caption: "SwarrowPostの配信編集画面の表示例",
+    caption: "配信管理とLINE受信のイメージ",
     featureTitle: "LINE公式アカウントの運用を管理",
     features: [
       {

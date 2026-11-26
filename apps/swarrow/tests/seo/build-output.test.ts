@@ -536,6 +536,14 @@ describe("LINE and CMS landing pages", () => {
       expect(page).toContain(`href="https://swarrow.com/${id}"`);
       expect(page).toContain(`https://www.vecta.co.jp/contact/${id}/`);
       expect(page).toContain(`src="${image}"`);
+      expect(page).toContain('src="/swarrow-chat/hero-civic-desktop.webp"');
+      expect(page).toContain('srcset="/swarrow-chat/hero-civic-mobile.webp"');
+      const device =
+        id === "line"
+          ? "/devices/post-desktop-phone-v3.webp"
+          : "/devices/site-desktop-v3.webp";
+      expect(page).toContain(`src="${device}"`);
+      expect(existsSync(`static${device}`)).toBe(true);
       expect(existsSync(`static${image}`)).toBe(true);
       expect(metaContentOf(page, "property", "og:url")).toBe(`${site}/${id}`);
       expect(metaContentOf(page, "name", "robots")).toBe("index,follow");

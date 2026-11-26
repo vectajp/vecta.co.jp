@@ -2,6 +2,7 @@
   import { inquiryProducts } from "@vecta/site-content/inquiries";
   import { site, siteName } from "./content";
   import FeatureIllustration from "./FeatureIllustration.svelte";
+  import HeroDevice from "./HeroDevice.svelte";
   import InquiryForm from "./InquiryForm.svelte";
   import { type LandingId, landingPages } from "./landingPages";
 
@@ -46,22 +47,21 @@
   {@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 </svelte:head>
 
-<main
-  class="channel-page"
-  class:cms={product === "cms"}
-  class:post={product === "line"}
->
+<main class="channel-page" class:cms={product === "cms"}>
   <section class="hero" aria-labelledby="page-title">
-    {#if product === "cms"}
-      <img
-        class="scenery"
-        src="/cms/scenery.webp"
-        alt=""
-        width="1376"
-        height="1143"
-        decoding="async"
+    <picture class="hero-landscape">
+      <source
+        media="(max-width: 860px)"
+        srcset="/swarrow-chat/hero-civic-mobile.webp"
       >
-    {/if}
+      <img
+        src="/swarrow-chat/hero-civic-desktop.webp"
+        alt=""
+        width="1986"
+        height="792"
+        fetchpriority="high"
+      >
+    </picture>
     <div class="container hero-grid">
       <div class="hero-copy">
         <h1 id="page-title">{content.title}</h1>
@@ -81,19 +81,19 @@
       </div>
       <figure class="hero-media">
         <a
-          class="screen-link"
+          class="device-link"
           href={content.image}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${inquiryProducts[product]}の画面を拡大して見る`}
         >
-          <img
-            src={content.image}
+          <HeroDevice
+            {product}
+            image={content.image}
             alt={content.imageAlt}
             width={content.imageWidth}
             height={content.imageHeight}
-            fetchpriority="high"
-          >
+          />
         </a>
         <figcaption>{content.caption}</figcaption>
       </figure>
@@ -171,18 +171,41 @@
     position: relative;
     overflow: hidden;
   }
+  .hero-landscape,
+  .hero-landscape img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-landscape img {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+  .hero-landscape::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 17% 30%,
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.6) 25%,
+      transparent 60%
+    );
+  }
   .hero-grid {
     position: relative;
     display: grid;
-    grid-template-columns: 0.9fr 1.5fr;
+    grid-template-columns: 0.86fr 1.3fr;
     align-items: center;
-    min-height: 610px;
-    padding-block: 40px 24px;
+    min-height: clamp(500px, 39.88vw, 766px);
     gap: 16px;
   }
   .hero-copy {
     position: relative;
     z-index: 1;
+    align-self: start;
+    padding-top: 14%;
   }
   h1,
   h2,
@@ -192,7 +215,7 @@
     margin: 0;
   }
   h1 {
-    font-size: clamp(30px, 3.3vw, 49px);
+    font-size: clamp(26px, 2.7vw, 54px);
     line-height: 1.5;
     letter-spacing: -0.035em;
     font-weight: 800;
@@ -207,25 +230,13 @@
   .hero-media {
     min-width: 0;
   }
-  .hero-media img {
+  .device-link {
     display: block;
-    width: 100%;
-    height: auto;
   }
   figcaption {
     text-align: center;
     font-size: 15px;
     margin-top: 12px;
-  }
-  .cms .hero-grid {
-    grid-template-columns: 0.92fr 1.3fr;
-    gap: 36px;
-    min-height: 600px;
-    align-items: start;
-    padding-top: 56px;
-  }
-  .cms h1 {
-    font-size: clamp(25px, 2.65vw, 39px);
   }
   .product-name {
     display: flex;
@@ -244,22 +255,6 @@
   }
   .cms .lead {
     font-size: clamp(18px, 1.5vw, 22px);
-  }
-  .scenery {
-    position: absolute;
-    width: 46%;
-    height: 270px;
-    object-fit: cover;
-    object-position: center 65%;
-    left: 0;
-    bottom: 0;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black 25%,
-      black 80%,
-      transparent
-    );
   }
   .screen-link {
     display: block;
@@ -382,31 +377,6 @@
   .channel-page :global(.inquiry) {
     border-top: 1px solid var(--sc-border);
   }
-  .post .hero-grid {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    gap: 32px;
-    padding-block: 44px 36px;
-  }
-  .post .hero-copy {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 48px;
-    align-items: center;
-  }
-  .post h1 {
-    font-size: clamp(26px, 2.4vw, 36px);
-  }
-  .post .product-name {
-    grid-column: 1;
-    margin-top: 12px;
-  }
-  .post .lead {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    margin: 0;
-    max-width: none;
-  }
   .menu-section {
     padding-block: 52px 20px;
   }
@@ -436,44 +406,53 @@
       width: 60px;
       height: 60px;
     }
-    .cms .hero-grid {
-      min-height: 570px;
-    }
   }
   @media (max-width: 860px) {
+    .hero-landscape::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.7) 37%,
+        transparent 66%
+      );
+    }
     .container {
       width: calc(100% - 40px);
     }
-    .hero-grid,
-    .cms .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 26px;
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
       min-height: 0;
-      padding-block: 34px 30px;
+      padding-block: 30px 24px;
+    }
+    .hero-copy {
+      padding-top: 0;
+      text-align: center;
+      align-self: stretch;
     }
     h1 {
-      font-size: clamp(29px, 7.5vw, 44px);
-    }
-    .cms h1 {
-      font-size: clamp(24px, 6.2vw, 37px);
+      font-size: clamp(24px, 6.2vw, 38px);
     }
     .lead,
     .cms .lead {
-      font-size: 18px;
-      margin-top: 18px;
+      font-size: 16px;
+      margin-top: 16px;
       max-width: 650px;
       line-height: 1.85;
     }
     .hero-media {
-      max-width: 680px;
-      width: 100%;
-      margin-inline: auto;
+      width: calc(100% + 24px);
+      max-width: 720px;
+      margin-inline: -12px;
     }
     figcaption {
       font-size: 13px;
       margin-top: 10px;
     }
     .product-name {
+      justify-content: center;
       font-size: clamp(35px, 9vw, 58px);
       margin-top: 14px;
       gap: 12px;
@@ -481,9 +460,6 @@
     .product-name img {
       width: 56px;
       height: 56px;
-    }
-    .scenery {
-      display: none;
     }
     .features {
       padding-block: 34px 36px;
@@ -539,20 +515,6 @@
       clip-path: none;
       font-size: 21px;
       padding-block: 12px;
-    }
-    .post .hero-grid {
-      padding-block: 30px;
-      gap: 24px;
-    }
-    .post .hero-copy {
-      display: block;
-    }
-    .post h1 {
-      font-size: clamp(24px, 6.2vw, 34px);
-    }
-    .post .lead {
-      font-size: 18px;
-      margin-top: 18px;
     }
     .menu-section {
       padding-block: 36px 0;
