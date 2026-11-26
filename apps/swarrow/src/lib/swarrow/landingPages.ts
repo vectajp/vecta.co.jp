@@ -6,8 +6,9 @@ export const landingPages = {
     image: "/line/delivery.jpg",
     imageWidth: 1248,
     imageHeight: 720,
-    imageAlt:
-      "配信本文を編集し、住民に届くカードの表示を確認するSwarrowPostの管理画面",
+    heroImage: "/devices/post-desktop-phone-v4.webp",
+    heroImageAlt:
+      "PCでお知らせを編集して配信内容を確認し、スマートフォンのLINEに表示するSwarrowPostのイメージ",
     caption: "配信管理とLINE受信のイメージ",
     featureTitle: "LINE公式アカウントの運用を管理",
     features: [
@@ -39,9 +40,10 @@ export const landingPages = {
     image: "/cms/management.jpg",
     imageWidth: 1440,
     imageHeight: 900,
-    imageAlt:
-      "原稿のタイトル・担当部署・承認状態を一覧で確認できるSwarrowSiteの管理画面",
-    caption: "SwarrowSiteの原稿管理画面",
+    heroImage: "/devices/site-desktop-v4.webp",
+    heroImageAlt:
+      "中央のホームページを確認しながらページ構成と表示設定を編集するSwarrowSiteのイメージ",
+    caption: "SwarrowSiteのホームページ編集イメージ",
     featureTitle: "ホームページの更新をまとめて管理",
     features: [
       {

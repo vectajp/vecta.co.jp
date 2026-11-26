@@ -506,7 +506,7 @@ describe("news", () => {
 });
 
 describe("LINE and CMS landing pages", () => {
-  test("uses the current SwarrowPost service and real management screens", () => {
+  test("uses current SwarrowPost features and the rich menu screen", () => {
     expect(lineHtml).toContain("リッチメニューを職員が編集");
     expect(lineHtml).toContain('src="/line/rich-menu.jpg"');
     expect(lineHtml).not.toContain("/line/hero.webp");
@@ -535,13 +535,15 @@ describe("LINE and CMS landing pages", () => {
       expect(page).toContain(heading);
       expect(page).toContain(`href="https://swarrow.com/${id}"`);
       expect(page).toContain(`https://www.vecta.co.jp/contact/${id}/`);
-      expect(page).toContain(`src="${image}"`);
+      expect(metaContentOf(page, "property", "og:image")).toBe(
+        `${site}${image}`,
+      );
       expect(page).toContain('src="/swarrow-chat/hero-civic-desktop.webp"');
       expect(page).toContain('srcset="/swarrow-chat/hero-civic-mobile.webp"');
       const device =
         id === "line"
-          ? "/devices/post-desktop-phone-v3.webp"
-          : "/devices/site-desktop-v3.webp";
+          ? "/devices/post-desktop-phone-v4.webp"
+          : "/devices/site-desktop-v4.webp";
       expect(page).toContain(`src="${device}"`);
       expect(existsSync(`static${device}`)).toBe(true);
       expect(existsSync(`static${image}`)).toBe(true);

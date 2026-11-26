@@ -2,7 +2,6 @@
   import { inquiryProducts } from "@vecta/site-content/inquiries";
   import { site, siteName } from "./content";
   import FeatureIllustration from "./FeatureIllustration.svelte";
-  import HeroDevice from "./HeroDevice.svelte";
   import InquiryForm from "./InquiryForm.svelte";
   import { type LandingId, landingPages } from "./landingPages";
 
@@ -82,18 +81,19 @@
       <figure class="hero-media">
         <a
           class="device-link"
-          href={content.image}
+          href={content.heroImage}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${inquiryProducts[product]}の画面を拡大して見る`}
+          aria-label={`${inquiryProducts[product]}の画面イメージを拡大して見る`}
         >
-          <HeroDevice
-            {product}
-            image={content.image}
-            alt={content.imageAlt}
-            width={content.imageWidth}
-            height={content.imageHeight}
-          />
+          <img
+            class="device-image"
+            src={content.heroImage}
+            alt={content.heroImageAlt}
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+          >
         </a>
         <figcaption>{content.caption}</figcaption>
       </figure>
@@ -232,6 +232,11 @@
   }
   .device-link {
     display: block;
+  }
+  .device-image {
+    display: block;
+    width: 100%;
+    height: auto;
   }
   figcaption {
     text-align: center;
