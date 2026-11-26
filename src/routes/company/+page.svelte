@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IsmsCertification from '@vecta/site-content/IsmsCertification.svelte'
   import {
     companyDetails,
     representativeProfile,
@@ -57,6 +58,11 @@
         </div>
       {/each}
     </dl>
+
+    <section id="isms" class="isms-section" aria-labelledby="isms-title">
+      <h2 id="isms-title">情報セキュリティ認証</h2>
+      <IsmsCertification variant="details" />
+    </section>
 
     <section class="representative" aria-labelledby="representative-title">
       <h2 id="representative-title">代表プロフィール</h2>
@@ -121,9 +127,13 @@
   dd {
     margin: 0;
   }
-  .representative {
+  .representative,
+  .isms-section {
     margin-top: 72px;
     padding: 0;
+  }
+  .isms-section {
+    scroll-margin-top: 100px;
   }
   h2 {
     font-size: clamp(26px, 3vw, 32px);
@@ -185,7 +195,8 @@
       padding: 20px 0;
       font-size: 15px;
     }
-    .representative {
+    .representative,
+    .isms-section {
       margin-top: 48px;
     }
     .representative-identity {

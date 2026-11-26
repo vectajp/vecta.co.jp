@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IsmsCertification from "@vecta/site-content/IsmsCertification.svelte";
   import { setContext } from "svelte";
   import ContactModal from "$lib/swarrow/ContactModal.svelte";
   import { companyOverviewLink, navItems } from "$lib/swarrow/content";
@@ -93,6 +94,10 @@
               decoding="async"
             >
           </a>
+          <IsmsCertification
+            variant="compact"
+            detailsHref={`${companyHref}#isms`}
+          />
         </div>
         <address class="vecta-footer-address">
           〒150-0002<br>
@@ -279,9 +284,9 @@
   }
 
   /* ===== Reveal(JS+モーション時のみ) =====
-                                             [data-reveal] 要素自体は子ページ(+page.svelte 等)のテンプレートにのみ
-                                             存在するため、Svelte のスタイルスコープが自コンポーネントの実在要素
-                                             にしか適用されない制約を回避する目的でセレクタ全体を :global() 化する。 */
+                                               [data-reveal] 要素自体は子ページ(+page.svelte 等)のテンプレートにのみ
+                                               存在するため、Svelte のスタイルスコープが自コンポーネントの実在要素
+                                               にしか適用されない制約を回避する目的でセレクタ全体を :global() 化する。 */
   :global(.motion [data-reveal]) {
     opacity: 0;
     transform: translateY(20px);
