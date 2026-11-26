@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./news": "./news.ts",
-    "./IsmsCertification.svelte": "./IsmsCertification.svelte"
+    "./IsmsCertification.svelte": "./IsmsCertification.svelte",
+    "./inquiries": "./inquiries.ts"
   }
 }

@@ -1,12 +1,11 @@
 <script lang="ts">
+  import { inquiryProducts } from '@vecta/site-content/inquiries'
   import { onMount } from 'svelte'
   import ContactForm from '$lib/vecta/ContactForm.svelte'
   import type { PageData } from './$types'
 
   let { data }: { data: PageData } = $props()
-  const productName = $derived(
-    data.product === 'chat' ? 'SwarrowChat' : 'SwarrowCall',
-  )
+  const productName = $derived(inquiryProducts[data.product])
 
   onMount(() => {
     const reportHeight = () =>

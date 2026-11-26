@@ -1,14 +1,15 @@
 <script lang="ts">
+  import {
+    type InquiryProduct,
+    inquiryProducts,
+  } from "@vecta/site-content/inquiries";
   import { env } from "$env/dynamic/public";
-  import type { ProductId } from "./content";
 
-  let { product }: { product: ProductId } = $props();
+  let { product }: { product: InquiryProduct } = $props();
   const baseUrl = env.PUBLIC_CONTACT_FORM_BASE_URL || "https://www.vecta.co.jp";
   const origin = new URL(baseUrl).origin;
   const src = $derived(new URL(`/contact/${product}/`, baseUrl).href);
-  const productName = $derived(
-    product === "chat" ? "SwarrowChat" : "SwarrowCall",
-  );
+  const productName = $derived(inquiryProducts[product]);
   let frame: HTMLIFrameElement | undefined = $state();
   let height = $state(1080);
 

@@ -1,6 +1,7 @@
 <script lang="ts">
   import IsmsCertification from "@vecta/site-content/IsmsCertification.svelte";
   import { setContext } from "svelte";
+  import { page } from "$app/state";
   import ContactModal from "$lib/swarrow/ContactModal.svelte";
   import { companyOverviewLink, navItems } from "$lib/swarrow/content";
   import { vectaHref } from "$lib/swarrow/links";
@@ -67,6 +68,7 @@
       {#each navItems as item (item.label)}
         <a
           class="sc-nav-link"
+          aria-current={page.url.pathname.replace(/\/$/, "") === item.href ? "page" : undefined}
           href={item === companyOverviewLink ? companyHref : item.href}
         >
           {item.label}
@@ -225,6 +227,10 @@
     font-weight: 600;
     white-space: nowrap;
   }
+  .sc-nav-link[aria-current="page"] {
+    color: var(--sc-blue);
+    box-shadow: 0 3px 0 var(--sc-blue);
+  }
   .sc-nav-link:hover {
     color: var(--sage-deep);
   }
@@ -284,9 +290,9 @@
   }
 
   /* ===== Reveal(JS+モーション時のみ) =====
-                                               [data-reveal] 要素自体は子ページ(+page.svelte 等)のテンプレートにのみ
-                                               存在するため、Svelte のスタイルスコープが自コンポーネントの実在要素
-                                               にしか適用されない制約を回避する目的でセレクタ全体を :global() 化する。 */
+                                                 [data-reveal] 要素自体は子ページ(+page.svelte 等)のテンプレートにのみ
+                                                 存在するため、Svelte のスタイルスコープが自コンポーネントの実在要素
+                                                 にしか適用されない制約を回避する目的でセレクタ全体を :global() 化する。 */
   :global(.motion [data-reveal]) {
     opacity: 0;
     transform: translateY(20px);
@@ -311,7 +317,7 @@
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1000px) {
     .sc-header {
       flex-wrap: wrap;
       gap: 4px;
@@ -322,15 +328,17 @@
       height: 26px;
     }
     .sc-nav {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       order: 3;
       width: 100%;
       justify-content: space-between;
       gap: 10px;
     }
     .sc-nav-link {
-      font-size: 12px;
-      padding: 2px 0;
+      font-size: 14px;
+      text-align: center;
+      padding: 5px 0;
       line-height: 1.4;
     }
   }

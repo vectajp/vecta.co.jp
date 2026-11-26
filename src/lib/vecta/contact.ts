@@ -1,3 +1,8 @@
+import {
+  type InquiryProduct,
+  inquiryProducts,
+} from '@vecta/site-content/inquiries'
+
 export type ContactFormValues = {
   name: string
   email: string
@@ -28,14 +33,14 @@ export const emptyContactFormValues = (): ContactFormValues => ({
 
 export const buildContactPayload = (
   values: ContactFormValues,
-  sourceProduct?: 'chat' | 'call',
+  sourceProduct?: InquiryProduct,
 ): ContactFormValues => ({
   name: values.name.trim(),
   email: values.email.trim(),
   company: values.company.trim(),
   phone: values.phone.trim(),
   subject: sourceProduct
-    ? `[${sourceProduct === 'chat' ? 'SwarrowChat' : 'SwarrowCall'}] ${values.subject.trim()}`
+    ? `[${inquiryProducts[sourceProduct]}] ${values.subject.trim()}`
     : values.subject.trim(),
   message: sourceProduct
     ? `送信元ページ: https://swarrow.com/${sourceProduct}\n\n${values.message.trim()}`
@@ -44,7 +49,7 @@ export const buildContactPayload = (
 
 export const validateContactForm = (
   values: ContactFormValues,
-  sourceProduct?: 'chat' | 'call',
+  sourceProduct?: InquiryProduct,
 ): ContactValidationResult => {
   const errors: ContactFormErrors = {}
   const payload = buildContactPayload(values)
