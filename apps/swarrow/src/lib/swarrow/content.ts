@@ -307,9 +307,9 @@ export const companyOverviewLink: NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "SwarrowChat", href: "/chat" },
-  { label: "SwarrowCall", href: "/call" },
-  { label: "SwarrowPost", href: "/line" },
   { label: "SwarrowSite", href: "/cms" },
+  { label: "SwarrowPost", href: "/line" },
+  { label: "SwarrowCall", href: "/call" },
   { label: "ニュース", href: "/#news" },
   companyOverviewLink,
 ];

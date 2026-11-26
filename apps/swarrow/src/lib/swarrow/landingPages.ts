@@ -7,6 +7,7 @@ export const landingPages = {
     imageWidth: 1248,
     imageHeight: 720,
     heroImage: "/devices/post-desktop-phone-v4.webp",
+    heroBackground: "/line/hero-messages-v1.webp",
     heroImageAlt:
       "PCでお知らせを編集して配信内容を確認し、スマートフォンのLINEに表示するSwarrowPostのイメージ",
     caption: "配信管理とLINE受信のイメージ",
@@ -41,6 +42,7 @@ export const landingPages = {
     imageWidth: 1440,
     imageHeight: 900,
     heroImage: "/devices/site-desktop-v4.webp",
+    heroBackground: "/cms/hero-structure-v1.webp",
     heroImageAlt:
       "中央のホームページを確認しながらページ構成と表示設定を編集するSwarrowSiteのイメージ",
     caption: "SwarrowSiteのホームページ編集イメージ",
@@ -64,7 +66,7 @@ export const landingPages = {
     ],
     flowTitle: "職員の確認を挟んで公開",
     flowBody:
-      "AIに構成・文言・配置を相談し、提案を確認して下書きへ適用できます。保存と公開は職員が操作します。",
+      "担当部署で作成した原稿を承認し、公開担当者がホームページとAI窓口へ反映します。保存しただけで住民向けに公開されることはありません。",
     stages: ["下書き", "承認依頼", "承認", "公開・AI反映"],
   },
 } as const;
