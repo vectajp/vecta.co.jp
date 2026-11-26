@@ -1,7 +1,7 @@
 export const inquiryProducts = {
   chat: 'SwarrowChat',
   call: 'SwarrowCall',
-  line: 'LINE連携',
+  line: 'SwarrowPost',
   cms: 'SwarrowSite',
 } as const
 

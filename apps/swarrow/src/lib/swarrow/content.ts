@@ -308,7 +308,7 @@ export const companyOverviewLink: NavItem = {
 export const navItems: NavItem[] = [
   { label: "SwarrowChat", href: "/chat" },
   { label: "SwarrowCall", href: "/call" },
-  { label: "LINE連携", href: "/line" },
+  { label: "SwarrowPost", href: "/line" },
   { label: "SwarrowSite", href: "/cms" },
   { label: "ニュース", href: "/#news" },
   companyOverviewLink,

@@ -1,35 +1,36 @@
 export const landingPages = {
   line: {
-    title: "LINEで相談と案内",
-    pageTitle: "LINE連携｜自治体のLINE公式アカウントとAI窓口を連携 | Swarrow",
-    lead: "自治体のLINE公式アカウントで、質問への回答と必要な情報の案内を支援します。",
-    image: "/line/hero.webp",
-    imageWidth: 1536,
-    imageHeight: 1024,
-    imageAlt: "LINEで手続きを質問する住民と案内する職員のイラスト",
-    caption: "LINE連携の利用イメージ",
-    featureTitle: "LINEでできること",
+    title: "自治体LINE運用システム",
+    pageTitle: "SwarrowPost｜自治体LINE運用システム | Swarrow",
+    lead: "お知らせの作成・承認・配信とリッチメニューの編集をひとつの管理画面で行えます。",
+    image: "/line/delivery.jpg",
+    imageWidth: 1248,
+    imageHeight: 720,
+    imageAlt:
+      "配信本文を編集し、住民に届くカードの表示を確認するSwarrowPostの管理画面",
+    caption: "SwarrowPostの配信編集画面の表示例",
+    featureTitle: "LINE公式アカウントの運用を管理",
     features: [
       {
-        icon: "chat",
-        title: "質問に答える",
-        body: "ホームページやFAQなど、自治体の公式情報をもとに回答します。",
-      },
-      {
         icon: "announce",
-        title: "情報を届ける",
-        body: "LINE公式アカウントから、必要な案内や連絡事項を送信します。",
+        title: "お知らせを作成・配信",
+        body: "配信本文やカードを作成し、プレビューで表示を確認して住民へ案内します。",
       },
       {
-        icon: "review",
-        title: "記録を見直す",
-        body: "質問と回答の記録を確認し、参照情報や応答ルールの改善に活かします。",
+        icon: "approval",
+        title: "承認と配信権限を管理",
+        body: "下書き・承認・配信を分け、担当職員の権限に応じて作業を進められます。",
+      },
+      {
+        icon: "publish",
+        title: "リッチメニューを編集",
+        body: "画像のタップ範囲と動作を設定し、手続きやお知らせへの入り口を整理します。",
       },
     ],
-    flowTitle: "既存のLINE公式アカウントと連携",
+    flowTitle: "配信内容を確認してから送信",
     flowBody:
-      "LINE公式アカウントの設定と案内する情報を確認し、自治体の運用に合わせて個別に連携します。",
-    stages: ["対象を確認", "情報と応答を設定", "検証して運用"],
+      "下書きと試験配信で内容を確認し、承認を経て住民向けの配信を管理します。",
+    stages: ["下書き", "試験配信", "承認", "配信"],
   },
   cms: {
     title: "自治体ホームページCMS",
@@ -68,4 +69,9 @@ export const landingPages = {
 
 export type LandingId = keyof typeof landingPages;
 export type FeatureIcon =
-  (typeof landingPages)[LandingId]["features"][number]["icon"];
+  | "chat"
+  | "announce"
+  | "review"
+  | "document"
+  | "approval"
+  | "publish";

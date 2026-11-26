@@ -506,9 +506,22 @@ describe("news", () => {
 });
 
 describe("LINE and CMS landing pages", () => {
+  test("uses the current SwarrowPost service and real management screens", () => {
+    expect(lineHtml).toContain("リッチメニューを職員が編集");
+    expect(lineHtml).toContain('src="/line/rich-menu.jpg"');
+    expect(lineHtml).not.toContain("/line/hero.webp");
+    expect(lineHtml).not.toContain("LINEで相談と案内");
+    expect(lineHtml).toContain("承認と配信権限を管理");
+  });
   test("renders separate service pages with usable inquiry sources and media", () => {
     for (const [id, page, name, heading, image] of [
-      ["line", lineHtml, "LINE連携", "LINEで相談と案内", "/line/hero.webp"],
+      [
+        "line",
+        lineHtml,
+        "SwarrowPost",
+        "自治体LINE運用システム",
+        "/line/delivery.jpg",
+      ],
       [
         "cms",
         cmsHtml,

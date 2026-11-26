@@ -46,7 +46,11 @@
   {@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 </svelte:head>
 
-<main class="channel-page" class:cms={product === "cms"}>
+<main
+  class="channel-page"
+  class:cms={product === "cms"}
+  class:post={product === "line"}
+>
   <section class="hero" aria-labelledby="page-title">
     {#if product === "cms"}
       <img
@@ -70,27 +74,19 @@
               height="192"
             >SwarrowSite
           </p>
+        {:else}
+          <p class="product-name">SwarrowPost</p>
         {/if}
         <p class="lead">{content.lead}</p>
       </div>
       <figure class="hero-media">
-        {#if product === "cms"}
-          <a
-            class="screen-link"
-            href={content.image}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="SwarrowSiteの原稿管理画面を拡大して見る"
-          >
-            <img
-              src={content.image}
-              alt={content.imageAlt}
-              width={content.imageWidth}
-              height={content.imageHeight}
-              fetchpriority="high"
-            >
-          </a>
-        {:else}
+        <a
+          class="screen-link"
+          href={content.image}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${inquiryProducts[product]}の画面を拡大して見る`}
+        >
           <img
             src={content.image}
             alt={content.imageAlt}
@@ -98,7 +94,7 @@
             height={content.imageHeight}
             fetchpriority="high"
           >
-        {/if}
+        </a>
         <figcaption>{content.caption}</figcaption>
       </figure>
     </div>
@@ -123,21 +119,38 @@
     </div>
   </section>
 
+  {#if product === "line"}
+    <section class="menu-section container" aria-labelledby="menu-title">
+      <h2 id="menu-title">リッチメニューを職員が編集</h2>
+      <p class="workflow-lead">
+        画面上でタップする範囲と動作を設定し、住民がよく使う手続きや情報への入り口を整理します。
+      </p>
+      <figure class="menu-screen">
+        <a
+          class="screen-link"
+          href="/line/rich-menu.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="リッチメニュー編集画面を拡大して見る"
+        >
+          <img
+            src="/line/rich-menu.jpg"
+            alt="タップ範囲の配置と、選んだ領域の表示名・動作を設定するリッチメニュー編集画面"
+            width="1248"
+            height="850"
+            loading="lazy"
+          >
+        </a>
+        <figcaption>リッチメニュー編集画面の表示例</figcaption>
+      </figure>
+    </section>
+  {/if}
   <section class="workflow container" aria-labelledby="workflow-title">
     <h2 id="workflow-title">{content.flowTitle}</h2>
     <p class="workflow-lead">{content.flowBody}</p>
-    <ol class="stages" class:cms-stages={product === "cms"}>
-      {#each content.stages as stage, index (stage)}
-        <li>
-          {#if product === "line"}
-            <div class="stage-image">
-              <FeatureIllustration
-                kind={index === 0 ? "chat" : index === 1 ? "document" : "approval"}
-              />
-            </div>
-          {/if}
-          <span>{stage}</span>
-        </li>
+    <ol class="stages">
+      {#each content.stages as stage (stage)}
+        <li><span>{stage}</span></li>
       {/each}
     </ol>
     <p class="related"><a href="/chat">SwarrowChatの機能を見る</a></p>
@@ -322,42 +335,13 @@
   }
   .stages {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    list-style: none;
-    padding: 0;
-    margin: 34px 0 0;
-    gap: 40px;
-  }
-  .stages li {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
-  }
-  .stage-image {
-    width: 160px;
-    margin-bottom: 16px;
-  }
-  .stages li + li::before {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-top: 5px solid #61b6d9;
-    border-right: 5px solid #61b6d9;
-    transform: rotate(45deg);
-    top: 68px;
-    left: -34px;
-  }
-  .cms-stages {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
-    margin-inline: 29px;
+    list-style: none;
+    padding: 0;
+    margin: 34px 29px 0;
   }
-  .cms-stages li {
+  .stages li {
     background: #e1f2fc;
     padding: 14px 12px;
     clip-path: polygon(
@@ -369,8 +353,10 @@
       18px 50%
     );
     font-size: 24px;
+    font-weight: 700;
+    text-align: center;
   }
-  .cms-stages li:first-child {
+  .stages li:first-child {
     clip-path: polygon(
       0 0,
       calc(100% - 18px) 0,
@@ -379,12 +365,9 @@
       0 100%
     );
   }
-  .cms-stages li:last-child {
+  .stages li:last-child {
     background: #e5f4df;
     color: #35632b;
-  }
-  .cms-stages li + li::before {
-    display: none;
   }
   .related {
     text-align: center;
@@ -398,6 +381,43 @@
   }
   .channel-page :global(.inquiry) {
     border-top: 1px solid var(--sc-border);
+  }
+  .post .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 32px;
+    padding-block: 44px 36px;
+  }
+  .post .hero-copy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+    align-items: center;
+  }
+  .post h1 {
+    font-size: clamp(26px, 2.4vw, 36px);
+  }
+  .post .product-name {
+    grid-column: 1;
+    margin-top: 12px;
+  }
+  .post .lead {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin: 0;
+    max-width: none;
+  }
+  .menu-section {
+    padding-block: 52px 20px;
+  }
+  .menu-screen {
+    max-width: 1120px;
+    margin: 32px auto 0;
+  }
+  .menu-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
   @media (max-width: 1150px) and (min-width: 861px) {
     .container {
@@ -511,38 +531,34 @@
     }
     .stages {
       grid-template-columns: 1fr;
-      gap: 34px;
-      margin-top: 28px;
-    }
-    .stages li {
-      flex-direction: row;
-      text-align: left;
-      font-size: 22px;
-      gap: 18px;
-    }
-    .stage-image {
-      width: 86px;
-      flex: 0 0 86px;
-      margin: 0;
-    }
-    .stages li + li::before {
-      width: 10px;
-      height: 10px;
-      border-width: 3px;
-      transform: rotate(135deg);
-      top: -26px;
-      left: 36px;
-    }
-    .cms-stages {
-      margin-inline: 0;
       gap: 8px;
+      margin: 28px 0 0;
     }
-    .cms-stages li,
-    .cms-stages li:first-child {
-      justify-content: center;
+    .stages li,
+    .stages li:first-child {
       clip-path: none;
       font-size: 21px;
       padding-block: 12px;
+    }
+    .post .hero-grid {
+      padding-block: 30px;
+      gap: 24px;
+    }
+    .post .hero-copy {
+      display: block;
+    }
+    .post h1 {
+      font-size: clamp(24px, 6.2vw, 34px);
+    }
+    .post .lead {
+      font-size: 18px;
+      margin-top: 18px;
+    }
+    .menu-section {
+      padding-block: 36px 0;
+    }
+    .menu-screen {
+      margin-top: 24px;
     }
     .related {
       font-size: 17px;
