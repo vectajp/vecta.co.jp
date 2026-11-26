@@ -245,11 +245,11 @@ describe("SwarrowChat page", () => {
 });
 
 describe("SwarrowCall page", () => {
-  test("renders the Call waveform, capabilities, and operational support", () => {
+  test("renders the Call scenic voice illustration, capabilities, and support", () => {
     expect(callHtml).toContain("SwarrowCall");
     expect(callHtml).toContain("自治体AIコールセンター");
-    expect(callHtml).toContain("/swarrow-call/hero-wave-desktop-v1.webp");
-    expect(callHtml).toContain("/swarrow-call/hero-wave-mobile-v1.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-coast-call-desktop-v2.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-coast-call-mobile-v2.webp");
     for (const capability of ["タイマー架電", "自動取次", "一括発信"]) {
       expect(callHtml).toContain(capability);
     }

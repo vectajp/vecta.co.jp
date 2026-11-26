@@ -83,11 +83,11 @@
     <picture class="hero-wave">
       <source
         media="(max-width: 860px)"
-        srcset="/swarrow-call/hero-wave-mobile-v1.webp"
+        srcset="/swarrow-call/hero-coast-call-mobile-v2.webp"
       >
       <img
-        src="/swarrow-call/hero-wave-desktop-v1.webp"
-        alt=""
+        src="/swarrow-call/hero-coast-call-desktop-v2.webp"
+        alt="海辺の街とスマートフォンの音声波形で表した通話イメージ"
         width="1942"
         height="809"
         fetchpriority="high"
@@ -106,6 +106,7 @@
         </p>
       </div>
     </div>
+    <p class="hero-caption">通話イメージ</p>
   </section>
 
   <section class="call-container introduction" aria-labelledby="answer-title">
@@ -211,8 +212,8 @@
   }
   .call-hero {
     position: relative;
-    background: #071e43;
-    color: #fff;
+    background: #edf7fd;
+    color: var(--sc-navy);
     overflow: hidden;
   }
   .hero-wave,
@@ -248,7 +249,7 @@
     display: flex;
     align-items: center;
     gap: 1vw;
-    color: #fff;
+    color: var(--sc-navy);
     font-size: clamp(37px, 4.1vw, 81px);
     font-weight: 800;
     line-height: 1.2;
@@ -259,9 +260,15 @@
   .product-name img {
     width: clamp(64px, 5.74vw, 114px);
     height: auto;
-    padding: 8px;
-    border-radius: 12px;
-    background: #fff;
+  }
+  .hero-caption {
+    position: absolute;
+    left: 62%;
+    right: 8%;
+    bottom: 12px;
+    text-align: center;
+    color: var(--sc-navy);
+    font-size: 14px;
   }
   .introduction {
     padding-block: 72px;
@@ -373,6 +380,11 @@
     }
   }
   @media (max-width: 860px) {
+    .hero-caption {
+      left: 0;
+      right: 0;
+      font-size: 13px;
+    }
     .call-container {
       width: calc(100% - 40px);
     }
