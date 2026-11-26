@@ -1,8 +1,6 @@
 <script lang="ts">
-  import IsmsCertification from "@vecta/site-content/IsmsCertification.svelte";
   import { env } from "$env/dynamic/public";
   import type { ProductId } from "./content";
-  import { vectaHref } from "./links";
 
   let { product }: { product: ProductId } = $props();
   const baseUrl = env.PUBLIC_CONTACT_FORM_BASE_URL || "https://www.vecta.co.jp";
@@ -31,11 +29,6 @@
 <svelte:window onmessage={resize} />
 <section id="contact" class="inquiry" aria-labelledby="inquiry-title">
   <h2 id="inquiry-title">お問い合わせ</h2>
-  <div class="inquiry-certification">
-    <IsmsCertification
-      detailsHref={`${vectaHref("https://www.vecta.co.jp/company/")}#isms`}
-    />
-  </div>
   <iframe
     bind:this={frame}
     {src}
@@ -62,9 +55,5 @@
     max-width: 724px;
     margin: 0 auto;
     border: 0;
-  }
-  .inquiry-certification {
-    max-width: 724px;
-    margin: 0 auto 32px;
   }
 </style>
