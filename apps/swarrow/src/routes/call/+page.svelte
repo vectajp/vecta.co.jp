@@ -55,11 +55,11 @@
     <picture class="hero-art">
       <source
         media="(max-width: 860px)"
-        srcset="/swarrow-call/hero-people-mobile-v5.webp"
+        srcset="/swarrow-call/hero-operator-mobile-v6.webp"
       >
       <img
-        src="/swarrow-call/hero-people-desktop-v5.webp"
-        alt="海辺の街を背景に住民と職員が電話で話す通話イメージ"
+        src="/swarrow-call/hero-operator-desktop-v6.webp"
+        alt="海辺の街を背景に住民・AIオペレーター・職員の通話を表したイメージ"
         width="1942"
         height="809"
         fetchpriority="high"

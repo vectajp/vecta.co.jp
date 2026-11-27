@@ -6,13 +6,13 @@
       <picture>
         <source
           media="(max-width: 860px)"
-          srcset="/swarrow-call/handoff-mobile-v5.webp"
+          srcset="/swarrow-call/handoff-mobile-v6.webp"
           width="887"
           height="1774"
         >
         <img
-          src="/swarrow-call/handoff-desktop-v5.webp"
-          alt="住民の用件をAIが聞き取り、担当職員へ音声で伝え、職員の了承後に住民と職員の通話をつなぐ3段階の図解"
+          src="/swarrow-call/handoff-desktop-v6.webp"
+          alt="住民の用件をAIオペレーターが聞き取り、担当職員へ音声で伝え、職員の了承後に住民と職員の通話をつなぐ3段階の図解"
           width="1774"
           height="887"
           loading="lazy"
@@ -30,8 +30,8 @@
       <article>
         <h3>よくある質問に音声で回答</h3>
         <img
-          src="/swarrow-call/answer-v5.webp"
-          alt="電話で必要な書類を尋ねる住民に、AIがFAQや手順書を参照して音声で案内する図解"
+          src="/swarrow-call/answer-v6.webp"
+          alt="電話で必要な書類を尋ねる住民に、AIオペレーターがFAQや手順書を参照して音声で案内する図解"
           width="1536"
           height="1024"
           loading="lazy"
@@ -41,8 +41,8 @@
       <article>
         <h3>電話で予約の希望を受付</h3>
         <img
-          src="/swarrow-call/booking-v5.webp"
-          alt="相談の予約を希望する住民に、AIが希望日時と連絡先を聞いて受付する構成例"
+          src="/swarrow-call/booking-v6.webp"
+          alt="相談の予約を希望する住民に、AIオペレーターが希望日時と連絡先を聞いて受付する構成例"
           width="1536"
           height="1024"
           loading="lazy"
