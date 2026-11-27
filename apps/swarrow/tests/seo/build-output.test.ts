@@ -248,8 +248,8 @@ describe("SwarrowCall page", () => {
   test("renders the Call scenic voice illustration, capabilities, and support", () => {
     expect(callHtml).toContain("SwarrowCall");
     expect(callHtml).toContain("自治体AIコールセンター");
-    expect(callHtml).toContain("/swarrow-call/hero-people-desktop-v5.webp");
-    expect(callHtml).toContain("/swarrow-call/hero-people-mobile-v5.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-operator-desktop-v6.webp");
+    expect(callHtml).toContain("/swarrow-call/hero-operator-mobile-v6.webp");
     for (const capability of [
       "タイマー架電",
       "代表電話の取次と申し送り",
