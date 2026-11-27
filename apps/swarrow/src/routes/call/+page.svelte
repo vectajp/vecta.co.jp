@@ -1,10 +1,13 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import ClipboardList from "@lucide/svelte/icons/clipboard-list";
   import Clock from "@lucide/svelte/icons/clock";
-  import Phone from "@lucide/svelte/icons/phone";
+  import MessageCircle from "@lucide/svelte/icons/message-circle";
   import PhoneForwarded from "@lucide/svelte/icons/phone-forwarded";
   import PhoneOutgoing from "@lucide/svelte/icons/phone-outgoing";
   import Users from "@lucide/svelte/icons/users";
+  import CallDetails from "$lib/swarrow/CallDetails.svelte";
+  import CallFaq from "$lib/swarrow/CallFaq.svelte";
   import {
     callCapabilities,
     callCustomerSuccessSteps,
@@ -22,19 +25,13 @@
   const pageTitle = `SwarrowCall｜${product?.category ?? ""}`;
   const canonicalUrl = `${site}/call`;
   const ogImage = product?.ogImage ?? siteOgImage;
-  const featureIcons = [Phone, PhoneForwarded, PhoneOutgoing];
+  const featureIcons = [PhoneForwarded, ClipboardList, MessageCircle];
   const callFlows = [
     {
       from: Clock,
       fromLabel: "指定日時",
       to: PhoneOutgoing,
       toLabel: "電話を発信",
-    },
-    {
-      from: Phone,
-      fromLabel: "AIが受付",
-      to: PhoneForwarded,
-      toLabel: "担当部署へ",
     },
     {
       from: PhoneOutgoing,
@@ -110,7 +107,7 @@
   </section>
 
   <section class="call-container introduction" aria-labelledby="answer-title">
-    <h2 id="answer-title">電話の一次受付と案内</h2>
+    <h2 id="answer-title">代表電話の一次受付</h2>
     <p class="section-lead">{callFeatureCopy.lead}</p>
     <ul class="features">
       {#each callFeatureCopy.list as feature, index (feature.title)}
@@ -126,9 +123,11 @@
     </ul>
   </section>
 
+  <CallDetails />
+
   <section class="capabilities-section" aria-labelledby="capabilities-title">
     <div class="call-container">
-      <h2 id="capabilities-title">電話の取次と発信</h2>
+      <h2 id="capabilities-title">リマインドや一括周知の発信</h2>
       <div class="capabilities">
         {#each callCapabilities as capability, index (capability.title)}
           {@const flow = callFlows[index]}
@@ -173,6 +172,7 @@
       {/each}
     </ol>
   </section>
+  <CallFaq />
   <InquiryForm product="call" />
 </main>
 
@@ -309,7 +309,7 @@
   }
   .capabilities {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
     margin-top: 28px;
   }
