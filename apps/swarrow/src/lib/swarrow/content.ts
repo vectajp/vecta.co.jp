@@ -49,10 +49,10 @@ export const products: readonly Product[] = [
     name: "SwarrowCall",
     category: "自治体AIコールセンター",
     benefit:
-      "AIが電話の一次受付、案内、取次、発信を担い、職員の電話対応を必要な案件へ絞ります。",
+      "AIが代表電話の用件を聞き取り、担当職員へ申し送ってから通話をつなぎます。回答や予約受付にも活用できます。",
     metaDescription:
-      "自治体AIコールセンターSwarrowCall。自治体の公式情報をもとに、電話の一次受付・案内・取次・発信を代行します。代表電話や時間外受付、リマインドの一括周知にも対応し、職員は必要な案件に対応を集中できます。",
-    useCases: ["代表電話", "時間外受付", "担当課取次", "リマインド・一括周知"],
+      "自治体AIコールセンターSwarrowCall。代表電話の用件を聞き取り、担当職員への申し送りと通話の接続を支援します。FAQや手順書に基づく音声回答、予約受付、リマインドや一括周知にも活用できます。",
+    useCases: ["代表電話の取次", "職員への申し送り", "音声回答", "予約受付"],
     href: "/call",
     backgroundIcon: "/swarrow/icon.png",
     icon: "/swarrow/icon.png",
@@ -114,19 +114,19 @@ export const chatFeatureCopy: ProductFeatureCopy = {
 
 export const callFeatureCopy: ProductFeatureCopy = {
   titleLabel: "自治体AIコールセンター",
-  lead: "AI受電で定型的な質問へ案内し、必要な案件だけを職員へ取り次ぎます。受ける電話だけでなく、リマインドや一括周知など自治体からの発信も支援します。",
+  lead: "代表電話にかかってきた用件をAIが聞き取り、担当職員へ申し送ってから通話をつなぎます。よくある質問への回答や予約受付など、自治体の業務に合わせた電話対応も構成できます。",
   list: [
     {
-      title: "AI受電で一次対応",
-      body: "FAQや手順書をもとに、住民からの電話へ案内します。",
+      title: "用件に応じて担当先へ取次",
+      body: "住民の相談内容を聞き取り、登録された部署や担当者から取次先を選びます。",
     },
     {
-      title: "用件を整理して職員へ取次",
-      body: "内容や担当部署に応じ、必要な電話を職員へつなぎます。",
+      title: "職員への申し送り",
+      body: "電話をつなぐ前に用件を伝え、職員が内容を把握して応対を始められるようにします。",
     },
     {
-      title: "架電業務も自動化",
-      body: "予約確認、督促、案内、周知などの発信を支援します。",
+      title: "回答や予約受付にも活用",
+      body: "FAQに基づく音声回答や、希望日時・受付項目の聞き取りにも対応します。",
     },
   ],
 } as const;
@@ -224,13 +224,6 @@ export const callCapabilities: CallCapability[] = [
     video: "/swarrow-call/call-timer.webm",
     poster: "/swarrow-call/call-timer.webp",
     alt: "指定した時間に SwarrowCall からスマートフォンへ電話を発信するイメージ",
-  },
-  {
-    title: "自動取次機能",
-    body: "AI が要件を聞き取り、内容や担当部署に応じて適切な職員へ接続。取り次ぎ前に用件を整理し、対応の初動を速くします。",
-    video: "/swarrow-call/call-handoff.webm",
-    poster: "/swarrow-call/call-handoff.webp",
-    alt: "住民からの電話を SwarrowCall が判定して担当者へ取り次ぐイメージ",
   },
   {
     title: "一括発信機能",

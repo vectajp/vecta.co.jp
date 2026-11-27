@@ -250,7 +250,11 @@ describe("SwarrowCall page", () => {
     expect(callHtml).toContain("自治体AIコールセンター");
     expect(callHtml).toContain("/swarrow-call/hero-coast-call-desktop-v2.webp");
     expect(callHtml).toContain("/swarrow-call/hero-coast-call-mobile-v2.webp");
-    for (const capability of ["タイマー架電", "自動取次", "一括発信"]) {
+    for (const capability of [
+      "タイマー架電",
+      "代表電話の取次と申し送り",
+      "一括発信",
+    ]) {
       expect(callHtml).toContain(capability);
     }
     expect(callHtml).toContain('id="support"');
