@@ -44,7 +44,8 @@
     padding-block: 56px 64px;
   }
   .container {
-    width: min(1360px, calc(100% - 96px));
+    width: 85.6%;
+    max-width: 1360px;
     margin-inline: auto;
   }
   h2 {

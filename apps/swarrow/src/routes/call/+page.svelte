@@ -1,17 +1,7 @@
 <script lang="ts">
-  import ArrowRight from "@lucide/svelte/icons/arrow-right";
-  import ClipboardList from "@lucide/svelte/icons/clipboard-list";
-  import Clock from "@lucide/svelte/icons/clock";
-  import MessageCircle from "@lucide/svelte/icons/message-circle";
-  import PhoneForwarded from "@lucide/svelte/icons/phone-forwarded";
-  import PhoneOutgoing from "@lucide/svelte/icons/phone-outgoing";
-  import Users from "@lucide/svelte/icons/users";
   import CallDetails from "$lib/swarrow/CallDetails.svelte";
   import CallFaq from "$lib/swarrow/CallFaq.svelte";
   import {
-    callCapabilities,
-    callCustomerSuccessSteps,
-    callFeatureCopy,
     pageDescription,
     productJsonLd,
     products,
@@ -25,21 +15,6 @@
   const pageTitle = `SwarrowCall｜${product?.category ?? ""}`;
   const canonicalUrl = `${site}/call`;
   const ogImage = product?.ogImage ?? siteOgImage;
-  const featureIcons = [PhoneForwarded, ClipboardList, MessageCircle];
-  const callFlows = [
-    {
-      from: Clock,
-      fromLabel: "指定日時",
-      to: PhoneOutgoing,
-      toLabel: "電話を発信",
-    },
-    {
-      from: PhoneOutgoing,
-      fromLabel: "一括発信",
-      to: Users,
-      toLabel: "対象者リスト",
-    },
-  ];
 </script>
 <svelte:head>
   <title>{pageTitle}</title>
@@ -77,14 +52,14 @@
 
 <main id="top" class="call-page">
   <section class="call-hero" aria-labelledby="call-title">
-    <picture class="hero-wave">
+    <picture class="hero-art">
       <source
         media="(max-width: 860px)"
-        srcset="/swarrow-call/hero-coast-call-mobile-v2.webp"
+        srcset="/swarrow-call/hero-people-mobile-v5.webp"
       >
       <img
-        src="/swarrow-call/hero-coast-call-desktop-v2.webp"
-        alt="海辺の街とスマートフォンの音声波形で表した通話イメージ"
+        src="/swarrow-call/hero-people-desktop-v5.webp"
+        alt="海辺の街を背景に住民と職員が電話で話す通話イメージ"
         width="1942"
         height="809"
         fetchpriority="high"
@@ -106,55 +81,7 @@
     <p class="hero-caption">通話イメージ</p>
   </section>
 
-  <section class="call-container introduction" aria-labelledby="answer-title">
-    <h2 id="answer-title">代表電話の一次受付</h2>
-    <p class="section-lead">{callFeatureCopy.lead}</p>
-    <ul class="features">
-      {#each callFeatureCopy.list as feature, index (feature.title)}
-        {@const Icon = featureIcons[index]}
-        <li>
-          <span class="feature-icon"
-            ><Icon size={29} stroke-width={1.7} aria-hidden="true" /></span
-          >
-          <h3>{feature.title}</h3>
-          <p>{feature.body}</p>
-        </li>
-      {/each}
-    </ul>
-  </section>
-
   <CallDetails />
-
-  <section class="capabilities-section" aria-labelledby="capabilities-title">
-    <div class="call-container">
-      <h2 id="capabilities-title">リマインドや一括周知の発信</h2>
-      <div class="capabilities">
-        {#each callCapabilities as capability, index (capability.title)}
-          {@const flow = callFlows[index]}
-          <article>
-            <div class="call-flow" role="img" aria-label={capability.alt}>
-              <div class="flow-node">
-                <span><flow.from size={53} stroke-width={1.5} /></span>
-                <strong>{flow.fromLabel}</strong>
-              </div>
-              <ArrowRight
-                class="flow-arrow"
-                size={36}
-                stroke-width={1.5}
-                aria-hidden="true"
-              />
-              <div class="flow-node destination">
-                <span><flow.to size={53} stroke-width={1.5} /></span>
-                <strong>{flow.toLabel}</strong>
-              </div>
-            </div>
-            <h3>{capability.title}</h3>
-            <p>{capability.body}</p>
-          </article>
-        {/each}
-      </div>
-    </div>
-  </section>
 
   <section
     id="support"
@@ -162,15 +89,9 @@
     aria-labelledby="support-title"
   >
     <h2 id="support-title">導入から運用まで支援</h2>
-    <ol class="support-steps">
-      {#each callCustomerSuccessSteps as step (step.phase)}
-        <li>
-          <span class="step-number">0{step.phase}</span>
-          <h3>{step.title}</h3>
-          <p>{step.body}</p>
-        </li>
-      {/each}
-    </ol>
+    <p>
+      電話設備と取次先を確認し、受付フローの設計・接続試験から運用後の改善まで支援します。
+    </p>
   </section>
   <CallFaq />
   <InquiryForm product="call" />
@@ -188,13 +109,8 @@
   }
   h1,
   h2,
-  h3,
   p {
     margin: 0;
-  }
-  p {
-    line-height: 1.85;
-    color: var(--sc-text-secondary);
   }
   h2 {
     font-size: clamp(27px, 2.3vw, 40px);
@@ -202,28 +118,20 @@
     font-weight: 800;
     letter-spacing: -0.035em;
   }
-  h3 {
-    font-size: clamp(18px, 1.65vw, 27px);
-    line-height: 1.5;
-    font-weight: 750;
-  }
-  section[id] {
-    scroll-margin-top: 110px;
-  }
   .call-hero {
     position: relative;
     background: #edf7fd;
     color: var(--sc-navy);
     overflow: hidden;
   }
-  .hero-wave,
-  .hero-wave img {
+  .hero-art,
+  .hero-art img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
   }
-  .hero-wave img {
+  .hero-art img {
     object-fit: cover;
     object-position: center;
   }
@@ -240,7 +148,7 @@
     z-index: 1;
   }
   h1 {
-    font-size: clamp(30px, 2.7vw, 54px);
+    font-size: clamp(27px, 2.8vw, 54px);
     font-weight: 800;
     letter-spacing: -0.035em;
     line-height: 1.4;
@@ -270,121 +178,19 @@
     color: var(--sc-navy);
     font-size: 14px;
   }
-  .introduction {
-    padding-block: 72px;
-  }
-  .section-lead {
-    max-width: 850px;
-    margin-top: 22px;
-    font-size: clamp(16px, 1.2vw, 20px);
-  }
-  .features,
-  .support-steps {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 44px;
-    padding: 0;
-    list-style: none;
-    margin: 38px 0 0;
-  }
-  .feature-icon {
-    display: grid;
-    place-items: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    color: var(--sc-blue);
-    background: var(--sc-bg-light);
-    margin-bottom: 20px;
-  }
-  .features p,
-  .support-steps p,
-  .capabilities p {
-    font-size: clamp(14px, 1.05vw, 18px);
-    margin-top: 12px;
-  }
-  .capabilities-section {
-    padding-block: 58px 66px;
-    background: var(--sc-bg-light);
-  }
-  .capabilities {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-    margin-top: 28px;
-  }
-  .call-flow {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 8px;
-    min-height: 210px;
-    margin-bottom: 24px;
-    border-radius: 14px;
-    background: var(--sc-bg-card);
-  }
-  .flow-node {
-    display: grid;
-    justify-items: center;
-    gap: 18px;
-  }
-  .flow-node span {
-    display: grid;
-    place-items: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 18px;
-    color: var(--sc-blue);
-    background: var(--sc-bg-light);
-  }
-  .destination span {
-    color: var(--sc-diagram-green);
-  }
-  .flow-node strong {
-    font-size: clamp(12px, 0.95vw, 16px);
-    font-weight: 650;
-  }
-  .call-flow :global(.flow-arrow) {
-    color: var(--sc-blue);
-    flex-shrink: 0;
-    margin-top: -35px;
-  }
   .support-section {
-    padding-block: 64px 72px;
+    box-sizing: border-box;
+    max-width: 1360px;
+    padding-block: 32px 64px;
   }
-  .step-number {
-    display: block;
-    color: var(--sc-blue);
-    font-size: 30px;
-    font-weight: 750;
-    margin-bottom: 14px;
-  }
-  @media (max-width: 1100px) {
-    .features,
-    .support-steps {
-      gap: 28px;
-    }
-    .capabilities {
-      gap: 22px;
-    }
-    .flow-node span {
-      width: 64px;
-      height: 64px;
-    }
-    .flow-node :global(svg) {
-      width: 42px;
-      height: 42px;
-    }
-    .call-flow :global(.flow-arrow) {
-      width: 26px;
-    }
+  .support-section p {
+    max-width: 850px;
+    margin-top: 20px;
+    color: var(--sc-text-secondary);
+    font-size: 16px;
+    line-height: 1.85;
   }
   @media (max-width: 860px) {
-    .hero-caption {
-      left: 0;
-      right: 0;
-      font-size: 13px;
-    }
     .call-container {
       width: calc(100% - 40px);
     }
@@ -409,75 +215,13 @@
     .product-name img {
       width: 54px;
     }
-    .introduction {
-      padding-block: 42px;
-    }
-    .features,
-    .support-steps,
-    .capabilities {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    .features {
-      margin-top: 28px;
-    }
-    .features li {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      column-gap: 16px;
-      align-items: center;
-    }
-    .feature-icon {
-      grid-row: 1 / 3;
-      width: 54px;
-      height: 54px;
-      margin: 0;
-    }
-    .features p {
-      margin-top: 6px;
-    }
-    h2 {
-      font-size: 27px;
-    }
-    h3 {
-      font-size: 21px;
-    }
-    .capabilities-section {
-      padding-block: 36px 42px;
-    }
-    .call-flow {
-      min-height: 200px;
-      margin-bottom: 18px;
-    }
-    .flow-node span {
-      width: 88px;
-      height: 88px;
-    }
-    .flow-node :global(svg) {
-      width: 54px;
-      height: 54px;
-    }
-    .flow-node strong {
-      font-size: 15px;
-    }
-    .call-flow :global(.flow-arrow) {
-      width: 36px;
+    .hero-caption {
+      left: 0;
+      right: 0;
+      font-size: 13px;
     }
     .support-section {
-      padding-block: 42px;
-    }
-    .support-steps {
-      margin-top: 28px;
-    }
-    .support-steps li {
-      position: relative;
-      padding-left: 58px;
-    }
-    .step-number {
-      position: absolute;
-      left: 0;
-      top: -3px;
-      font-size: 26px;
+      padding-block: 24px 44px;
     }
   }
 </style>
